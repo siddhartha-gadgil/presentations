@@ -79,7 +79,7 @@
 	<section>
 	  <h3> Terms, Types, Universes </h3>
 	  <ul>
-	  <li class="fragment"> <em>Terms </em>, i.e., mathematical objects, include not just numbes, functions, spaces but also theorems, proofs and definitions.</li>
+	  <li class="fragment"> <em>Terms </em>, i.e., (first class) mathematical objects, include not just numbers, functions, spaces but also theorems, proofs and definitions.</li>
 	  <div class="fragment"><li> Every term has a <em> type </em>, generally unique.</li>
 	    <li> We write $a : A$ to denote the term $a$ having type $A$.
 	      </div>
@@ -88,11 +88,13 @@
 	      <li> A universe is a type whose members are types.</li>
 	      </div>
 	  </ul>
+	  <p class="fragment">
+	    <q cite="https://en.wikipedia.org/wiki/First-class_citizen">In programming language design, a first-class citizen (also type, object, entity, or value) in a given programming language is an entity which supports all the operations generally available to other entities. These operations typically include being passed as an argument, returned from a function, and assigned to a variable.</q></p>
 	  </section>
 	<section>
 	  <h3> Rules: construction, equality, type, substitution</h3>
 	  <ul>
-	    <li class="fragment"> We have rules to introduce terms(including types), individually or in groups, into the context</li>	    
+	    <li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context</li>	    
 	    <li class="fragment"> As always, such rules depend on pre-existing terms only through their types.</li>
 	    <li class="fragment"> Rules also let us make two kinds of judgements:
 	      <ul>
@@ -155,7 +157,7 @@ notnot x = not(not(x))
 </code></pre>
 </div>
 	  <li class="fragment"> Implicit in being able to make such definitions are statements saying that $true$ and $false$ are distinct and the only members of $Bool$. 
-	  <li class="fragment"> This is a special instance of recursive definitions.</li>
+	  <li class="fragment"> This is a special instance of <em>recursive</em> definitions.</li>
 	  <li class="fragment"> Formally, in homotopy type theory we have rules for introducing a <em> recursion </em> function, which is applied to the definition data to give recursive defintions.
 	    </li>
 	  </ul>
@@ -164,7 +166,7 @@ notnot x = not(not(x))
 	  <h3> Currying functions of several variables</h3>
 	  <ul>
 	    <li class="fragment"> We do not need additional types for functions of more than one variable.</li>
-	    <li class="fragment"> Instead we <em> Curry </em> such a function $(A, B) \to C$, giving an <em> iterated function </em> $A \to B \to C = A \to (B \to C)$.</li>
+	    <li class="fragment"> Instead we <em> Curry </em> such a function $(A, B) \to C$, giving an <em> iterated function </em> of type $A \to B \to C = A \to (B \to C)$.</li>
 	    <li class="fragment"> Namely, we associate to $g(x, y)$ the function $x \mapsto (y \mapsto g(x, y))$</li>
 <div class="fragment">
 <pre><code class="haskell">
