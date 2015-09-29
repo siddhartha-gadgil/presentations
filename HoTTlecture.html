@@ -55,6 +55,122 @@
 		 <p>Sets and Predicate Calculus</p>
 		 <p>Why we need new foundations</p>
 	</section>
+	<section>
+	  <h3> Formal languages </h3>
+	  <ul>
+	  <li> Consider the following statements
+	    <ol>
+	      <li> $\forall (n \in \mathbb{N})\ n < n + 1$ <strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; -- true</strong></li>
+		<li> $\exists (n \in \mathbb{N})\ n = n + 1 $<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; -- false</strong></li>
+		<li> $\exists (n \in \mathbb{N})n = + + \forall m  $<strong class="fragment"> &nbsp; &nbsp; -- not well-formed</strong></li>
+		<li> $\sqrt{-1} + \sqrt[3]{1} <1$<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- not well-defined</strong></li>
+	    </ol>
+	    </li>
+	  <li class="fragment"> A formal language has
+	    <ul> 
+	      <li class="fragment"> A vocabulary,</li>
+	      <li class="fragment"> Grammar/syntax - rules for forming expressions from simpler ones (starting with the vocabulary).</li>
+	      <li class="fragment"> All well-formed expressions are well-defined</li>
+	      <li class="fragment"> The rules for forming expressions depend only on the <em> type</em> of the sub-expressions.</li>
+	      </ul>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3> First-order languages</h3>
+	  <ul>
+	  <li class="fragment"> A first-order language has vocabulary consisting of
+	    <ul>
+	      <li class="fragment highlight-current-blue"> Variables - can be taken to be a fixed countable sets</li>
+	      <li class="fragment highlight-current-blue"> Constants</li>
+	      <li class="fragment highlight-current-blue"> Functions $f$ :  of degree $n$ for some $n\in\mathbb{N}$.</li>
+	      <li class="fragment highlight-current-blue"> Predicates (relations) $p$ : of degree $n$ for some $n\in\mathbb{N}$.</li>
+	      <li class="fragment highlight-current-blue"> Special symbols $\implies$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
+	      </ul>
+	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
+	    <li class="fragment"> Terms represent objects in the <em> Universe</em> and formulas are either <em>true</em> or <em>false</em> : in both cases, in general, depending on values of some variables</li>
+	    </ul>
+	</section>
+
+	<section>
+	  <h3> Terms and Formulas</h3>
+	    <ul>
+	      <li class="fragment"> Terms are expressions of the forms:
+		<ul>
+		  <li  class="fragment highlight-current-blue"> A variable $x$</li>
+		  <li class="fragment highlight-current-blue"> A constant $c$.</li>
+		  <li class="fragment highlight-current-blue"> $f(t_1, t_2, \dots, t_n)$ with $f$ a function of degree $n$ and $t_1$, $t_2$, ..., $t_n$ terms.</li>
+		  </li>
+		</ul>
+	      <li class="fragment"> Formulas are expressions of the form
+		<ul>
+		  <li class="fragment highlight-current-blue"> $p(t_1, t_2, \dots, t_n)$ with $p$ a predicate of degree $n$ and $t_1$, $t_2$, ..., $t_n$ terms.</li>
+		  <li class="fragment highlight-current-blue"> $P \implies Q$, $\neg P$, $P\wedge Q$ etc. for formulas $P$ and $Q$.</li>
+		  <li class="fragment highlight-current-blue"> $\forall x\ P$ and $\exists x\ P$ for a variable $x$ and a formula $P$.</li>
+		</ul>
+	      </li>
+	    </ul>
+	    </section>
+
+	<section>
+	  <h3> Deduction and theories </h3>
+	  <ul>
+	    <li class="fragment"> We can deduce formulas from other formulas using the rules of deduction </li>
+	    <li class="fragment"> The main deduction rule is <em> Modus Ponens</em> : given $P$ and $P\implies Q$ we deduce $Q$.</li>
+	    <li class="fragment"> A <em> theory</em> is a language together with a collection of statements, called <em> axioms</em> in the language.</li>
+	    <li class="fragment"> A statement is <em> deducible</em> in a theory if it can be obtained from the axioms by the rules of deduction.</li>
+	    <li class="fragment"> A theory is <em> consistent </em> if for all formulas $P$, we cannot deduce at least one of $P$ and $\neg P$.</li>
+	    <li class="fragment"> Godel's <strong>completeness theorem</strong> says that deducible statements in a theory are exactly the <em> true</em> statements, in terms ofmodels of the theory. </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3> Set theory </h3>
+	  <ul>
+	    <li class="fragment"> The language of set theory has:
+	      <ul>
+		<li> a single constant $\phi$</li>
+		<li> a single predicate $\in$ of degree $2$</li>
+	      </ul>
+	      </li>
+	    <li class="fragment"> The usual axioms are called ZFC (Zermelo-Fraenkel and the axiom of choice). </li>
+	    <li class="fragment"> By Godel's incompleteness theorem, we cannot prove this consistent.</li>
+	    <li class="fragment"> However, as Godels' incompleteness theorem applies to any formal system rich enough for usual mathematics, this is not a reason for avoiding any specific axiom system.</li>
+	  </ul>
+	  </section>
+
+	<section>
+	  <p>
+	    &ldquo; Since the first half of the 20th century mathematics has been presented as a science based on
+	    ZFC and ZFC was introduced as a particular theory in Predicate Logic. 	
+	  </p>
+	  <p>
+	    &ldquo; Therefore someone who wanted to get to the bottom of things in mathematics had a simple
+	    road to follow - learn what Predicate Logic is, then learn a particular theory called ZFC, then
+	    learn how to translate propositions about a few basic mathematical concepts into formulas of
+	    ZFC, and then <span class="fragment highlight-red"> learn to believe, through examples, that the rest of mathematics can be reduced
+	    to these few basic concepts</span>.&rdquo;</p>
+<div style="text-align:right">Vladimir Voevodsky</div>
+	  </section>
+
+	<section>
+	  <h3> What's wrong? </h3>
+	  <ul>
+	    <li class="fragment"> Mathematics formalized in ZFC in predicate calculus, even with category theory, is
+	      <ul>
+		<li class="fragment"> very verbose</li>
+		<li class="fragment"> highly opaque</li>
+	      </ul>
+	      </li>
+	    <li class="fragment"> Formalization of mathematics that is much closer to actual mathematics will
+	      <ul>
+		<li class="fragment"> reduce wrong mathematics in the literature.</li>
+		<li class="fragment"> help computer assisted mathematics.</li>
+		<li class="fragment"> facilitate semantic tools for doing mathematics.</li>
+	      </ul>
+	      </li>
+	    </ul>
+	</section>
 
 </section>
 
