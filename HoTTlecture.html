@@ -182,6 +182,104 @@
 		 <p> Propositions as Types</p>
 	</section>
 
+ 	<section>
+	  <h3>Terms and Types</h3>
+	  <ul>
+	    <li class="fragment">Every term has a <em> type </em>.</li>
+	    <li class="fragment">We denote the term $a$ having type $A$ by $a: A$.</li>
+	    <li class="fragment">We can for terms from simpler terms according to term formation rules.</li>
+	    <li class="fragment">Term formation rules depend only on the types of the simpler terms.</li>
+	    <li class="fragment">We have rules telling us the type of the newly formed term.</li>
+	    <li class="fragment">We have <em>type formation rules</em> allowing the formation of new types.</li>
+	    <li class="fragment">Terms include both the terms and formulas of first order logic.</li>
+	    <li class="fragment">Types replace sets, with $a : A$ replacing $a \in A$.</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h3>Function types and functions</h3>
+	  <ul>
+	    <li class="fragment">Given types $A$ and $B$, we can form the type $A \to B$ of functions from $A$ to $B$.</li>
+	    <li class="fragment">Given $f : A \to B$, and $a : A$, we can form the term $f(a) : B$.</li>
+	    <li class="fragment">We also need rules for forming functions (i.e., terms whose type is a function type).</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h3>More Types and Terms</h3>
+	  <ul>
+	    <li class="fragment">As a consequnce of the type and term forming rules of any type theory we consider, we can form types and terms in a few ways.</li>
+	    <li class="fragment">For types $A$, $B$, we can form the type $A\times B$</li>
+	    <li class="fragment">Given terms $a : A$ and $b : B$, we can form the pair term $(a, b) : A \times B$.</li>
+	    <li class="fragment">For types $A$, $B$, we can form the disjoint union type $A\oplus B$, and two inclusion functions $i : A \to A \oplus B$, $j : B \to A \oplus B$. </li>
+	    <li class="fragment">We have a type $\mathbb{0}$, so that we never have $a : \mathbb{0}$.</li>
+	    <li class="fragment">We have a type $\mathbb{1}$, and a unique term $*$ with $* : \mathbb{1}$</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h3>Dependent type theories</h3>
+	  <ul>
+	    <li class="fragment">In dependent type theories, types are also terms.</li>
+	    <li class="fragment">The type of a type is a <em>universe</em></li>
+	    <li class="fragment">A universe $\mathcal{U}$ is a type so that if $A : \mathcal{U}$, $A$ is a type.</li>
+	    <li class="fragment">A <em>polymorphic</em> is a type (family) that depends on (one or more) types - such as $List(A)$.</li>
+	    <li class="fragment">A <em> dependent type</em> is a type (family) that depends on terms of some given type (perhaps a universe).</li>
+	    <li class="fragment">Equivalently, a type family is a function (or iterated function) with codomain a universe.</li>
+	    <li class="fragment">Type families are analogous to fiber bundles.</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h3>$\Pi$-types and $\Sigma$-types</h3>
+	  <p style="text-align:left"> Fix a type family $B : A \to \mathcal{U}$.</p>
+	  <ul>
+	    <li class="fragment">We can form the type $\Pi_{a : A} B(a)$ of <em>dependent functions</em>, i.e., <em> sections </em> of the bundle $B$.</li>
+	    <li class="fragment">If $f : \Pi_{a : A} B(a)$ and $a : A$, we can form the term $f(a)$ of type $B(a)$.</li>
+	    <li class="fragment">We can form the type $\Sigma_{a : A} B(a)$ of <em>dependent pairs</em>, i.e., the <em> total space</em> of the bundle $B$.</li>
+	    <li class="fragment">For $a : A$ and $b : B(a)$, we can form the dependent pair $(a, b) : \Sigma_{a : A} B(a)$</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h3>Propositions as types</h3>
+	  <ul>
+	    <li class="fragment">A type $A$ is <em>inhabited</em> if there is a term $a$ with $a : A$.</li>
+	    <li class="fragment">By <em> propostion</em> we mean a logical statement that must be true or false.</li>
+	    <li class="fragment">We represent propositions by types, with the proposition <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h3>Combining propositions</h3>
+	  <p class="fragment"> Let $A$ and $B$ be types, regarded as representing propositions</p>
+	  <ul>
+	    <li class="fragment"> The proposition $A \implies B$ is represented by $A \to B$.</li>
+	    <li class="fragment"> The propostion $A\wedge B$ is represented by $A \times B$.</li>
+	    <li class="fragment"> The proposition $A \vee B$ is represented by $A \oplus B$.</li>
+	    <li class="fragment"> The proposition $\neg A$ is represented by $A \to \mathbb{0}$.</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h3>Quantifying propositions</h3>
+	  <ul>
+	    <li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family $P : A \to \mathcal{U}$ </li>
+	    <li class="fragment">The proposition $\forall x\ P(x)$ is represented by $\Pi_{x: A} P(x)$</li>
+	    <li class="fragment">The proposition $\exists x\ P(x)$ is represented by $\Sigma_{x : A} P(x)$</li>
+	  </ul>
+	</section>
+
+ 	<section>
+	  <h3>Inductive types and type families</h3>
+	  <ul>
+	    <li class="fragment">While we can build types from other types, the above rules do not let us construct types such as $\mathbb{N}$.</li>
+	    <li class="fragment">This is achieved using rules to form <em> inductive types</em> and <em>inductive type families</em></li>
+	    <li class="fragment">Remarkably, we can also form type families corresponding to predicates (i.e., propositions) such as $\leq$ and $=$ as inductive type families.</li>
+	  </ul>
+	</section>
+
+
 </section>
 
 <section>
@@ -495,7 +593,7 @@ halfOfDouble n = half (double n) (thm n)
 
 <section>
 	<section>
-		<h3>Homotopy type theory:</h3>
+		<h3>Homotopy type theory: Types as Spaces</h3>
 		<p> Equality and Paths </p>
 		<p> Type families as fibrations </p>
 		<p> $\infty$-groupoids from induction for equality</p>
