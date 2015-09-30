@@ -62,7 +62,7 @@
 	    <ol>
 	      <li> $\forall (n \in \mathbb{N})\ n < n + 1$ <strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; -- true</strong></li>
 		<li> $\exists (n \in \mathbb{N})\ n = n + 1 $<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; -- false</strong></li>
-		<li> $\exists (n \in \mathbb{N})n = + + \forall m  $<strong class="fragment"> &nbsp; &nbsp; -- not well-formed</strong></li>
+		<li> $\exists (n \in \mathbb{N})\ n = + + \forall m  $<strong class="fragment"> &nbsp;  -- not well-formed</strong></li>
 		<li> $\sqrt{-1} + \sqrt[3]{1} <1$<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- not well-defined</strong></li>
 	    </ol>
 	    </li>
@@ -70,7 +70,7 @@
 	    <ul> 
 	      <li class="fragment"> A vocabulary,</li>
 	      <li class="fragment"> Grammar/syntax - rules for forming expressions from simpler ones (starting with the vocabulary).</li>
-	      <li class="fragment"> All well-formed expressions are well-defined</li>
+	      <li class="fragment"> All well-formed expressions are well-defined.</li>
 	      <li class="fragment"> The rules for forming expressions depend only on the <em> type</em> of the sub-expressions.</li>
 	      </ul>
 	  </ul>
@@ -81,14 +81,15 @@
 	  <ul>
 	  <li class="fragment"> A first-order language has vocabulary consisting of
 	    <ul>
-	      <li class="fragment highlight-current-blue"> Variables - can be taken to be a fixed countable sets</li>
-	      <li class="fragment highlight-current-blue"> Constants</li>
+	      <li class="fragment highlight-current-blue"> Variables - can be taken to be a fixed countable sets.</li>
+	      <li class="fragment highlight-current-blue"> Constants.</li>
 	      <li class="fragment highlight-current-blue"> Functions $f$ :  of degree $n$ for some $n\in\mathbb{N}$.</li>
 	      <li class="fragment highlight-current-blue"> Predicates (relations) $p$ : of degree $n$ for some $n\in\mathbb{N}$.</li>
 	      <li class="fragment highlight-current-blue"> Special symbols $\implies$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
 	      </ul>
 	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
-	    <li class="fragment"> Terms represent objects in the <em> Universe</em> and formulas are either <em>true</em> or <em>false</em> : in both cases, in general, depending on values of some variables</li>
+	    <li class="fragment"> Terms represent objects in the <em> Universe</em> and formulas are either <em>true</em> or <em>false</em>. </li>
+	    <li class="fragment"> Terms and formulas may depend on values of some variables.</li>
 	    </ul>
 	</section>
 
@@ -97,7 +98,7 @@
 	    <ul>
 	      <li class="fragment"> Terms are expressions of the forms:
 		<ul>
-		  <li  class="fragment highlight-current-blue"> A variable $x$</li>
+		  <li  class="fragment highlight-current-blue"> A variable $x$.</li>
 		  <li class="fragment highlight-current-blue"> A constant $c$.</li>
 		  <li class="fragment highlight-current-blue"> $f(t_1, t_2, \dots, t_n)$ with $f$ a function of degree $n$ and $t_1$, $t_2$, ..., $t_n$ terms.</li>
 		  </li>
@@ -115,12 +116,12 @@
 	<section>
 	  <h3> Deduction and theories </h3>
 	  <ul>
-	    <li class="fragment"> We can deduce formulas from other formulas using the rules of deduction </li>
+	    <li class="fragment"> We can deduce formulas from other formulas using the rules of deduction. </li>
 	    <li class="fragment"> The main deduction rule is <em> Modus Ponens</em> : given $P$ and $P\implies Q$ we deduce $Q$.</li>
 	    <li class="fragment"> A <em> theory</em> is a language together with a collection of statements, called <em> axioms</em> in the language.</li>
 	    <li class="fragment"> A statement is <em> deducible</em> in a theory if it can be obtained from the axioms by the rules of deduction.</li>
-	    <li class="fragment"> A theory is <em> consistent </em> if for all formulas $P$, we cannot deduce at least one of $P$ and $\neg P$.</li>
-	    <li class="fragment"> Godel's <strong>completeness theorem</strong> says that deducible statements in a theory are exactly the <em> true</em> statements, in terms ofmodels of the theory. </li>
+	    <li class="fragment"> A theory is <em> consistent </em> if, for a formula $P$, we cannot deduce both $P$ and $\neg P$.</li>
+	    <li class="fragment"> Godel's <strong>completeness theorem</strong> says that deducible statements in a theory are exactly the <em> true</em> statements, in terms of models of the theory. </li>
 	  </ul>
 	</section>
 
@@ -134,7 +135,7 @@
 	      </ul>
 	      </li>
 	    <li class="fragment"> The usual axioms are called ZFC (Zermelo-Fraenkel and the axiom of choice). </li>
-	    <li class="fragment"> By Godel's incompleteness theorem, we cannot prove this consistent.</li>
+	    <li class="fragment"> By Godel's incompleteness theorem, we cannot prove that Set Theory is consistent.</li>
 	    <li class="fragment"> However, as Godels' incompleteness theorem applies to any formal system rich enough for usual mathematics, this is not a reason for avoiding any specific axiom system.</li>
 	  </ul>
 	  </section>
@@ -158,8 +159,8 @@
 	  <ul>
 	    <li class="fragment"> Mathematics formalized in ZFC in predicate calculus, even with category theory, is
 	      <ul>
-		<li class="fragment"> very verbose</li>
-		<li class="fragment"> highly opaque</li>
+		<li class="fragment"> very verbose,</li>
+		<li class="fragment"> highly opaque.</li>
 	      </ul>
 	      </li>
 	    <li class="fragment"> Formalization of mathematics that is much closer to actual mathematics will
@@ -185,16 +186,25 @@
  	<section>
 	  <h3>Terms and Types</h3>
 	  <ul>
-	    <li class="fragment">Every term has a <em> type </em>.</li>
+	    <li class="fragment">In a type theory, every <em>term</em> has a <em> type </em>.</li>
 	    <li class="fragment">We denote the term $a$ having type $A$ by $a: A$.</li>
-	    <li class="fragment">We can for terms from simpler terms according to term formation rules.</li>
+	    <li class="fragment">We can form terms from simpler terms according to term formation rules.</li>
 	    <li class="fragment">Term formation rules depend only on the types of the simpler terms.</li>
 	    <li class="fragment">We have rules telling us the type of the newly formed term.</li>
 	    <li class="fragment">We have <em>type formation rules</em> allowing the formation of new types.</li>
 	    <li class="fragment">Terms include both the terms and formulas of first order logic.</li>
-	    <li class="fragment">Types replace sets, with $a : A$ replacing $a \in A$.</li>
 	  </ul>
 	</section>
+
+ 	<section>
+	  <h3>Types as Sets</h3>
+	  <ul>
+	    <li class="fragment">In type theory, types replace sets, with $a : A$ replacing $a \in A$.</li>
+	    <li class="fragment">Type forming rules are sufficiently rich to construct all sets normally encountered in mathematics, though not all the sets of ZFC.</li>
+	    <li class="fragment">A term being of a given type has significant information about the term.</li>
+	  </ul>
+	</section>
+
 
  	<section>
 	  <h3>Function types and functions</h3>
@@ -209,9 +219,9 @@
 	  <h3>More Types and Terms</h3>
 	  <ul>
 	    <li class="fragment">As a consequnce of the type and term forming rules of any type theory we consider, we can form types and terms in a few ways.</li>
-	    <li class="fragment">For types $A$, $B$, we can form the type $A\times B$</li>
+	    <li class="fragment">For types $A$, $B$, we can form the product type $A\times B$.</li>
 	    <li class="fragment">Given terms $a : A$ and $b : B$, we can form the pair term $(a, b) : A \times B$.</li>
-	    <li class="fragment">For types $A$, $B$, we can form the disjoint union type $A\oplus B$, and two inclusion functions $i : A \to A \oplus B$, $j : B \to A \oplus B$. </li>
+	    <li class="fragment">For types $A$, $B$, we can form the coproduct (disjoint union) type $A\oplus B$, and two inclusion functions $i : A \to A \oplus B$, $j : B \to A \oplus B$. </li>
 	    <li class="fragment">We have a type $\mathbb{0}$, so that we never have $a : \mathbb{0}$.</li>
 	    <li class="fragment">We have a type $\mathbb{1}$, and a unique term $*$ with $* : \mathbb{1}$</li>
 	  </ul>
@@ -221,18 +231,18 @@
 	  <h3>Dependent type theories</h3>
 	  <ul>
 	    <li class="fragment">In dependent type theories, types are also terms.</li>
-	    <li class="fragment">The type of a type is a <em>universe</em></li>
-	    <li class="fragment">A universe $\mathcal{U}$ is a type so that if $A : \mathcal{U}$, $A$ is a type.</li>
-	    <li class="fragment">A <em>polymorphic</em> is a type (family) that depends on (one or more) types - such as $List(A)$.</li>
-	    <li class="fragment">A <em> dependent type</em> is a type (family) that depends on terms of some given type (perhaps a universe).</li>
-	    <li class="fragment">Equivalently, a type family is a function (or iterated function) with codomain a universe.</li>
+	    <li class="fragment">The type of a type is a <em>universe</em>.</li>
+	    <li class="fragment">A universe $\mathfrak{U}$ is a type so that if $A : \mathfrak{U}$, $A$ is a type.</li>
+	    <li class="fragment">A <em>polymorphic type</em> is a type (family) that depends on (one or more) types - such as $List(A)$.</li>
+	    <li class="fragment">A <em> dependent type</em> is a type (family) that depends on terms of some given type.</li>
+	    <li class="fragment">Equivalently, a <em>type family</em> is a function (or iterated function) with codomain a universe.</li>
 	    <li class="fragment">Type families are analogous to fiber bundles.</li>
 	  </ul>
 	</section>
 
  	<section>
 	  <h3>$\Pi$-types and $\Sigma$-types</h3>
-	  <p style="text-align:left"> Fix a type family $B : A \to \mathcal{U}$.</p>
+	  <p style="text-align:left"> Fix a type family $B : A \to \mathfrak{U}$.</p>
 	  <ul>
 	    <li class="fragment">We can form the type $\Pi_{a : A} B(a)$ of <em>dependent functions</em>, i.e., <em> sections </em> of the bundle $B$.</li>
 	    <li class="fragment">If $f : \Pi_{a : A} B(a)$ and $a : A$, we can form the term $f(a)$ of type $B(a)$.</li>
@@ -246,15 +256,17 @@
 	  <ul>
 	    <li class="fragment">A type $A$ is <em>inhabited</em> if there is a term $a$ with $a : A$.</li>
 	    <li class="fragment">By <em> propostion</em> we mean a logical statement that must be true or false.</li>
-	    <li class="fragment">We represent propositions by types, with the proposition <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
+	    <li class="fragment">We represent propositions by types.</li>
+	    <li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em>proof</em> of (or witness to) $A$.
+	    <li class="fragment">In particular, a proposition is <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
 	  </ul>
 	</section>
 
  	<section>
 	  <h3>Combining propositions</h3>
-	  <p class="fragment"> Let $A$ and $B$ be types, regarded as representing propositions</p>
+	  <p class="fragment"> Let $A$ and $B$ be types, regarded as representing propositions.</p>
 	  <ul>
-	    <li class="fragment"> The proposition $A \implies B$ is represented by $A \to B$.</li>
+	    <li class="fragment"> The proposition $A \Rightarrow B$ is represented by $A \to B$.</li>
 	    <li class="fragment"> The propostion $A\wedge B$ is represented by $A \times B$.</li>
 	    <li class="fragment"> The proposition $A \vee B$ is represented by $A \oplus B$.</li>
 	    <li class="fragment"> The proposition $\neg A$ is represented by $A \to \mathbb{0}$.</li>
@@ -264,9 +276,9 @@
  	<section>
 	  <h3>Quantifying propositions</h3>
 	  <ul>
-	    <li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family $P : A \to \mathcal{U}$ </li>
-	    <li class="fragment">The proposition $\forall x\ P(x)$ is represented by $\Pi_{x: A} P(x)$</li>
-	    <li class="fragment">The proposition $\exists x\ P(x)$ is represented by $\Sigma_{x : A} P(x)$</li>
+	    <li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family $P : A \to \mathfrak{U}$. </li>
+	    <li class="fragment">The proposition $\forall x\ P(x)$ is represented by $\Pi_{x: A} P(x)$.</li>
+	    <li class="fragment">The proposition $\exists x\ P(x)$ is represented by $\Sigma_{x : A} P(x)$.</li>
 	  </ul>
 	</section>
 
@@ -274,7 +286,7 @@
 	  <h3>Inductive types and type families</h3>
 	  <ul>
 	    <li class="fragment">While we can build types from other types, the above rules do not let us construct types such as $\mathbb{N}$.</li>
-	    <li class="fragment">This is achieved using rules to form <em> inductive types</em> and <em>inductive type families</em></li>
+	    <li class="fragment">This is achieved using rules to form <em> inductive types</em> and <em>inductive type families</em>.</li>
 	    <li class="fragment">Remarkably, we can also form type families corresponding to predicates (i.e., propositions) such as $\leq$ and $=$ as inductive type families.</li>
 	  </ul>
 	</section>
@@ -308,7 +320,7 @@
 	<section>
 	  <h3> Rules: construction, equality, type, substitution</h3>
 	  <ul>
-	    <li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context</li>	    
+	    <li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context.</li>	    
 	    <li class="fragment"> As always, such rules depend on pre-existing terms only through their types.</li>
 	    <li class="fragment"> Rules also let us make two kinds of judgements:
 	      <ul>
@@ -380,7 +392,7 @@ notnot x = not(not(x))
 	  <h3> Currying functions of several variables</h3>
 	  <ul>
 	    <li class="fragment"> We do not need additional types for functions of more than one variable.</li>
-	    <li class="fragment"> Instead we <em> Curry </em> such a function $(A, B) \to C$, giving an <em> iterated function </em> of type $A \to B \to C = A \to (B \to C)$.</li>
+	    <li class="fragment"> Instead we <em> Curry </em> such a function $(A, B) \to C$, giving an <em> iterated function </em> of type $A \to B \to C := A \to (B \to C)$.</li>
 	    <li class="fragment"> Namely, we associate to $g(x, y)$ the function $x \mapsto (y \mapsto g(x, y))$</li>
 <div class="fragment">
 <pre><code class="haskell">
@@ -395,7 +407,7 @@ false & _ = false
 	<section>
 	  <h3> Natural numbers : an inductive type</h3>
 	  <ul>
-	    <li class="fragment"> Though natural numbers are not finite, they are freely generated by a finite class of constructors.</li>
+	    <li class="fragment"> Though natural numbers are not finite, they are freely generated by a finite number of constructors.</li>
 <div class="fragment">
 <pre><code class="haskell">
 data ℕ : Type where -- infinite type
@@ -413,7 +425,7 @@ data ℕ : Type where -- infinite type
 	  <h3> Recursive definitions </h3>
 	  <ul>
 	    <li class="fragment"> We can define functions recursively on inductive types, by specifying in all cases.</li>
-	    <li class="fragment"> Formally, we can introduce recursion functions and apply them to the definition data </li>
+	    <li class="fragment"> Formally, we can introduce recursion functions and apply them to the definition data. </li>
 	    </ul>
 <div class="fragment">
 <pre><code class="haskell">
@@ -423,7 +435,7 @@ even (succ x) = not (even x)
 
 _+_ : ℕ → ℕ → ℕ 
 zero + y = y
-succ x + y = x + succ y
+succ x + y = x + (succ y)
 
 </code></pre>
 </div>
@@ -450,12 +462,12 @@ mylist = 3 :: (4 :: (2 :: [])) -- the list [3, 4, 2]
 	    <li class="fragment"> We generalize functions $f : A \to B$ to <em> dependent functions</em>, so that $f(a)$ has a type $B(a)$, depending in general on $a : A$.</li>
 	    <li class="fragment"> More precisely,
 	      <ul>
-		<li class="fragment"> A <em> type family</em> $B: A \to \mathcal{U}$ is a function with codomain a universe, so all its values are types. </li>
-		<li class="fragment"> Given a type family $B: A \to \mathcal{U}$, we can construct a corresponding type $\Pi_{a : A} B(a)$ of dependent functions.</li>
-		<li class="fragment"> When we apply $f : \Pi_{a : A} B(a)$ to $a : A$, we obtain $f(a) : B(a)$</li>
+		<li class="fragment"> A <em> type family</em> $B: A \to \mathfrak{U}$ is a function with codomain a universe, so all its values are types. </li>
+		<li class="fragment"> Given a type family $B: A \to \mathfrak{U}$, we can construct a corresponding type $\Pi_{a : A} B(a)$ of dependent functions.</li>
+		<li class="fragment"> When we apply $f : \Pi_{a : A} B(a)$ to $a : A$, we obtain $f(a) : B(a)$.</li>
 		</ul>
 	      </li>
-	  <li class="fragment"> Dependent functions are just sections of bundles </li>
+	  <li class="fragment"> Dependent functions are just sections of bundles. </li>
 	  <li class="fragment"> Constructions of dependent functions are analogous to those of functions.</li>
 	  </ul>
 	  </section>
@@ -467,7 +479,7 @@ mylist = 3 :: (4 :: (2 :: [])) -- the list [3, 4, 2]
 	    <li class="fragment"> This is an inductive type family with two constructors.</li>
 <div class="fragment">
 <pre><code class="haskell">
-data Vector : ℕ → Type where -- type family
+data Vector : ℕ → Type where -- inductive type family
   [] : Vector 0
   _::_ : {n : ℕ} → ℕ → Vector n → Vector (succ n) 
 </code></pre>
@@ -488,12 +500,13 @@ countdown (succ n) = (succ n) :: (countdown n)
 	  <h3> Functions on type families </h3>
 	  <ul>
 	    <li class="fragment"> We can define (dependent) functions on inductive type families recursively (inductively).</li>
-	    <li class="fragment"> However, we must define these simultaneously on all types in the inductive type family</li>
+	    <li class="fragment"> However, we must define these simultaneously on all types in the inductive type family.</li>
 <div class="fragment">
 <pre><code class="haskell">
 sum : {n : ℕ} → Vector n → ℕ
 sum [] = 0
 sum (x :: l) = x + sum l
+
 </code></pre>
 </div>
 	    <li class="fragment"> Using our foundations, we can also make some practical calculations.</li>
@@ -501,6 +514,7 @@ sum (x :: l) = x + sum l
 <pre><code class="haskell">
 sumToN : ℕ → ℕ -- calculation
 sumToN n = sum(countdown n)
+
 </code></pre>
 </div>
 
@@ -532,7 +546,7 @@ data isEven : ℕ → Type where
 
 	<section>
 	  <ul>
-	    <li class="fragment"> For propositions $A$ and $B$ viewed as types, $A \implies B$ corresponds to $A \to B$.</li>
+	    <li class="fragment"> For propositions $A$ and $B$ viewed as types, $A \Rightarrow B$ corresponds to $A \to B$.</li>
 	    <li class="fragment"> A contradiction corresponds to the type $\mathbb{0}$ (also called $False$) which has no elements.</li>
 	    <li class="fragment"> We prove contradictions by inductive definitions which we can see have no cases.</li>
 <div class="fragment">
@@ -574,13 +588,15 @@ double : (n : ℕ) → ℕ
 double 0 = 0
 double (succ n) = succ(succ(double(n)))
 
-step : (n : ℕ) → (isEven (double n)) → isEven (double(succ(n)))
-step n pf = +2even _ pf
-
 thm : (n  : ℕ) → isEven (double n)
 thm zero = 0even
-thm (succ n) = step _ (thm n)
+thm (succ n) = +2even _ (thm n)
 
+</code></pre>
+</div>
+
+<div class="fragment">
+<pre><code class="haskell">
 halfOfDouble : ℕ → ℕ
 halfOfDouble n = half (double n) (thm n)
 
