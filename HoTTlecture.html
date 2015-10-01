@@ -667,29 +667,104 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 	</section>
 
 	<section>
+	  <h3> Types as Spaces </h3>
+	  <ul>
+	    <li class="fragment"> We <em>interpret</em>
+	      <ul>
+		<li class="fragment"> Types as spaces </li>
+		<li class="fragment"> Terms of a type as points of the space.</li>
+		<li class="fragment"> Functions $A \to B$ as continuous maps $a \to B$.
+		<li class="fragment"> An equality type $x = y$ for $x$ and $y$ with type $A$ as paths in $A$ from $x$ to $y$.</li> 
+	      </ul></li>
+	    <li class="fragment"> We do not actually construct spaces, i.e., sets with topology, starting with a type.</li>
+	    <li class="fragment"> Instead we make topological (specifically homotopy theoretic) constructions and prove topological results in type theory.</li>
+	    <li class="fragment"> A practical consequence for type theories is that we get a canonical type theory.</li>
+	  </ul>
+	  </section>
+
+	<section>
+	  <h3> Paths, Products, Homotopy</h3>
+	  <ul>
+	    <li class="fragment"> As above, for a type $A$ and $x, y : A$, a term $p : (x = y)$ is interpreted as a path from $x$ to $y$.</li>
+	    <li class="fragment"> We can invert such a path - this is just the symmetry function on equality types $(x = y) \to (y = x)$.</li>
+	    <li class="fragment"> Similarly for $x, y, z: A$, the product of $p : x = y$ and $q : y = z$ is given by the transitivity of equality function $(x = y) \to (y = z)\to (x = z)$.</li>
+	    <li class="fragment"> For paths, $p : x = y$, $q : y = z$ and $r: z = w$, with $x, y, z, w : A$, though paths $(p * q) * r$ and $p * (q * r)$ are not definitionally equal, we can prove that there is a path of paths, i.e., a homotopy, between them. This is just an element of $(p * q) * r = p * (q * r)$.</li> 
+	  </section>
+
+	<section>
+	  <h3> Fundamental groupoids and $\infty$-groupoids </h3>
+	  <ul>
+	    <li class="fragment"> Thus, considering paths up to homotopy, we get the fundamental groupoid of a type.</li>
+	    <li class="fragment"> We can instead consider the non-associative products on paths directly, together with a higher structure, namely a homotopy $(p * q) * r \sim p * (q * r)$ for paths $p$, $q$ and $r$ as above.</li>
+	    <li class="fragment"> This process continues to give an $\infty$-groupoid structures on types.</li>
+	    <li class="fragment"> The homotopy hypothesis says that $\infty$-groupoids are homotopy types of spaces.</li>
+	    </ul>
+	  </section>
+
+
+	<section>
 	  <h3> Associativity up to homotopy : the Pentagon </h3>
 	  <img src="pentagon.svg" />
 	</section>
-</section>
-
-
-
-<section>
 
 	<section>
-	<h1> Code </h1>
+	  <h3> Loop spaces and homotopy groups </h3>
+	  <ul>
+	    <li class="fragment"> A based type is a type $A$ together with a term $a : A$.</li>
+	    <li class="fragment"> We can associate to a based type $(A, a)$ its loop space, which is the based type $(a = a, refl(a))$.</li>
+	    <li class="fragment"> We have a product on the loop space, using which we can define its fundamental group.</li>
+	    <li class="fragment"> Further, iterating this process, we can define higher homotopy groups.</li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3> Type families as fibrations</h3>
+	  <ul>
+	    <li class="fragment"> We can show that any type family $F : A \to \mathfrak{U}$ is a <em> fibration</em>, i.e., we can lift paths and homotopies.</li>
+	    <li class="fragment"> This means that given an equality $p: x = y$, $x, y: A$, we can define a <em> transfer</em> function $T_p : F(x) \to F(y)$.</li>
+	    <li class="fragment"> This allows us to transfer structure between equal objects, but depending on the choice of equality.</li>
+	    <li class="fragment"> As a consequence of Voevodsky's univalence axiom, isomorphic types are equal, making the transfer very useful (but still consistent).</li>
+	  </section>
+
+	<section>
+	  <h3> Classifying spaces and Univalence </h3>
+	  <ul>
+	    <li class="fragment"> We can define when a function $f: A \to B$ is an equivalence of types, essentially like homotopy equivalence.</li>
+	    <li class="fragment"> This lets us construct the type $A\simeq B$ of equivalences from $A$ to $B$.</li>
+	    <li class="fragment"> There is a natural inclusion $A = B \to A \simeq B$.</li>
+	    <li class="fragment"> Voevodsky's univalence axiom says that this is an equivalence.</li>
+	  </ul>
+	  </section>
+
+
+	<section> 
+	  <h3>Homotopy $n$-types </h3>
+	  <ul>
+	    <li class="fragment"> A homotopy $n$-type is the homotopy type of a space with trivial homotopy groups above dimension $n$.</li>
+	    <li class="fragment"> We can define this inductively, with  the homotopy type of a space $X$ a homotopy $(n + 1)$-type if for $a, b : X$, the path space $\Omega(X; a, b)$ is a homotopy $n$ type.</li>
+	    <li class="fragment"> We can start the induction with $n = -2$, where we require $X$ to be contractible (in particular non-empty).</li>
+	    <li class="fragment"> This hierarchy gives definitions in type theory.</li>
+	    <li class="fragment"> Further, we can truncate a type canonically to an $n$-type.</li>
+	    </ul>
+	  </section>
+
+	<section> 
+	  <h3> Sets and <strong>mere</strong> propositions </h3>
+	  <ul>
+	    <li class="fragment"> A set is a space with all of its components contractible.</li>
+	    <li class="fragment"> A type $A$ is a set if for $x, y: A$ and $p, q: x= y$, $p = q$.</li>
+	    <li class="fragment"> A mere proposition is a type which is either empty or all of its elements are equal.</li>
+	    <li class="fragment"> This is characterized as for $x, y : A$, $x = y$.</li>
+	    <li class="fragment"> The concept of mere propostions, as well as propositional truncation, allow consistent mixing of classical logic with the type theoretic form, for instance univalence and the law of excluded middle.</li>
+	  </section>
+	
+	<section>
+	  <h3> Higher inductive types </h3>
+	  <p> In analogy with attaching cells of dimension $2$ and above, we can introduce (consistent) rules for introducing <em> higher inductive types</em>. 
+	  </section>
 </section>
 
-<section>
-<pre><code class="haskell">
-data True : Set where
-  qed : True
 
-data False : Set where
-</code></pre>
-</section>
-
-</section>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
