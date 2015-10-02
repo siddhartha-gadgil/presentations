@@ -729,9 +729,10 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 	<section>
 	  <h3> Type families as fibrations</h3>
 	  <ul>
-	    <li class="fragment"> We can show that any type family $F : A \to \mathfrak{U}$ is a <em> fibration</em>, i.e., we can lift paths and homotopies.</li>
-	    <li class="fragment"> Using path lifting, given $x, y: A$ and an equality $p: x = y$, we can define a <em> transfer</em> function $T_p : F(x) \to F(y)$.</li>
+	    <li class="fragment"> We can show that any type family $P : A \to \mathfrak{U}$ is a <em> fibration</em>, i.e., we can lift paths and homotopies.</li>
+	    <li class="fragment"> Using path lifting, given $x, y: A$ and an equality $p: x = y$, we can define a <em> transfer</em> function $p_* : P(x) \to P(y)$.</li>
 	    <li class="fragment"> This allows us to transfer structure between equal objects, but depending on the choice of equality.</li>
+	    <li class="fragment"> If $x, y: A$, $p: x = y$ and $f: \Pi_{a : A} P(a)$ then $f(y) = p_*(f(x))$.</li> 
 	    <li class="fragment"> As a consequence of Voevodsky's univalence axiom, isomorphic types are equal, making the transfer very useful (but still consistent).</li>
 	  </section>
 
