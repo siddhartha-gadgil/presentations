@@ -734,6 +734,7 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 	    <li class="fragment"> This allows us to transfer structure between equal objects, but depending on the choice of equality.</li>
 	    <li class="fragment"> If $x, y: A$, $p: x = y$ and $f: \Pi_{a : A} P(a)$ then $f(y) = p_*(f(x))$.</li> 
 	    <li class="fragment"> As a consequence of Voevodsky's univalence axiom, isomorphic types are equal, making the transfer very useful (but still consistent).</li>
+	    <li class="fragment"> As axiom here is a term of a specified type, which we introduce. This has  no given properties other than its type.</li>
 	  </section>
 
 	<section>
