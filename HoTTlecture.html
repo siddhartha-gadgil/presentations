@@ -83,13 +83,14 @@
 	    <ul>
 	      <li class="fragment highlight-current-blue"> Variables - can be taken to be a fixed countable sets.</li>
 	      <li class="fragment highlight-current-blue"> Constants.</li>
-	      <li class="fragment highlight-current-blue"> Functions $f$ :  of degree $n$ for some $n\in\mathbb{N}$.</li>
-	      <li class="fragment highlight-current-blue"> Predicates (relations) $p$ : of degree $n$ for some $n\in\mathbb{N}$.</li>
+	      <li class="fragment highlight-current-blue"> Functions $f$; a function $f$ has degree $n\in\mathbb{N}$.</li>
+	      <li class="fragment highlight-current-blue"> Predicates (relations) $p$ ; a relation has degree $n\in\mathbb{N}$.</li>
 	      <li class="fragment highlight-current-blue"> Special symbols $\implies$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
 	      </ul>
 	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
-	    <li class="fragment"> Terms represent objects in the <em> Universe</em> and formulas are either <em>true</em> or <em>false</em>. </li>
 	    <li class="fragment"> Terms and formulas may depend on values of some variables.</li>
+	    <li class="fragment"> Terms represent objects in the <em> Universe</em>. </li>
+	    <li class="fragment"> Formulas are either <em>true</em> or <em>false</em>. </li>
 	    </ul>
 	</section>
 
@@ -106,7 +107,7 @@
 	      <li class="fragment"> Formulas are expressions of the form
 		<ul>
 		  <li class="fragment highlight-current-blue"> $p(t_1, t_2, \dots, t_n)$ with $p$ a predicate of degree $n$ and $t_1$, $t_2$, ..., $t_n$ terms.</li>
-		  <li class="fragment highlight-current-blue"> $P \implies Q$, $\neg P$, $P\wedge Q$ etc. for formulas $P$ and $Q$.</li>
+		  <li class="fragment highlight-current-blue"> $P \Rightarrow Q$, $\neg P$, $P\wedge Q$ etc. for formulas $P$ and $Q$.</li>
 		  <li class="fragment highlight-current-blue"> $\forall x\ P$ and $\exists x\ P$ for a variable $x$ and a formula $P$.</li>
 		</ul>
 	      </li>
@@ -117,7 +118,7 @@
 	  <h3> Deduction and theories </h3>
 	  <ul>
 	    <li class="fragment"> We can deduce formulas from other formulas using the rules of deduction. </li>
-	    <li class="fragment"> The main deduction rule is <em> Modus Ponens</em> : given $P$ and $P\implies Q$ we deduce $Q$.</li>
+	    <li class="fragment"> The main deduction rule is <em> Modus Ponens</em> : given $P$ and $P\Rightarrow Q$ we deduce $Q$.</li>
 	    <li class="fragment"> A <em> theory</em> is a language together with a collection of statements, called <em> axioms</em> in the language.</li>
 	    <li class="fragment"> A statement is <em> deducible</em> in a theory if it can be obtained from the axioms by the rules of deduction.</li>
 	    <li class="fragment"> A theory is <em> consistent </em> if, for a formula $P$, we cannot deduce both $P$ and $\neg P$.</li>
@@ -135,8 +136,8 @@
 	      </ul>
 	      </li>
 	    <li class="fragment"> The usual axioms are called ZFC (Zermelo-Fraenkel and the axiom of choice). </li>
-	    <li class="fragment"> By Godel's incompleteness theorem, we cannot prove that Set Theory is consistent.</li>
-	    <li class="fragment"> However, as Godels' incompleteness theorem applies to any formal system rich enough for usual mathematics, this is not a reason for avoiding any specific axiom system.</li>
+	    <li class="fragment"> By G&#246;del's incompleteness theorem, we cannot prove that Set Theory is consistent.</li>
+	    <li class="fragment"> However, as G&#246;del's incompleteness theorem applies to any formal system rich enough for usual mathematics, this is not a reason for avoiding any specific axiom system.</li>
 	  </ul>
 	  </section>
 
@@ -218,12 +219,12 @@
  	<section>
 	  <h3>More Types and Terms</h3>
 	  <ul>
-	    <li class="fragment">As a consequnce of the type and term forming rules of any type theory we consider, we can form types and terms in a few ways.</li>
+	    <li class="fragment">As a consequence of the type and term forming rules of any type theory we consider, we can form some useful types and terms.</li>
 	    <li class="fragment">For types $A$, $B$, we can form the product type $A\times B$.</li>
 	    <li class="fragment">Given terms $a : A$ and $b : B$, we can form the pair term $(a, b) : A \times B$.</li>
-	    <li class="fragment">For types $A$, $B$, we can form the coproduct (disjoint union) type $A\oplus B$, and two inclusion functions $i : A \to A \oplus B$, $j : B \to A \oplus B$. </li>
+	    <li class="fragment">For types $A$, $B$, we can form the coproduct (disjoint union) type $A\oplus B$, and two inclusion functions $i : A \to A \oplus B$, $j : B \to A \oplus B$ (which can  be applied). </li>
 	    <li class="fragment">We have a type $\mathbb{0}$, so that we never have $a : \mathbb{0}$.</li>
-	    <li class="fragment">We have a type $\mathbb{1}$, and a unique term $*$ with $* : \mathbb{1}$</li>
+	    <li class="fragment">We have a type $\mathbb{1}$, and a unique term $*$ with $* : \mathbb{1}$.</li>
 	  </ul>
 	</section>
 
@@ -234,7 +235,7 @@
 	    <li class="fragment">The type of a type is a <em>universe</em>.</li>
 	    <li class="fragment">A universe $\mathfrak{U}$ is a type so that if $A : \mathfrak{U}$, $A$ is a type.</li>
 	    <li class="fragment">A <em>polymorphic type</em> is a type (family) that depends on (one or more) types - such as $List(A)$.</li>
-	    <li class="fragment">A <em> dependent type</em> is a type (family) that depends on terms of some given type.</li>
+	    <li class="fragment">A <em> dependent type</em> is a type (family) that depends on terms $a : A$ of some given type $A$.</li>
 	    <li class="fragment">Equivalently, a <em>type family</em> is a function (or iterated function) with codomain a universe.</li>
 	    <li class="fragment">Type families are analogous to fiber bundles.</li>
 	  </ul>
@@ -247,7 +248,7 @@
 	    <li class="fragment">We can form the type $\Pi_{a : A} B(a)$ of <em>dependent functions</em>, i.e., <em> sections </em> of the bundle $B$.</li>
 	    <li class="fragment">If $f : \Pi_{a : A} B(a)$ and $a : A$, we can form the term $f(a)$ of type $B(a)$.</li>
 	    <li class="fragment">We can form the type $\Sigma_{a : A} B(a)$ of <em>dependent pairs</em>, i.e., the <em> total space</em> of the bundle $B$.</li>
-	    <li class="fragment">For $a : A$ and $b : B(a)$, we can form the dependent pair $(a, b) : \Sigma_{a : A} B(a)$</li>
+	    <li class="fragment">For $a : A$ and $b : B(a)$, we can form the dependent pair $(a, b) : \Sigma_{a : A} B(a)$.</li>
 	  </ul>
 	</section>
 
@@ -327,8 +328,9 @@
 		<li> that a term $a$  is of type $A$. </li>
 		<li> that two terms are equal <em> by definition </em>.
 	      </ul></li>
-	    <li class="fragment">  Note that terms can be equal without being so by definition. This corresponds to a relation <em> propositional equality</em> that is introduced (so is not part of the foundations).</li>
-	    <li class="fragment"> We have rules giving the result of substituting a term $(a : A)$ by a term $(a' : A)$ in a term $x$.</li>
+	    <li class="fragment">  Note that terms can be equal without being so by definition. </li>
+	    <li class="fragment"> We will introduce a relation (type family) <em> propositional equality</em> extending definitional equality.</li>
+	    <li class="fragment"> We have rules giving the result of substituting a term $(a_1 : A)$ by a term $(a_2 : A)$ in a term $x$.</li>
 	    </ul>
 	</section>
 	
@@ -346,7 +348,7 @@ data Bool : Type where
 
 </code></pre>
 </div>
-	    <li class="fragment"> Note that we do not have rules saying (directly) that each element of $Bool$ is one of $true$ and $false$, or that $true\neq false$.</li>
+	    <li class="fragment"> Note that we do not have rules saying (directly) that each element of $Bool$ is one of $true$ and $false$, or that $true\neq false.$</li>
 	</section>
 
 	<section> 
@@ -393,7 +395,7 @@ notnot x = not(not(x))
 	  <ul>
 	    <li class="fragment"> We do not need additional types for functions of more than one variable.</li>
 	    <li class="fragment"> Instead we <em> Curry </em> such a function $(A, B) \to C$, giving an <em> iterated function </em> of type $A \to B \to C := A \to (B \to C)$.</li>
-	    <li class="fragment"> Namely, we associate to $g(x, y)$ the function $x \mapsto (y \mapsto g(x, y))$</li>
+	    <li class="fragment"> Namely, we associate to $g(x, y)$ the function $$x \mapsto (y \mapsto g(x, y)).$$</li>
 <div class="fragment">
 <pre><code class="haskell">
 _&_ : Bool → Bool → Bool --curried function
@@ -630,7 +632,7 @@ data Σ (A : Type) (B : A → Type) : Type where
 	<section>
 	  <h3> Identity type family</h3>
 	  <ul>
-	    <li class="fragment"> For a fixed type $A$, equality is given by the identity type family freely generated by reflexivity.</li>
+	    <li class="fragment"> For a fixed type $A$, propositional equality is given by the identity type family freely generated by reflexivity.</li>
 <div class="fragment">
 <pre><code class="haskell">
 data _==_ {A : Type} : A → A → Type where
@@ -674,7 +676,7 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 		<li class="fragment"> Types as spaces </li>
 		<li class="fragment"> Terms of a type as points of the space.</li>
 		<li class="fragment"> Functions $A \to B$ as continuous maps $A \to B$.
-		<li class="fragment"> For a type $A$ and terms, $x, y: A$, the equality type $x = y$ as paths in $A$ from $x$ to $y$.</li> 
+		<li class="fragment"> For a type $A$ and terms $x, y: A$, the identity type $x = y$ as paths in $A$ from $x$ to $y$.</li> 
 	      </ul></li>
 	    <li class="fragment"> We do not actually construct spaces, i.e., sets with topology, starting with a type.</li>
 	    <li class="fragment"> Instead we make topological (specifically homotopy theoretic) constructions and prove topological results in type theory.</li>
@@ -686,8 +688,8 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 	  <h3> Paths, Products, Homotopy</h3>
 	  <ul>
 	    <li class="fragment"> As above, for a type $A$ and $x, y : A$, a term $p : (x = y)$ is interpreted as a path from $x$ to $y$.</li>
-	    <li class="fragment"> We can invert such a path - this is just the symmetry function on equality types $(x = y) \to (y = x)$.</li>
-	    <li class="fragment"> Similarly for $x, y, z: A$, the product of $p : x = y$ and $q : y = z$ is given by the transitivity of equality function $(x = y) \to (y = z)\to (x = z)$.</li>
+	    <li class="fragment"> We can invert such a path - this is just the symmetry function on identity types $(x = y) \to (y = x)$.</li>
+	    <li class="fragment"> Similarly for $x, y, z: A$, the product of $p : x = y$ and $q : y = z$ is given by the <em>transitivity of equality</em> function $(x = y) \to (y = z)\to (x = z)$.</li>
 	    <li class="fragment"> For $x, y, z : A$, given paths, $p : x = y$, $q : y = z$ and $r: z = w$, with $x, y, z, w : A$, we can prove that there is a path of paths, i.e., a homotopy, between $(p * q) * r$ and $p * (q * r)$. </li>
 	    <li class="fragment"> Such a homotopy, which is constructed by induction, is just an element of $(p * q) * r = p * (q * r).$</li> 
 	  </section>
@@ -697,7 +699,7 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 	  <ul>
 	    <li class="fragment"> Thus, considering paths up to homotopy, we get the fundamental groupoid of a type.</li>
 	    <li class="fragment"> We can instead consider the non-associative products on paths directly, together with a higher structure, namely a homotopy $(p * q) * r \sim p * (q * r)$ for paths $p$, $q$ and $r$ as above.</li>
-	    <li class="fragment"> This process continues to give an $\infty$-groupoid structures on types.</li>
+	    <li class="fragment"> This process continues to give an $\infty$-groupoid structures on types, from the induction principle for identity type families.</li>
 	    <li class="fragment"> The homotopy hypothesis says that $\infty$-groupoids are homotopy types of spaces.</li>
 	    </ul>
 	  </section>
@@ -767,7 +769,7 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 
 	<section>
 	  <h3> Synthetic homotopy theory </h3>
-	  <p style="text-align:left"> In the other direction, by assuming homotopy theory we can develop <em>synthetic homotopy theory</em>, where the primitive concepts are spaces, points, maps, paths etc. but without requiring sets or topologies on them.</p>
+	  <p style="text-align:left"> In the other direction, by axiomatizing type theoretic principles, we can develop <em>synthetic homotopy theory</em>, where the primitive concepts are spaces, points, maps, paths etc. but without requiring sets or topologies on them.</p>
 </section>
 
 
