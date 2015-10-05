@@ -1,0 +1,1 @@
+rsync . -rv gadgil@math.iisc.ernet.in:~/public_html/reveal.js/

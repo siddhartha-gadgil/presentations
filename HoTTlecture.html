@@ -69,7 +69,7 @@
 	      <li> $\forall (n \in \mathbb{N})\ n < n + 1$ <strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; -- true</strong></li>
 		<li> $\exists (n \in \mathbb{N})\ n = n + 1 $<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; -- false</strong></li>
 		<li> $\exists (n \in \mathbb{N})\ n = + + \forall m  $<strong class="fragment"> &nbsp;  -- not well-formed</strong></li>
-		<li> $\sqrt{-1} + \sqrt[3]{1} <1$<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- not well-defined</strong></li>
+		<li> $\left\vert\sqrt{-1} + \sqrt[3]{1}\right\vert <1$<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- not well-defined</strong></li>
 	    </ol>
 	    </li>
 	  <li class="fragment"> A formal language has
@@ -87,7 +87,7 @@
 	  <ul>
 	  <li class="fragment"> A first-order language has vocabulary consisting of
 	    <ul>
-	      <li class="fragment highlight-current-blue"> Variables - can be taken to be a fixed countable sets.</li>
+	      <li class="fragment highlight-current-blue"> Variables - can be taken to be a fixed countable set.</li>
 	      <li class="fragment highlight-current-blue"> Constants.</li>
 	      <li class="fragment highlight-current-blue"> Functions $f$; a function $f$ has degree $n\in\mathbb{N}$.</li>
 	      <li class="fragment highlight-current-blue"> Predicates (relations) $p$ ; a relation has degree $n\in\mathbb{N}$.</li>
@@ -128,7 +128,7 @@
 	    <li class="fragment"> A <em> theory</em> is a language together with a collection of statements, called <em> axioms</em> in the language.</li>
 	    <li class="fragment"> A statement is <em> deducible</em> in a theory if it can be obtained from the axioms by the rules of deduction.</li>
 	    <li class="fragment"> A theory is <em> consistent </em> if, for a formula $P$, we cannot deduce both $P$ and $\neg P$.</li>
-	    <li class="fragment"> Godel's <strong>completeness theorem</strong> says that deducible statements in a theory are exactly the <em> true</em> statements, in terms of models of the theory. </li>
+	    <li class="fragment"> G&ouml;del's <strong>completeness theorem</strong> says that deducible statements in a theory are exactly the <em> true</em> statements, in terms of models of the theory. </li>
 	  </ul>
 	</section>
 
@@ -137,8 +137,8 @@
 	  <ul>
 	    <li class="fragment"> The language of set theory has:
 	      <ul>
-		<li> a single constant $\phi$</li>
-		<li> a single predicate $\in$ of degree $2$</li>
+		<li> a single constant $\phi$,</li>
+		<li> a single predicate $\in$ of degree $2$.</li>
 	      </ul>
 	      </li>
 	    <li class="fragment"> The usual axioms are called ZFC (Zermelo-Fraenkel and the axiom of choice). </li>
@@ -266,6 +266,7 @@
 	    <li class="fragment">We represent propositions by types.</li>
 	    <li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em>proof</em> of (or witness to) $A$.
 	    <li class="fragment">In particular, a proposition is <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
+	    <li class="fragment">Note that we must be able to form types representing propositions of interest in mathematics by the type formation rules.</li>
 	  </ul>
 	</section>
 
@@ -679,7 +680,7 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 	  <ul>
 	    <li class="fragment"> We <em>interpret</em>
 	      <ul>
-		<li class="fragment"> Types as spaces </li>
+		<li class="fragment"> Types as spaces. </li>
 		<li class="fragment"> Terms of a type as points of the space.</li>
 		<li class="fragment"> Functions $A \to B$ as continuous maps $A \to B$.
 		<li class="fragment"> For a type $A$ and terms $x, y: A$, the identity type $x = y$ as paths in $A$ from $x$ to $y$.</li> 
