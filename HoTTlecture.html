@@ -75,9 +75,10 @@
 	  <li class="fragment"> A formal language has
 	    <ul> 
 	      <li class="fragment"> A vocabulary,</li>
-	      <li class="fragment"> Grammar/syntax - rules for forming expressions from simpler ones (starting with the vocabulary).</li>
+	      <li class="fragment"> Grammar - rules for forming expressions from simpler ones (starting with the vocabulary).</li>
 	      <li class="fragment"> All well-formed expressions are well-defined.</li>
-	      <li class="fragment"> The rules for forming expressions depend only on the <em> type</em> of the sub-expressions.</li>
+	      <li class="fragment"> Rules are <em>purely syntactic</em>.</li>
+	      <li class="fragment"> The rules (for forming expressions) depend only on the <em> types</em> of the (sub)-expressions.</li>
 	      </ul>
 	  </ul>
 	</section>
@@ -164,11 +165,11 @@
 	<section>
 	  <h3> What's wrong? </h3>
 	  <ul>
-	    <li class="fragment"> Mathematics formalized in ZFC in predicate calculus, even with category theory, is
+	    <li class="fragment"> Mathematics formalized in ZFC in predicate calculus, even with category theory, is 
 	      <ul>
-		<li class="fragment"> very verbose,</li>
-		<li class="fragment"> highly opaque.</li>
-	      </ul>
+		<li>very verbose,</li>
+		<li> highly opaque.</li>
+		</ul>
 	      </li>
 	    <li class="fragment"> Formalization of mathematics that is much closer to actual mathematics will
 	      <ul>
@@ -178,6 +179,23 @@
 	      </ul>
 	      </li>
 	    </ul>
+	</section>
+
+
+	<section>
+<p>
+<q> &ldquo; The roadblock that prevented generations of interested mathematicians and computer scientists
+from solving the problem of computer verification of mathematical reasoning was the
+unpreparedness of foundations of mathematics for the requirements of this task.&rdquo;</q></p>
+<p>
+<q> &ldquo; Formulating mathematical reasoning in a language precise enough for a computer to follow
+meant using a foundational system of mathematics <span class="fragment highlight-blue"> not as a standard of consistency applied only
+to establish a few fundamental theorems, but as a tool that can be employed in everyday
+mathematical work.</span> &rdquo;</q></p>
+
+
+<div style="float:right"> Vladimir Voevodsky</div>
+
 	</section>
 
 </section>
@@ -326,7 +344,7 @@
 	    <q cite="https://en.wikipedia.org/wiki/First-class_citizen">In programming language design, a first-class citizen (also type, object, entity, or value) in a given programming language is an entity which supports all the operations generally available to other entities. These operations typically include being passed as an argument, returned from a function, and assigned to a variable.</q></p>
 	  </section>
 	<section>
-	  <h3> Rules: construction, equality, type, substitution</h3>
+	  <h3> Rules: construction, equality, type</h3>
 	  <ul>
 	    <li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context.</li>	    
 	    <li class="fragment"> As always, such rules depend on pre-existing terms only through their types.</li>
@@ -337,7 +355,6 @@
 	      </ul></li>
 	    <li class="fragment">  Note that terms can be equal without being so by definition. </li>
 	    <li class="fragment"> We will introduce a relation (type family) <em> propositional equality</em> extending definitional equality.</li>
-	    <li class="fragment"> We have rules giving the result of substituting a term $(a_1 : A)$ by a term $(a_2 : A)$ in a term $x$.</li>
 	    </ul>
 	</section>
 	
