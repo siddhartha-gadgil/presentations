@@ -1,0 +1,1 @@
+rsync -av /home/gadgil/public/presentations/ math.iisc.ernet.in:/home/gadgil/public_html/presentations/
