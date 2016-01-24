@@ -80,8 +80,8 @@
 	      <li class="fragment"> A vocabulary,</li>
 	      <li class="fragment"> Grammar - rules for forming expressions from simpler ones (starting with the vocabulary).</li>
 	      <li class="fragment"> All well-formed expressions are well-defined.</li>
-	      <li class="fragment"> Rules are <em>purely syntactic</em>.</li>
-	      <li class="fragment"> The rules (for forming expressions) depend only on the <em> types</em> of the (sub)-expressions.</li>
+	      <li class="fragment"> Rules are <em>purely syntactic</em>
+					<span class="fragment">, i.e., in terms of concatenating words, matching patterns (formed by concatenation), substituting words by other words etc. </span></li>
 	      </ul>
 	  </ul>
 	</section>
@@ -95,7 +95,7 @@
 	      <li class="fragment highlight-current-blue"> Constants.</li>
 	      <li class="fragment highlight-current-blue"> Functions $f$; a function $f$ has degree $n\in\mathbb{N}$.</li>
 	      <li class="fragment highlight-current-blue"> Predicates (relations) $p$ ; a relation has degree $n\in\mathbb{N}$.</li>
-	      <li class="fragment highlight-current-blue"> Special symbols $\implies$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
+	      <li class="fragment highlight-current-blue"> Special symbols $\Rightarrow$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
 	      </ul>
 	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
 	    <li class="fragment"> Terms and formulas may depend on values of some variables.</li>
@@ -142,7 +142,7 @@
 	    <li class="fragment"> The language of set theory has:
 	      <ul>
 		<li> a single constant $\phi$,</li>
-		<li> a single predicate $\in$ of degree $2$.</li>
+		<li> predicates $\in$ and $=$ of degree $2$.</li>
 	      </ul>
 	      </li>
 	    <li class="fragment"> The usual axioms are called ZFC (Zermelo-Fraenkel and the axiom of choice). </li>
@@ -232,10 +232,10 @@ mathematical work.</span> &rdquo;</q></p>
 	  <ul>
 	    <li class="fragment">In a type theory, every <em>term</em> has a <em> type </em>.</li>
 	    <li class="fragment">We denote the term $a$ having type $A$ by $a: A$.</li>
-	    <li class="fragment">We can form terms from simpler terms according to term formation rules.</li>
+	    <li class="fragment">We can form terms from simpler terms according to <strong>syntactic</strong> term formation rules.</li>
 	    <li class="fragment">Term formation rules depend only on the types of the simpler terms.</li>
 	    <li class="fragment">We have rules telling us the type of the newly formed term.</li>
-	    <li class="fragment">We have <em>type formation rules</em> allowing the formation of new types.</li>
+	    <li class="fragment">We have <strong>syntactic</strong> <em>type formation rules</em> allowing the formation of new types.</li>
 	    <li class="fragment">Terms include both the terms and formulas of first order logic.</li>
 	  </ul>
 	</section>
@@ -771,7 +771,7 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 	    <li class="fragment"> This allows us to transfer structure between equal objects, but depending on the choice of equality.</li>
 	    <li class="fragment"> If $x, y: A$, $p: x = y$ and $f: \prod_{a : A} P(a)$ then $f(y) = p_*(f(x))$.</li>
 	    <li class="fragment"> As a consequence of Voevodsky's univalence axiom, isomorphic types are equal, making the transfer very useful (but still consistent).</li>
-	    <li class="fragment"> As axiom here is a term of a specified type, which we introduce. This has  no given properties other than its type.</li>
+	    <li class="fragment"> An axiom here is a term of a specified type, which we introduce. This has  no given properties other than its type.</li>
 	  </section>
 
 	<section>
