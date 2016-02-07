@@ -629,7 +629,7 @@ half .(succ (succ n)) (+2even n pf) = succ(half n pf)
 	  <h3> A proof by induction </h3>
 <div class="fragment">
 <pre><code class="haskell">
-double : (n : ℕ) → ℕ
+double : ℕ → ℕ
 double 0 = 0
 double (succ n) = succ(succ(double(n)))
 
