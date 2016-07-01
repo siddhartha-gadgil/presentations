@@ -44,8 +44,10 @@
 <div class="slides">
 <section>
  	<section>
-	<h1> Homotopy Type Theory </h1>
-	 <h3>Siddhartha Gadgil</h3>
+	<h2> Automated Theorem Proving: </h2>
+	<h3> HoTT Foundations,</h3>
+	<h3> Learning </h3>
+	<h2>Siddhartha Gadgil</h2>
 	 <p>Department of Mathematics</p>
 	 <p>Indian Institute of Science</p>
 	 <p>Bangalore</p>
@@ -59,340 +61,40 @@
 
 <section>
 	<section>
-		<h3>Foundations of Mathematics</h3>
-		 <p>Words and Rules</p>
-		 <p>Sets and Predicate Calculus</p>
-		 <p>Why we need new foundations</p>
+		<h3>Automated Theorem Proving</h3>
 	</section>
-	<section>
-	  <h3> Formal languages </h3>
-	  <ul>
-	  <li> Consider the following statements
-	    <ol>
-	      <li> $\forall (n \in \mathbb{N})\ n < n + 1$ <strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; -- true</strong></li>
-		<li> $\exists (n \in \mathbb{N})\ n = n + 1 $<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; -- false</strong></li>
-		<li> $\exists (n \in \mathbb{N})\ n = + + \forall m  $<strong class="fragment"> &nbsp;  -- not well-formed</strong></li>
-		<li> $\left\vert\sqrt{-1} + \sqrt[3]{1}\right\vert <1$<strong class="fragment"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- not well-defined</strong></li>
-	    </ol>
-	    </li>
-	  <li class="fragment"> A formal language has
-	    <ul>
-	      <li class="fragment"> A vocabulary,</li>
-	      <li class="fragment"> Grammar - rules for forming expressions from simpler ones (starting with the vocabulary).</li>
-	      <li class="fragment"> All well-formed expressions are well-defined.</li>
-	      <li class="fragment"> Rules are <em>purely syntactic</em>
-					<span class="fragment">, i.e., in terms of concatenating words, matching patterns (formed by concatenation), substituting words by other words etc. </span></li>
-	      </ul>
-	  </ul>
-	</section>
-
-	<section>
-	  <h3> First-order languages</h3>
-	  <ul>
-	  <li class="fragment"> A first-order language has vocabulary consisting of
-	    <ul>
-	      <li class="fragment highlight-current-blue"> Variables - can be taken to be a fixed countable set.</li>
-	      <li class="fragment highlight-current-blue"> Constants.</li>
-	      <li class="fragment highlight-current-blue"> Functions $f$; a function $f$ has degree $n\in\mathbb{N}$.</li>
-	      <li class="fragment highlight-current-blue"> Predicates (relations) $p$ ; a relation has degree $n\in\mathbb{N}$.</li>
-	      <li class="fragment highlight-current-blue"> Special symbols $\Rightarrow$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
-	      </ul>
-	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
-	    <li class="fragment"> Terms and formulas may depend on values of some variables.</li>
-	    <li class="fragment"> Terms represent objects in the <em> Universe</em>. </li>
-	    <li class="fragment"> Formulas are either <em>true</em> or <em>false</em>. </li>
-	    </ul>
-	</section>
-
-	<section>
-	  <h3> Terms and Formulas</h3>
-	    <ul>
-	      <li class="fragment"> Terms are expressions of the forms:
-		<ul>
-		  <li  class="fragment highlight-current-blue"> A variable $x$.</li>
-		  <li class="fragment highlight-current-blue"> A constant $c$.</li>
-		  <li class="fragment highlight-current-blue"> $f(t_1, t_2, \dots, t_n)$ with $f$ a function of degree $n$ and $t_1$, $t_2$, ..., $t_n$ terms.</li>
-		  </li>
-		</ul>
-	      <li class="fragment"> Formulas are expressions of the form
-		<ul>
-		  <li class="fragment highlight-current-blue"> $p(t_1, t_2, \dots, t_n)$ with $p$ a predicate of degree $n$ and $t_1$, $t_2$, ..., $t_n$ terms.</li>
-		  <li class="fragment highlight-current-blue"> $P \Rightarrow Q$, $\neg P$, $P\wedge Q$ etc. for formulas $P$ and $Q$.</li>
-		  <li class="fragment highlight-current-blue"> $\forall x\ P$ and $\exists x\ P$ for a variable $x$ and a formula $P$.</li>
-		</ul>
-	      </li>
-	    </ul>
-	    </section>
-
-	<section>
-	  <h3> Deduction and theories </h3>
-	  <ul>
-	    <li class="fragment"> We can deduce formulas from other formulas using the rules of deduction. </li>
-	    <li class="fragment"> The main deduction rule is <em> Modus Ponens</em> : given $P$ and $P\Rightarrow Q$ we deduce $Q$.</li>
-	    <li class="fragment"> A <em> theory</em> is a language together with a collection of statements, called <em> axioms</em> in the language.</li>
-	    <li class="fragment"> A statement is <em> deducible</em> in a theory if it can be obtained from the axioms by the rules of deduction.</li>
-	    <li class="fragment"> A theory is <em> consistent </em> if, for a formula $P$, we cannot deduce both $P$ and $\neg P$.</li>
-	    <li class="fragment"> G&ouml;del's <strong>completeness theorem</strong> says that deducible statements in a theory are exactly the <em> true</em> statements, in terms of models of the theory. </li>
-	  </ul>
-	</section>
-
-	<section>
-	  <h3> Set theory </h3>
-	  <ul>
-	    <li class="fragment"> The language of set theory has:
-	      <ul>
-		<li> a single constant $\phi$,</li>
-		<li> predicates $\in$ and $=$ of degree $2$.</li>
-	      </ul>
-	      </li>
-	    <li class="fragment"> The usual axioms are called ZFC (Zermelo-Fraenkel and the axiom of choice). </li>
-	    <li class="fragment"> By G&#246;del's incompleteness theorem, we cannot prove that Set Theory is consistent.</li>
-	    <li class="fragment"> However, as G&#246;del's incompleteness theorem applies to any formal system rich enough for usual mathematics, this is not a reason for avoiding any specific formal system.</li>
-	  </ul>
-	  </section>
-
-	<section>
-	  <p>
-	    &ldquo; Since the first half of the 20th century mathematics has been presented as a science based on
-	    ZFC and ZFC was introduced as a particular theory in Predicate Logic.
-	  </p>
-	  <p>
-	    &ldquo; Therefore someone who wanted to get to the bottom of things in mathematics had a simple
-	    road to follow - learn what Predicate Logic is, then learn a particular theory called ZFC, then
-	    learn how to translate propositions about a few basic mathematical concepts into formulas of
-	    ZFC, and then <span class="fragment highlight-red"> learn to believe, through examples, that the rest of mathematics can be reduced
-	    to these few basic concepts</span>.&rdquo;</p>
-<div style="text-align:right">Vladimir Voevodsky</div>
-	  </section>
-
-		<section>
-<embed src="./Mochizuki.pdf" type="application/pdf" width="1000" height="650"> </embed>
-
-		</section>
-
-		<section>
-<embed src="Sela.pdf" type="application/pdf" width="100%" height="650"> </embed>
-
-		</section>
-
-		<section>
-<embed src="Verjovsky.pdf" type="application/pdf" width="100%" height="650"> </embed>
-
-		</section>
-
-	<section>
-	  <h3> Why new foundations? </h3>
-	  <ul>
-	    <li class="fragment"> Mathematics formalized in ZFC in predicate calculus, even with category theory, is
-	      <ul>
-		<li>very verbose,</li>
-		<li> highly opaque.</li>
-		</ul>
-	      </li>
-	    <li class="fragment"> Formalization of mathematics that is much closer to actual mathematics will
-	      <ul>
-		<li class="fragment"> reduce wrong mathematics in the literature.</li>
-		<li class="fragment"> help computer assisted mathematics.</li>
-		<li class="fragment"> facilitate semantic tools for doing mathematics.</li>
-		<li class="fragment"> the body of mathematical knowledge will become mostly mathematics, not meta-mathematics.</p>
-	      </ul>
-	      </li>
-	    </ul>
-	</section>
-
-
-	<section>
-<p>
-<q> &ldquo; The roadblock that prevented generations of interested mathematicians and computer scientists
-from solving the problem of computer verification of mathematical reasoning was the
-unpreparedness of foundations of mathematics for the requirements of this task.&rdquo;</q></p>
-<p>
-<q> &ldquo; Formulating mathematical reasoning in a language <span style="color:green">precise enough for a computer to follow</span>
-meant using a foundational system of mathematics <span class="fragment highlight-blue"> not as a standard of consistency applied only
-to establish a few fundamental theorems, but as a tool that can be employed in everyday
-mathematical work.</span> &rdquo;</q></p>
-
-
-<div style="float:right"> Vladimir Voevodsky</div>
-
-	</section>
-
 </section>
 
-<section>
-	<section>
-		<h3>Type theories</h3>
-		 <p>Syntax with types</p>
-		 <p>Types for sets</p>
-		 <p> Propositions as Types</p>
-	</section>
-
- 	<section>
-	  <h3>Terms and Types</h3>
-	  <ul>
-	    <li class="fragment">In a type theory, every <em>term</em> has a <em> type </em>.</li>
-	    <li class="fragment">We denote the term $a$ having type $A$ by $a: A$.</li>
-	    <li class="fragment">We can form terms from simpler terms according to <strong>syntactic</strong> term formation rules.</li>
-	    <li class="fragment">Term formation rules depend only on the types of the simpler terms.</li>
-	    <li class="fragment">We have rules telling us the type of the newly formed term.</li>
-	    <li class="fragment">We have <strong>syntactic</strong> <em>type formation rules</em> allowing the formation of new types.</li>
-	    <li class="fragment">Terms include both the terms and formulas of first order logic.</li>
-	  </ul>
-	</section>
-
- 	<section>
-	  <h3>Types as Sets</h3>
-	  <ul>
-	    <li class="fragment">In type theory, types replace sets, with $a : A$ replacing $a \in A$.</li>
-			<li class="fragment">However, while sets can be constructed using axioms, types can be constructed only using the (syntactic) type forming rules.</li>
-	    <li class="fragment">Nevertheless, type forming rules are sufficiently rich to construct all sets normally encountered in mathematics.</li>
-	  </ul>
-	</section>
-
-
- 	<section>
-	  <h3>Function types and functions</h3>
-	  <ul>
-	    <li class="fragment">Given types $A$ and $B$, we can form the type $A \to B$ of functions from $A$ to $B$.</li>
-	    <li class="fragment">Given $f : A \to B$, and $a : A$, we can form the term $f(a) : B$.</li>
-	    <li class="fragment">We also need rules for forming functions (i.e., terms whose type is a function type).</li>
-	  </ul>
-	</section>
-
- 	<section>
-	  <h3>More Types and Terms</h3>
-	  <ul>
-	    <li class="fragment">As a consequence of the type and term forming rules of any type theory we consider, we can form some useful types and terms.</li>
-	    <li class="fragment">For types $A$, $B$, we can form the product type $A\times B$.</li>
-	    <li class="fragment">Given terms $a : A$ and $b : B$, we can form the pair term $(a, b) : A \times B$.</li>
-	    <li class="fragment">For types $A$, $B$, we can form the coproduct (disjoint union) type $A\oplus B$, and two inclusion functions $i : A \to A \oplus B$, $j : B \to A \oplus B$ (which can  be applied). </li>
-	    <li class="fragment">We have a type $\mathbb{0}$, so that we never have $a : \mathbb{0}$.</li>
-	    <li class="fragment">We have a type $\mathbb{1}$, and a unique term $*$ with $* : \mathbb{1}$.</li>
-	  </ul>
-	</section>
-
- 	<section>
-	  <h3>Dependent type theories</h3>
-	  <ul>
-	    <li class="fragment">In dependent type theories, types are also terms.</li>
-	    <li class="fragment">The type of a type is a <em>universe</em>.</li>
-	    <li class="fragment">A universe $\mathfrak{U}$ is a type so that if $A : \mathfrak{U}$, $A$ is a type.</li>
-	    <li class="fragment">A <em> dependent type</em> is a type (family) that depends on terms $a : A$ of some given type $A$ (more generally several terms).</li>
-	    <li class="fragment">Equivalently, a <em>type family</em> is a function (or iterated function) with codomain a universe.</li>
-	    <li class="fragment">Type families are analogous to fiber bundles.</li>
-	  </ul>
-	</section>
-
- 	<section>
-	  <h3>$\prod$-types and $\sum$-types</h3>
-	  <p style="text-align:left"> Fix a type family $B : A \to \mathfrak{U}$.</p>
-	  <ul>
-	    <li class="fragment">We can form the type $\prod_{a : A} B(a)$ of <em>dependent functions</em>, i.e., <em> sections </em> of the bundle $B$.</li>
-			<li class="fragment"> Dependent functions $f$ generalizes a function $f : A \to B$, with $f(a)$ specified to be in a codomain $B(a)$ depending on $a : A$.
-	    <li class="fragment">If $f : \prod_{a : A} B(a)$ and $a : A$, we can form the term $f(a)$ of type $B(a)$.</li>
-	    <li class="fragment">We can form the type $\sum_{a : A} B(a)$ of <em>dependent pairs</em>, i.e., the <em> total space</em> of the bundle $B$.</li>
-	    <li class="fragment">For $a : A$ and $b : B(a)$, we can form the dependent pair $(a, b) : \sum_{a : A} B(a)$.</li>
-	  </ul>
-	</section>
-
- 	<section>
-	  <h3>Propositions as types</h3>
-	  <ul>
-	    <li class="fragment">A type $A$ is <em>inhabited</em> if there is a term $a$ with $a : A$.</li>
-	    <li class="fragment">By <em> propostion</em> we mean a logical statement that must be true or false.</li>
-	    <li class="fragment">We represent propositions by types.</li>
-	    <li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em>proof</em> of (or witness to) $A$.
-	    <li class="fragment">In particular, a proposition is <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
-	    <li class="fragment">Note that we must be able to form types representing propositions of interest in mathematics by the type formation rules.</li>
-	  </ul>
-	</section>
-
- 	<section>
-	  <h3>Combining propositions</h3>
-	  <p class="fragment"> Let $A$ and $B$ be types, regarded as representing propositions.</p>
-	  <ul>
-	    <li class="fragment"> The proposition $A \Rightarrow B$ is represented by $A \to B$.</li>
-	    <li class="fragment"> The propostion $A\wedge B$ is represented by $A \times B$.</li>
-	    <li class="fragment"> The proposition $A \vee B$ is represented by $A \oplus B$.</li>
-	    <li class="fragment"> The proposition $\neg A$ is represented by $A \to \mathbb{0}$.</li>
-	  </ul>
-	</section>
-
- 	<section>
-	  <h3>Quantifying propositions</h3>
-	  <ul>
-	    <li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family $P : A \to \mathfrak{U}$. </li>
-	    <li class="fragment">The proposition $\forall x\ P(x)$ is represented by $\prod_{x: A} P(x)$.</li>
-	    <li class="fragment">The proposition $\exists x\ P(x)$ is represented by $\sum_{x : A} P(x)$.</li>
-	  </ul>
-	</section>
-
- 	<section>
-	  <h3>Inductive types and type families</h3>
-	  <ul>
-	    <li class="fragment">While we can build types from other types, the above rules do not let us construct types such as $\mathbb{N}$.</li>
-	    <li class="fragment">This is achieved using rules to form <em> inductive types</em> and <em>inductive type families</em>.</li>
-	    <li class="fragment">Remarkably, we can also form type families corresponding to predicates (i.e., propositions) such as $\leq$ and $=$ as inductive type families.</li>
-	  </ul>
-	</section>
-
-
-</section>
 
 <section>
 	<section>
 		<h3> (Homotopy) Type theory</h3>
-		 <p>Terms, Types, Rules</p>
-		 <p>Inductive types</p>
-		 <p>Propositions as types</p>
-		 <p>Proofs by inductions</p>
+			<p> Type theoretic Foundations</p>
+		 	<p>Terms, Types, Rules</p>
+		 	<p>Inductive types</p>
+		 	<p> Dependent Types</p>
+		 	<p>Propositions as types</p>
 	</section>
 	<section>
-	  <h3> Terms, Types, Universes </h3>
+	  <h3> Terms, Types, Rules </h3>
 	  <ul>
-	  <li class="fragment"> <em>Terms </em>, i.e., (first class) mathematical objects, include not just numbers, functions, spaces but also theorems, proofs and definitions.</li>
+	  <li class="fragment"> Mathematical objects are called <em>Terms. </em> </li>
 	  <div class="fragment"><li> Every term has a <em> type </em>, generally unique.</li>
 	    <li> We write $a : A$ to denote the term $a$ having type $A$.
 	      </div>
 	  <div class="fragment">
 	    <li> Types are also terms, whose types are <em> universes</em>.
-	      <li> A universe is a type whose members are types.</li>
-	      </div>
-	  </ul>
-	  <p class="fragment">
-	    <q cite="https://en.wikipedia.org/wiki/First-class_citizen">In programming language design, a first-class citizen (also type, object, entity, or value) in a given programming language is an entity which supports all the operations generally available to other entities. These operations typically include being passed as an argument, returned from a function, and assigned to a variable.</q></p>
-	  </section>
-	<section>
-	  <h3> Rules: construction, equality, type</h3>
-	  <ul>
-	    <li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context.</li>
-	    <li class="fragment"> As always, such rules depend on pre-existing terms only through their types.</li>
+	    </div>
+			<li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context.</li>
 	    <li class="fragment"> Rules also let us make two kinds of <strong>judgements</strong>:
 	      <ul>
 		<li> that a term $a$  is of type $A$. </li>
 		<li> that two terms are equal <em> by definition </em>.
 	      </ul></li>
 	    <li class="fragment">  Note that terms can be equal without being so by definition. </li>
-	    <li class="fragment"> We will introduce a relation (type family) <em> propositional equality</em> extending definitional equality.</li>
-	    </ul>
-	</section>
-
-	<section>
-	  <h3> A finite type : Booleans</h3>
-	  <ul>
-	    <li class="fragment"> We can introduce a finite type together with its elements.</li>
-	    <li class="fragment"> For instance, we can introduce the <em>Boolean</em> type with two members, <em> true</em> and <em> false</em>.</li>
-	    <div class="fragment">
-	      <li> In terms of code in the language/proof-assistant <em> Agda</em>,</li>
-<pre><code class="haskell">
-data Bool : Type where
-  true : Bool
-  false : Bool
-
-</code></pre>
-</div>
-	    <li class="fragment"> Note that we do not have rules saying (directly) that each element of $Bool$ is one of $true$ and $false$, or that $true\neq false.$</li>
-	</section>
+	    <li class="fragment"> There is a relation (type family) <em> propositional equality</em> extending definitional equality.</li>
+	  </ul>
+	  </section>
 
 	<section>
 	  <h3> Function types, functions and applications </h3>
@@ -401,68 +103,30 @@ data Bool : Type where
 	    <li class="fragment"> Given $f: A \to B$ and $a : A$, we get a term $f(a) : B$.</li>
 	    <div class="fragment">
 	      <li> We can construct a function $f: A \to B$ by giving an expression of type $B$ in terms of a variable $a : A$ and other terms in the context.</li>
-<pre><code class="haskell">
-idBool : Bool → Bool -- lambda
-idBool x = x
-
-alwaysTrue : Bool → Bool
-alwaysTrue x = true
-</code></pre>
 </div>
-	    <li class="fragment"> For specific domains $A$, we have additional rules for constructing functions.</li>
+	    <li class="fragment"> We can also define functions <em> recursively</em> on <em> inductive types </em>.</li>
 	    </ul>
 	</section>
 
-	<section>
-	  <h3> Definition by cases </h3>
-	  <ul>
-	  <li class="fragment"> If the type $A$ is a finite type, we can define a function by enumerating over all members.</li>
-<div class="fragment">
-<pre><code class="haskell">
-not : Bool → Bool -- case defn
-not true = false
-not false = true
-
-notnot : Bool → Bool -- lambda
-notnot x = not(not(x))
-</code></pre>
-</div>
-	  <li class="fragment"> Implicit in being able to make such definitions are statements saying that $true$ and $false$ are distinct and the only members of $Bool$.
-	  <li class="fragment"> This is a special instance of <em>recursive</em> definitions.</li>
-	  <li class="fragment"> Formally, in homotopy type theory we have rules for introducing a <em> recursion </em> function, which is applied to the definition data to give recursive defintions.
-	    </li>
-	  </ul>
-	</section>
-	<section>
-	  <h3> Currying functions of several variables</h3>
-	  <ul>
-	    <li class="fragment"> We do not need additional types for functions of more than one variable.</li>
-	    <li class="fragment"> Instead we <em> Curry </em> such a function $(A, B) \to C$, giving an <em> iterated function </em> of type $A \to B \to C := A \to (B \to C)$.</li>
-	    <li class="fragment"> Namely, we associate to $g(x, y)$ the function $$x \mapsto (y \mapsto g(x, y)).$$</li>
-<div class="fragment">
-<pre><code class="haskell">
-_&_ : Bool → Bool → Bool --curried function
-true & x = x
-false & _ = false
-
-</code></pre>
-</ul>
-	</section>
 
 	<section>
 	  <h3> Natural numbers : an inductive type</h3>
 	  <ul>
-	    <li class="fragment"> Though natural numbers are not finite, they are freely generated by a finite number of constructors.</li>
+	    <li class="fragment"> The natural numbers $\mathbb{N}$ are an <em> inductive type</em> freely generated by the constructors $0$ and $succ$.</li>
 <div class="fragment">
 <pre><code class="haskell">
-data ℕ : Type where -- infinite type
+data ℕ : Type where
   zero : ℕ
   succ : ℕ → ℕ
 
 </code></pre>
+<pre class="fragment"><code class="scala">
+sealed class Nat
+case object zero extends Nat
+case class succ(n: Nat) extends Nat
+</code></pre>
 </div>
-	    <li class="fragment">Such a type is called the inductive type freely generated by the given constructors.</li>
-	    <li class="fragment"> Rules giving the allowed types of the constructors are a little subtle.</li>
+
 	    </ul>
 	  </section>
 
@@ -470,20 +134,22 @@ data ℕ : Type where -- infinite type
 	  <h3> Recursive definitions </h3>
 	  <ul>
 	    <li class="fragment"> We can define functions recursively on inductive types, by specifying in all cases.</li>
-	    <li class="fragment"> Formally, we can introduce recursion functions and apply them to the definition data. </li>
-	    </ul>
-<div class="fragment">
-<pre><code class="haskell">
-even : ℕ → Bool -- recursive definition
-even zero = true
-even (succ x) = not (even x)
 
+<div>
+<pre class="fragment"><code class="haskell">
 _+_ : ℕ → ℕ → ℕ
 zero + y = y
 (succ x) + y = succ (x + y)
-
+	</code></pre>
+<pre class="fragment"><code class="scala">
+val sum: Nat => Nat => Nat = {
+	  case zero => (m: Nat) => m
+	  case succ(n) => (m: Nat) => succ(sum(n)(m))
+	}
 </code></pre>
 </div>
+<li class="fragment"> Formally, we can introduce recursion functions and apply them to the definition data. </li>
+</ul>
 	</section>
 
 	<section>
@@ -815,6 +481,15 @@ _&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
 	<section>
 	  <h3> Synthetic homotopy theory </h3>
 	  <p style="text-align:left"> In the other direction, by axiomatizing type theoretic principles, we can develop <em>synthetic homotopy theory</em>, where the primitive concepts are spaces, points, maps, paths etc. but without requiring sets or topologies on them.</p>
+	</section>
+
+
+</section>
+
+<section>
+	<section>
+		<h3> Proving-Ground: Theorem proving by Learning</h3>
+	</section>
 </section>
 
 
