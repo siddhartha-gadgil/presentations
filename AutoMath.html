@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Homotopy Type theory</title>
+		<title>Automated theorem proving: HoTT foundations and Learning</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -53,22 +53,56 @@
 	 <p>Bangalore</p>
 	 <p><a href="https://github.com/siddhartha-gadgil/ProvingGround" target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
 	 </section>
-	<section>
-	  <img src="hott-cover-web.png" height="600" />
-	  </section>
 
 </section>
 
 <section>
 	<section>
-		<h3>Automated Theorem Proving</h3>
+		<h3>Theorem Proving:</h3>
+		<h3> Enumeration, Computation, Deduction </h3>
+		<p>Goals</p>
+		<p>Computer-Assisted proof components</p>
+		<p>Automated Deduction</p>
+		<p> Limits of Set theory + First-order Logic</p>
 	</section>
+	<section>
+		<h3> Goals </h3>
+		<ul>
+			<li><b> Goal:</b> Use computers to grately increase our ability to discover and prove
+				mathematical results across areas of mathematics which are of intrinsic mathematical value.</li>
+			<li class="fragment"> Why? </li>
+			<li class="fragment"> How? </li>
+		</section>
+	<section>
+		<h3> Computer-Assisted proof components? </h3>
+
+	</section>
+	<section>
+		<h3> Universal deducer? </h3>
+	</section>
+
+	<section>
+		<h3> Resolution theorem proving </h3>
+	</section>
+
+	<section>
+		<h3> Machine learning for first-order logic deducers</h3>
+	</section>
+
+	<section>
+		<h3> Real-life mathematics</h3>
+	</section>
+
+	<section>
+		<h3> Problems with FOL+Sets </h3>
+	</section>
+
 </section>
 
 
 <section>
 	<section>
-		<h3> (Homotopy) Type theory</h3>
+		<h3> Martin-L&Oumlf Type theory</h3>
 			<p> Type theoretic Foundations</p>
 		 	<p>Terms, Types, Rules</p>
 		 	<p>Inductive types</p>
@@ -76,21 +110,35 @@
 		 	<p>Propositions as types</p>
 	</section>
 	<section>
+		<h3> Type theoretic foundations</h3>
+		<ul>
+			<li class="fragment"> Mathematical objects, called <em> terms</em> have <em> types </em>. </li>
+			<li class="fragment"> A term $a$ having a type $A$, denoted $a : A$, is analogous to
+				an element $a$ belonging to a set $A$, i.e., $a \in A$.</li>
+			<li class="fragment"> However the rules for forming terms and types, and for determining
+				whether a term has a type, are purely <em> syntactic. </em></li>
+			<li class="fragment"> Nevertheless, the rules for forming types are rich enough that types can play the role of sets
+				<span class="fragment"> - for instance, prime numbers form a type.</span>
+			 </li>
+			<li class="fragment"> Even more remarkably, propositions and proofs can be expressed in terms of types and terms.
+			</li>
+		</ul>
+	</section>
+
+	<section>
 	  <h3> Terms, Types, Rules </h3>
 	  <ul>
 	  <li class="fragment"> Mathematical objects are called <em>Terms. </em> </li>
-	  <div class="fragment"><li> Every term has a <em> type </em>, generally unique.</li>
-	    <li> We write $a : A$ to denote the term $a$ having type $A$.
-	      </div>
-	  <div class="fragment">
-	    <li> Types are also terms, whose types are <em> universes</em>.
-	    </div>
-			<li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context.</li>
-	    <li class="fragment"> Rules also let us make two kinds of <strong>judgements</strong>:
-	      <ul>
-		<li> that a term $a$  is of type $A$. </li>
-		<li> that two terms are equal <em> by definition </em>.
-	      </ul></li>
+	  <li  class="fragment"> Every term has a <em> type </em>, generally unique.</li>
+	  <li class="fragment"> Types are also terms, whose types are <em> universes</em>.</li>
+		<li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context.</li>
+		<li class="fragment"> Rules also let us make two kinds of <strong>judgements</strong>:
+	  	<ul>
+				<li> that a term $a$  is of type $A$. </li>
+				<li> that two terms are equal <em> by definition </em>.
+				</ul>
+			</li>
+			<li class="fragment"> All the rules are syntactic.</em>
 	    <li class="fragment">  Note that terms can be equal without being so by definition. </li>
 	    <li class="fragment"> There is a relation (type family) <em> propositional equality</em> extending definitional equality.</li>
 	  </ul>
@@ -102,7 +150,8 @@
 	    <li class="fragment"> Given types $A$ and $B$, we can introduce the function type $A \to B$, whose members are functions.</li>
 	    <li class="fragment"> Given $f: A \to B$ and $a : A$, we get a term $f(a) : B$.</li>
 	    <div class="fragment">
-	      <li> We can construct a function $f: A \to B$ by giving an expression of type $B$ in terms of a variable $a : A$ and other terms in the context.</li>
+	      <li> We can construct a function $f: A \to B$ by giving an expression $b$ of type $B$
+					in terms of a variable $a : A$ and other terms in the context, i.e., $f : a \mapsto b$.</li>
 </div>
 	    <li class="fragment"> We can also define functions <em> recursively</em> on <em> inductive types </em>.</li>
 	    </ul>
@@ -110,23 +159,25 @@
 
 
 	<section>
-	  <h3> Natural numbers : an inductive type</h3>
+	  <h3>  Inductive types</h3>
 	  <ul>
-	    <li class="fragment"> The natural numbers $\mathbb{N}$ are an <em> inductive type</em> freely generated by the constructors $0$ and $succ$.</li>
-<div class="fragment">
-<pre><code class="haskell">
+			<li class="fragment"> An inductive type $T$
+				 is defined by specifying terms (usually functions)
+				that construct members of $T$. </li>
+
+<pre class="fragment"><code class="haskell">
 data ℕ : Type where
   zero : ℕ
   succ : ℕ → ℕ
-
 </code></pre>
 <pre class="fragment"><code class="scala">
 sealed class Nat
 case object zero extends Nat
 case class succ(n: Nat) extends Nat
 </code></pre>
-</div>
-
+	<li class="fragment"> Formally, we are introducing into the context the type $\mathbb{N}$ and two terms $0$ and $succ$.</li>
+	<li class="fragment"> The type is <em> freely generated</em> by its constructors, allowing recursive
+		and inductive definitions.</li>
 	    </ul>
 	  </section>
 
@@ -152,20 +203,6 @@ val sum: Nat => Nat => Nat = {
 </ul>
 	</section>
 
-	<section>
-	  <h3> Lists : Another Inductive type </h3>
-<div class="fragment">
-<pre><code class="haskell">
-data ℕList : Type where --list type
-  [] : ℕList -- empty list
-  _::_ : ℕ → ℕList → ℕList -- add number to head of list
-
-mylist : ℕList
-mylist = 3 :: (4 :: (2 :: [])) -- the list [3, 4, 2]
-
-</code></pre>
-</div>
-	</section>
 
 	<section>
 	  <h3> Dependent functions and type families </h3>
@@ -178,7 +215,6 @@ mylist = 3 :: (4 :: (2 :: [])) -- the list [3, 4, 2]
 		<li class="fragment"> When we apply $f : \prod_{a : A} B(a)$ to $a : A$, we obtain $f(a) : B(a)$.</li>
 		</ul>
 	      </li>
-	  <li class="fragment"> Dependent functions are just sections of bundles. </li>
 	  <li class="fragment"> Constructions of dependent functions are analogous to those of functions.</li>
 	  </ul>
 	  </section>
@@ -190,15 +226,15 @@ mylist = 3 :: (4 :: (2 :: [])) -- the list [3, 4, 2]
 	    <li class="fragment"> This is an inductive type family with two constructors.</li>
 <div class="fragment">
 <pre><code class="haskell">
-data Vector : ℕ → Type where -- inductive type family
-  [] : Vector 0
-  _::_ : {n : ℕ} → ℕ → Vector n → Vector (succ n)
+data Vector (A : Type) : ℕ → Type where -- inductive type family
+  [] : Vector A 0
+  _::_ : {n : ℕ} → A → Vector n → Vector (succ n)
 </code></pre>
 </div>
 	    <li class="fragment"> We can define dependent functions to this type family <em>inductively</em>.</li>
 <div class="fragment">
 <pre><code class="haskell">
-countdown : (n : ℕ) → Vector n -- dependent function
+countdown : (n : ℕ) → Vector ℕ n -- dependent function
 countdown 0 = []
 countdown (succ n) = (succ n) :: (countdown n)
 </code></pre>
@@ -214,129 +250,73 @@ countdown (succ n) = (succ n) :: (countdown n)
 	    <li class="fragment"> However, we must define these simultaneously on all types in the inductive type family.</li>
 <div class="fragment">
 <pre><code class="haskell">
-sum : {n : ℕ} → Vector n → ℕ
+sum : {n : ℕ} → Vector ℕ n → ℕ
 sum [] = 0
 sum (x :: l) = x + sum l
-
-</code></pre>
-</div>
-	    <li class="fragment"> Using our foundations, we can also make some practical calculations.</li>
-<div class="fragment">
-<pre><code class="haskell">
-sumToN : ℕ → ℕ -- calculation
-sumToN n = sum(countdown n)
-
-</code></pre>
-</div>
-
-	  </ul>
-	  </section>
-
-	<section>
-	  <h3> Propositions from inductive types </h3>
-	  <ul>
-	    <li class="fragment"> We view propositions as types, with members of the type witnesses (or proofs).</li>
-	    <li class="fragment"> Basic propositions can be constructed as inductive types.</li>
-<div class="fragment">
-<pre><code class="haskell">
-data isEven : ℕ → Type where
-  0even : isEven 0
-  +2even : (n : ℕ) → isEven n → isEven (succ(succ(n)))
-</code></pre>
-</div>
-
-	    <li class="fragment"> We can prove results using our methods of construction.</li>
-<div class="fragment">
-<pre><code class="haskell">
-4even : isEven 4
-4even = +2even _ (+2even _ 0even)
-</code></pre>
-</div>
-	    </ul>
-	  </section>
-
-	<section>
-	  <ul>
-	    <li class="fragment"> For propositions $A$ and $B$ viewed as types, $A \Rightarrow B$ corresponds to $A \to B$.</li>
-	    <li class="fragment"> A contradiction corresponds to the type $\mathbb{0}$ (also called $False$) which has no elements.</li>
-	    <li class="fragment"> We prove contradictions by inductive definitions which we can see have no cases.</li>
-<div class="fragment">
-<pre><code class="haskell">
-data False : Type where
-
-1odd : isEven 1 → False
-1odd ()
-
-3odd : isEven 3 → False
-3odd (+2even .1 ())
-
 </code></pre>
 </div>
 	  </ul>
 	  </section>
 
-	<section>
-	  <h3> Functions with conditions </h3>
-	  <ul>
-	    <li class="fragment"> In mathematics (and software), we often define functions subject to the argument satisfying some condition.</li>
-	    <li class="fragment"> This can be done very elegantly with propositions as types.</li>
-<div class="fragment">
-<pre><code class="haskell">
-half : (n : ℕ) → isEven n → ℕ
-half .0 0even = 0
-half .(succ (succ n)) (+2even n pf) = succ(half n pf)
+		<section>
+			<h3> Some useful Inductive types</h3>
+			<ul>
+				<li>
+			We can inductively define the types $\mathbb{0}$, $\mathbb{1}$, $A \times B$, $A \oplus B$.</li>
+			<li> For a type family $B: A \to \mathcal{U}$, the <em>dependent pair</em> type $\Sigma$
+				has terms pairs $(a, b)$ with $b : B(a)$</li>
+	<div class="fragment">
+	<pre><code class="haskell">
+	data True : Type where
+		qed : True
 
-</code></pre>
-</div>
-	  </ul>
-	</section>
+	data False : Type where
 
-	<section>
-	  <h3> A proof by induction </h3>
-<div class="fragment">
-<pre><code class="haskell">
-double : ℕ → ℕ
-double 0 = 0
-double (succ n) = succ(succ(double(n)))
+	data _×_  (A B : Type) : Type where
+		_,_ : A → B → A × B
 
-thm : (n  : ℕ) → isEven (double n)
-thm zero = 0even
-thm (succ n) = +2even _ (thm n)
+	data _⊕_  (A B : Type) : Type where
+		ι₁ : A → A ⊕ B
+		ι₂ : B → A ⊕ B
 
-</code></pre>
-</div>
+	data Σ (A : Type) (B : A → Type) : Type where
+		_,_ : (a : A) → (B a) → Σ A B
+	</code></pre>
+	</div>
+		</section>
 
-<div class="fragment">
-<pre><code class="haskell">
-halfOfDouble : ℕ → ℕ
-halfOfDouble n = half (double n) (thm n)
 
-</code></pre>
-</div>
-	</section>
+		<section>
+			<h3>Propositions as types</h3>
+			<ul>
+				<li class="fragment">A type $A$ is <em>inhabited</em> if there is a term $a$ with $a : A$.</li>
+				<li class="fragment">By <em> propostion</em> we mean a logical statement that must be true or false.</li>
+				<li class="fragment">We represent propositions by types.</li>
+				<li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em>proof</em> of (or witness to) $A$.
+				<li class="fragment">In particular, a proposition is <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
+				<li class="fragment">Note that we must be able to form types representing propositions of interest in mathematics by the type formation rules.</li>
+			</ul>
+		</section>
 
-	<section>
-	  <h3> Some More types</h3>
-<div class="fragment">
-<pre><code class="haskell">
-data True : Type where
-  qed : True
+		<section>
+			<h3>Combining propositions</h3>
+			<p class="fragment"> Let $A$ and $B$ be types, regarded as representing propositions.</p>
+			<ul>
+				<li class="fragment"> The proposition $A \Rightarrow B$ is represented by $A \to B$.</li>
+				<li class="fragment"> The propostion $A\wedge B$ is represented by $A \times B$.</li>
+				<li class="fragment"> The proposition $A \vee B$ is represented by $A \oplus B$.</li>
+				<li class="fragment"> The proposition $\neg A$ is represented by $A \to \mathbb{0}$.</li>
+			</ul>
+		</section>
 
-data False : Type where
-
-data _×_  (A B : Type) : Type where
-  _,_ : A → B → A × B
-
-data _⊕_  (A B : Type) : Type where
-  ι₁ : A → A ⊕ B
-  ι₂ : B → A ⊕ B
-
-data Σ (A : Type) (B : A → Type) : Type where
-  _,_ : (a : A) → (B a) → Σ A B
-
-</code></pre>
-</div>
-	</section>
+		<section>
+			<h3>Quantifying propositions</h3>
+			<ul>
+				<li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family $P : A \to \mathfrak{U}$. </li>
+				<li class="fragment">The proposition $\forall x\ P(x)$ is represented by $\prod_{x: A} P(x)$.</li>
+				<li class="fragment">The proposition $\exists x\ P(x)$ is represented by $\sum_{x : A} P(x)$.</li>
+			</ul>
+		</section>
 
 	<section>
 	  <h3> Identity type family</h3>
@@ -352,14 +332,13 @@ data _==_ {A : Type} : A → A → Type where
 
 <div class="fragment">
 <pre><code class="haskell">
-sym : {A : Type} → {x y : A} → (x == y) → (y == x)
-sym (refl a) = refl a
+symmetry : {A : Type} → {x y : A} → (x == y) → (y == x)
+symmetry (refl a) = refl a
 
-_&&_ : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
-(refl a) && (refl .a) = refl a
+trans : {A : Type} → {x y z : A} → (x == y) → (y == z) → (x == z)
+trans (refl a) (refl .a) = refl a
 </code></pre>
 </div>
-
 	    <li class="fragment"> However, for fixed $a: A$, $a = a$ is <strong> not </strong> an inductive type, i.e., it is not suffiicient to define functions on $refl(a)$.</li>
 	  </ul>
 	  </section>
