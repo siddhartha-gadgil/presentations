@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Automated theorem proving: HoTT foundations and Learning</title>
+		<title>Can computers conquer mathematics?</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -44,9 +44,8 @@
 <div class="slides">
 <section>
  	<section>
-	<h2> Automated Theorem Proving: </h2>
-	<h3> HoTT Foundations,</h3>
-	<h3> Learning </h3>
+	<h2> Can computers conquer mathematics? </h2>
+	<h3> HoTT Foundations, Learning </h3>
 	<h2>Siddhartha Gadgil</h2>
 	 <p>Department of Mathematics</p>
 	 <p>Indian Institute of Science</p>
@@ -63,22 +62,62 @@
 		<p>Goals</p>
 		<p>Computer-Assisted proof components</p>
 		<p>Automated Deduction</p>
-		<p> Limits of Set theory + First-order Logic</p>
+		<p> Limits of Set theory and First-order Logic</p>
 	</section>
 	<section>
 		<h3> Goals </h3>
 		<ul>
-			<li><b> Goal:</b> Use computers to grately increase our ability to discover and prove
+			<li><b> Goal:</b> Use computers to greatly increase our ability to discover and prove
 				mathematical results across areas of mathematics which are of intrinsic mathematical value.</li>
 			<li class="fragment"> Why? </li>
 			<li class="fragment"> How? </li>
 		</section>
+		<section>
+			<h3> What? </h3>
+			<ul>
+				<li class="fragment"> There are infinitely many prime numbers. </li>
+				<li class="fragment"> There are arbitrarily long arithmetic sequences all of whose elements are prime numbers. </li>
+				<li class="fragment"> There ar infinitely many natural numbers $n$ such $n$ and $n+2$ are primes.</li>
+			</ul>
+		</section>
 	<section>
-		<h3> Computer-Assisted proof components? </h3>
+		<h3> Computer-Assisted proof components </h3>
+		<ul>
+			<li class="fragment"> Computers have been used in various ways to provide a component of a proof:
+				<ul>
+					<li> Enumeration, </li>
+					<li> Symbolic algebra, </li>
+					<li> Exact real number arithmetic, </li>
+					<li> Linear programming, </li>
+					<li> SAT solvers.</li>
+				</ul>
+			</li>
+
+			<li class="fragment"> Some examples:
+				<ul>
+					<li> Four colour theorem, </li>
+					<li> Kepler conjecture, </li>
+					<li> Boolean Pythagorean triples problem. </li>
+				</ul>
+			</li>
+		</ul>
 
 	</section>
 	<section>
 		<h3> Universal deducer? </h3>
+		<ul>
+			<li class="fragment"> A proof is a sequences of deductions, as given by the rules of deduction, of a proposition
+				from axioms, assumptions, definitions.</li>
+			<li class ="fragment"> The ultimate prover is a function which, given a proposition which has a proof,
+				returns such a sequence of deductions.</li>
+			<li class="fragment"> By results of Turing, there is no such function. </li>
+			<li class="fragment"> We can enumerate proofs and check if they prove either the given proposition or its negation.
+				<span class="fragment"> This does not always work as there are statements that are true but not provable.</span>
+			</li>
+			 <li class="fragment"> Practically, we can conclude that there is no best deducer,
+				 as all proofs can be found but no deducer can find them all. </li>
+		</ul>
+
 	</section>
 
 	<section>
@@ -94,7 +133,37 @@
 	</section>
 
 	<section>
-		<h3> Problems with FOL+Sets </h3>
+	  <p>
+	    &ldquo; Since the first half of the 20th century mathematics has been presented as a science based on
+	    ZFC and ZFC was introduced as a particular theory in Predicate Logic.
+	  </p>
+	  <p>
+	    &ldquo; Therefore someone who wanted to get to the bottom of things in mathematics had a simple
+	    road to follow - learn what Predicate Logic is, then learn a particular theory called ZFC, then
+	    learn how to translate propositions about a few basic mathematical concepts into formulas of
+	    ZFC, and then <span class="fragment highlight-red"> learn to believe, through examples, that the rest of mathematics can be reduced
+	    to these few basic concepts</span>.&rdquo;</p>
+<div style="text-align:right">Vladimir Voevodsky</div>
+	  </section>
+
+	<section>
+		<h3> Why new foundations? </h3>
+	</section>
+
+	<section>
+<p>
+<q> &ldquo; The roadblock that prevented generations of interested mathematicians and computer scientists
+from solving the problem of computer verification of mathematical reasoning was the
+unpreparedness of foundations of mathematics for the requirements of this task.&rdquo;</q></p>
+<p>
+<q> &ldquo; Formulating mathematical reasoning in a language <span style="color:green">precise enough for a computer to follow</span>
+meant using a foundational system of mathematics <span class="fragment highlight-blue"> not as a standard of consistency applied only
+to establish a few fundamental theorems, but as a tool that can be employed in everyday
+mathematical work.</span> &rdquo;</q></p>
+
+
+<div style="float:right"> Vladimir Voevodsky</div>
+
 	</section>
 
 </section>
@@ -112,11 +181,11 @@
 	<section>
 		<h3> Type theoretic foundations</h3>
 		<ul>
-			<li class="fragment"> Mathematical objects, called <em> terms</em> have <em> types </em>. </li>
+			<li class="fragment"> Mathematical objects, called <em class="fragment highlight-current-blue"> terms</em> have <em class="fragment highlight-current-blue"> types </em>. </li>
 			<li class="fragment"> A term $a$ having a type $A$, denoted $a : A$, is analogous to
 				an element $a$ belonging to a set $A$, i.e., $a \in A$.</li>
 			<li class="fragment"> However the rules for forming terms and types, and for determining
-				whether a term has a type, are purely <em> syntactic. </em></li>
+				whether a term has a type, are purely <em class="fragment highlight-current-blue"> syntactic. </em></li>
 			<li class="fragment"> Nevertheless, the rules for forming types are rich enough that types can play the role of sets
 				<span class="fragment"> - for instance, prime numbers form a type.</span>
 			 </li>
@@ -128,19 +197,19 @@
 	<section>
 	  <h3> Terms, Types, Rules </h3>
 	  <ul>
-	  <li class="fragment"> Mathematical objects are called <em>Terms. </em> </li>
-	  <li  class="fragment"> Every term has a <em> type </em>, generally unique.</li>
-	  <li class="fragment"> Types are also terms, whose types are <em> universes</em>.</li>
-		<li class="fragment"> We have rules to introduce terms (including types), individually or in groups, into the context.</li>
+	  <li class="fragment"> Mathematical objects are called <em class="fragment highlight-current-blue">terms. </em> </li>
+	  <li  class="fragment"> Every term has a <em class="fragment highlight-current-blue"> type </em>, generally unique.</li>
+	  <li class="fragment"> Types are also terms, whose types are <em class="fragment highlight-current-blue"> universes</em>.</li>
+		<li class="fragment"> We have <em class="fragment highlight-current-blue">rules</em> to introduce terms (including types), individually or in groups, into the context.</li>
 		<li class="fragment"> Rules also let us make two kinds of <strong>judgements</strong>:
 	  	<ul>
 				<li> that a term $a$  is of type $A$. </li>
-				<li> that two terms are equal <em> by definition </em>.
+				<li> that two terms are equal <em class="fragment highlight-current-blue"> by definition </em>.
 				</ul>
 			</li>
 			<li class="fragment"> All the rules are syntactic.</em>
 	    <li class="fragment">  Note that terms can be equal without being so by definition. </li>
-	    <li class="fragment"> There is a relation (type family) <em> propositional equality</em> extending definitional equality.</li>
+	    <li class="fragment"> There is a relation (type family) <em class="fragment highlight-current-blue"> propositional equality</em> extending definitional equality.</li>
 	  </ul>
 	  </section>
 
@@ -153,7 +222,7 @@
 	      <li> We can construct a function $f: A \to B$ by giving an expression $b$ of type $B$
 					in terms of a variable $a : A$ and other terms in the context, i.e., $f : a \mapsto b$.</li>
 </div>
-	    <li class="fragment"> We can also define functions <em> recursively</em> on <em> inductive types </em>.</li>
+	    <li class="fragment"> We can also define functions <em class="fragment highlight-current-blue"> recursively</em> on <em class="fragment highlight-current-blue"> inductive types </em>.</li>
 	    </ul>
 	</section>
 
@@ -176,7 +245,7 @@ case object zero extends Nat
 case class succ(n: Nat) extends Nat
 </code></pre>
 	<li class="fragment"> Formally, we are introducing into the context the type $\mathbb{N}$ and two terms $0$ and $succ$.</li>
-	<li class="fragment"> The type is <em> freely generated</em> by its constructors, allowing recursive
+	<li class="fragment"> The type is <em class="fragment highlight-current-blue"> freely generated</em> by its constructors, allowing recursive
 		and inductive definitions.</li>
 	    </ul>
 	  </section>
@@ -207,10 +276,10 @@ val sum: Nat => Nat => Nat = {
 	<section>
 	  <h3> Dependent functions and type families </h3>
 	  <ul>
-	    <li class="fragment"> We generalize functions $f : A \to B$ to <em> dependent functions</em>, so that $f(a)$ has a type $B(a)$, depending in general on $a : A$.</li>
+	    <li class="fragment"> We generalize functions $f : A \to B$ to <em class="fragment highlight-current-blue"> dependent functions</em>, so that $f(a)$ has a type $B(a)$, depending in general on $a : A$.</li>
 	    <li class="fragment"> More precisely,
 	      <ul>
-		<li class="fragment"> A <em> type family</em> $B: A \to \mathfrak{U}$ is a function with codomain a universe, so all its values are types. </li>
+		<li class="fragment"> A <em class="fragment highlight-current-blue"> type family</em> $B: A \to \mathfrak{U}$ is a function with codomain a universe, so all its values are types. </li>
 		<li class="fragment"> Given a type family $B: A \to \mathfrak{U}$, we can construct a corresponding type $\prod_{a : A} B(a)$ of dependent functions.</li>
 		<li class="fragment"> When we apply $f : \prod_{a : A} B(a)$ to $a : A$, we obtain $f(a) : B(a)$.</li>
 		</ul>
@@ -231,7 +300,7 @@ data Vector (A : Type) : ℕ → Type where -- inductive type family
   _::_ : {n : ℕ} → A → Vector n → Vector (succ n)
 </code></pre>
 </div>
-	    <li class="fragment"> We can define dependent functions to this type family <em>inductively</em>.</li>
+	    <li class="fragment"> We can define dependent functions to this type family <em class="fragment highlight-current-blue">inductively</em>.</li>
 <div class="fragment">
 <pre><code class="haskell">
 countdown : (n : ℕ) → Vector ℕ n -- dependent function
@@ -239,7 +308,7 @@ countdown 0 = []
 countdown (succ n) = (succ n) :: (countdown n)
 </code></pre>
 </div>
-	    <li class="fragment"> Formally, we can construct an <em>induction function</em> and apply it to the data.</li>
+	    <li class="fragment"> Formally, we can construct an <em class="fragment highlight-current-blue">induction function</em> and apply it to the data.</li>
 	  </ul>
 	  </section>
 
@@ -263,7 +332,7 @@ sum (x :: l) = x + sum l
 			<ul>
 				<li>
 			We can inductively define the types $\mathbb{0}$, $\mathbb{1}$, $A \times B$, $A \oplus B$.</li>
-			<li> For a type family $B: A \to \mathcal{U}$, the <em>dependent pair</em> type $\Sigma$
+			<li> For a type family $B: A \to \mathcal{U}$, the <em class="fragment highlight-current-blue">dependent pair</em> type $\Sigma$
 				has terms pairs $(a, b)$ with $b : B(a)$</li>
 	<div class="fragment">
 	<pre><code class="haskell">
@@ -289,10 +358,10 @@ sum (x :: l) = x + sum l
 		<section>
 			<h3>Propositions as types</h3>
 			<ul>
-				<li class="fragment">A type $A$ is <em>inhabited</em> if there is a term $a$ with $a : A$.</li>
-				<li class="fragment">By <em> propostion</em> we mean a logical statement that must be true or false.</li>
+				<li class="fragment">A type $A$ is <em class="fragment highlight-current-blue">inhabited</em> if there is a term $a$ with $a : A$.</li>
+				<li class="fragment">By <em class="fragment highlight-current-blue"> propostion</em> we mean a logical statement that must be true or false.</li>
 				<li class="fragment">We represent propositions by types.</li>
-				<li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em>proof</em> of (or witness to) $A$.
+				<li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em class="fragment highlight-current-blue">proof</em> of (or witness to) $A$.
 				<li class="fragment">In particular, a proposition is <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
 				<li class="fragment">Note that we must be able to form types representing propositions of interest in mathematics by the type formation rules.</li>
 			</ul>
@@ -359,7 +428,7 @@ trans (refl a) (refl .a) = refl a
 	<section>
 	  <h3> Types as Spaces </h3>
 	  <ul>
-	    <li class="fragment"> We <em>interpret</em>
+	    <li class="fragment"> We <em class="fragment highlight-current-blue">interpret</em>
 	      <ul>
 		<li class="fragment"> Types as spaces. </li>
 		<li class="fragment"> Terms of a type as points of the space.</li>
@@ -377,7 +446,7 @@ trans (refl a) (refl .a) = refl a
 	  <ul>
 	    <li class="fragment"> As above, for a type $A$ and $x, y : A$, a term $p : (x = y)$ is interpreted as a path from $x$ to $y$.</li>
 	    <li class="fragment"> We can invert such a path - this is just the symmetry function on identity types $(x = y) \to (y = x)$.</li>
-	    <li class="fragment"> Similarly for $x, y, z: A$, the product of $p : x = y$ and $q : y = z$ is given by the <em>transitivity of equality</em> function $(x = y) \to (y = z)\to (x = z)$.</li>
+	    <li class="fragment"> Similarly for $x, y, z: A$, the product of $p : x = y$ and $q : y = z$ is given by the <em class="fragment highlight-current-blue">transitivity of equality</em> function $(x = y) \to (y = z)\to (x = z)$.</li>
 	    <li class="fragment"> For $x, y, z : A$, given paths, $p : x = y$, $q : y = z$ and $r: z = w$, with $x, y, z, w : A$, we can prove that there is a path of paths, i.e., a homotopy, between $(p * q) * r$ and $p * (q * r)$. </li>
 	    <li class="fragment"> Such a homotopy, which is constructed by induction, is just an element of $(p * q) * r = p * (q * r).$</li>
 	  </section>
@@ -411,8 +480,8 @@ trans (refl a) (refl .a) = refl a
 	<section>
 	  <h3> Type families as fibrations</h3>
 	  <ul>
-	    <li class="fragment"> We can show that any type family $P : A \to \mathfrak{U}$ is a <em> fibration</em>, i.e., we can lift paths and homotopies.</li>
-	    <li class="fragment"> Using path lifting, given $x, y: A$ and an equality $p: x = y$, we can define a <em> transfer</em> function $p_* : P(x) \to P(y)$.</li>
+	    <li class="fragment"> We can show that any type family $P : A \to \mathfrak{U}$ is a <em class="fragment highlight-current-blue"> fibration</em>, i.e., we can lift paths and homotopies.</li>
+	    <li class="fragment"> Using path lifting, given $x, y: A$ and an equality $p: x = y$, we can define a <em class="fragment highlight-current-blue"> transfer</em> function $p_* : P(x) \to P(y)$.</li>
 	    <li class="fragment"> This allows us to transfer structure between equal objects, but depending on the choice of equality.</li>
 	    <li class="fragment"> If $x, y: A$, $p: x = y$ and $f: \prod_{a : A} P(a)$ then $f(y) = p_*(f(x))$.</li>
 	    <li class="fragment"> As a consequence of Voevodsky's univalence axiom, isomorphic types are equal, making the transfer very useful (but still consistent).</li>
@@ -454,12 +523,12 @@ trans (refl a) (refl .a) = refl a
 
 	<section>
 	  <h3> Higher inductive types </h3>
-	  <p style="text-align:left"> In analogy with attaching cells of dimension $2$ and above, we can introduce (consistent) rules for introducing <em> higher inductive types</em>.
+	  <p style="text-align:left"> In analogy with attaching cells of dimension $2$ and above, we can introduce (consistent) rules for introducing <em class="fragment highlight-current-blue"> higher inductive types</em>.
 	  </section>
 
 	<section>
 	  <h3> Synthetic homotopy theory </h3>
-	  <p style="text-align:left"> In the other direction, by axiomatizing type theoretic principles, we can develop <em>synthetic homotopy theory</em>, where the primitive concepts are spaces, points, maps, paths etc. but without requiring sets or topologies on them.</p>
+	  <p style="text-align:left"> In the other direction, by axiomatizing type theoretic principles, we can develop <em class="fragment highlight-current-blue">synthetic homotopy theory</em>, where the primitive concepts are spaces, points, maps, paths etc. but without requiring sets or topologies on them.</p>
 	</section>
 
 
