@@ -43,7 +43,6 @@
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 <section>
- 	<section>
 	<h2> Can computers conquer mathematics? </h2>
 	<h3> HoTT Foundations, Learning </h3>
 	<h2>Siddhartha Gadgil</h2>
@@ -51,7 +50,6 @@
 	 <p>Indian Institute of Science</p>
 	 <p>Bangalore</p>
 	 <p><a href="https://github.com/siddhartha-gadgil/ProvingGround" target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
-	 </section>
 
 </section>
 
@@ -77,7 +75,7 @@
 			<ul>
 				<li class="fragment"> There are infinitely many prime numbers. </li>
 				<li class="fragment"> There are arbitrarily long arithmetic sequences all of whose elements are prime numbers. </li>
-				<li class="fragment"> There ar infinitely many natural numbers $n$ such $n$ and $n+2$ are primes.</li>
+				<li class="fragment"> There are infinitely many natural numbers $n$ such $n$ and $n+2$ are both primes.</li>
 			</ul>
 		</section>
 	<section>
@@ -103,12 +101,39 @@
 		</ul>
 
 	</section>
+
+	<section>
+	  <h3> First-order logic: languages</h3>
+	  <ul>
+	  <li> A first-order language, which describes a domain of discourse (e.g. $\mathbb{N}) has vocabulary consisting of
+	    <ul>
+	      <li> Variables - can be taken to be a fixed countable set.</li>
+	      <li> Constants (e.g. $0$, $1$).</li>
+	      <li> Functions  (e.g. $+$).</li>
+	      <li> Predicates (e.g. $<$, $=$).</li>
+	      <li> Special symbols $\Rightarrow$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
+	      </ul>
+	    <li> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
+	    <li> Terms and formulas may depend on values of some variables.</li>
+	    <li> Terms represent objects in the <em> Universe</em>. </li>
+	    <li> Formulas are either <em>true</em> or <em>false</em>. </li>
+	    </ul>
+	</section>
+
+	<section>
+	  <h3> Deduction and theories </h3>
+	  <ul>
+	    <li class="fragment"> We can deduce formulas from other formulas using the rules of deduction. </li>
+	    <li class="fragment"> The main deduction rule is <em> Modus Ponens</em> : given $P$ and $P\Rightarrow Q$ we deduce $Q$.</li>
+	    <li class="fragment"> A <em> theory</em> is a language together with a collection of statements, called <em> axioms</em> in the language.</li>
+	    <li class="fragment"> A statement is <em> deducible</em> in a theory if it can be obtained from the axioms by the rules of deduction.</li>
+	  </ul>
+	</section>
+
 	<section>
 		<h3> Universal deducer? </h3>
 		<ul>
-			<li class="fragment"> A proof is a sequences of deductions, as given by the rules of deduction, of a proposition
-				from axioms, assumptions, definitions.</li>
-			<li class ="fragment"> The ultimate prover is a function which, given a proposition which has a proof,
+			<li class ="fragment"> An ultimate prover is a function which, given a proposition which has a proof,
 				returns such a sequence of deductions.</li>
 			<li class="fragment"> By results of Turing, there is no such function. </li>
 			<li class="fragment"> We can enumerate proofs and check if they prove either the given proposition or its negation.
@@ -117,15 +142,22 @@
 			 <li class="fragment"> Practically, we can conclude that there is no best deducer,
 				 as all proofs can be found but no deducer can find them all. </li>
 		</ul>
-
 	</section>
 
 	<section>
-		<h3> Resolution theorem proving </h3>
+		<h3> Resolution theorem proving: Clausal normal form </h3>
+		<ul>
+			<li> To prove a proposition $P$ from axioms, we can derive a contradiction from $\neg P$ and the axioms.</li>
+			<li> We can rewrite $\implies$ 
+		</ul>
 	</section>
 
 	<section>
 		<h3> Machine learning for first-order logic deducers</h3>
+	</section>
+
+	<section>
+		<h3> Robbins conjecture </h3>
 	</section>
 
 	<section>
@@ -445,6 +477,8 @@ trans (refl a) (refl .a) = refl a
 	  <h3> Paths, Products, Homotopy</h3>
 	  <ul>
 	    <li class="fragment"> As above, for a type $A$ and $x, y : A$, a term $p : (x = y)$ is interpreted as a path from $x$ to $y$.</li>
+			<img src="HomotopySmall.gif" class="fragment"/>
+			<img src="Mug_and_Torus_morph.gif" class="fragment" />
 	    <li class="fragment"> We can invert such a path - this is just the symmetry function on identity types $(x = y) \to (y = x)$.</li>
 	    <li class="fragment"> Similarly for $x, y, z: A$, the product of $p : x = y$ and $q : y = z$ is given by the <em class="fragment highlight-current-blue">transitivity of equality</em> function $(x = y) \to (y = z)\to (x = z)$.</li>
 	    <li class="fragment"> For $x, y, z : A$, given paths, $p : x = y$, $q : y = z$ and $r: z = w$, with $x, y, z, w : A$, we can prove that there is a path of paths, i.e., a homotopy, between $(p * q) * r$ and $p * (q * r)$. </li>
