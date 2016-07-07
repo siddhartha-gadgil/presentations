@@ -145,23 +145,86 @@
 	</section>
 
 	<section>
-		<h3> Resolution theorem proving: Clausal normal form </h3>
+		<h3> Resolution theorem proving: Conjunctive normal form </h3>
 		<ul>
-			<li> To prove a proposition $P$ from axioms, we can derive a contradiction from $\neg P$ and the axioms.</li>
-			<li> We can rewrite $\implies$ 
+			<li class ="fragment"> To prove a proposition $P$ from axioms, we can derive a contradiction from $\neg P$ and the axioms.</li>
+			<li class ="fragment"> We can rewrite $\implies$ and $\wedge$ in terms of $\vee$ and $\neg$.</li>
+			<li class ="fragment"> Suppose a variable is existentially quantified,
+				<ul>
+				<li class ="fragment"> e.g. $\delta$ in $\forall \epsilon \exists \delta\ |x| < \delta \implies |x|^2 < \epsilon$, </li>
+				<li class ="fragment"> we can regard the variable as a function $\delta(\epsilon)$,</li>
+				<li class ="fragment"> we extend the language with the additional function/constant.</li>
+				<li class ="fragment"> In the extended language we no longer need $\exists$,
+					$\forall \epsilon\ |x| < \delta(\epsilon) \implies |x|^2 < \epsilon$. </li>
+					<li class="fragment"> Variables without explicit quanitification are regarded as universally quantified.</li>
+				</li>
+			</ul>
+
 		</ul>
+
 	</section>
 
 	<section>
-		<h3> Machine learning for first-order logic deducers</h3>
+		<h3> Resolution theorem proving </h3>
+			<ul>
+			<li class ="fragment"> By the above process, we reduce to
+				<ul>
+				<li> A sequence of statements, i.e., a conjunction of clauses.</li>
+				<li> Each clause consists of atomic formulas and their negations combined by $\vee$,
+					i.e., a disjunction of literals. </li>
+				</ul>
+			</li>
+			<li class="fragment"> From these we seek a contradiction - an empty clause.</li>
+			<li class ="fragment"> <em>Resolution </em> is the rule by which if two clauses are of the form
+				$P\vee Q_1\vee\dots\vee Q_n$ and $\neg P \vee R_1\vee \dots\vee R_m$, we deduce
+				$Q_1\vee\dots\vee Q_n\vee R_1\vee \dots\vee R_m$.</li>
+			<li class="fragment"> Combined with unification, this is <em> refutation complete</em>.</li>
+			<li class="fragment"> To handle equality efficiently, another rule called <em>paramodulation</em> is used.</li>
+			</ul>
+
+	</section>
+
+	<section>
+		<h3> First-order logic deducers; machine learning</h3>
+		<ul>
+			<li class="fragment"> Theorem proving is thus reduced to a search for the empty clause,
+				starting with a given collection of clauses and using moves such as resolution and paramodulation.</li>
+			<li class="fragment"> Various search heuristics can be used. </li>
+			<li class="fragment"> We can also add premises corresponding to theorems in a formal library
+				(Mizar has been used for this).</li>
+			<li	class="fragment"> Machine learning has been used too select both strategies and premises.</li>
+			</ul>
 	</section>
 
 	<section>
 		<h3> Robbins conjecture </h3>
+		<ul>
+			<li class="fragment"> Robbins conjecture was a conjectural characterization of Boolean algebras in terms of
+				associativity and commutativity of $\vee$ and the Robbins equation
+				$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
+			<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
+				automated theorem prover EQP.</li>
+			<li class="fragment"> So far, this seems to be the only major success of deductive theorem provers.</li>
+			<li class="fragment"> First-order logic theorem provers are, however, used in interactive proof systems
+				(hammer tactics). </li>
 	</section>
 
 	<section>
 		<h3> Real-life mathematics</h3>
+		<ul>
+			<li class="fragment"> A proof in real-life mathematics consists of:
+				<ul>
+					<li> definitions, axioms, assumptions, notation; </li>
+					<li> assertions; </li>
+					<li> hints about which assertions, definitions etc. are used in the proof of a given assertion.</li>
+				</ul>
+			</li>
+			<li class="fragment"> The reader is expected to deduce all assertions based on the hint
+				(or at least believe that he/she can do so).</li>
+			<li class="fragment"> In particular, there is no objective sense in which a proof is complete or correct.</li>
+			<li class="fragment"> Interactive proof systems modelled on human proofs, such as Mizar and Naproche,
+				follow a similar approach.</li>
+			</ul>
 	</section>
 
 	<section>
@@ -180,6 +243,18 @@
 
 	<section>
 		<h3> Why new foundations? </h3>
+		<ul>
+			<li class="fragment"> In the usual foundations of mathematics, $sin(3)$ and $3(sin)$ are syntactically equally valid.
+			</li>
+			<li class="fragment"> We need additional (runtime) conditions for being well-defined.
+			</li>
+			<li class="fragment"> We do have types, i.e., syntactic restrictions, in Category theory and Higher-order logic.
+			</li>
+			<li class="fragment"> However, proofs are still not first class, so not composable.
+			</li>
+			<li class="fragment"> We instead have patterns of proof (such as induction) in mathematics,
+				and tactical meta-language in formal proof systems (which are then implicitly part of the foundations).</li>
+			</ul>
 	</section>
 
 	<section>
@@ -462,116 +537,133 @@ trans (refl a) (refl .a) = refl a
 	  <ul>
 	    <li class="fragment"> We <em class="fragment highlight-current-blue">interpret</em>
 	      <ul>
-		<li class="fragment"> Types as spaces. </li>
+		<li class="fragment"> Types as <em class="fragment highlight-blue">spaces</em>. </li>
 		<li class="fragment"> Terms of a type as points of the space.</li>
-		<li class="fragment"> Functions $A \to B$ as continuous maps $A \to B$.
-		<li class="fragment"> For a type $A$ and terms $x, y: A$, the identity type $x = y$ as paths in $A$ from $x$ to $y$.</li>
+		<li class="fragment"> Functions $A \to B$ as continuous functions $A \to B$.
+		<li class="fragment"> For a type $A$ and terms $x, y: A$, the identity type $x = y$ as
+			<em class="fragment highlight-blue">paths</em> in $A$ from $x$ to $y$.</li>
 	      </ul></li>
 	    <li class="fragment"> We do not actually construct spaces, i.e., sets with topology, starting with a type.</li>
 	    <li class="fragment"> Instead we make topological (specifically homotopy theoretic) constructions and prove topological results in type theory.</li>
-	    <li class="fragment"> A practical consequence for type theories is that we get a canonical type theory.</li>
+	    <li class="fragment"> A practical consequence for type theories is that we get a canonical, provably consistent, type theory.</li>
 	  </ul>
 	  </section>
 
 	<section>
-	  <h3> Paths, Products, Homotopy</h3>
+	  <h3> Paths and Homotopies</h3>
 	  <ul>
-	    <li class="fragment"> As above, for a type $A$ and $x, y : A$, a term $p : (x = y)$ is interpreted as a path from $x$ to $y$.</li>
-			<img src="HomotopySmall.gif" class="fragment"/>
-			<img src="Mug_and_Torus_morph.gif" class="fragment" />
-	    <li class="fragment"> We can invert such a path - this is just the symmetry function on identity types $(x = y) \to (y = x)$.</li>
-	    <li class="fragment"> Similarly for $x, y, z: A$, the product of $p : x = y$ and $q : y = z$ is given by the <em class="fragment highlight-current-blue">transitivity of equality</em> function $(x = y) \to (y = z)\to (x = z)$.</li>
-	    <li class="fragment"> For $x, y, z : A$, given paths, $p : x = y$, $q : y = z$ and $r: z = w$, with $x, y, z, w : A$, we can prove that there is a path of paths, i.e., a homotopy, between $(p * q) * r$ and $p * (q * r)$. </li>
-	    <li class="fragment"> Such a homotopy, which is constructed by induction, is just an element of $(p * q) * r = p * (q * r).$</li>
-	  </section>
-
-	<section>
-	  <h3> Fundamental groupoids and $\infty$-groupoids </h3>
-	  <ul>
-	    <li class="fragment"> Thus, considering paths up to homotopy, we get the fundamental groupoid of a type.</li>
-	    <li class="fragment"> We can instead consider the non-associative products on paths directly, together with a higher structure, namely a homotopy $(p * q) * r \sim p * (q * r)$ for paths $p$, $q$ and $r$ as above.</li>
-	    <li class="fragment"> This process continues to give an $\infty$-groupoid structures on types, from the induction principle for identity type families.</li>
-	    <li class="fragment"> The homotopy hypothesis says that $\infty$-groupoids are homotopy types of spaces.</li>
-	    </ul>
+	    <li class="fragment"> As above, for a type $A$ and $x, y : A$, a term $p : (x = y)$ is interpreted
+				as a path from $x$ to $y$.
+			</li>
+			<li class="fragment"> Two such paths are equal if there is a path of paths, called a homotopy,
+				between them.
+			</li>
+			<img src="HomotopySmall.gif" class="fragment" height = "200"/>
+			<img src="Mug_and_Torus_morph.gif" class="fragment" height="200" />
+	    <li class="fragment"> We have similar notions of equality for functions.</li>
+			<li class="fragment"> Types are equal if the correspoding spaces are homotopy equivalent,
+				as a consequence of the <em> Univalence axiom. </em></li>
 	  </section>
 
 
 	<section>
-	  <h3> Associativity up to homotopy : the Pentagon </h3>
-	  <img src="pentagon.svg" />
-	</section>
-
-	<section>
-	  <h3> Loop spaces and homotopy groups </h3>
+	  <h3> Dimension and levels </h3>
 	  <ul>
-	    <li class="fragment"> A based type is a type $A$ together with a term $a : A$.</li>
-	    <li class="fragment"> We can associate to a based type $(A, a)$ its loop space, which is the based type $(a = a, refl(a))$.</li>
-	    <li class="fragment"> We have a product on the loop space, using which we can define its fundamental group.</li>
-	    <li class="fragment"> Further, iterating this process, we can define higher homotopy groups.</li>
-	  </ul>
-	</section>
-
-	<section>
-	  <h3> Type families as fibrations</h3>
-	  <ul>
-	    <li class="fragment"> We can show that any type family $P : A \to \mathfrak{U}$ is a <em class="fragment highlight-current-blue"> fibration</em>, i.e., we can lift paths and homotopies.</li>
-	    <li class="fragment"> Using path lifting, given $x, y: A$ and an equality $p: x = y$, we can define a <em class="fragment highlight-current-blue"> transfer</em> function $p_* : P(x) \to P(y)$.</li>
-	    <li class="fragment"> This allows us to transfer structure between equal objects, but depending on the choice of equality.</li>
-	    <li class="fragment"> If $x, y: A$, $p: x = y$ and $f: \prod_{a : A} P(a)$ then $f(y) = p_*(f(x))$.</li>
-	    <li class="fragment"> As a consequence of Voevodsky's univalence axiom, isomorphic types are equal, making the transfer very useful (but still consistent).</li>
-	    <li class="fragment"> An axiom here is a term of a specified type, which we introduce. This has  no given properties other than its type.</li>
-	  </section>
-
-	<section>
-	  <h3> Classifying spaces and Univalence </h3>
-	  <ul>
-	    <li class="fragment"> We can define when a function $f: A \to B$ is an equivalence of types, essentially like homotopy equivalence.</li>
-	    <li class="fragment"> This lets us construct the type $A\simeq B$ of equivalences from $A$ to $B$.</li>
-	    <li class="fragment"> There is a natural inclusion $A = B \to A \simeq B$.</li>
-	    <li class="fragment"> Voevodsky's univalence axiom says that this is an equivalence.</li>
-	    <li class="fragment"> This is the uniqueness part of universes being classifying spaces for types.</li>
-	  </ul>
-	  </section>
-
-
-	<section>
-	  <h3>Homotopy $n$-types </h3>
-	  <ul>
-	    <li class="fragment"> A homotopy $n$-type is the homotopy type of a space with trivial homotopy groups above dimension $n$.</li>
-	    <li class="fragment"> We can define this inductively, with  the homotopy type of a space $X$ a homotopy $(n + 1)$-type if for $a, b : X$, the path space $\Omega(X; a, b)$ is a homotopy $n$-type.</li>
-	    <li class="fragment"> We can start the induction with $n = -2$, where we require $X$ to be contractible (in particular non-empty).</li>
-	    <li class="fragment"> This hierarchy gives definitions in type theory.</li>
+			<li class="fragment"> We define levels of types, based on a characterization of dimension in homotopy theory.</li>
+	    <li class="fragment"> By definition, there is a unique type at level $-2$ (the lowest),
+				which has a single term. </li>
+	    <li class="fragment"> Inductively define the level of a space $A$ to be at most $(n + 1)$
+				if for $a, b : X$, the type $a = b$ has level at most $n$.</li>
 	    <li class="fragment"> Further, we can truncate a type canonically to an $n$-type.</li>
 	    </ul>
 	  </section>
 
 	<section>
-	  <h3> Sets and <strong>mere</strong> propositions </h3>
+	  <h3> Sets and mere propositions </h3>
 	  <ul>
 	    <li class="fragment"> A set is a space with all of its components contractible.</li>
 	    <li class="fragment"> A type $A$ is a set if for $x, y: A$ and $p, q: x = y$, we have $p = q$.</li>
-	    <li class="fragment"> A mere proposition is a type which is either empty or all of its elements are equal.</li>
-	    <li class="fragment"> Formally, $$isPropn(A) = \prod_{x : A} \prod_{y : A} (x = y).$$</li>
-	    <li class="fragment"> The concept of mere propostions, as well as propositional truncation, allow consistent mixing of classical logic with the type theoretic form.</li>
+	    <li class="fragment"> A mere proposition is a type which is either empty or all of its elements are equal,
+				i.e., a type at level $-1$.</li>
+	    <li class="fragment"> The concept of mere propostions, as well as propositional truncation,
+				allow consistent mixing of classical logic with the type theoretic form.</li>
+			<li class="fragment"> For instance, in homotopy type theory the law of excluded middle is usually assumed
+				for mere propositions, but not for all types.</li>
 	  </section>
 
-	<section>
-	  <h3> Higher inductive types </h3>
-	  <p style="text-align:left"> In analogy with attaching cells of dimension $2$ and above, we can introduce (consistent) rules for introducing <em class="fragment highlight-current-blue"> higher inductive types</em>.
-	  </section>
 
-	<section>
-	  <h3> Synthetic homotopy theory </h3>
-	  <p style="text-align:left"> In the other direction, by axiomatizing type theoretic principles, we can develop <em class="fragment highlight-current-blue">synthetic homotopy theory</em>, where the primitive concepts are spaces, points, maps, paths etc. but without requiring sets or topologies on them.</p>
-	</section>
-
+		<section>
+			<h3> Lean theorem prover </h3>
+			<ul>
+				<li> In a language like Agda, it is practical to write moderate sized proofs fully formally.</li>
+				<li> The lean theorem prover allows this, and also has an elaboration engine to help complete proofs efficiently.
+				</li>
+				<li> Checking a (fully elaborated) proof is fairly easy, and lean has an efficient export format
+					and an independent Haskell typechecker to do this.</li>
+				<li> The export format, server and API also allow efficient integration with other systems.
+				</li>
+			</ul>
+		</section>
 
 </section>
 
 <section>
 	<section>
 		<h3> Proving-Ground: Theorem proving by Learning</h3>
+		<p> HoTT implemented in scala </p>
+		<p> Reinforcement learning </p>
+		<p> Representation learning </p>
+		<p> Natural languagge processing </p>
 	</section>
+
+	<section>
+		<h3> Reinforcement learning: non-trivial theorems </h3>
+		<ul>
+			<li class="fragment"> Useful mathematical objects are terms representing useful types.</li>
+			<li class="fragment"> Given weights on terms and types,
+				non-trivial objects are those representing types of high weight (low complexity)
+				 so that the total weight of terms inhabiting the type is low.</li>
+			<li class="fragment"> Further, useful theorems are those from which non-trivial theorems are derived.</li>
+			<li class="fragment"> These can be captured by considering the map from terms to types, and backward propagating.
+			</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3> Reinforcement learning: term-type map </h3>
+		<ul>
+			<li class="fragment"> Given an initial distribution on terms, rules for forming terms gives a new distribution.</li>
+			<li class="fragment"> Given a probability distribution on terms, we get one on types by
+				mapping a term to its type (proof distribution). </li>
+			<li class="fragment"> As (inhabited) types themselves are terms, we get a restricted distribution on them
+				(theorem distribution). </li>
+			<li class="fragment"> We have a flow of the proof distribution towards the theorem distribution.</li>
+			<li class="fragment"> The gradient gives a distribution on terms, which we backward propagate.</li>
+			<li class="fragment"> It is useful to freeze the distribution on terms.</li>
+			<li class="fragment"> We may also learn using a distribution from the (formalized) literature.</li>
+		</ul>
+
+	</section>
+
+	<section>
+		<h3> Representation learning </h3>
+		<p> Using proximity and order, words, mathematical objects etc can be represented by vectors
+			which capture many of their relations.
+		</p>
+	</section>
+
+	<section>
+		<h3> NLP: extracting from human literature.</h3>
+		<ul>
+			<li class="fragment"> We try to extract mathematical objects from the literature,
+				with reasonably high accuracy. </li>
+			<li class="fragment"> These can be used for learning, both giving terms from which to generate others,
+				and a distribution on types.</li>
+			<li class="fragment"> To extract from natural language, we use a parser to break a sentence into
+				a tree like structure, and map trees to trees by pattern matching and building.</li>
+			</ul>
+		</section>
+
 </section>
 
 
