@@ -105,7 +105,7 @@
 	<section>
 	  <h3> First-order logic: languages</h3>
 	  <ul>
-	  <li> A first-order language, which describes a domain of discourse (e.g. $\mathbb{N}) has vocabulary consisting of
+	  <li class="fragment"> A first-order language, which describes a domain of discourse (e.g. $\mathbb{N}$) has vocabulary consisting of
 	    <ul>
 	      <li> Variables - can be taken to be a fixed countable set.</li>
 	      <li> Constants (e.g. $0$, $1$).</li>
@@ -113,10 +113,10 @@
 	      <li> Predicates (e.g. $<$, $=$).</li>
 	      <li> Special symbols $\Rightarrow$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
 	      </ul>
-	    <li> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
-	    <li> Terms and formulas may depend on values of some variables.</li>
-	    <li> Terms represent objects in the <em> Universe</em>. </li>
-	    <li> Formulas are either <em>true</em> or <em>false</em>. </li>
+	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
+	    <li class="fragment"> Terms and formulas may depend on values of some variables.</li>
+	    <li class="fragment"> Terms represent objects in the <em> domain of discourse</em>. </li>
+	    <li class="fragment"> Formulas are either <em>true</em> or <em>false</em>. </li>
 	    </ul>
 	</section>
 
@@ -133,8 +133,8 @@
 	<section>
 		<h3> Universal deducer? </h3>
 		<ul>
-			<li class ="fragment"> An ultimate prover is a function which, given a proposition which has a proof,
-				returns such a sequence of deductions.</li>
+			<li class ="fragment"> An ultimate prover is a function which, given a deducible proposition (formula),
+				returns a proof.</li>
 			<li class="fragment"> By results of Turing, there is no such function. </li>
 			<li class="fragment"> We can enumerate proofs and check if they prove either the given proposition or its negation.
 				<span class="fragment"> This does not always work as there are statements that are true but not provable.</span>
@@ -388,7 +388,7 @@ val sum: Nat => Nat => Nat = {
 	      <ul>
 		<li class="fragment"> A <em class="fragment highlight-current-blue"> type family</em> $B: A \to \mathfrak{U}$ is a function with codomain a universe, so all its values are types. </li>
 		<li class="fragment"> Given a type family $B: A \to \mathfrak{U}$, we can construct a corresponding type $\prod_{a : A} B(a)$ of dependent functions.</li>
-		<li class="fragment"> When we apply $f : \prod_{a : A} B(a)$ to $a : A$, we obtain $f(a) : B(a)$.</li>
+		<li class="fragment"> We can apply $f : \prod_{a : A} B(a)$ to $a : A$, to obtain $f(a) : B(a)$.</li>
 		</ul>
 	      </li>
 	  <li class="fragment"> Constructions of dependent functions are analogous to those of functions.</li>
@@ -398,7 +398,7 @@ val sum: Nat => Nat => Nat = {
 	<section>
 	  <h3>Vectors : an inductive type family </h3>
 	  <ul>
-	    <li class="fragment"> We have a type family associating to each $n : \mathbb{N}$ the type of vectors of length $n$ with entries in $\mathbb{N}$.</li>
+	    <li class="fragment"> We have a type family associating to each $n : \mathbb{N}$ the type of vectors of length $n$ with entries in a type $A$.</li>
 	    <li class="fragment"> This is an inductive type family with two constructors.</li>
 <div class="fragment">
 <pre><code class="haskell">
@@ -439,8 +439,8 @@ sum (x :: l) = x + sum l
 			<ul>
 				<li>
 			We can inductively define the types $\mathbb{0}$, $\mathbb{1}$, $A \times B$, $A \oplus B$.</li>
-			<li> For a type family $B: A \to \mathcal{U}$, the <em class="fragment highlight-current-blue">dependent pair</em> type $\Sigma$
-				has terms pairs $(a, b)$ with $b : B(a)$</li>
+			<li> For a type family $B: A \to \mathcal{U}$, the <em class="fragment highlight-current-blue">dependent pair</em> type $\sum_{a: A} B(a)$
+				has terms pairs $(a, b)$ with $b : B(a)$.</li>
 	<div class="fragment">
 	<pre><code class="haskell">
 	data True : Type where
@@ -524,12 +524,9 @@ trans (refl a) (refl .a) = refl a
 <section>
 	<section>
 		<h3>Homotopy type theory: Types as Spaces</h3>
-		<p> Equality and Paths </p>
-		<p> $\infty$-groupoids from induction for equality</p>
-		<p> Type families as fibrations </p>
-		<p> Homotopy $n$-types (dimension)</p>
-		<p> Classifying spaces and Univalence</p>
-		<p> Synthetic homotopy theory</p>
+		<p> Equality, Paths, Homotopy </p>
+		<p> Levels from dimension</p>
+		<p> Sets, Propositions</p>
 	</section>
 
 	<section>
@@ -550,7 +547,7 @@ trans (refl a) (refl .a) = refl a
 	  </section>
 
 	<section>
-	  <h3> Paths and Homotopies</h3>
+	  <h3> Equality, Paths,  Homotopies</h3>
 	  <ul>
 	    <li class="fragment"> As above, for a type $A$ and $x, y : A$, a term $p : (x = y)$ is interpreted
 				as a path from $x$ to $y$.
@@ -561,7 +558,7 @@ trans (refl a) (refl .a) = refl a
 			<img src="HomotopySmall.gif" class="fragment" height = "200"/>
 			<img src="Mug_and_Torus_morph.gif" class="fragment" height="200" />
 	    <li class="fragment"> We have similar notions of equality for functions.</li>
-			<li class="fragment"> Types are equal if the correspoding spaces are homotopy equivalent,
+			<li class="fragment"> Types are equal if the corresponding spaces are homotopy equivalent,
 				as a consequence of the <em> Univalence axiom. </em></li>
 	  </section>
 
@@ -572,7 +569,7 @@ trans (refl a) (refl .a) = refl a
 			<li class="fragment"> We define levels of types, based on a characterization of dimension in homotopy theory.</li>
 	    <li class="fragment"> By definition, there is a unique type at level $-2$ (the lowest),
 				which has a single term. </li>
-	    <li class="fragment"> Inductively define the level of a space $A$ to be at most $(n + 1)$
+	    <li class="fragment"> Inductively, we define the level of a type $A$ to be at most $(n + 1)$
 				if for $a, b : X$, the type $a = b$ has level at most $n$.</li>
 	    <li class="fragment"> Further, we can truncate a type canonically to an $n$-type.</li>
 	    </ul>
@@ -595,12 +592,13 @@ trans (refl a) (refl .a) = refl a
 		<section>
 			<h3> Lean theorem prover </h3>
 			<ul>
-				<li> In a language like Agda, it is practical to write moderate sized proofs fully formally.</li>
-				<li> The lean theorem prover allows this, and also has an elaboration engine to help complete proofs efficiently.
+				<li class="fragment"> In a language like Agda, it is practical to write moderate sized proofs fully formally.</li>
 				</li>
-				<li> Checking a (fully elaborated) proof is fairly easy, and lean has an efficient export format
-					and an independent Haskell typechecker to do this.</li>
-				<li> The export format, server and API also allow efficient integration with other systems.
+				<li class="fragment"> The lean theorem prover allows this, and also has an elaboration engine to help complete proofs efficiently.
+				</li>
+					<li class="fragment"> Checking a (fully elaborated) proof is fairly easy, and lean has an efficient export format
+						and an independent Haskell typechecker to do this.</li>
+				<li class="fragment"> The export format, server and API also allow efficient integration with other systems.
 				</li>
 			</ul>
 		</section>
@@ -610,10 +608,10 @@ trans (refl a) (refl .a) = refl a
 <section>
 	<section>
 		<h3> Proving-Ground: Theorem proving by Learning</h3>
-		<p> HoTT implemented in scala </p>
+		<p> HoTT implemented in Scala </p>
 		<p> Reinforcement learning </p>
 		<p> Representation learning </p>
-		<p> Natural languagge processing </p>
+		<p> Natural language processing </p>
 	</section>
 
 	<section>
@@ -659,8 +657,10 @@ trans (refl a) (refl .a) = refl a
 				with reasonably high accuracy. </li>
 			<li class="fragment"> These can be used for learning, both giving terms from which to generate others,
 				and a distribution on types.</li>
-			<li class="fragment"> To extract from natural language, we use a parser to break a sentence into
-				a tree like structure, and map trees to trees by pattern matching and building.</li>
+			<li class="fragment"> This is similar to a translation problem, except the target language has
+				strong restrictions on sentences being meaningful and true.</li>
+			<li class="fragment"> To extract from natural language, we first use a parser to break a sentence into
+				a tree like structure.</li>
 			</ul>
 		</section>
 
