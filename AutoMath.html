@@ -74,7 +74,7 @@
 			<h3> What? </h3>
 			<ul>
 				<li class="fragment"> There are infinitely many prime numbers. </li>
-				<li class="fragment"> There are arbitrarily long arithmetic sequences all of whose elements are prime numbers. </li>
+				<li class="fragment"> There are arbitrarily long arithmetic progressions all of whose elements are prime numbers. </li>
 				<li class="fragment"> There are infinitely many natural numbers $n$ such $n$ and $n+2$ are both primes.</li>
 			</ul>
 		</section>
@@ -133,9 +133,9 @@
 	<section>
 		<h3> Universal deducer? </h3>
 		<ul>
-			<li class ="fragment"> An ultimate prover is a function which, given a deducible proposition (formula),
+			<li class ="fragment"> An ultimate prover is a computable function (algorithm) which, given a deducible proposition (formula),
 				returns a proof.</li>
-			<li class="fragment"> By results of Turing, there is no such function. </li>
+			<li class="fragment"> By results of Turing, there is no such computable function. </li>
 			<li class="fragment"> We can enumerate proofs and check if they prove either the given proposition or its negation.
 				<span class="fragment"> This does not always work as there are statements that are true but not provable.</span>
 			</li>
@@ -152,8 +152,9 @@
 			<li class ="fragment"> Suppose a variable is existentially quantified,
 				<ul>
 				<li class ="fragment"> e.g. $\delta$ in $\forall \epsilon \exists \delta\ |x| < \delta \implies |x|^2 < \epsilon$, </li>
-				<li class ="fragment"> we can regard the variable as a function $\delta(\epsilon)$,</li>
-				<li class ="fragment"> we extend the language with the additional function/constant.</li>
+				<li class ="fragment"> we can regard the variable $\delta$ as a function $\delta(\epsilon)$,</li>
+				<li class ="fragment"> we extend the language with additional functions (or constants)
+					for existentially quantified variables.</li>
 				<li class ="fragment"> In the extended language we no longer need $\exists$,
 					$\forall \epsilon\ |x| < \delta(\epsilon) \implies |x|^2 < \epsilon$. </li>
 					<li class="fragment"> Variables without explicit quanitification are regarded as universally quantified.</li>
@@ -246,7 +247,7 @@
 		<ul>
 			<li class="fragment"> In the usual foundations of mathematics, $sin(3)$ and $3(sin)$ are syntactically equally valid.
 			</li>
-			<li class="fragment"> We need additional (runtime) conditions for being well-defined.
+			<li class="fragment"> We need additional (run-time) conditions for being well-defined.
 			</li>
 			<li class="fragment"> We do have types, i.e., syntactic restrictions, in Category theory and Higher-order logic.
 			</li>
