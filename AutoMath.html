@@ -68,7 +68,10 @@
 			<li><b> Goal:</b> Use computers to greatly increase our ability to discover and prove
 				mathematical results across areas of mathematics.</li>
 			<li class="fragment"> Why? </li>
-			<li class="fragment"> How? </li>
+			<li class="fragment"> How?
+				<span class=fragment> <em>Learn</em> to <em>search</em> for, <em>construct</em> and <em>recognize</em> useful mathematical objects.
+				</span>
+			</li>
 		</section>
 		<section>
 			<h3> What? </h3>
@@ -113,8 +116,9 @@
 	      <li> Predicates (e.g. $<$, $=$).</li>
 	      <li> Special symbols $\Rightarrow$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
 	      </ul>
-	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> and <em> formulas </em>.</li>
-	    <li class="fragment"> Terms and formulas may depend on values of some variables.</li>
+	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> (e.g. $1+1$, $n + 3$)
+				and <em> formulas</em> (e.g. $n + 1 < 2$, $4 < 3$).</li>
+	    <li class="fragment"> Terms and formulas may depend on variables.</li>
 	    <li class="fragment"> Terms represent objects in the <em> domain of discourse</em>. </li>
 	    <li class="fragment"> Formulas are either <em>true</em> or <em>false</em>. </li>
 	    </ul>
@@ -125,22 +129,23 @@
 	  <ul>
 	    <li class="fragment"> We can deduce formulas from other formulas using the rules of deduction. </li>
 	    <li class="fragment"> The main deduction rule is <em> Modus Ponens</em> : given $P$ and $P\Rightarrow Q$ we deduce $Q$.</li>
-	    <li class="fragment"> A <em> theory</em> is a language together with a collection of statements, called <em> axioms</em> in the language.</li>
-	    <li class="fragment"> A statement is <em> deducible</em> in a theory if it can be obtained from the axioms by the rules of deduction.</li>
+	    <li class="fragment"> A <em> theory</em> is a language together with a collection of formulas, called <em> axioms</em> in the language.</li>
+	    <li class="fragment"> A formula is <em> deducible</em> in a theory if it can be
+				obtained from the axioms by the rules of deduction.</li>
 	  </ul>
 	</section>
 
 	<section>
 		<h3> Universal deducer? </h3>
 		<ul>
-			<li class ="fragment"> An ultimate prover is a computable function (algorithm) which, given a deducible proposition (formula),
-				returns a proof.</li>
-			<li class="fragment"> By results of Turing, there is no such computable function. </li>
+			<li class ="fragment"> A universal deducer is a computable function (algorithm) which, given a proposition (formula),
+				returns a proof if it is deducible and otherwise returns failure.</li>
+			<li class="fragment"> By results of Turing, there is no such algorithm. </li>
 			<li class="fragment"> We can enumerate proofs and check if they prove either the given proposition or its negation.
 				<span class="fragment"> This does not always work as there are statements that are true but not provable.</span>
 			</li>
 			 <li class="fragment"> Practically, we can conclude that there is no best deducer,
-				 as all proofs can be found but no deducer can find them all. </li>
+				 as any given proof can be found but no deducer can find all proofs. </li>
 		</ul>
 	</section>
 
@@ -148,7 +153,7 @@
 		<h3> Resolution theorem proving: Conjunctive normal form </h3>
 		<ul>
 			<li class ="fragment"> To prove a proposition $P$ from axioms, we can derive a contradiction from $\neg P$ and the axioms.</li>
-			<li class ="fragment"> We can rewrite $\implies$ and $\wedge$ in terms of $\vee$ and $\neg$.</li>
+			<li class ="fragment"> We can rewrite $\implies$, $\wedge$ etc in terms of $\vee$ and $\neg$.</li>
 			<li class ="fragment"> Suppose a variable is existentially quantified,
 				<ul>
 				<li class ="fragment"> e.g. $\delta$ in $\forall \epsilon \exists \delta\ |x| < \delta \implies |x|^2 < \epsilon$, </li>
@@ -170,7 +175,7 @@
 			<ul>
 			<li class ="fragment"> By the above process, we reduce to
 				<ul>
-				<li> A sequence of statements, i.e., a conjunction of clauses.</li>
+				<li> A list of statements all of which are true, i.e., a conjunction of clauses.</li>
 				<li> Each clause consists of atomic formulas and their negations combined by $\vee$,
 					i.e., a disjunction of literals. </li>
 				</ul>
@@ -179,8 +184,8 @@
 			<li class ="fragment"> <em>Resolution </em> is the rule by which if two clauses are of the form
 				$P\vee Q_1\vee\dots\vee Q_n$ and $\neg P \vee R_1\vee \dots\vee R_m$, we deduce
 				$Q_1\vee\dots\vee Q_n\vee R_1\vee \dots\vee R_m$.</li>
-			<li class="fragment"> Combined with unification, this is <em> refutation complete</em>.</li>
-			<li class="fragment"> To handle equality efficiently, another rule called <em>paramodulation</em> is used.</li>
+			<li class="fragment"> Combined with unification - substituting expressions for variables to make literals equal, this is <em> refutation complete</em>.</li>
+			<li class="fragment"> To handle equality efficiently, <em>paramodulation</em> is used.</li>
 			</ul>
 
 	</section>
@@ -193,7 +198,7 @@
 			<li class="fragment"> Various search heuristics can be used. </li>
 			<li class="fragment"> We can also add premises corresponding to theorems in a formal library
 				(Mizar has been used for this).</li>
-			<li	class="fragment"> Machine learning has been used too select both strategies and premises.</li>
+			<li	class="fragment"> Machine learning has been used to select both strategies and premises.</li>
 			</ul>
 	</section>
 
@@ -215,12 +220,12 @@
 		<ul>
 			<li class="fragment"> A proof in real-life mathematics consists of:
 				<ul>
-					<li> definitions, axioms, assumptions, notation; </li>
-					<li> assertions; </li>
-					<li> hints about which assertions, definitions etc. are used in the proof of a given assertion.</li>
+					<li class="fragment"> definitions, axioms, assumptions, notation; </li>
+					<li class="fragment"> assertions; </li>
+					<li class="fragment"> hints about which assertions, definitions etc. are used in the proof of a given assertion.</li>
 				</ul>
 			</li>
-			<li class="fragment"> The reader is expected to deduce all assertions based on the hint
+			<li class="fragment"> The reader is expected to deduce all assertions based on the hints
 				(or at least believe that he/she can do so).</li>
 			<li class="fragment"> In particular, there is no objective sense in which a proof is complete or correct.</li>
 			<li class="fragment"> Interactive proof systems modelled on human proofs, such as Mizar and Naproche,
@@ -289,7 +294,9 @@ mathematical work.</span> &rdquo;</q></p>
 	<section>
 		<h3> Type theoretic foundations</h3>
 		<ul>
-			<li class="fragment"> Mathematical objects, called <em class="fragment highlight-current-blue"> terms</em> have <em class="fragment highlight-current-blue"> types </em>. </li>
+			<li class="fragment"> A Type theory is a type system rich enough to replace
+				Set theory as foundations for mathematics.</li>
+			<li class="fragment"> Mathematical objects, called <em> terms</em>, have <em> types </em>. </li>
 			<li class="fragment"> A term $a$ having a type $A$, denoted $a : A$, is analogous to
 				an element $a$ belonging to a set $A$, i.e., $a \in A$.</li>
 			<li class="fragment"> However the rules for forming terms and types, and for determining
@@ -305,10 +312,10 @@ mathematical work.</span> &rdquo;</q></p>
 	<section>
 	  <h3> Terms, Types, Rules </h3>
 	  <ul>
-	  <li class="fragment"> Mathematical objects are called <em class="fragment highlight-current-blue">terms. </em> </li>
-	  <li  class="fragment"> Every term has a <em class="fragment highlight-current-blue"> type </em>, generally unique.</li>
+	  <li class="fragment"> Mathematical objects are called <em>terms. </em> </li>
+	  <li  class="fragment"> Every term has a <em> type </em>, generally unique.</li>
 	  <li class="fragment"> Types are also terms, whose types are <em class="fragment highlight-current-blue"> universes</em>.</li>
-		<li class="fragment"> We have <em class="fragment highlight-current-blue">rules</em> to introduce terms (including types), individually or in groups, into the context.</li>
+		<li class="fragment"> We have <em>rules</em> to introduce terms (including types), individually or in groups, into the context.</li>
 		<li class="fragment"> Rules also let us make two kinds of <strong>judgements</strong>:
 	  	<ul>
 				<li> that a term $a$  is of type $A$. </li>
@@ -330,7 +337,8 @@ mathematical work.</span> &rdquo;</q></p>
 	      <li> We can construct a function $f: A \to B$ by giving an expression $b$ of type $B$
 					in terms of a variable $a : A$ and other terms in the context, i.e., $f : a \mapsto b$.</li>
 </div>
-	    <li class="fragment"> We can also define functions <em class="fragment highlight-current-blue"> recursively</em> on <em class="fragment highlight-current-blue"> inductive types </em>.</li>
+	    <li class="fragment"> We can also define functions <em> recursively</em> on
+				<em class="fragment highlight-current-blue"> inductive types</em>.</li>
 	    </ul>
 	</section>
 
@@ -408,7 +416,8 @@ data Vector (A : Type) : ℕ → Type where -- inductive type family
   _::_ : {n : ℕ} → A → Vector n → Vector (succ n)
 </code></pre>
 </div>
-	    <li class="fragment"> We can define dependent functions to this type family <em class="fragment highlight-current-blue">inductively</em>.</li>
+	    <li class="fragment"> We can define dependent functions to a type family
+				<em>inductively</em>.</li>
 <div class="fragment">
 <pre><code class="haskell">
 countdown : (n : ℕ) → Vector ℕ n -- dependent function
@@ -421,7 +430,7 @@ countdown (succ n) = (succ n) :: (countdown n)
 	  </section>
 
 	<section>
-	  <h3> Functions on type families </h3>
+	  <h3> Functions on inductive type families </h3>
 	  <ul>
 	    <li class="fragment"> We can define (dependent) functions on inductive type families recursively (inductively).</li>
 	    <li class="fragment"> However, we must define these simultaneously on all types in the inductive type family.</li>
@@ -436,42 +445,29 @@ sum (x :: l) = x + sum l
 	  </section>
 
 		<section>
-			<h3> Some useful Inductive types</h3>
+			<h3> More Inductive types</h3>
 			<ul>
-				<li>
-			We can inductively define the types $\mathbb{0}$, $\mathbb{1}$, $A \times B$, $A \oplus B$.</li>
-			<li> For a type family $B: A \to \mathcal{U}$, the <em class="fragment highlight-current-blue">dependent pair</em> type $\sum_{a: A} B(a)$
-				has terms pairs $(a, b)$ with $b : B(a)$.</li>
-	<div class="fragment">
-	<pre><code class="haskell">
-	data True : Type where
-		qed : True
-
-	data False : Type where
-
-	data _×_  (A B : Type) : Type where
-		_,_ : A → B → A × B
-
-	data _⊕_  (A B : Type) : Type where
-		ι₁ : A → A ⊕ B
-		ι₂ : B → A ⊕ B
-
-	data Σ (A : Type) (B : A → Type) : Type where
-		_,_ : (a : A) → (B a) → Σ A B
-	</code></pre>
-	</div>
+				<li class="fragment"> The types $\mathbb{0}$ has no terms .</li>
+				<li class="fragment"> The type $\mathbb{1}$ has a single term $*$.</li>
+				<li class="fragment"> The product type $A \times B$ has terms (corresponding to)
+					pairs $(a, b)$ with $a: A$ and $b : B$.</li>
+				<li class="fragment"> The sum (disjoint union) type $A \oplus B$ has terms (corresponding to) terms of $A$ and terms of $B$.</li>
+				<li class="fragment"> For a type family $B: A \to \mathcal{U}$, the
+					<em>dependent pair</em> type
+					$\sum_{a: A} B(a)$ has terms (corresponding to) pairs $(a, b)$
+					with $a: A$ and $b : B(a)$.</li>
 		</section>
 
 
 		<section>
 			<h3>Propositions as types</h3>
 			<ul>
-				<li class="fragment">A type $A$ is <em class="fragment highlight-current-blue">inhabited</em> if there is a term $a$ with $a : A$.</li>
-				<li class="fragment">By <em class="fragment highlight-current-blue"> propostion</em> we mean a logical statement that must be true or false.</li>
+				<li class="fragment">A type $A$ is <em>inhabited</em> if there is a term $a$ with $a : A$.</li>
+				<li class="fragment">By <em> propostion</em> we mean a logical statement that must be true or false.</li>
 				<li class="fragment">We represent propositions by types.</li>
 				<li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em class="fragment highlight-current-blue">proof</em> of (or witness to) $A$.
 				<li class="fragment">In particular, a proposition is <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
-				<li class="fragment">Note that we must be able to form types representing propositions of interest in mathematics by the type formation rules.</li>
+				<li class="fragment">Note that we must be able to form types representing mathematical propositions by the type formation rules.</li>
 			</ul>
 		</section>
 
@@ -490,8 +486,8 @@ sum (x :: l) = x + sum l
 			<h3>Quantifying propositions</h3>
 			<ul>
 				<li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family $P : A \to \mathfrak{U}$. </li>
-				<li class="fragment">The proposition $\forall x\ P(x)$ is represented by $\prod_{x: A} P(x)$.</li>
-				<li class="fragment">The proposition $\exists x\ P(x)$ is represented by $\sum_{x : A} P(x)$.</li>
+				<li class="fragment">The proposition $\forall x\in A,\ P(x)$ is represented by $\prod_{x: A} P(x)$.</li>
+				<li class="fragment">The proposition $\exists x\in A,\ P(x)$ is represented by $\sum_{x : A} P(x)$.</li>
 			</ul>
 		</section>
 
@@ -597,6 +593,7 @@ trans (refl a) (refl .a) = refl a
 				</li>
 				<li class="fragment"> The lean theorem prover allows this, and also has an elaboration engine to help complete proofs efficiently.
 				</li>
+				<li class="fragment"> The proofs can be in homotopy type theory.</li>
 					<li class="fragment"> Checking a (fully elaborated) proof is fairly easy, and lean has an efficient export format
 						and an independent Haskell typechecker to do this.</li>
 				<li class="fragment"> The export format, server and API also allow efficient integration with other systems.
@@ -616,30 +613,34 @@ trans (refl a) (refl .a) = refl a
 	</section>
 
 	<section>
-		<h3> Reinforcement learning: non-trivial theorems </h3>
+		<h3> Useful theorems and proofs </h3>
 		<ul>
-			<li class="fragment"> Useful mathematical objects are terms representing useful types.</li>
-			<li class="fragment"> Given weights on terms and types,
-				non-trivial objects are those representing types of high weight (low complexity)
-				 so that the total weight of terms inhabiting the type is low.</li>
-			<li class="fragment"> Further, useful theorems are those from which non-trivial theorems are derived.</li>
-			<li class="fragment"> These can be captured by considering the map from terms to types, and backward propagating.
-			</li>
+			<li class="fragment"> A theorem with a simple statement but difficult proof is useful.</li>
+			<li class="fragment"> A theorem used to prove many other theorems is useful.</li>
+			<li class="fragment"> Particularly for applications, we may have an externally determined
+				notion of <em>a priori</em> usefulness.</li>
+			<li class="fragment"> With homotopy type theory and backward propagation, all these
+				can be naturally captured in simple learning dynamics.</li>
 		</ul>
 	</section>
+
+
 
 	<section>
 		<h3> Reinforcement learning: term-type map </h3>
 		<ul>
-			<li class="fragment"> Given an initial distribution on terms, rules for forming terms gives a new distribution.</li>
-			<li class="fragment"> Given a probability distribution on terms, we get one on types by
+			<li class="fragment"> Given an initial distribution $P_0$ on terms, rules for forming terms gives a new distribution
+				which can be recursively defined by a relation of the form
+					$$P = \alpha P_0 + \beta \mu_*(P) + \gamma \theta_*(P \times P) + \dots$$
+				</li>
+			<li class="fragment"> Given a probability distribution on terms
+				 we get one on types by
 				mapping a term to its type (proof distribution). </li>
 			<li class="fragment"> As (inhabited) types themselves are terms, we get a restricted distribution on them
 				(theorem distribution). </li>
-			<li class="fragment"> We have a flow of the proof distribution towards the theorem distribution.</li>
-			<li class="fragment"> The gradient gives a distribution on terms, which we backward propagate.</li>
-			<li class="fragment"> It is useful to freeze the distribution on terms.</li>
-			<li class="fragment"> We may also learn using a distribution from the (formalized) literature.</li>
+			<li class="fragment"> We have a flow of the (entropy of) the proof distribution towards the theorem distribution.</li>
+			<li class="fragment"> We can backward propagate to get a flow on the distribution on terms.</li>
+			<li class="fragment"> The distribution on theorems can have other components.</li>
 		</ul>
 
 	</section>
@@ -654,16 +655,54 @@ trans (refl a) (refl .a) = refl a
 	<section>
 		<h3> NLP: extracting from human literature.</h3>
 		<ul>
-			<li class="fragment"> We try to extract mathematical objects from the literature,
+			<li class="fragment"> We aim to extract mathematical objects from the literature,
 				with reasonably high accuracy. </li>
 			<li class="fragment"> These can be used for learning, both giving terms from which to generate others,
 				and a distribution on types.</li>
 			<li class="fragment"> This is similar to a translation problem, except the target language has
 				strong restrictions on sentences being meaningful and true.</li>
-			<li class="fragment"> To extract from natural language, we first use a parser to break a sentence into
-				a tree like structure.</li>
+			<li class="fragment"> To extract from natural language, we first use a parser.</li>
 			</ul>
 		</section>
+
+</section>
+
+
+<section>
+	<section>
+		<h3> The Slice-Ribbon conjecture: </h3>
+		<h3> Computer-assisted approaches </h3>
+	</section>
+	<section>
+		<h3> Knots: Slice and Ribbon </h3>
+		<ul>
+			<li class="fragment"> A knot $K$ is a smoothly embbed circle in $S^3$.
+			<img src="240px-Square_ribbon_knot.svg.png" />
+			</li>
+			<li class="fragment"> $K$ is <em>unknotted</em> if it bounds a smoothly embedded disc in $S^3$.</li>
+			<li class="fragment"> $K$ is <em>slice</em> if it bounds a smoothly embedded disc in $B^4$.</li>
+			<li class="fragment"> $K$ is <em>ribbon</em> if it bounds a slice disc
+				so that $x^2+y^2+z^2$ has (no degenerate critical points and) no local maxima in it.</li>
+			<li class="fragment"> The slice-ribbon conjecture says that evey slice knot is ribbon.</li>
+		</ul>
+	</section>
+	<section>
+		<h3> Workflow </h3>
+		<ul>
+			<li class="fragment"> We seek useful results by interaction, working out and the literature.</li>
+			<li class="fragment"> Working out is a combination of experimentation, computation, deduction and search,
+				with learning.</li>
+			<li class="fragment"> We seek:
+				<ul>
+					<li class="fragment"> Consequences of being Ribbon - to contradict.</li>
+					<li class="fragment"> Knots and classes of knots that are slice.</li>
+					<li class="fragment"> Modifications of slice discs for a knot.</li>
+					<li class="fragment"> Invariants, complexities etc associated to slice discs.</li>
+				</ul>
+			</li>
+			<li class="fragment"> One may similarly analyse, for example, the mean curvature flow.</li>
+		</ul>
+	</section>
 
 </section>
 
