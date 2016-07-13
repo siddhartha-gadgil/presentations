@@ -84,7 +84,7 @@
 	<section>
 		<h3> Computer-Assisted proof components </h3>
 		<ul>
-			<li class="fragment"> Computers have been used in various ways to provide a component of a proof:
+			<li class="fragment"> Computers have been used in various ways to provide a <em>component</em> of a proof:
 				<ul>
 					<li> Enumeration, </li>
 					<li> Symbolic algebra, </li>
@@ -145,7 +145,7 @@
 				<span class="fragment"> This does not always work as there are statements that are true but not provable.</span>
 			</li>
 			 <li class="fragment"> Practically, we can conclude that there is no best deducer,
-				 as any given proof can be found but no deducer can find all proofs. </li>
+				 as any given proof can be found by some deducer but no deducer can find all proofs. </li>
 		</ul>
 	</section>
 
@@ -334,8 +334,10 @@ mathematical work.</span> &rdquo;</q></p>
 	    <li class="fragment"> Given types $A$ and $B$, we can introduce the function type $A \to B$, whose members are functions.</li>
 	    <li class="fragment"> Given $f: A \to B$ and $a : A$, we get a term $f(a) : B$.</li>
 	    <div class="fragment">
-	      <li> We can construct a function $f: A \to B$ by giving an expression $b$ of type $B$
-					in terms of a variable $a : A$ and other terms in the context, i.e., $f : a \mapsto b$.</li>
+	      <li> We can construct a function $f: A \to B$,
+					$$f(a) := b,$$
+					by giving an expression $b$ of type $B$
+					in terms of a variable $a : A$ and other terms in the context.</li>
 </div>
 	    <li class="fragment"> We can also define functions <em> recursively</em> on
 				<em class="fragment highlight-current-blue"> inductive types</em>.</li>
@@ -485,9 +487,10 @@ sum (x :: l) = x + sum l
 		<section>
 			<h3>Quantifying propositions</h3>
 			<ul>
-				<li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family $P : A \to \mathfrak{U}$. </li>
-				<li class="fragment">The proposition $\forall x\in A,\ P(x)$ is represented by $\prod_{x: A} P(x)$.</li>
-				<li class="fragment">The proposition $\exists x\in A,\ P(x)$ is represented by $\sum_{x : A} P(x)$.</li>
+				<li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family
+					$P : A \to \mathfrak{U}$. </li>
+				<li class="fragment">The proposition $\forall x\in A,\ P(x)$ is  $\prod_{x: A} P(x)$.</li>
+				<li class="fragment">The proposition $\exists x\in A,\ P(x)$ is  $\sum_{x : A} P(x)$.</li>
 			</ul>
 		</section>
 
@@ -694,9 +697,9 @@ trans (refl a) (refl .a) = refl a
 				with learning.</li>
 			<li class="fragment"> We seek:
 				<ul>
-					<li class="fragment"> Consequences of being Ribbon - to contradict.</li>
-					<li class="fragment"> Knots and classes of knots that are slice.</li>
-					<li class="fragment"> Modifications of slice discs for a knot.</li>
+					<li class="fragment"> Consequences of being <em>ribbon</em> - to contradict.</li>
+					<li class="fragment"> Constructions of <em>slice</em> knots.</li>
+					<li class="fragment"> Modifications of, and relations between, slice discs for a fixed knot.</li>
 					<li class="fragment"> Invariants, complexities etc associated to slice discs.</li>
 				</ul>
 			</li>
