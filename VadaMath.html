@@ -44,7 +44,6 @@
 <div class="slides">
 <section>
 	<h2> Automating Mathematics? </h2>
-	<h3> HoTT Foundations, Learning </h3>
 	<h2>Siddhartha Gadgil</h2>
 	 <p>Department of Mathematics</p>
 	 <p>Indian Institute of Science</p>
@@ -97,11 +96,11 @@
 		<section>
 			<h3>Chess, Expert systems and  Deep Blue</h3>
 				<ul>
-					<li class="fragment">In Chess, we get a basic value function by weights for pieces and pawns.</li>
-					<li class="fragment">For openings, we also have strict policy functions,
-						where we only consider a small subset of possible move sequences.</li>
-					<li class="fragment"> Deep blue (and chess theory) greatly extend these.</li>
-					<li class="fragment"> Yet the value and policy functions (<em>intuition</em>) of Kasparov were far better, but compensated for by deep blue being able to consider far more move sequences.</li>
+					<li class="fragment">In Chess,a basic value function is obtained by counting pieces and pawns with weights.</li>
+					<li class="fragment">For openings, we also have strict policy functions -
+						we only consider a small subset of possible move sequences.</li>
+					<li class="fragment"> Deep Blue (and chess theory) greatly extend these.</li>
+					<li class="fragment"> The value and policy functions of Kasparov were far better, but compensated for by Deep Blue being able to consider far more move sequences.</li>
 					<li class="fragment"> &ldquo; Play the opening like a book, the middle game like a magician, and the endgame like a machine.  &rdquo; – Spielmann</li>
 					<li class="fragment"> A lesson from machines.</li>
 				</ul>
@@ -133,7 +132,8 @@
 			<h3>Deep Neural Network</h3>
 				<ul>
 					<li class="fragment"> The state can be represented by a vector, on which we wish to find good functions. </li>
-					<li class="fragment"> We first define a new vector in terms of the input vector, which is a composition of functions with each layer (vector) given in terms of the previous one.</li>
+					<li class="fragment"> We first define a new vector in terms of the input vector as a composition of functions from vectors to vectors.</li>
+					<li class="fragment"> We can view co-ordinates of vectors as forming layers, with each layer defined as a function of the previous layer.</li>
 					<li class="fragment"> Each co-ordinate of a layer is a linear combination of (some of the) coordinates of the previous layer composed by a cut-off function.</li>
 					<li class="fragment"> This can be trained by gradient flow, using the chain rule to backward propagate gradients.</li>
 				</ul>
@@ -143,9 +143,9 @@
 			<h3>Deep Learning and Science</h3>
 				<ul>
 					<li class="fragment"> We are trying to solve an Engineering problem of finding a near-optimal strategy, and the related scientific problem of understanding the strategy used by the brain (say for vision).</li>
-					<li class="fragment"> A good scientific theory gives a concise description of (properties of) obeservations, which are good approximations.</li>
+					<li class="fragment"> A good scientific theory gives a concise description of (properties of) observations, which are good approximations.</li>
 					<li class="fragment"> However, any reasonably concise description may give a very poor approximation, and near-optimal solutions may be far from unique.</li>
-					<li class="fragment"> Yet AlphaGo is not based on a single strategy network, but on two black-box networks and some concrete descriptions.</li>
+					<li class="fragment"> Yet, AlphaGo is not based on a single strategy network, but on two black-box networks and some concrete descriptions.</li>
 				</ul>
 		</section>
 </section>
@@ -209,12 +209,12 @@
 			<ul>
 				<li class="fragment"> A formal deduction system should giver rules that describe
 					<ul>
-						<li> What are well-formed expressions, i.e., represent mathematical objects.</li>
-						<li> How to deduce judgements from  other judgements, in particular that a particular expression represents a proposition with a proof.</li>
-						<li> Axioms, which are well-formed propostions that we take to be proved.</li>
+						<li class="fragment"> What are well-formed expressions, i.e., represent mathematical objects.</li>
+						<li class="fragment"> How to deduce judgements from  other judgements, in particular that a particular expression represents a proposition with a proof.</li>
+						<li class="fragment"> Axioms, which are well-formed propostions that we take to be proved.</li>
 					</ul>
 				</li>
-				<li class="fragment"> In the usual foundations of mathematics, the rules for forming expressions and making deductions are those of first-order logic, and the axioms are those of set theory.</li>
+				<li class="fragment"> In the usual foundations of mathematics, the rules for forming expressions and making deductions are those of First-Order Logic, and the axioms are those of Set Theory.</li>
 			</ul>
 	</section>
 
@@ -227,7 +227,7 @@
 	      <li> Variables - can be taken to be a fixed countable set.</li>
 	      <li> Constants (e.g. $0$, $1$).</li>
 	      <li> Functions  (e.g. $+$).</li>
-	      <li> Predicates (e.g. $<$, $=$).</li>
+	      <li> Relations (e.g. $<$, $=$).</li>
 	      <li> Special symbols $\Rightarrow$, $\iff$, $\wedge$, $\vee$, $\forall$, $\exists$, ... </li>
 	      </ul>
 	    <li class="fragment"> We form two kinds of expressions from these, <em>terms</em> (e.g. $1+1$, $n + 3$)
@@ -271,7 +271,7 @@
 				associativity and commutativity of $\vee$ and the Robbins equation
 				$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
 			<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
-				automated theorem prover EQP, which is based on Resolution theorem proving with Paramodulation.</li>
+				automated theorem prover EQP, which is a Resolution Theorem Prover with Paramodulation.</li>
 			<li class="fragment"> So far, this seems to be the only major success of deductive theorem provers.</li>
 			<li class="fragment"> First-order logic theorem provers are, however, used in interactive proof systems
 				(hammer tactics). </li>
@@ -335,7 +335,7 @@
 			<li class="fragment"> Statements and proofs formalized in first-order logic are verbose and opaque.</li>
 			<li class="fragment"> Propositions and Proofs are not first class, i.e., cannot be arguments or values of functions, so not composable.
  We instead have patterns of proof (such as induction).</li>
- 			<li class="fragment"> HoTT foundations are fully formal, yet much closer to working mathematics. Further, introducing variables, hypothesis and assumptions as well as inductive proofs, are natural.</li>
+ 			<li class="fragment"> HoTT foundations are fully formal, yet much closer to working mathematics and with a syntax that actually describes valid objects. Further, introducing variables, hypothesis and assumptions as well as inductive proofs, are natural.</li>
 			</ul>
 	</section>
 
