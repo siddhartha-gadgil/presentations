@@ -55,7 +55,7 @@
 <section>
 		<section>
 			<h3> Intelligence and Games </h3>
-			<p> Tic tac toe </p>
+			<p> Tic-tac-toe </p>
 			<p> Othello </p>
 			<p> Deep Blue </p>
 			<p> Alpha Go </p>
@@ -84,8 +84,8 @@
 				</li>
 				<li class="fragment"> A strategy can be based on:
 					<ul>
-						<li class="fragment">A <em>policy</em> function, giving moves to consider.</li>
-						<li class="fragment">A <em>value</em> function, telling us how good a state is.</li>
+						<li class="fragment">A <em>policy</em> function, giving (weighted) moves to consider.</li>
+						<li class="fragment">A  (relative) <em>value</em> function, telling us how good a state is.</li>
 					</ul>
 				</li>
 				<li class="fragment"> We consider certain sequences of moves, based on policy, and optimize value at the end of the sequence.</li>
@@ -96,7 +96,7 @@
 		<section>
 			<h3>Chess, Expert systems and  Deep Blue</h3>
 				<ul>
-					<li class="fragment">In Chess,a basic value function is obtained by counting pieces and pawns with weights.</li>
+					<li class="fragment">In Chess, a basic value function is obtained by counting pieces and pawns with weights.</li>
 					<li class="fragment">For openings, we also have strict policy functions -
 						we only consider a small subset of possible move sequences.</li>
 					<li class="fragment"> Deep Blue (and chess theory) greatly extend these.</li>
@@ -111,7 +111,7 @@
 			<img src="./220px-Go-board-animated.gif" style="float: right">
 				<ul style="width: 70%">
 					<li class="fragment"> In Go, the  number of legal moves is much larger, causing the number of sequences for a weak policy to grow very fast.</li>
-					<li class="fragment"> More importantly, it is very hard to describe a good value (or policy) function.</li>
+					<li class="fragment"> More importantly, it is very hard to describe a good value function.</li>
 					<li class="fragment"> This makes it far harder for computers.</li>
 					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world champion Lee Sedol.</li>
 
@@ -132,7 +132,7 @@
 			<h3>Deep Neural Network</h3>
 				<ul>
 					<li class="fragment"> The state can be represented by a vector, on which we wish to find good functions. </li>
-					<li class="fragment"> We first define a new vector in terms of the input vector as a composition of functions from vectors to vectors.</li>
+					<li class="fragment"> We first define a new vector in terms of the input vector as a composition of functions from vectors to vectors. Our desired functions are in terms of this new vector.</li>
 					<li class="fragment"> We can view co-ordinates of vectors as forming layers, with each layer defined as a function of the previous layer.</li>
 					<li class="fragment"> Each co-ordinate of a layer is a linear combination of (some of the) coordinates of the previous layer composed by a cut-off function.</li>
 					<li class="fragment"> This can be trained by gradient flow, using the chain rule to backward propagate gradients.</li>
@@ -210,8 +210,8 @@
 				<li class="fragment"> A formal deduction system should giver rules that describe
 					<ul>
 						<li class="fragment"> What are well-formed expressions, i.e., represent mathematical objects.</li>
-						<li class="fragment"> How to deduce judgements from  other judgements, in particular that a particular expression represents a proposition with a proof.</li>
-						<li class="fragment"> Axioms, which are well-formed propostions that we take to be proved.</li>
+						<li class="fragment"> How to deduce statements from other statements (more generally to make judgements).</li>
+						<li class="fragment"> Axioms, which are well-formed propositions that we take to be proved.</li>
 					</ul>
 				</li>
 				<li class="fragment"> In the usual foundations of mathematics, the rules for forming expressions and making deductions are those of First-Order Logic, and the axioms are those of Set Theory.</li>
@@ -330,7 +330,7 @@
 	<section>
 		<h3> Why better (new) foundations? </h3>
 		<ul>
-			<li class="fragment"> In the usual foundations of mathematics, $sin(3)$ and $3(sin)$ are syntactically equally valid., i.e., the usual language of mathematics is an informal language.
+			<li class="fragment"> In the usual foundations of mathematics, $sin(3)$ and $3(sin)$ are syntactically equally valid, i.e., the usual language of mathematics is an informal language.
 			</li>
 			<li class="fragment"> Statements and proofs formalized in first-order logic are verbose and opaque.</li>
 			<li class="fragment"> Propositions and Proofs are not first class, i.e., cannot be arguments or values of functions, so not composable.
