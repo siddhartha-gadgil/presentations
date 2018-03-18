@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Homotopy Type theory</title>
+		<title>Homomogeneous length functions on Groups</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -21,7 +21,7 @@
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<link rel="icon" href="../IIScLogo.jpg">
+		<link rel="icon" href="IIScLogo.jpg">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -45,23 +45,34 @@
 <div class="slides">
 <section>
  	<section>
-	<h1> Homotopy Type Theory </h1>
-	 <h3>Siddhartha Gadgil</h3>
-	 <p>Department of Mathematics</p>
+	<h3> Homomogeneous length functions on Groups </h3>
+	<h3> A PolyMath adventure</h3>
+	 <h5>Siddhartha Gadgil</h5>
 	 <p>Indian Institute of Science</p>
-	 <p>Bangalore</p>
-	 <p><a href="https://github.com/siddhartha-gadgil/ProvingGround" target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
+	 <h5> joint with </h5>
+	 <h5 class="fragment highlight-blue"> Everyone else in polymath 14</h5>
 	 </section>
 	<section>
-	  <img src="hott-cover-web.png" height="600" />
-	  </section>
+
+		<h3>The PolyMath 14 participants</h3>
+		<ul>
+			<li>Tobias Fritz, MPI MIS</li>
+			<li> Siddhartha Gadgil, IISc, Bangalore </li>
+			<li> Apoorva Khare, IISc, Bangalore</li>
+			<li>	Pace Nielsen, BYU </li>
+			<li> Lior Silberman, UBC </li>
+			<li> Terence Tao, UCLA </li>
+		</ul>
+
+	</section>
 
 </section>
+
 
 <section>
 	<section>
 		<h3>Foundations of Mathematics</h3>
-		 <p>Words and Rules</p>
+		 <p id="dummy">Words and Rules</p>
 		 <p>Sets and Predicate Calculus</p>
 		 <p>Why we need new foundations</p>
 	</section>
@@ -383,7 +394,7 @@ mathematical work.</span> &rdquo;</q></p>
 	  <ul>
 	    <div class="fragment">
 	      <li> In terms of code in the language/proof-assistant <em> Agda</em>,</li>
-<pre><code class="hljs scala scrollable">
+<pre><code class="hljs scala scrollcode">
 import $ivy.`org.jbibtex:jbibtex:1.0.5`
 import org.jbibtex._
 import scala.collection.JavaConversions._

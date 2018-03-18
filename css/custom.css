@@ -1,6 +1,12 @@
 .scrollable {
     overflow-y: auto  !important;
     overflow-x: auto  !important;
+    height: 600px;
+}
+
+.scrollcode {
+    overflow-y: auto  !important;
+    overflow-x: auto  !important;
     height: 300px;
     width: 800px;
 }
