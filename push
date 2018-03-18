@@ -1,0 +1,5 @@
+git push
+git checkout gh-pages
+git merge --no-edit master
+git push
+git checkout master
