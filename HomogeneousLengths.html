@@ -50,7 +50,7 @@
 	 <h5>Siddhartha Gadgil</h5>
 	 <p>Indian Institute of Science</p>
 	 <h5> joint with </h5>
-	 <h5 class="fragment highlight-blue"> Everyone else in polymath 14</h5>
+	 <p class="fragment highlight-blue">The rest of (spontaneous) polymath 14</p>
 
 </section>
 <section>
@@ -67,9 +67,51 @@
 
 </section>
 
+<section>
+    <ul>
+      <li>On Saturday, December 16, 2017, Terrence Tao posted this question, asked by Apporva Khare:</li>
+				<blockquote class="fragment">
+					Is there a homogeneous, (conjugacy invariant) length function on the free group on two generators?
+				</blockquote>
+			<li class="fragment">Six days later, this was answered in a collaboration involving several mathematicians (and a computer).</li>
+			<li class="fragment">This the story of the answer and its discovery.</li>
+    </ul>
+</section>
 
 <section>
-	<embed type="application/pdf" src="linear_v2.pdf" width="1000" height="600">
+	<h2>Length functions</h2>
+	<ul>
+	  <li class="fragment">Fix a group $G$, i.e. a set with an associative product with inverses.</li>
+		<li class="fragment">A <em>pseudo-length function</em> $l: G \to [0, \infty)$ is a function  such that:
+			<ul>
+				<li>$l(e) = 0$.</li>
+				<li>$l(g^{-1}) = l(g)$ , for all $g \in G$.</li>
+				<li>$l(gh) \leq l(g) + l(h)$, for all $g,h\in G$.</li>
+			</ul>
+		</li>
+		<li class="fragment">A <em>length function</em> is a pseudo-length function such that $l(g) > 0$ whenever $g\neq e$.
+	</ul>
+</section>
+
+<section>
+		<ul>
+		  <li>A pseudo-length function $l$ is said to be conjugacy invariant if $l(ghg^{-1})=l(g)$ for all $g, h \in G$.</li>
+			<li class="fragment">$l$ is  said to be <em>homogeneous</em> if $l(g^n) = nl(g)$ for all $g \in G$. </li>
+			<li class="fragment">On the group $\mathbb{Z}^2$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
+			<li class="fragment">On the other hand, if $l$ is homogeneous and $g^n=e$ then $l(g)=0$ as $nl(g) = l(g^n) = 0$.</li>
+			<li class="fragment">Thus, if $G$ has <em>torsion</em>, i.e., there exists $g\neq e\in G$, such that $g^n =0$ for some $n > 0$, then there is no homogeneous length function on $G$. </li>
+		</ul>
+</section>
+
+<section>
+	<h2>Free group on $\alpha$, $\beta$</h2>
+	<ul>
+	  <li class="fragment">Consider words in four letters $\alpha$, $\beta$, $\bar{\alpha}$ and $\bar{\beta}$.</li>
+		<li class="fragment">We can multiply words by concatenation, e.g. $\alpha\beta\cdot\bar{\alpha}\beta = \alpha\beta\bar{\alpha}\beta$.</li>
+		<li class="fragment">Two words are regarded as equal if they can be related by cancellating adjacent letters that are inverses, e.g. $\alpha\beta\bar{\beta}\alpha\beta = \alpha\alpha\beta$.</li>
+		<li class="fragment">This gives a group; e.g.
+			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$ .</li>
+	</ul>
 </section>
 
 <section>
@@ -123,6 +165,9 @@ object LinNormBound{
 	<embed src="formal-proof.html" width="1000" height="600">
 </section>
 
+<section>
+	<embed type="application/pdf" src="linear_v2.pdf" width="1000" height="600">
+</section>
 
 
 
