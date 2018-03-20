@@ -104,13 +104,36 @@
 </section>
 
 <section>
-	<h2>Free group on $\alpha$, $\beta$</h2>
+	<h2>Free group $\mathbb{F}_2$ on $\alpha$, $\beta$</h2>
 	<ul>
 	  <li class="fragment">Consider words in four letters $\alpha$, $\beta$, $\bar{\alpha}$ and $\bar{\beta}$.</li>
 		<li class="fragment">We can multiply words by concatenation, e.g. $\alpha\beta\cdot\bar{\alpha}\beta = \alpha\beta\bar{\alpha}\beta$.</li>
 		<li class="fragment">Two words are regarded as equal if they can be related by cancellating adjacent letters that are inverses, e.g. $\alpha\beta\bar{\beta}\alpha\beta = \alpha\alpha\beta$.</li>
 		<li class="fragment">This gives a group; e.g.
 			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$ .</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Pullback pseudo-lengths</h2>
+	<ul>
+	  <li class="fragment">We can define $ab: \mathbb{F}_2 \to \mathbb{Z}^2$ by ignoring order, e.g. $ab(\alpha\alpha\beta\bar{\alpha}\bar{\beta}\alpha\bar{\beta}) = (2, -1)$.
+		</li>
+		<li class="fragment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l(g) = l_{\mathbb{Z}^2}(g)$.</li>
+		<li class="fragment">As $l_{\mathbb{Z}^2}$ is homogeneous, so is $l$.</li>
+		<li class="fragment"> However, this is <em>not</em> a length function as $l([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$. </li>
+		<li class="fragment">More generally, every group $G$ has an Abelianization $ab: G \to G/[G, G]$. </li>
+	</ul>
+</section>
+
+<section>
+	<h2>The Main results</h2>
+	<ul>
+		<li class="fragment highlight-current-blue">
+			<strong>Theorem:</strong> Any homogeneous pseudo-length function on a group $G$ is the pullback of a pseudo-length on its Abelianization $G / [G, G]$.</h4>
+		</li>
+		<li class="fragment highlight-current-blue"><strong>Corollary:</strong>  If $G$ is not abelian (e.g. $G = \mathbb{F}_2$) there is no homogeneous length function on $G$.</li>
+		<li class="fragment">In fact, every homogeneous pseudo-length is the pullback of a <em>norm</em> on a vector space.</li>
 	</ul>
 </section>
 
@@ -188,8 +211,8 @@ object LinNormBound{
 
 
 				math: {
-					mathjax: '../MathJax/MathJax.js',
-					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: '../MathJax/MathJax.js',
+					mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
 					config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
 				},
 
