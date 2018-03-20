@@ -204,16 +204,16 @@
 </section>
 <section>
 	<ul>
-		<li>For $g\in \mathbb{F}_2$, define $l(g)$ to be the minimum of the norms of the non-crossing matchings.</li>
-		<li class="fragment">This is
+		<li>For $g\in \mathbb{F}_2$, define $\lambda(g)$ to be the minimum of the norms of the non-crossing matchings.</li>
+		<li class="fragment">$\lambda$ is
 			<span class="fragment highlight-current-blue"> unchanged under cancellation (well-defined)</span> and
 			<span class="fragment highlight-current-blue">conjugacy invariant.</span></li>
 		<li class="fragment">However, if $g=\alpha[\alpha, \beta]$, then
-			<span class="fragment highlight-current-blue">$l(g^2)= 4$, but</span>
-			<span class="fragment highlight-current-blue">$l(g) = 3$,</span> violating homogeneity.
+			<span class="fragment highlight-current-blue">$\lambda(g^2)= 4$, but</span>
+			<span class="fragment highlight-current-blue">$\lambda(g) = 3$,</span> violating homogeneity.
 		 </li>
 		 <li class="fragment">Non-crossing matchings correspond to decompositions into conjugates, e.g.,
-			 $(\alpha[\alpha, \beta])^2 = ((\beta)^\alpha (\alpha^2)^{\bar{\beta}})^\alpha\bar{\beta}$, giving <span class="fragment highlight-current-blue">proofs of bounds</span> and showing this is the <span class="fragment highlight-current-blue">maximal conjugacy-invariant length</span>.</li>
+			 $(\alpha[\alpha, \beta])^2 = ((\beta)^\alpha (\alpha^2)^{\bar{\beta}})^\alpha\bar{\beta}$, giving <span class="fragment highlight-current-blue">proofs of bounds</span> and showing $\lambda$ is the <span class="fragment highlight-current-blue">maximal conjugacy-invariant length</span>.</li>
 	</ul>
 </section>
 
@@ -230,6 +230,17 @@
 <section>
 	<embed src="gross-proof.html" width="1000" height="600">
 </section>
+
+<section>
+	<ul>
+		<li>The computer-generated proof was studied by Pace Nielsen, who extracted the <em>internal repitition</em> trick. </li>
+		<li class="fragment">This was extended by Nielsen and Fritz and generalized by Tao; from this Fritz obtained the key lemma:
+		</li>
+		<li class="fragment">Let $f(m, k) = l(x^m[x, y]^k)$. Then $f(m, k) \leq\frac{f(m-1, k) + f(m+1, k-1)}{2}$.</li>
+		<li class="fragment">A probabilistic argument of Tao finished the proof.</li>
+	</ul>
+</section>
+
 
 <section>
 <p>Proofs of $l(word)\leq bound$</p>
@@ -260,17 +271,58 @@ case object Empty extends
 </code></pre>
 </section>
 
+<section>
+	<h2>Finding bounds and proofs</h2>
+	<ul>
+	  <li class="fragment">We recursively define $\lambda(g)$ for $g=ah$ as the minimum of:
+			<ul>
+				<li class="fragment highlight-current-blue">$1 + \lambda(h)$</li>
+				<li class="fragment highlight-current-blue">$min\{\lambda(x) + \lambda(y): h = x\bar{a}y \}$</li>
+			</ul>
+		</li>
+		<li class="fragment">We get a minimal non-crossing matching from the same recursion.</li>
+		<li class="fragment">The same recursion gives a proof of a bound on $l(g)$ for $g$ a homogeneous, conjugacy-invariant length with $l(\alpha)=l(\beta)=1$.</li>
+		<li class="fragment"> We can also use homogeneity for selected elements and powers.</li>
+	</ul>
+</section>
 
+<section>
+	<h2>Limitations</h2>
+	<ul>
+	  <li class="fragment">The elements for which we applied homogeneity were selected by hand.</li>
+		<li class="fragment">The bounds were only for concrete group elements.</li>
+		<li class="fragment">In particular, we could not use induction.</li>
+	</ul>
+</section>
 
 <section>
 	<embed src="formal-proof.html" width="1000" height="600">
 </section>
 
 <section>
-	<embed type="application/pdf" src="linear_v2.pdf" width="1000" height="600">
+	<ul>
+		<li><strong>Lemma:</strong> If $x = s(wy)s^{-1} = t(zw^{-1})t^{-1}$, $l(x)\leq \frac{l(y)+ l(z)}{2}$.</li>
+		<li class="fragment"><strong>Proof:</strong> $l(x^nx^n) = l(s(wy)^ns^{-1}t(zw^{-1})^nt^{-1})\leq n(l(y) +l(z)) + C$
+			 <img src="internal-repetition.png" scale="20%" style="border:none; background-color: white;">
+		</li>
+		<li class="fragment">Use $l(x) = \frac{l(x^nx^n)}{2n}$ and take limits.</li>
+	</ul>
 </section>
 
+<section>
+	<ul>
+		<li> <strong>Lemma</strong> $f(m, k) \leq\frac{f(m-1, k) + f(m+1, k-1)}{2}$, where $f(m, k) = l(x^m[x, y]^k)$.</li>
+		<li class="fragment">For $Y$ Rademacher, $f(m, k)\leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</li>
+		<li class="fragment">Hence for $Y_i$ i.i.d. Rademacher, $f(0, n) \leq E(f((Y_1 + Y_2 + \dots + Y_n) (1, -1/2) ))$,</li>
+		<li class="fragment">By triangle inequality, $f(a, b) \leq A\Vert (a, b) \Vert$.</li>
+		<li class="fragment">$Y_1 + Y_2 + \dots Y_n$ has mean $0$ and variance $n$, so $E(\Vert Y_1 + Y_2 + \dots Y_n \Vert) \leq B\sqrt{n}$.</li>
+		<li class="fragment">We deduce that $l([x, y]^n) = f(0, n) \leq C\sqrt{n}$, hence $l([x, y]) = 0$</li>
+	</ul>
+</section>
 
+<section>
+	<embed type="application/pdf" src="linear_v2.pdf" width="1000" height="600">
+</section>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
