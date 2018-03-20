@@ -86,10 +86,10 @@
 			<ul>
 				<li>$l(e) = 0$.</li>
 				<li>$l(g^{-1}) = l(g)$ , for all $g \in G$.</li>
-				<li>$l(gh) \leq l(g) + l(h)$, for all $g,h\in G$.</li>
+				<li> (Triangle inequality) $l(gh) \leq l(g) + l(h)$, for all $g,h\in G$.</li>
 			</ul>
 		</li>
-		<li class="fragment">A <em>length function</em> is a pseudo-length function such that $l(g) > 0$ whenever $g\neq e$.
+		<li class="fragment">A <em>length function</em> is a pseudo-length function such that $l(g) > 0$ whenever $g\neq e$ (positivity condition).
 	</ul>
 </section>
 
@@ -99,7 +99,7 @@
 			<li class="fragment">$l$ is  said to be <em>homogeneous</em> if $l(g^n) = nl(g)$ for all $g \in G$. </li>
 			<li class="fragment">On the group $\mathbb{Z}^2$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
 			<li class="fragment">On the other hand, if $l$ is homogeneous and $g^n=e$ then $l(g)=0$ as $nl(g) = l(g^n) = 0$.</li>
-			<li class="fragment">Thus, if $G$ has <em>torsion</em>, i.e., there exists $g\neq e\in G$, such that $g^n =0$ for some $n > 0$, then there is no homogeneous length function on $G$. </li>
+			<li class="fragment">Thus, if $G$ has <em>torsion</em>, i.e., there exists $g\neq e\in G$, such that $g^n =0$ for some $n > 0$, then there is no homogeneous length function on $G$	. </li>
 		</ul>
 </section>
 
@@ -121,7 +121,7 @@
 		</li>
 		<li class="fragment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l(g) = l_{\mathbb{Z}^2}(g)$.</li>
 		<li class="fragment">As $l_{\mathbb{Z}^2}$ is homogeneous, so is $l$.</li>
-		<li class="fragment"> However, this is <em>not</em> a length function as $l([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$. </li>
+		<li class="fragment"> However, this is <em>not</em> a length function as $l([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$ (violating positivity). </li>
 		<li class="fragment">More generally, every group $G$ has an Abelianization $ab: G \to G/[G, G]$. </li>
 	</ul>
 </section>
@@ -138,47 +138,125 @@
 </section>
 
 <section>
-	<h3>Non-crossing matchings</h3>
-	 <img src="aabab.png" scale="20%" style="border:none; background-color: white;">
-	 <ul>
-	 	<li>Letters are paired with their inverses.</li>
-		<li> There are no <strong  class="fragment highlight-current-blue">crossings</strong>.</li>
-		<li> The <strong class="fragment highlight-current-blue">norm</strong> is the number of unmatched letters.</li>
+	<h1>Discovery of the Result</h1>
+</section>
+
+<section>
+	<h2>First reductions</h2>
+	<ul>
+	  <li class="fragment">(Fritz): Homomogeneous implies Conjugacy invariant.</li>
+		<li class="fragment">(Tao, Khare): $l(g^2) = 2l(g) \forall g\in G$ implies Homogeneity.</li>
 	</ul>
 </section>
 
+<section>
+	<h2>Finding bounds</h2>
+	<ul>
+	  <li class="fragment">Fix $l$ homomogeneous length function.
+			<li class="fragment">The triangle inequality gives bounds on $l(gh)$.</li>
+			<li class="fragment">Homogeneity gives a bound on $l(g)$ in terms of a bound on $l(g^n)$; also use conjugacy invariance.</li>
+			<li class="fragment">Find bounds for elements in terms of bounds for others, especially
+				<ul>
+				<li class="fragment highlight-current-blue">$l([x, y])$ in terms of $l(x)$ and $l(y)$</li>
+				<li class="fragment highlight-current-blue">$l(g)$ for fixed $g$ in terms of bounds on generators.</li>
+			</ul>
+			</li>
+			<li class="fragment">Combine bounds, including by interpreting in terms of convexity.</li>
+		</li>
+
+	</ul>
+</section>
+
+<section>
+	<h2>Constructions</h2>
+	<ul>
+		<li class="fragment">We can attempt to construct pseudo-lengths that are positive, or at least such that $l([\alpha, \beta])> 0$.</li>
+	  <li class="fragment">Can consider quotients larger than $\mathbb{Z}^2$: negative results by Sawin, Silberman, Tao. </li>
+		<li class="fragment">Given a candidate $l: G \to [0, \infty)$, try to fix this to ensure homogeneity and the triangle inequality.
+		</li>
+		<li class="fragment">There were also attempted constructions based on functional analysis.</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Fixing lengths</h2>
+	<ul>
+		<li class="fragment">
+			<strong>Homogenize:</strong> $\bar{l}(g) = lim_{n\to \infty} \frac{l(g^n)}{n}$.</li>
+		<li class="fragment"> The limit exists by <em>sub-addivity</em> of $l(g^n)$ (for fixed $g$) - Fekete's lemma.</li>
+		<li class="fragment"><strong>Kobayashi construction:</strong> Fix triangle inequality by
+			 $\bar{l}(g) = \inf\{\sum_{i=1}^nl(g_i) : g=\prod_{i=1}^n g_i \}$. </li>
+	</ul>
+</section>
+
+<section>
+	<h3>Non-crossing matchings</h3>
+	 <img src="aabab.png" scale="20%" style="border:none; background-color: white;">
+	 <ul>
+		 <li class="fragment">Given a word in $\mathbb{F}_2$, we consider <em>matchings</em> such that
+		 <ul>
+		 	<li class="fragment highlight-current-blue">letters are paired with their inverses,</li>
+			<li class="fragment highlight-current-blue">there are no <em>crossings</em></li>
+		 </ul>
+	 	</li>
+		<li class="fragment"> The <strong class="fragment highlight-current-blue">norm</strong> is the number of unmatched letters.</li>
+	</ul>
+</section>
+<section>
+	<ul>
+		<li>For $g\in \mathbb{F}_2$, define $l(g)$ to be the minimum of the norms of the non-crossing matchings.</li>
+		<li class="fragment">This is
+			<span class="fragment highlight-current-blue"> unchanged under cancellation (well-defined)</span> and
+			<span class="fragment highlight-current-blue">conjugacy invariant.</span></li>
+		<li class="fragment">However, if $g=\alpha[\alpha, \beta]$, then
+			<span class="fragment highlight-current-blue">$l(g^2)= 4$, but</span>
+			<span class="fragment highlight-current-blue">$l(g) = 3$,</span> violating homogeneity.
+		 </li>
+		 <li class="fragment">Non-crossing matchings correspond to decompositions into conjugates, e.g.,
+			 $(\alpha[\alpha, \beta])^2 = ((\beta)^\alpha (\alpha^2)^{\bar{\beta}})^\alpha\bar{\beta}$, giving <span class="fragment highlight-current-blue">proofs of bounds</span> and showing this is the <span class="fragment highlight-current-blue">maximal conjugacy-invariant length</span>.</li>
+	</ul>
+</section>
+
+<section>
+	<h2>The great bound chase</h2>
+	<ul>
+	  <li class="fragment">By Tuesday morning, most people were convinced that there are no homogeneous length functions on the free group.</li>
+		<li class="fragment">There was a steady improvements in the combinatorial/analytic bounds on $l([\alpha, \beta])$.</li>
+		<li class="fragment">These seemed to be stuck above 1 (as observed by Khare) - but eventually broke this barrier.</li>
+		<li class="fragment">At this stage, my approach diverged.</li>
+	</ul>
+</section>
 
 <section>
 	<embed src="gross-proof.html" width="1000" height="600">
 </section>
 
 <section>
-<p>Proofs of $l(word)\leq bound$ for homomogeneous pseudo-lengths $l$ bounded by $1$ on generators.</p>
+<p>Proofs of $l(word)\leq bound$</p>
 <pre><code class="hljs scala scrollcode">
 sealed abstract class LinNormBound(
 	val word: Word,
 	val bound: Double)
 
-object LinNormBound{
-  case class Gen(n: Int) extends
-    LinNormBound(Word(Vector(n)), 1)
+case class Gen(n: Int) extends
+  LinNormBound(Word(Vector(n)), 1)
 
-  case class ConjGen(n: Int,pf: LinNormBound) extends
-    LinNormBound(n +: pf.word :+ (-n), pf.bound)
+case class ConjGen(n: Int,pf: LinNormBound) extends
+  LinNormBound(n +: pf.word :+ (-n), pf.bound)
 
-  case class Triang(
-    pf1: LinNormBound, pf2: LinNormBound) extends
-      LinNormBound( pf1.word ++ pf2.word, pf1.bound + pf2.bound)
+case class Triang(
+  pf1: LinNormBound, pf2: LinNormBound) extends
+    LinNormBound( pf1.word ++ pf2.word, pf1.bound + pf2.bound)
 
-  case class PowerBound(
-    baseword: Word, n: Int, pf: LinNormBound) extends
-      LinNormBound(baseword, pf.bound/n){
-        require(pf.word == baseword.pow(n))
-      }
+case class PowerBound(
+  baseword: Word, n: Int, pf: LinNormBound) extends
+    LinNormBound(baseword, pf.bound/n){
+      require(pf.word == baseword.pow(n))
+    }
 
-  case object Empty extends
-    LinNormBound(Word(Vector()), 0)
-}
+case object Empty extends
+ LinNormBound(Word(Vector()), 0)
+
 </code></pre>
 </section>
 
