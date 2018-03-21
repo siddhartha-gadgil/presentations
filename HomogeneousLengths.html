@@ -50,7 +50,7 @@
 	 <h5>Siddhartha Gadgil</h5>
 	 <p>Indian Institute of Science</p>
 	 <h5> joint with </h5>
-	 <p class="fragment highlight-blue">The rest of (spontaneous) polymath 14</p>
+	 <p class="fragment highlight-blue">the rest of (spontaneous) polymath 14</p>
 
 </section>
 <section>
@@ -99,7 +99,7 @@
 			<li class="fragment">$l$ is  said to be <em>homogeneous</em> if $l(g^n) = nl(g)$ for all $g \in G$. </li>
 			<li class="fragment">On the group $\mathbb{Z}^2$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
 			<li class="fragment">On the other hand, if $l$ is homogeneous and $g^n=e$ then $l(g)=0$ as $nl(g) = l(g^n) = 0$.</li>
-			<li class="fragment">Thus, if $G$ has <em>torsion</em>, i.e., there exists $g\neq e\in G$, such that $g^n =0$ for some $n > 0$, then there is no homogeneous length function on $G$	. </li>
+			<li class="fragment">Thus, if $G$ has <em>torsion</em>, i.e., there exists $g\neq e\in G$, such that $g^n =0$ for some $n > 0$, then there is no homogeneous length function on $G$. </li>
 		</ul>
 </section>
 
@@ -110,7 +110,7 @@
 		<li class="fragment">We multiply words by concatenation, e.g. $\alpha\beta\cdot\bar{\alpha}\beta = \alpha\beta\bar{\alpha}\beta$.</li>
 		<li class="fragment">Two words are regarded as equal if they can be related by cancellating adjacent letters that are inverses, e.g. $\alpha\beta\bar{\beta}\alpha\beta = \alpha\alpha\beta$.</li>
 		<li class="fragment">This gives a group; <span class="fragment"> e.g.
-			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$ </span>.</li>
+			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$. </span></li>
 	</ul>
 </section>
 
@@ -301,8 +301,8 @@ case object Empty extends
 
 <section>
 	<ul>
-		<li><strong>Lemma:</strong> If $x = s(wy)s^{-1} = t(zw^{-1})t^{-1}$, $l(x)\leq \frac{l(y)+ l(z)}{2}$.</li>
-		<li class="fragment"><strong>Proof:</strong> $l(x^nx^n) = l(s(wy)^ns^{-1}t(zw^{-1})^nt^{-1})\leq n(l(y) +l(z)) + C$
+		<li><strong>Lemma:</strong> If $x = s(wy)s^{-1} = t(zw^{-1})t^{-1}$, we have $l(x)\leq \frac{l(y)+ l(z)}{2}$.</li>
+		<li class="fragment"><strong>Proof:</strong> $l(x^nx^n) = l(s(wy)^ns^{-1}t(zw^{-1})^nt^{-1})$ $\leq n(l(y) +l(z)) + 2(l(s) + l(t))$
 			 <img src="internal-repetition.png" scale="20%" style="border:none; background-color: white;">
 		</li>
 		<li class="fragment">Use $l(x) = \frac{l(x^nx^n)}{2n}$ and take limits.</li>
