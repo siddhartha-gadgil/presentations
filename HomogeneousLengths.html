@@ -69,7 +69,7 @@
 
 <section>
     <ul>
-      <li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apporva Khare had asked him.</li>
+      <li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare had asked him.</li>
 				<blockquote class="fragment">
 					Is there a homogeneous, (conjugacy invariant) length function on the free group on two generators?
 				</blockquote>
@@ -95,7 +95,7 @@
 
 <section>
 		<ul>
-		  <li>A pseudo-length function $l$ is said to be conjugacy invariant if $l(ghg^{-1})=l(g)$ for all $g, h \in G$.</li>
+		  <li>A pseudo-length function $l$ is said to be conjugacy invariant if $l(ghg^{-1})=l(h)$ for all $g, h \in G$.</li>
 			<li class="fragment">$l$ is  said to be <em>homogeneous</em> if $l(g^n) = nl(g)$ for all $g \in G$. </li>
 			<li class="fragment">On the group $\mathbb{Z}^2$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
 			<li class="fragment">On the other hand, if $l$ is homogeneous and $g^n=e$ then $l(g)=0$ as $nl(g) = l(g^n) = 0$.</li>
@@ -148,7 +148,7 @@
 <section>
 	<h3>Finding bounds</h3>
 	<ul>
-	  <li class="fragment">Fix $l$ homomogeneous length function.
+	  <li class="fragment">Fix $l$ homomogeneous pseudo-length function.
 			<li class="fragment">The triangle inequality gives bounds on $l(gh)$.</li>
 			<li class="fragment">Homogeneity gives a bound on $l(g)$ in terms of a bound on $l(g^n)$; also use conjugacy invariance.</li>
 			<li class="fragment">Find bounds for elements in terms of bounds for others, especially
@@ -201,7 +201,7 @@
 </section>
 <section>
 	<ul>
-		<li>For $g\in \mathbb{F}_2$, define $\lambda(g)$ to be the minimum of the norms of the non-crossing matchings.</li>
+		<li>For $g\in \mathbb{F}_2$, define the matching length $\lambda(g)$ to be the minimum of the norms of the non-crossing matchings.</li>
 		<li class="fragment">$\lambda$ is
 			<span class="fragment highlight-current-blue"> unchanged under cancellation (well-defined)</span> and
 			<span class="fragment highlight-current-blue">conjugacy invariant.</span></li>
@@ -224,6 +224,16 @@
 	</ul>
 </section>
 
+
+<section>
+	<ul>
+		<li> We can recursively compute the matching length $\lambda(g)$ for a word $g$.</li>
+		<li class="fragment"> This can be combined with using homogenity.</li>
+		<li class="fragment"> Using this, I obtained a bound of about $0.85$ on $l(\alpha, \beta)$.</li>
+		<li class="fragment"> This was upgraded to a (computer) checkable proof.</li>
+		<li class="fragment"> On Thursday morning, I posted an in principle human readable proof of a bound. </li>
+	</ul>
+</section>
 <section>
 	<embed src="gross-proof.html" width="1000" height="600">
 </section>
@@ -246,23 +256,23 @@ sealed abstract class LinNormBound(
 	val word: Word,
 	val bound: Double)
 
-case class Gen(n: Int) extends
+final case class Gen(n: Int) extends
   LinNormBound(Word(Vector(n)), 1)
 
-case class ConjGen(n: Int,pf: LinNormBound) extends
+final case class ConjGen(n: Int,pf: LinNormBound) extends
   LinNormBound(n +: pf.word :+ (-n), pf.bound)
 
-case class Triang(
+final case class Triang(
   pf1: LinNormBound, pf2: LinNormBound) extends
     LinNormBound( pf1.word ++ pf2.word, pf1.bound + pf2.bound)
 
-case class PowerBound(
+final case class PowerBound(
   baseword: Word, n: Int, pf: LinNormBound) extends
     LinNormBound(baseword, pf.bound/n){
       require(pf.word == baseword.pow(n))
     }
 
-case object Empty extends
+final case object Empty extends
  LinNormBound(Word(Vector()), 0)
 
 </code></pre>
@@ -284,15 +294,17 @@ case object Empty extends
 </section>
 
 <section>
-	<h3>Limitations</h3>
 	<ul>
-	  <li class="fragment">The elements for which we applied homogeneity were selected by hand.</li>
-		<li class="fragment">The bounds were only for concrete group elements.</li>
+		<li> Proofs, and their correctness, are self-contained, and separate from the act of finding the proof.</li>
+		<li class="fragment"> The search space for the proof was enormous.</li>
+	  <li class="fragment"> The elements for which we applied homogeneity were selected by hand.</li>
+		<li class="fragment">More importantly, in our representations of proofs, the bounds were only for concrete group elements.</li>
 		<li class="fragment">In particular, we cannot
 			<ul>
-				<li class="fragment highlight-current-blue">combine inequalities.</li>
+				<li class="fragment highlight-current-blue">represent inequalities for expressions.</li>
 				<li class="fragment highlight-current-blue">use induction. </li>
-		</li>
+		</ul>
+		<li class="fragment">Would want proof in complete foundations.</li>
 	</ul>
 </section>
 
@@ -316,7 +328,7 @@ case object Empty extends
 		<li class="fragment">In other words, for $Y$ Rademacher, $f(m, k)\leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</li>
 		<li class="fragment">Hence for $Y_i$ i.i.d. Rademacher, $f(0, n) \leq E(f((Y_1 + Y_2 + \dots + Y_n) (1, -1/2) ))$,</li>
 		<li class="fragment">By triangle inequality, $f(a, b) \leq A\Vert (a, b) \Vert$.</li>
-		<li class="fragment">$Y_1 + Y_2 + \dots Y_n$ has mean $0$ and variance $n$, so $E(\Vert Y_1 + Y_2 + \dots Y_n \Vert) \leq B\sqrt{n}$.</li>
+		<li class="fragment">$Y_1 + Y_2 + \dots Y_{2n}$ has mean $(0, 0)$ and variance $2n$, so $E(\Vert Y_1 + Y_2 + \dots Y_{2n} \Vert) \leq B\sqrt{n}$.</li>
 		<li class="fragment">We deduce that $l([x, y]^n) = f(0, n) \leq C\sqrt{n}$, hence $l([x, y]) = 0$</li>
 	</ul>
 </section>
