@@ -119,7 +119,7 @@
 	<ul>
 	  <li class="fragment">We define $ab: \mathbb{F}_2 \to \mathbb{Z}^2$ by ignoring order and taking exponents, e.g. $ab(\alpha\alpha\beta\bar{\alpha}\bar{\beta}\alpha\bar{\beta}) = (2, -1)$.
 		</li>
-		<li class="fragment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l(g) = l_{\mathbb{Z}^2}(g)$.</li>
+		<li class="fragment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l(g) = l_{\mathbb{Z}^2}(ab(g))$.</li>
 		<li class="fragment">As $l_{\mathbb{Z}^2}$ is homogeneous, so is $l$.</li>
 		<li class="fragment"> However, this is <em>not</em> a length function as $l([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$ (violating positivity). </li>
 		<li class="fragment">More generally, every group $G$ has an Abelianization $ab: G \to G/[G, G]$. </li>
@@ -129,10 +129,14 @@
 <section>
 	<h3>The Main results</h3>
 	<ul>
-		<li class="fragment highlight-current-blue">
+		<li class="fragment">
+			<strong>Question: </strong>Is there a homogeneous, (conjugacy invariant) length function on the free group on two generators?
+		</li>
+		<li class="fragment"><strong>Answer:</strong> No; in fact we have: </li>
+		<li class="fragment">
 			<strong>Theorem:</strong> Any homogeneous pseudo-length function on a group $G$ is the pullback of a pseudo-length on its Abelianization $G / [G, G]$.</h4>
 		</li>
-		<li class="fragment highlight-current-blue"><strong>Corollary:</strong>  If $G$ is not abelian (e.g. $G = \mathbb{F}_2$) there is no homogeneous length function on $G$.</li>
+		<li class="fragment"><strong>Corollary:</strong>  If $G$ is not abelian (e.g. $G = \mathbb{F}_2$) there is no homogeneous length function on $G$.</li>
 		<li class="fragment">In fact, every homogeneous pseudo-length is the pullback of a <em>norm</em> on a vector space.</li>
 	</ul>
 </section>
@@ -205,7 +209,7 @@
 		<li>For $g\in \mathbb{F}_2$, define the <span class="fragment highlight-current-blue">matching length</span> $\lambda(g)$
 			 to be the minimum number of unmatched letters over all non-crossing matchings.</li>
 		<li class="fragment">$\lambda$ is
-			<span class="fragment highlight-current-blue"> unchanged under cancellation (well-defined)</span> and
+			<span class="fragment highlight-current-blue"> unchanged under cancellation (hence well-defined on $\mathbb{F}_2$)</span> and
 			<span class="fragment highlight-current-blue">conjugacy invariant.</span></li>
 		<li class="fragment">However, if $g=\alpha[\alpha, \beta]$, then
 			<span class="fragment highlight-current-blue">$\lambda(g^2)= 4$, but</span>
@@ -231,7 +235,8 @@
 
 <section>
 	<ul>
-		<li> We can recursively compute the matching length $\lambda(g)$ for a word $g$.</li>
+		<h3>Computer assisted proving</h3>
+		<li class="fragment"> We can recursively compute the matching length $\lambda(g)$ for a word $g$.</li>
 		<li class="fragment"> This can be combined with using homogenity.</li>
 		<li class="fragment"> Using this, I obtained a bound of about $0.85$ on $l(\alpha, \beta)$.</li>
 		<li class="fragment"> This was upgraded to a (computer) checkable proof.</li>
