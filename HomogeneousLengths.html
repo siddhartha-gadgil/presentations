@@ -119,9 +119,9 @@
 	<ul>
 	  <li class="fragment">We define $ab: \mathbb{F}_2 \to \mathbb{Z}^2$ by ignoring order and taking exponents, e.g. $ab(\alpha\alpha\beta\bar{\alpha}\bar{\beta}\alpha\bar{\beta}) = (2, -1)$.
 		</li>
-		<li class="fragment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l(g) = l_{\mathbb{Z}^2}(g)$.</li>
-		<li class="fragment">As $l_{\mathbb{Z}^2}$ is homogeneous, so is $l$.</li>
-		<li class="fragment"> However, this is <em>not</em> a length function as $l([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$ (violating positivity). </li>
+		<li class="fragment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l_{ab}(g) = l_{\mathbb{Z}^2}(ab(g))$.</li>
+		<li class="fragment">As $l_{\mathbb{Z}^2}$ is homogeneous, so is $l_{ab}$.</li>
+		<li class="fragment"> However, this is <em>not</em> a length function as $l_{ab}([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$ (violating positivity). </li>
 		<li class="fragment">More generally, every group $G$ has an Abelianization $ab: G \to G/[G, G]$. </li>
 	</ul>
 </section>
@@ -129,10 +129,12 @@
 <section>
 	<h3>The Main results</h3>
 	<ul>
-		<li class="fragment highlight-current-blue">
+		<li class="fragment"> <strong>Question:</strong> Is there a homogeneous, length function on the free group on two generators? </li>
+		<li class="fragment"> <strong>Answer:</strong> No; <span class="fragment">we in fact describe all homogeneous pseudo-lengths.</span> </li>
+		<li class="fragment">
 			<strong>Theorem:</strong> Any homogeneous pseudo-length function on a group $G$ is the pullback of a pseudo-length on its Abelianization $G / [G, G]$.</h4>
 		</li>
-		<li class="fragment highlight-current-blue"><strong>Corollary:</strong>  If $G$ is not abelian (e.g. $G = \mathbb{F}_2$) there is no homogeneous length function on $G$.</li>
+		<li class="fragment"><strong>Corollary:</strong>  If $G$ is not abelian (e.g. $G = \mathbb{F}_2$) there is no homogeneous length function on $G$.</li>
 		<li class="fragment">In fact, every homogeneous pseudo-length is the pullback of a <em>norm</em> on a vector space.</li>
 	</ul>
 </section>
@@ -149,7 +151,7 @@
 	<h3>Finding bounds</h3>
 	<ul>
 	  <li class="fragment">Fix $l$ homomogeneous pseudo-length function.
-			<li class="fragment">The triangle inequality gives bounds on $l(gh)$.</li>
+			<li class="fragment">The triangle inequality gives bounds on $l(gh)$ in terms of $l(g)$ and $l(h)$.</li>
 			<li class="fragment">Homogeneity gives a bound on $l(g)$ in terms of a bound on $l(g^n)$; also use conjugacy invariance.</li>
 			<li class="fragment">Find bounds for elements in terms of bounds for others, especially
 				<ul>
@@ -202,19 +204,19 @@
 </section>
 <section>
 	<ul>
-		<li>For $g\in \mathbb{F}_2$, define the <span class="fragment highlight-current-blue">matching length</span> $\lambda(g)$
+		<li>For $g\in \mathbb{F}_2$, define the <span class="fragment highlight-current-blue">Watson-Crick length</span> $l^{}_{WC}(g)$
 			 to be the minimum number of unmatched letters over all non-crossing matchings.</li>
-		<li class="fragment">$\lambda$ is
+		<li class="fragment">$l^{}_{WC}$ is
 			<span class="fragment highlight-current-blue"> unchanged under cancellation (well-defined)</span> and
 			<span class="fragment highlight-current-blue">conjugacy invariant.</span></li>
 		<li class="fragment">However, if $g=\alpha[\alpha, \beta]$, then
-			<span class="fragment highlight-current-blue">$\lambda(g^2)= 4$, but</span>
-			<span class="fragment highlight-current-blue">$\lambda(g) = 3$,</span> violating homogeneity.
+			<span class="fragment highlight-current-blue">$l^{}_{WC}(g^2)= 4$, but</span>
+			<span class="fragment highlight-current-blue">$l^{}_{WC}(g) = 3$,</span> violating homogeneity.
 		 </li>
 		 <li class="fragment"  id ="conj">Non-crossing matchings correspond to decompositions into conjugates, e.g.,
 			 <a href="#non-cross">$(\alpha[\alpha, \beta])^2 = ((\beta)^\alpha (\alpha^2)^{\bar{\beta}})^\alpha\bar{\beta}$</a>,
 			 where ($g^h$ denotes $hgh^{-1}$; giving <span class="fragment highlight-current-blue">proofs of bounds</span> and
-			 showing $\lambda$ is the <span class="fragment highlight-current-blue">maximal conjugacy-invariant length</span>.</li>
+			 showing $l^{}_{WC}$ is the <span class="fragment highlight-current-blue">maximal conjugacy-invariant length</span>.</li>
 	</ul>
 </section>
 
@@ -231,9 +233,11 @@
 
 <section>
 	<ul>
-		<li> We can recursively compute the matching length $\lambda(g)$ for a word $g$.</li>
+		<h3>Computer Assisted proofs</h3>
+		<li class="fragment"> We can recursively compute the matching length $l^{}_{WC}(g)$ for a word $g$.</li>
+		<li class="fragment"> This gives an upper bound on all conjugacy-invariant normalized lengths.</li>
 		<li class="fragment"> This can be combined with using homogenity.</li>
-		<li class="fragment"> Using this, I obtained a bound of about $0.85$ on $l(\alpha, \beta)$.</li>
+		<li class="fragment"> Using this, I obtained an upper bound of about $0.85$ on $l(\alpha, \beta)$.</li>
 		<li class="fragment"> This was upgraded to a (computer) checkable proof.</li>
 		<li class="fragment"> On Thursday morning, I <a href="gross-proof.html">posted</a> an in principle human readable proof of a bound. </li>
 	</ul>
@@ -285,22 +289,31 @@ final case object Empty extends
 <section>
 	<h3>Finding bounds and proofs</h3>
 	<ul>
-	  <li class="fragment">We recursively define $\lambda(g)$ for $g=ah$ as the minimum of:
+	  <li class="fragment">For $g=ah$, $a \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, the length $l^{}_{WC}(g)$ is the minimum of:
 			<ul>
-				<li class="fragment highlight-current-blue">$1 + \lambda(h)$</li>
-				<li class="fragment highlight-current-blue">$\min\{\lambda(x) + \lambda(y): h = x\bar{a}y \}$</li>
+				<li class="fragment highlight-current-blue">$1 + l^{}_{WC}(h)$</li>
+				<li class="fragment highlight-current-blue">$\min\{l^{}_{WC}(x) + l^{}_{WC}(y): h = x\bar{a}y \}$</li>
 			</ul>
 		</li>
-		<li class="fragment">We get a minimal non-crossing matching by a similar recursion.</li>
+		<li class="fragment">We can describe a minimal non-crossing matching by a similar recursive definition.</li>
 		<li class="fragment">A similar recursion gives a proof of a bound on $l(g)$ for $g$ a homogeneous, conjugacy-invariant length with $l(\alpha)=l(\beta)=1$.</li>
-		<li class="fragment"> We can also use homogeneity for selected elements and powers.</li>
+		<li class="fragment"> We can also use homogeneity for selected elements and powers to bound the length function $l$.</li>
 	</ul>
 </section>
 
 <section>
+	<h3>On the computer proof</h3>
 	<ul>
-		<li> Proofs, and their correctness, are self-contained, and separate from the act of finding the proof.</li>
-		<li class="fragment"> The search space for the proof was enormous.</li>
+		<li class="fragment"> Our proofs, and their correctness are self-contained, and separate from the act of finding the proof.</li>
+		<li class="fragment"> Hence the correctness of the proof depended only on the correctness of the code defining proofs, <span class="fragment highlight-current-blue">which was tiny</span>.</li>
+		<li class="fragment"> Further, while the proof was large, the search space for the proof was enormous.</li>
+		<li class="fragment"> Hence the proof had information content beyond establishing the truth of a statement.</li>
+		<li class="fragment"> In particular, one can learn from such a proof.</li>
+	</ul>
+</section>
+<section>
+	<h3>Limitations of the computer proof</h3>
+	<ul>
 	  <li class="fragment"> The elements for which we applied homogeneity were selected by hand.</li>
 		<li class="fragment">More importantly, in our representations of proofs, the bounds were only for concrete group elements.</li>
 		<li class="fragment">In particular, we cannot
@@ -329,23 +342,24 @@ final case object Empty extends
 <section>
 	<ul>
 		<li> <strong>Lemma:</strong> $f(m, k) \leq\frac{f(m-1, k) + f(m+1, k-1)}{2}$, where $f(m, k) = l(x^m[x, y]^k)$.</li>
-		<li class="fragment">In other words, for $Y$ Rademacher, $f(m, k)\leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</li>
-		<li class="fragment">Hence for $Y_i$ i.i.d. Rademacher, $f(0, n) \leq E(f((Y_1 + Y_2 + \dots + Y_n) (1, -1/2) ))$,</li>
+		<li class="fragment">In other words, for $Y$ a Rademacher random variable, i.e., $Y$ is $1$ or $-1$ each with probability $1/2$,
+			$f(m, k)\leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</li>
+		<li class="fragment">Hence for $Y_i$ i.i.d. Rademacher random variables, $f(0, n) \leq E(f((Y_1 + Y_2 + \dots + Y_n) (1, -1/2) ))$,</li>
 		<li class="fragment">By triangle inequality, $f(a, b) \leq A\Vert (a, b) \Vert$.</li>
 		<li class="fragment">$Y_1 + Y_2 + \dots Y_{2n}$ has mean $(0, 0)$ and variance $2n$, so $E(\Vert Y_1 + Y_2 + \dots Y_{2n} \Vert) \leq B\sqrt{n}$.</li>
-		<li class="fragment">We deduce that $l([x, y]^n) = f(0, n) \leq C\sqrt{n}$, hence $l([x, y]) = 0$</li>
+		<li class="fragment">We deduce that $l([x, y]^n) = f(0, n) \leq C\sqrt{n}$, hence $l([x, y]) = 0$.</li>
 	</ul>
 </section>
 
 <section>
 	<h3>Epilogue: Quasification</h3>
 	<ul>
-		<li class="fragment">A <em>quasi-pseudo-length function</em> $l: G \to [0, \infty)$ is a function such that there exists $c \in \mathbb{R}$ such that
+		<li class="fragment"> The function $l: G \to [0, \infty)$ is a <em>quasi-pseudo-length function</em>  if there exists $c \in \mathbb{R}$ such that
 			 $l(gh) \leq l(g) + l(h) + c$, for all $g,h\in G$.
 		<li class="fragment">We see that for a homogeneous quasi-pseudo-length function, $l([x, y]) \leq 4c$ for all $x, y\in G$.</li>
-		<li class="fragment">Free groups have homogeneous quasi-pseudo-length functions not arising from norms.</li>
-		<li class="fragment"> But, for a group with vanishing <em>stable commutator length</em>, e.g. $G$ solvable, $G=Sl(3 , \mathbb{Z})$, any homogeneous
-			quasi-pseudo-length function is equivalent to the pullback of a norm.</li>
+		<li class="fragment">Free groups have homogeneous quasi-pseudo-length functions that are not pullbacks of norms.</li>
+		<li class="fragment"> But, for a group with vanishing <em>stable commutator length</em>, e.g. if $G$ is solvable or $G=Sl(n , \mathbb{Z})$, $n\geq 3$, <span class="fragment">any homogeneous
+			quasi-pseudo-length function is equivalent to the pullback of a norm.</span></li>
 	</ul>
 </section>
 
