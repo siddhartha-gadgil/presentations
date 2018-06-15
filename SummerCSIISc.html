@@ -327,7 +327,7 @@ final case object Empty extends
 <section>
 	<h3>Domain Specific Foundations</h3>
 	<ul>
-	  <li class="fragment">We defined a scala type <em>(sealed trait)</em> corresponding to proofs of bounds.</li>
+	  <li class="fragment">We defined a scala type <em>(sealed abstract class)</em> corresponding to proofs of bounds.</li>
 		<li class="fragment">The only way to construct such objects of this type is by constructors of its subtypes (<em>case classes</em>).</li>
 		<li class="fragment">Valid proofs of bounds for conjugacy invariant length functions are those that <strong>typecheck</strong> (i.e. compile time).</li>
 		<li class="fragment">We need to load (i.e. runtime) to check proofs using homogenity, as also to see what is proved.</li>
@@ -393,16 +393,16 @@ final case object Empty extends
 <section>
 	<h3>Type Systems, Type Theories, Parts of Speech</h3>
 	<ul>
-	  <li class="fragment">Valid expressions/phrases in Programming Languages/Logical Systems/Natural langauges are formed
+	  <li class="fragment">Valid expressions/phrases in Programming Languages/Logical Systems/Natural languages are formed
 		from simpler ones using the rules of syntax.</li>
 		<li class="fragment">The rules of syntax are determined by the types/parts-of-speech of the sub-expressions.</li>
-		<li class="fragment">In natural languages and simpler type systems, the set of types is fixed.</li>
-		<li class="fragment">Most programming languages have <em>type forming rules,</em> allowing types to be formed from other types.</li>
+		<li class="fragment">In natural language, simple type systems and first-order logic, the set of types is fixed.</li>
+		<li class="fragment"> In most programming languages and in Higher-order logic, we have <em>type forming rules,</em> allowing types to be formed from other types.</li>
 	</ul>
 </section>
 
 <section>
-	<h3>Some types</h3>
+	<h3>Some Types and Rules</h3>
 	<ul>
 	  <li class="fragment">Given types $A$ and $B$, we can form the type of functions $A \to B$.</li>
 		<li class="fragment"> The types $\mathbb{0}$ has no terms .</li>
@@ -410,7 +410,7 @@ final case object Empty extends
 		<li class="fragment"> The product type $A \times B$ has terms (corresponding to)
 			pairs $(a, b)$ with $a: A$ and $b : B$.</li>
 		<li class="fragment"> The sum (disjoint union) type $A \oplus B$ has terms (corresponding to) terms of $A$ and terms of $B$.</li>
-		<li class="fragment"> Most types we form are <em>inductive types</em> - analogues of the <em>sealed trait</em> and <em>case class</em> construction. </li>
+		<li class="fragment"> Most types we form are <em>inductive types</em> - analogues of the <em>sealed trait/class</em> and <em>case class</em> construction. </li>
 	</ul>
 </section>
 
@@ -433,6 +433,7 @@ final case object Empty extends
 		<li class="fragment">Dependent functions form the type $\Pi_{a: A} P(a)$.</li>
 		<li class="fragment">If $a: A$ and $f: \Pi_{a: A} P(a)$, we can form $f(a) : P(a)$.</li>
 		<li class="fragment">We can also form the type $\Sigma_{a: A} P(a)$ of <em>dependent pairs</em> $(a : A, b : P(a))$.</li>
+		<li class="fragment">Dependent pairs, Vectors etc. are formed by a more general (dependent) notion of inductive types.</li>
 
 	</ul>
 </section>
@@ -475,7 +476,7 @@ final case object Empty extends
 		<h3> Type theoretic foundations</h3>
 		<ul>
 			<li class="fragment"> A Type theory is a type system rich enough to replace
-				Set theory as foundations for mathematics.</li>
+				Set Theory + FOL as foundations for mathematics.</li>
 			<li class="fragment"> A term $a$ having a type $A$, denoted $a : A$, is analogous to
 				an element $a$ belonging to a set $A$, i.e., $a \in A$.</li>
 			<li class="fragment"> Rules for forming terms and types, and for determining
