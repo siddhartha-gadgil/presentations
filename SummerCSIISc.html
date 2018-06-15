@@ -402,6 +402,148 @@ final case object Empty extends
 </section>
 
 <section>
+	<h3>Some types</h3>
+	<ul>
+	  <li class="fragment">Given types $A$ and $B$, we can form the type of functions $A \to B$.</li>
+		<li class="fragment"> The types $\mathbb{0}$ has no terms .</li>
+		<li class="fragment"> The type $\mathbb{1}$ has a single term $*$.</li>
+		<li class="fragment"> The product type $A \times B$ has terms (corresponding to)
+			pairs $(a, b)$ with $a: A$ and $b : B$.</li>
+		<li class="fragment"> The sum (disjoint union) type $A \oplus B$ has terms (corresponding to) terms of $A$ and terms of $B$.</li>
+		<li class="fragment"> Most types we form are <em>inductive types</em> - analogues of the <em>sealed trait</em> and <em>case class</em> construction. </li>
+	</ul>
+</section>
+
+<section>
+	<h3>Dependent type theories</h3>
+	<ul>
+	  <li class="fragment">In a <em>Dependent type theory/system</em>, types are themselves <em>first-class citizens.</em> </li>
+		<li class="fragment">This means they can be argument and results of functions, assigned to variables etc.</li>
+		<li class="fragment">Type forming rules can involve terms(objects), for example vectors of length $n$ form a type $Vec(A)(n)$.</li>
+		<li class="fragment">Types themselves have types, called universes $\mathfrak{U}$.</li>
+		<li class="fragment">A function $P: A \to \mathfrak{U}$ to a universe is called a <em>type family.</em> </li>
+	</ul>
+</section>
+
+<section>
+	<h3>Dependent functions and dependent pairs</h3>
+	<ul>
+		<li class="fragment">In dependent type theory, we generalize functions to <em>dependent functions</em> with codomain
+			$P: A \to \mathfrak{U}$.</li>
+		<li class="fragment">Dependent functions form the type $\Pi_{a: A} P(a)$.</li>
+		<li class="fragment">If $a: A$ and $f: \Pi_{a: A} P(a)$, we can form $f(a) : P(a)$.</li>
+		<li class="fragment">We can also form the type $\Sigma_{a: A} P(a)$ of <em>dependent pairs</em> $(a : A, b : P(a))$.</li>
+
+	</ul>
+</section>
+
+<section>
+	<h3>Propositions as types</h3>
+	<ul>
+		<li class="fragment">A type $A$ is <em>inhabited</em> if there is a term $a$ with $a : A$.</li>
+		<li class="fragment">By <em> propostion</em> we mean a logical statement that must be true or false.</li>
+		<li class="fragment">We represent propositions by types.</li>
+		<li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em class="fragment highlight-current-blue">proof</em> of (or witness to) $A$.
+		<li class="fragment">In particular, a proposition is <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
+		<li class="fragment">Note that we must be able to form types representing mathematical propositions by the type formation rules.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>Combining propositions</h3>
+	<p class="fragment"> Let $A$ and $B$ be types, regarded as representing propositions.</p>
+	<ul>
+		<li class="fragment"> The proposition $A \Rightarrow B$ is represented by $A \to B$.</li>
+		<li class="fragment"> The propostion $A\wedge B$ is represented by $A \times B$.</li>
+		<li class="fragment"> The proposition $A \vee B$ is represented by $A \oplus B$.</li>
+		<li class="fragment"> The proposition $\neg A$ is represented by $A \to \mathbb{0}$.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>Quantifying propositions</h3>
+	<ul>
+		<li class="fragment">A proposition depending on a variable $x : A$ is represented by a type family
+			$P : A \to \mathfrak{U}$. </li>
+		<li class="fragment">The proposition $\forall x\in A,\ P(x)$ is  $\prod_{x: A} P(x)$.</li>
+		<li class="fragment">The proposition $\exists x\in A,\ P(x)$ is  $\sum_{x : A} P(x)$.</li>
+	</ul>
+</section>
+
+
+<section>
+		<h3> Type theoretic foundations</h3>
+		<ul>
+			<li class="fragment"> A Type theory is a type system rich enough to replace
+				Set theory as foundations for mathematics.</li>
+			<li class="fragment"> A term $a$ having a type $A$, denoted $a : A$, is analogous to
+				an element $a$ belonging to a set $A$, i.e., $a \in A$.</li>
+			<li class="fragment"> Rules for forming terms and types, and for determining
+				types, are purely <em class="fragment highlight-current-blue"> syntactic. </em></li>
+			<li class="fragment"> Nevertheless, the rules for forming types are rich enough that types can play the role of sets
+				<span class="fragment"> - for instance, prime numbers form a type.</span>
+			 </li>
+			<li class="fragment"> Even more remarkably, propositions and proofs can be expressed in terms of types and terms.
+			</li>
+		</ul>
+	</section>
+
+	<section>
+			<h3> Useful theorems and proofs </h3>
+			<ul>
+				<li class="fragment"> A theorem with a simple statement but difficult proof is useful.</li>
+				<li class="fragment"> A theorem used to prove many other theorems is useful.</li>
+				<li class="fragment"> Particularly for applications, we may have an externally determined
+					notion of <em>a priori</em> usefulness.</li>
+				<li class="fragment"> With homotopy type theory and backward propagation, all these
+					can be naturally captured in simple learning dynamics.</li>
+			</ul>
+		</section>
+
+
+
+		<section>
+			<h3> Reinforcement learning: term-type map </h3>
+			<ul>
+				<li class="fragment"> Given an initial distribution $P_0$ on terms, rules for forming terms recursively gives a new distribution
+
+						$$P = \alpha P_0 + \beta \mu_*(P) + \gamma \theta_*(P \times P) + \dots$$
+					</li>
+				<li class="fragment"> A probability distribution on terms
+					 gives one on types by
+					mapping  (proof distribution). </li>
+				<li class="fragment"> As (inhabited) types themselves are terms, we get a restricted distribution
+					(theorem distribution). </li>
+				<li class="fragment"> We can compare these, flow, backward propagate etc.</li>
+				<li class="fragment"> The distribution on theorems can have other components.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h3> Representation learning </h3>
+			<p> Using proximity and order, words, mathematical objects etc can be represented by vectors
+				which capture many of their relations.
+			</p>
+		</section>
+
+		<section>
+			<h3> NLP: extracting from human literature.</h3>
+			<ul>
+				<li class="fragment"> We aim to extract mathematical objects from the literature,
+					with reasonably high accuracy. </li>
+				<li class="fragment"> These can be used for learning, both giving terms from which to generate others,
+					and a distribution on types.</li>
+				<li class="fragment"> This is similar to a translation problem, except the target language has
+					strong restrictions on sentences being meaningful and true.</li>
+				<li class="fragment"> To extract from natural language, we first use a parser and then target an intermediate structured language.</li>
+				</ul>
+			</section>
+
+	</section>
+
+
+<section>
 	<h1>Thank You</h1>
 </section>
 
