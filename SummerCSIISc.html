@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Automating Mathematics:
+	 PolyMath, Type Theory and Learning</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="icon" href="IIScLogo.jpg">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+	<h3 class="title"> Automating Mathematics: </h3>
+	<h3> PolyMath, Type Theory and Learning </h3>
+	<p>Department of Mathematics</p>
+	 <p>Indian Institute of Science</p>
+	 <p>Bangalore</p>
+	 <p><a href="https://github.com/siddhartha-gadgil/ProvingGround" target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
+</section>
+
+<section>
+	<h3>Goals</h3>
+	<ul>
+		<li class="fragment">Equip computers with all the major capabilities
+used by Mathematicians and the Mathematics
+community in the discovery and proof of
+Mathematical results and concepts.</li>
+<li class="fragment">Beyond
+	experimentation/computation/enumeration.</li>
+<li class="fragment">We must have, if necessary invent, objective measures for the different
+capabilities.</li>
+<li class="fragment">Our attempt is to build a bridge to the highly successful AI systems: AlphaZero, Reinforcement learning,
+Representation learning, NLP, GANs etc.</li>
+
+	</ul>
+</section>
+
+<section>
+
+	<h3> Homomogeneous length functions on Groups </h3>
+	<h3> A PolyMath adventure</h3>
+
+
+</section>
+<section>
+		<h3>The PolyMath 14 participants</h3>
+		<ul>
+			<li>Tobias Fritz, MPI MIS</li>
+			<li> Siddhartha Gadgil, IISc, Bangalore </li>
+			<li> Apoorva Khare, IISc, Bangalore</li>
+			<li>	Pace Nielsen, BYU </li>
+			<li> Lior Silberman, UBC </li>
+			<li> Terence Tao, UCLA </li>
+		</ul>
+
+
+</section>
+
+<section>
+    <ul>
+      <li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare had asked him.</li>
+				<blockquote class="fragment">
+					Is there a homogeneous, (conjugacy invariant) length function on the free group on two generators?
+				</blockquote>
+			<li class="fragment">Six days later, this was answered in a collaboration involving several mathematicians (and a computer).</li>
+			<li class="fragment">This the story of the answer and its discovery.</li>
+    </ul>
+</section>
+
+<section>
+	<h3>Length functions</h3>
+	<ul>
+	  <li class="fragment">Fix a group $G$, i.e. a set with an associative product with inverses.</li>
+		<li class="fragment">A <em>pseudo-length function</em> $l: G \to [0, \infty)$ is a function  such that:
+			<ul>
+				<li>$l(e) = 0$.</li>
+				<li>$l(g^{-1}) = l(g)$ , for all $g \in G$.</li>
+				<li> (Triangle inequality) $l(gh) \leq l(g) + l(h)$, for all $g,h\in G$.</li>
+			</ul>
+		</li>
+		<li class="fragment">A <em>length function</em> is a pseudo-length function such that $l(g) > 0$ whenever $g\neq e$ (positivity condition).
+	</ul>
+</section>
+
+<section>
+		<ul>
+		  <li>A pseudo-length function $l$ is said to be conjugacy invariant if $l(ghg^{-1})=l(h)$ for all $g, h \in G$.</li>
+			<li class="fragment">$l$ is  said to be <em>homogeneous</em> if $l(g^n) = nl(g)$ for all $g \in G$. </li>
+			<li class="fragment">On the group $\mathbb{Z}^2$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
+			<li class="fragment">On the other hand, if $l$ is homogeneous and $g^n=e$ then $l(g)=0$ as $nl(g) = l(g^n) = 0$.</li>
+			<li class="fragment">Thus, if $G$ has <em>torsion</em>, i.e., there exists $g\neq e\in G$, such that $g^n =0$ for some $n > 0$, then there is no homogeneous length function on $G$. </li>
+		</ul>
+</section>
+
+<section>
+	<h3>Free group $\mathbb{F}_2$ on $\alpha$, $\beta$</h3>
+	<ul>
+	  <li class="fragment">Consider words in four letters $\alpha$, $\beta$, $\bar{\alpha}$ and $\bar{\beta}$.</li>
+		<li class="fragment">We multiply words by concatenation, e.g. $\alpha\beta\cdot\bar{\alpha}\beta = \alpha\beta\bar{\alpha}\beta$.</li>
+		<li class="fragment">Two words are regarded as equal if they can be related by cancellating adjacent letters that are inverses, e.g. $\alpha\beta\bar{\beta}\alpha\beta = \alpha\alpha\beta$.</li>
+		<li class="fragment">This gives a group; <span class="fragment"> e.g.
+			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$. </span></li>
+		<li class="fragment">The <em>word length</em> on $\mathbb{F_2}$ is the length of the shortest word representing an element.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>Pullback pseudo-lengths</h3>
+	<ul>
+	  <li class="fragment">We define $ab: \mathbb{F}_2 \to \mathbb{Z}^2$ by total exponents (ignoring order), e.g. $ab(\alpha\alpha\beta\bar{\alpha}\bar{\beta}\alpha\bar{\beta}) = (2, -1)$.
+		</li>
+		<li class="fragment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l_{ab}(g) = l_{\mathbb{Z}^2}(ab(g))$.</li>
+		<li class="fragment">As $l_{\mathbb{Z}^2}$ is homogeneous, so is $l_{ab}$.</li>
+		<li class="fragment"> However, this is <em>not</em> a length function as $l_{ab}([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$ (violating positivity). </li>
+		<li class="fragment">More generally, every group $G$ has an Abelianization $ab: G \to G/[G, G]$. </li>
+	</ul>
+</section>
+
+<section>
+	<h3>The Main results</h3>
+	<ul>
+		<li class="fragment"> <strong>Question:</strong> Is there a homogeneous length function on the free group on two generators? </li>
+		<li class="fragment"> <strong>Answer:</strong> No; <span class="fragment">we in fact describe all homogeneous pseudo-lengths.</span> </li>
+		<li class="fragment">
+			<strong>Theorem:</strong> Any homogeneous pseudo-length function on a group $G$ is the pullback of a pseudo-length on its Abelianization $G / [G, G]$.</h4>
+		</li>
+		<li class="fragment"><strong>Corollary:</strong>  If $G$ is not abelian (e.g. $G = \mathbb{F}_2$) there is no homogeneous length function on $G$.</li>
+		<li class="fragment">In fact, every homogeneous pseudo-length is the pullback of a <em>norm</em> on a vector space.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>First reductions</h3>
+	<ul>
+	  <li class="fragment">(Fritz): Homomogeneous implies Conjugacy invariant.</li>
+		<li class="fragment">(Tao, Khare): $l(g^2) = 2l(g) \forall g\in G$ implies Homogeneity.</li>
+	</ul>
+</section>
+
+<section>
+	<h4>Finding bounds: contradict positivity?</h4>
+	<ul>
+	  <li class="fragment">Fix $l$ homomogeneous pseudo-length function.
+			<li class="fragment">The triangle inequality gives bounds on $l(gh)$ in terms of $l(g)$ and $l(h)$.</li>
+			<li class="fragment">Homogeneity gives a bound on $l(g)$ in terms of a bound on $l(g^n)$; also use conjugacy invariance.</li>
+			<li class="fragment">Find bounds for elements in terms of bounds for others, especially
+				<ul>
+				<li class="fragment highlight-current-blue">$l([x, y])$ in terms of $l(x)$ and $l(y)$</li>
+				<li class="fragment highlight-current-blue">$l(g)$ for fixed $g$ in terms of bounds on generators.</li>
+			</ul>
+			</li>
+			<li class="fragment">Combine bounds, including by interpreting in terms of convexity.</li>
+		</li>
+
+	</ul>
+</section>
+
+<section>
+	<h4>Seeking a homogeneous length function</h4>
+	<ul>
+		<li class="fragment">We can attempt to construct pseudo-lengths that are positive, or at least such that $l([\alpha, \beta])> 0$.</li>
+	  <li class="fragment">Can consider quotients larger than $\mathbb{Z}^2$: negative results by Sawin, Silberman, Tao. </li>
+		<li class="fragment">There were also attempted constructions based on functional analysis.</li>
+		<li class="fragment">Given a candidate $l: G \to [0, \infty)$, try to fix this
+			using <em>homogenizations</em> and the <em>Kobayashi construction</em>.
+		</li>
+		<li class="fragment">I hoped to combine these with an approach based on <em>non-crossing matchings</em>.</li>
+	</ul>
+</section>
+
+
+<section id="non-cross">
+	<h3>Non-crossing matchings</h3>
+
+	 <img src="aabab.png" scale="20%" style="border:none; background-color: white;">
+	 <ul>
+		 <li class="fragment">Given a word in $\mathbb{F}_2$, we consider <em>matchings</em> such that
+		 <ul>
+		 	<li class="fragment highlight-current-blue">letters are paired with their inverses,</li>
+			<li class="fragment highlight-current-blue">there are no <em>crossings</em></li>
+		 </ul>
+	 	</li>
+		<li class="fragment"> The norm is the number of unmatched letters.</li>
+	</ul>
+</section>
+<section>
+	<ul>
+		<li>For $g\in \mathbb{F}_2$, define the <span class="fragment highlight-current-blue">Watson-Crick length</span> $l^{}_{WC}(g)$
+			 to be the minimum number of unmatched letters over all non-crossing matchings.</li>
+		<li class="fragment">$l^{}_{WC}$ is
+			<span class="fragment highlight-current-blue"> unchanged under cancellation (hence well-defined on $\mathbb{F}_2$)</span> and
+			<span class="fragment highlight-current-blue">conjugacy invariant.</span></li>
+		<li class="fragment">However, if $g=\alpha[\alpha, \beta]$, then
+			<span class="fragment highlight-current-blue">$l^{}_{WC}(g^2)= 4$, but</span>
+			<span class="fragment highlight-current-blue">$l^{}_{WC}(g) = 3$,</span> violating homogeneity.
+		 </li>
+		 <li class="fragment"  id ="conj">Non-crossing matchings correspond to decompositions into conjugates, e.g.,
+			 <a href="#non-cross">$(\alpha[\alpha, \beta])^2 = ((\beta)^\alpha (\alpha^2)^{\bar{\beta}})^\alpha\bar{\beta}$</a>,
+			 where ($g^h$ denotes $hgh^{-1}$; giving <span class="fragment highlight-current-blue">proofs of bounds</span> and
+			 showing $l^{}_{WC}$ is the <span class="fragment highlight-current-blue">maximal conjugacy-invariant length</span>.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>The great bound chase</h3>
+	<ul>
+	  <li class="fragment">By Tuesday morning, most people were convinced that there are no homogeneous length functions on the free group.</li>
+		<li class="fragment">There was a steady improvements in the combinatorial/analytic bounds on $l([\alpha, \beta])$.</li>
+		<li class="fragment">These seemed to be stuck above 1 (as observed by Khare) - but eventually broke this barrier (work of Fritz, Khare, Nielsen, Silberman, Tao).</li>
+		<li class="fragment">At this stage, my approach diverged.</li>
+	</ul>
+</section>
+
+
+<section>
+	<ul>
+		<h4>Computer Assisted proofs: beyond (symbolic) computation, enumeration?</h4>
+		<li class="fragment"> We can recursively compute the matching length $l^{}_{WC}(g)$ for a word $g$.</li>
+		<li class="fragment"> This gives an upper bound on all conjugacy-invariant normalized lengths.</li>
+		<li class="fragment"> This can be combined with using homogenity.</li>
+		<li class="fragment"> Using this, I obtained an upper bound of about $0.85$ on $l(\alpha, \beta)$.</li>
+		<li class="fragment"> This was upgraded to a (computer) checkable proof.</li>
+		<li class="fragment"> On Thursday morning, I <a href="gross-proof.html">posted</a> an in principle human readable proof of a bound. </li>
+	</ul>
+</section>
+<section id="gross">
+	<embed src="gross-proof.html" width="1000" height="600">
+</section>
+
+<section>
+	<ul>
+		<li>The computer-generated proof was studied by Pace Nielsen, who extracted the <em>internal repetition</em> trick. </li>
+		<li class="fragment"data-fragment-index="1">This was extended by Nielsen and Fritz and generalized by Tao; from this Fritz obtained the key lemma:
+		</li>
+		<li class="fragment" data-fragment-index="2">Let $f(m, k) = l(x^m[x, y]^k)$. Then
+			$f(m, k) \leq\frac{f(m-1, k) + f(m+1, k-1)}{2}$,
+			<span class="fragment" data-fragment-index="4"> i.e., $Y=\pm 1$, $f(m, k) \leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</span>
+		</li>
+		<li class="fragment" data-fragment-index="3">A probabilistic argument of Tao finished the proof.</li>
+	</ul>
+</section>
+
+<section>
+	<h3> The Gross Proof and Beyond </h3>
+</section>
+
+<section>
+	<h4>Computing bounds and proofs</h4>
+	<ul>
+	  <li class="fragment">For $g=ah$, $a \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, the length $l^{}_{WC}(g)$ is the minimum of:
+			<ul>
+				<li class="fragment highlight-current-blue">$1 + l^{}_{WC}(h)$ : corresponding to $a$ unmatched.</li>
+				<li class="fragment highlight-current-blue">$\min\{l^{}_{WC}(x) + l^{}_{WC}(y): h = x\bar{a}y \}$.</li>
+			</ul>
+		</li>
+		<li class="fragment">We can describe a minimal non-crossing matching by a similar recursive definition.</li>
+		<li class="fragment">A similar recursion gives a <em class="fragment highlight-current-blue">proof</em> of a bound on $l(g)$ for $g$ a homogeneous, conjugacy-invariant length with $l(\alpha)=l(\beta)=1$.</li>
+		<li class="fragment"> We can also use homogeneity for selected elements and powers to bound the length function $l$.</li>
+	</ul>
+</section>
+
+
+<section>
+<p>A Type for Proofs of $l(word)\leq bound$</p>
+<pre><code class="hljs scala scrollcode">
+sealed abstract class LinNormBound(
+	val word: Word,
+	val bound: Double)
+
+final case class Gen(n: Int) extends
+  LinNormBound(Word(Vector(n)), 1)
+
+final case class ConjGen(n: Int,pf: LinNormBound) extends
+  LinNormBound(n +: pf.word :+ (-n), pf.bound)
+
+final case class Triang(
+  pf1: LinNormBound, pf2: LinNormBound) extends
+    LinNormBound( pf1.word ++ pf2.word, pf1.bound + pf2.bound)
+
+final case class PowerBound(
+  baseword: Word, n: Int, pf: LinNormBound) extends
+    LinNormBound(baseword, pf.bound/n){
+      require(pf.word == baseword.pow(n))
+    }
+
+final case object Empty extends
+ LinNormBound(Word(Vector()), 0)
+
+</code></pre>
+</section>
+
+<section>
+	<h3>Domain Specific Foundations</h3>
+	<ul>
+	  <li class="fragment">We defined a scala type <em>(sealed trait)</em> corresponding to proofs of bounds.</li>
+		<li class="fragment">The only way to construct such objects of this type is by constructors of its subtypes (<em>case classes</em>).</li>
+		<li class="fragment">Valid proofs of bounds for conjugacy invariant length functions are those that <strong>typecheck</strong> (i.e. compile time).</li>
+		<li class="fragment">We need to load (i.e. runtime) to check proofs using homogenity, as also to see what is proved.</li>
+		<li class="fragment">This is inspired by <em>Propostions as Types</em> in <em>Dependent Type Theories</em>. </li>
+	</ul>
+</section>
+
+<section>
+	<h3>Merits of the computer proof</h3>
+	<ul>
+		<li class="fragment"> Our proofs, and their correctness are self-contained, and separate from the act of finding the proof.</li>
+		<li class="fragment"> Hence the correctness of the proof depended only on the correctness of the code defining proofs, <span class="fragment highlight-current-blue">which was tiny</span>.</li>
+		<li class="fragment"> Further, while the proof was large, the search space for the proof was enormous.</li>
+		<li class="fragment"> Hence the proof had information content beyond establishing the truth of a statement.</li>
+		<li class="fragment"> In particular, one can learn from such a proof.</li>
+	</ul>
+</section>
+<section>
+	<h3>Limitations of the computer proof</h3>
+	<ul>
+	  <li class="fragment"> The elements for which we applied homogeneity were selected by hand.</li>
+		<li class="fragment">More importantly, in our representations of proofs, the bounds were only for concrete group elements.</li>
+		<li class="fragment">In particular, we cannot
+			<ul>
+				<li class="fragment highlight-current-blue">represent inequalities for expressions.</li>
+				<li class="fragment highlight-current-blue">use induction. </li>
+		</ul>
+		<li class="fragment">Would want proof in complete foundations - which I <a href="formal-proof.html">formalized</a> a few days after the PolyMath proof.</li>
+	</ul>
+</section>
+
+<section id="formal">
+	<embed src="formal-proof.html" width="1000" height="600">
+</section>
+
+<section>
+	<h3>Discovering proofs?</h3>
+	<ul>
+	  <li class="fragment">If a proof can be represented, it can in principle
+		 be discovered by a tree search.</li>
+		 <li class="fragment">In practice, there is a combinatorial explosion unless
+		 we are selective while branching.</li>
+		 <li class="fragment">A good way in mathematics is to look for <em>good </em> intermediate lemmas.</li>
+		 <li class="fragment">We consider an example problem: given a set $M$ with a multiplication $mul$ and
+		 left and right identitites $e_l$ and $e_r$, deduce $e_l=e_r$.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>What is going on?</h3>
+	<ul>
+	  <li class="fragment">We have to explain:
+			<ul>
+			  <li class="fragment highlight-current-blue">The philosophy behind the domain specific foundations.</li>
+				<li class="fragment highlight-current-blue">What we mean by the formalized proof.</li>
+				<li class="fragment highlight-current-blue">What is a good lemma.</li>
+			</ul>
+		</li>
+		<li class="fragment">These are all based on (Homotopy) Type Theoretic foundations of mathematics.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>Type Systems, Type Theories, Parts of Speech</h3>
+	<ul>
+	  <li class="fragment">Valid expressions/phrases in Programming Languages/Logical Systems/Natural langauges are formed
+		from simpler ones using the rules of syntax.</li>
+		<li class="fragment">The rules of syntax are determined by the types/parts-of-speech of the sub-expressions.</li>
+		<li class="fragment">In natural languages and simpler type systems, the set of types is fixed.</li>
+		<li class="fragment">Most programming languages have <em>type forming rules,</em> allowing types to be formed from other types.</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Thank You</h1>
+</section>
+
+<!-- Extra slides -->
+
+
+<section>
+	<ul>
+		<li><strong>Lemma:</strong> If $x = s(wy)s^{-1} = t(zw^{-1})t^{-1}$, we have $l(x)\leq \frac{l(y)+ l(z)}{2}$.</li>
+		<li class="fragment"><strong>Proof:</strong> $l(x^nx^n) = l(s(wy)^ns^{-1}t(zw^{-1})^nt^{-1})$ $\leq n(l(y) +l(z)) + 2(l(s) + l(t))$
+			 <img src="internal-repetition.png" scale="20%" style="border:none; background-color: white;">
+		</li>
+		<li class="fragment">Use $l(x) = \frac{l(x^nx^n)}{2n}$ and take limits.</li>
+	</ul>
+</section>
+
+<section>
+	<ul>
+		<li> <strong>Lemma:</strong> $f(m, k) \leq\frac{f(m-1, k) + f(m+1, k-1)}{2}$, where $f(m, k) = l(x^m[x, y]^k)$.</li>
+		<li class="fragment">In other words, for $Y$ a Rademacher random variable, i.e., $Y$ is $1$ or $-1$ each with probability $1/2$,
+			$f(m, k)\leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</li>
+		<li class="fragment">Hence for $Y_i$ i.i.d. Rademacher random variables, $f(0, n) \leq E(f((Y_1 + Y_2 + \dots + Y_{2n}) (1, -1/2) ))$,</li>
+		<li class="fragment">By triangle inequality, $f(a, b) \leq A\Vert (a, b) \Vert$.</li>
+		<li class="fragment">$Y_1 + Y_2 + \dots Y_{2n}$ has mean $(0, 0)$ and variance $2n$, so $E(\Vert Y_1 + Y_2 + \dots Y_{2n} \Vert) \leq B\sqrt{n}$.</li>
+		<li class="fragment">We deduce that $l([x, y]^n) = f(0, n) \leq C\sqrt{n}$, hence $l([x, y]) = 0$.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>Epilogue: Quasification</h3>
+	<ul>
+		<li class="fragment"> The function $l: G \to [0, \infty)$ is a <em>quasi-pseudo-length function</em>  if there exists $c \in \mathbb{R}$ such that
+			 $l(gh) \leq l(g) + l(h) + c$, for all $g,h\in G$.
+		<li class="fragment">We see that for a homogeneous quasi-pseudo-length function, $l([x, y]) \leq 4c$ for all $x, y\in G$.</li>
+		<li class="fragment">Free groups have homogeneous quasi-pseudo-length functions that are not pullbacks of norms.</li>
+		<li class="fragment"> But, for a group with vanishing <em>stable commutator length</em>, e.g. if $G$ is solvable or $G=Sl(n , \mathbb{Z})$, $n\geq 3$, <span class="fragment">any homogeneous
+			quasi-pseudo-length function is equivalent to the pullback of a norm.</span></li>
+	</ul>
+</section>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+
+				math: {
+					mathjax: '../MathJax/MathJax.js',
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true}
+				]
+			});
+
+//			Reveal.addEventListener( 'slidechanged', function( event ) {
+//				MathJax.Hub.Rerender();
+//			} );
+
+		</script>
+
+	</body>
+</html>
