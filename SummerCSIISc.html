@@ -64,8 +64,8 @@ Mathematical results and concepts.</li>
 	experimentation/computation/enumeration.</li>
 <li class="fragment">We must have, if necessary invent, objective measures for the different
 capabilities.</li>
-<li class="fragment">Our attempt is to build a bridge to the highly successful AI systems: AlphaZero, Reinforcement learning,
-Representation learning, NLP, GANs etc.</li>
+<li class="fragment">Our attempt is to build a bridge to the highly successful AI systems and concepts: AlphaZero, Reinforcement learning,
+Representation learning, Natural Language Processing, GANs etc.</li>
 
 	</ul>
 </section>
@@ -122,8 +122,6 @@ Representation learning, NLP, GANs etc.</li>
 		  <li>A pseudo-length function $l$ is said to be conjugacy invariant if $l(ghg^{-1})=l(h)$ for all $g, h \in G$.</li>
 			<li class="fragment">$l$ is  said to be <em>homogeneous</em> if $l(g^n) = nl(g)$ for all $g \in G$. </li>
 			<li class="fragment">On the group $\mathbb{Z}^2$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
-			<li class="fragment">On the other hand, if $l$ is homogeneous and $g^n=e$ then $l(g)=0$ as $nl(g) = l(g^n) = 0$.</li>
-			<li class="fragment">Thus, if $G$ has <em>torsion</em>, i.e., there exists $g\neq e\in G$, such that $g^n =0$ for some $n > 0$, then there is no homogeneous length function on $G$. </li>
 		</ul>
 </section>
 
@@ -135,32 +133,18 @@ Representation learning, NLP, GANs etc.</li>
 		<li class="fragment">Two words are regarded as equal if they can be related by cancellating adjacent letters that are inverses, e.g. $\alpha\beta\bar{\beta}\alpha\beta = \alpha\alpha\beta$.</li>
 		<li class="fragment">This gives a group; <span class="fragment"> e.g.
 			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$. </span></li>
-		<li class="fragment">The <em>word length</em> on $\mathbb{F_2}$ is the length of the shortest word representing an element.</li>
+		<li class="fragment">Ignoring order of letters in a word $g$ gives an element $\bar{g}=\alpha^k\beta^l\sim (k, l)$  of $\mathbb{Z}^2$; thus we get a pullback homogeneous, conjugacy-invariant pseudo-length on $\mathbb{F}_2$.</li>
 	</ul>
 </section>
 
-<section>
-	<h3>Pullback pseudo-lengths</h3>
-	<ul>
-	  <li class="fragment">We define $ab: \mathbb{F}_2 \to \mathbb{Z}^2$ by total exponents (ignoring order), e.g. $ab(\alpha\alpha\beta\bar{\alpha}\bar{\beta}\alpha\bar{\beta}) = (2, -1)$.
-		</li>
-		<li class="fragment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l_{ab}(g) = l_{\mathbb{Z}^2}(ab(g))$.</li>
-		<li class="fragment">As $l_{\mathbb{Z}^2}$ is homogeneous, so is $l_{ab}$.</li>
-		<li class="fragment"> However, this is <em>not</em> a length function as $l_{ab}([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$ (violating positivity). </li>
-		<li class="fragment">More generally, every group $G$ has an Abelianization $ab: G \to G/[G, G]$. </li>
-	</ul>
-</section>
+
 
 <section>
 	<h3>The Main results</h3>
 	<ul>
 		<li class="fragment"> <strong>Question:</strong> Is there a homogeneous length function on the free group on two generators? </li>
-		<li class="fragment"> <strong>Answer:</strong> No; <span class="fragment">we in fact describe all homogeneous pseudo-lengths.</span> </li>
-		<li class="fragment">
-			<strong>Theorem:</strong> Any homogeneous pseudo-length function on a group $G$ is the pullback of a pseudo-length on its Abelianization $G / [G, G]$.</h4>
-		</li>
-		<li class="fragment"><strong>Corollary:</strong>  If $G$ is not abelian (e.g. $G = \mathbb{F}_2$) there is no homogeneous length function on $G$.</li>
-		<li class="fragment">In fact, every homogeneous pseudo-length is the pullback of a <em>norm</em> on a vector space.</li>
+		<li class="fragment"> <strong>Answer:</strong> No; </li>
+		<li class="fragment">In fact all homogeneous pseudo-lengths are pullbacks from Abelian groups.</li>
 	</ul>
 </section>
 
@@ -173,7 +157,7 @@ Representation learning, NLP, GANs etc.</li>
 </section>
 
 <section>
-	<h4>Finding bounds: contradict positivity?</h4>
+	<h3>Finding bounds: contradict positivity?</h3>
 	<ul>
 	  <li class="fragment">Fix $l$ homomogeneous pseudo-length function.
 			<li class="fragment">The triangle inequality gives bounds on $l(gh)$ in terms of $l(g)$ and $l(h)$.</li>
@@ -191,7 +175,7 @@ Representation learning, NLP, GANs etc.</li>
 </section>
 
 <section>
-	<h4>Seeking a homogeneous length function</h4>
+	<h3>Seeking a homogeneous length function</h3>
 	<ul>
 		<li class="fragment">We can attempt to construct pseudo-lengths that are positive, or at least such that $l([\alpha, \beta])> 0$.</li>
 	  <li class="fragment">Can consider quotients larger than $\mathbb{Z}^2$: negative results by Sawin, Silberman, Tao. </li>
@@ -225,14 +209,11 @@ Representation learning, NLP, GANs etc.</li>
 		<li class="fragment">$l^{}_{WC}$ is
 			<span class="fragment highlight-current-blue"> unchanged under cancellation (hence well-defined on $\mathbb{F}_2$)</span> and
 			<span class="fragment highlight-current-blue">conjugacy invariant.</span></li>
+			<li class="fragment">It is in fact the maximal conjugacy-invariant length function with generators having length at most $1$.</li>
 		<li class="fragment">However, if $g=\alpha[\alpha, \beta]$, then
 			<span class="fragment highlight-current-blue">$l^{}_{WC}(g^2)= 4$, but</span>
 			<span class="fragment highlight-current-blue">$l^{}_{WC}(g) = 3$,</span> violating homogeneity.
 		 </li>
-		 <li class="fragment"  id ="conj">Non-crossing matchings correspond to decompositions into conjugates, e.g.,
-			 <a href="#non-cross">$(\alpha[\alpha, \beta])^2 = ((\beta)^\alpha (\alpha^2)^{\bar{\beta}})^\alpha\bar{\beta}$</a>,
-			 where ($g^h$ denotes $hgh^{-1}$; giving <span class="fragment highlight-current-blue">proofs of bounds</span> and
-			 showing $l^{}_{WC}$ is the <span class="fragment highlight-current-blue">maximal conjugacy-invariant length</span>.</li>
 	</ul>
 </section>
 
@@ -248,8 +229,8 @@ Representation learning, NLP, GANs etc.</li>
 
 
 <section>
+		<h3>Computer Assisted proving</h3>
 	<ul>
-		<h4>Computer Assisted proofs: beyond (symbolic) computation, enumeration?</h4>
 		<li class="fragment"> We can recursively compute the matching length $l^{}_{WC}(g)$ for a word $g$.</li>
 		<li class="fragment"> This gives an upper bound on all conjugacy-invariant normalized lengths.</li>
 		<li class="fragment"> This can be combined with using homogenity.</li>
@@ -269,7 +250,7 @@ Representation learning, NLP, GANs etc.</li>
 		</li>
 		<li class="fragment" data-fragment-index="2">Let $f(m, k) = l(x^m[x, y]^k)$. Then
 			$f(m, k) \leq\frac{f(m-1, k) + f(m+1, k-1)}{2}$,
-			<span class="fragment" data-fragment-index="4"> i.e., $Y=\pm 1$, $f(m, k) \leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</span>
+			<span class="fragment" data-fragment-index="4"> i.e., if $Y=\pm 1$ each with probablity $1/2$, $f(m, k) \leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</span>
 		</li>
 		<li class="fragment" data-fragment-index="3">A probabilistic argument of Tao finished the proof.</li>
 	</ul>
@@ -280,7 +261,7 @@ Representation learning, NLP, GANs etc.</li>
 </section>
 
 <section>
-	<h4>Computing bounds and proofs</h4>
+	<h3>Computing bounds and proofs</h3>
 	<ul>
 	  <li class="fragment">For $g=ah$, $a \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, the length $l^{}_{WC}(g)$ is the minimum of:
 			<ul>
@@ -297,40 +278,31 @@ Representation learning, NLP, GANs etc.</li>
 
 <section>
 <p>A Type for Proofs of $l(word)\leq bound$</p>
-<pre><code class="hljs language-scala scrollcode">
-sealed abstract class LinNormBound(
-	val word: Word,
-	val bound: Double)
+<pre><code class="hljs language-scala scrollcode">sealed abstract class LinNormBound(val word: Word,val bound: Double)
 
-final case class Gen(n: Int) extends
-  LinNormBound(Word(Vector(n)), 1)
+final case class Gen(n: Int) extends LinNormBound(Word(Vector(n)), 1)
 
 final case class ConjGen(n: Int,pf: LinNormBound) extends
   LinNormBound(n +: pf.word :+ (-n), pf.bound)
 
-final case class Triang(
-  pf1: LinNormBound, pf2: LinNormBound) extends
+final case class Triang(pf1: LinNormBound, pf2: LinNormBound) extends
     LinNormBound( pf1.word ++ pf2.word, pf1.bound + pf2.bound)
 
-final case class PowerBound(
-  baseword: Word, n: Int, pf: LinNormBound) extends
-    LinNormBound(baseword, pf.bound/n){
-      require(pf.word == baseword.pow(n))
-    }
+final case class PowerBound(base: Word, n: Int, pf: LinNormBound) extends
+    LinNormBound(base, pf.bound/n){require(pf.word == base.pow(n))}
 
-final case object Empty extends
- LinNormBound(Word(Vector()), 0)
-
+final case object Empty extends LinNormBound(Word(Vector()), 0)
 </code></pre>
 </section>
 
 <section>
 	<h3>Domain Specific Foundations</h3>
 	<ul>
-	  <li class="fragment">We defined a scala type <em>(sealed abstract class)</em> corresponding to proofs of bounds.</li>
+	  <li class="fragment">We defined a scala type (<em>class</em>) and its subtypes.</li>
+		<li class="fragment">Objects of this type are proofs of bounds.</li>
 		<li class="fragment">The only way to construct such objects of this type is by constructors of its subtypes (<em>case classes</em>).</li>
-		<li class="fragment">Valid proofs of bounds for conjugacy invariant length functions are those that <strong>typecheck</strong> (i.e. compile time).</li>
-		<li class="fragment">We need to load (i.e. runtime) to check proofs using homogenity, as also to see what is proved.</li>
+		<li class="fragment">A proof of a bound for conjugacy invariant length functions is correct iff it <strong>typechecks</strong> (i.e. compiles).</li>
+		<li class="fragment">We need to load (i.e. run) to check proofs using homogenity, as also to see what is proved.</li>
 		<li class="fragment">This is inspired by <em>Propostions as Types</em> in <em>Dependent Type Theories</em>. </li>
 	</ul>
 </section>
@@ -370,7 +342,7 @@ final case object Empty extends
 		 be discovered by a tree search.</li>
 		 <li class="fragment">In practice, there is a combinatorial explosion unless
 		 we are selective while branching.</li>
-		 <li class="fragment">A good way in mathematics is to look for <em>good </em> intermediate lemmas.</li>
+		 <li class="fragment">A good way to tree-search in mathematics is to look for <em>good </em> intermediate lemmas.</li>
 		 <li class="fragment">We consider an example problem: given a set $M$ with a multiplication $mul$ and
 		 left and right identitites $e_l$ and $e_r$, deduce $e_l=e_r$.</li>
 	</ul>
@@ -397,7 +369,7 @@ final case object Empty extends
 <section>
 	<h3>Type Systems, Type Theories, Parts of Speech</h3>
 	<ul>
-	  <li class="fragment">Valid expressions/phrases in Programming Languages/Logical Systems/Natural languages are formed
+	  <li class="fragment">Statements/expressions/phrases in Programming Languages/Logical Systems/Natural languages are formed
 		from simpler ones using the rules of syntax.</li>
 		<li class="fragment">The rules of syntax are determined by the types/parts-of-speech of the sub-expressions.</li>
 		<li class="fragment">In natural language, simple type systems and first-order logic, the set of types is fixed.</li>
@@ -414,7 +386,7 @@ final case object Empty extends
 		<li class="fragment"> The product type $A \times B$ has terms (corresponding to)
 			pairs $(a, b)$ with $a: A$ and $b : B$.</li>
 		<li class="fragment"> The sum (disjoint union) type $A \oplus B$ has terms (corresponding to) terms of $A$ and terms of $B$.</li>
-		<li class="fragment"> Most types we form are <em>inductive types</em> - analogues of the <em>sealed trait/class</em> and <em>case class</em> construction. </li>
+		<li class="fragment"> Most types we form are <em>inductive types</em> - in scala this is the <em>sealed trait/class</em> and <em>case class</em> construction. </li>
 	</ul>
 </section>
 
@@ -423,7 +395,7 @@ final case object Empty extends
 	<ul>
 	  <li class="fragment">In a <em>Dependent type theory/system</em>, types are themselves <em>first-class citizens.</em> </li>
 		<li class="fragment">This means they can be argument and results of functions, assigned to variables etc.</li>
-		<li class="fragment">Type forming rules can involve terms(objects), for example vectors of length $n$ form a type $Vec(A)(n)$.</li>
+		<li class="fragment">Type forming rules can involve terms (objects), for example vectors of length $n$ form a type $Vec(A)(n)$.</li>
 		<li class="fragment">Types themselves have types, called universes $\mathfrak{U}$.</li>
 		<li class="fragment">A function $P: A \to \mathfrak{U}$ to a universe is called a <em>type family.</em> </li>
 	</ul>
@@ -434,10 +406,10 @@ final case object Empty extends
 	<ul>
 		<li class="fragment">In dependent type theory, we generalize functions to <em>dependent functions</em> with codomain
 			$P: A \to \mathfrak{U}$.</li>
-		<li class="fragment">Dependent functions form the type $\Pi_{a: A} P(a)$.</li>
+		<li class="fragment">The type of dependent functions is $\Pi_{a: A} P(a)$.</li>
 		<li class="fragment">If $a: A$ and $f: \Pi_{a: A} P(a)$, we can form $f(a) : P(a)$.</li>
 		<li class="fragment">We can also form the type $\Sigma_{a: A} P(a)$ of <em>dependent pairs</em> $(a : A, b : P(a))$.</li>
-		<li class="fragment">Dependent pairs, Vectors etc. are formed by a more general (dependent) notion of inductive types.</li>
+		<li class="fragment">Dependent pairs, Vectors etc. are  <em>inductive types.</em></li>
 
 	</ul>
 </section>
@@ -456,8 +428,8 @@ final case object Empty extends
 
 <section>
 	<h3>Combining propositions</h3>
-	<p class="fragment"> Let $A$ and $B$ be types, regarded as representing propositions.</p>
 	<ul>
+		<p class="fragment"> Let $A$ and $B$ be types, regarded as representing propositions.</p>
 		<li class="fragment"> The proposition $A \Rightarrow B$ is represented by $A \to B$.</li>
 		<li class="fragment"> The propostion $A\wedge B$ is represented by $A \times B$.</li>
 		<li class="fragment"> The proposition $A \vee B$ is represented by $A \oplus B$.</li>
@@ -510,7 +482,7 @@ final case object Empty extends
 	<section>
 		<h3>Homotopy Type Theory in Scala</h3>
 		<ul>
-		  <li class="fragment">We have implemented homotopy type theory in the scala language.</li>
+		  <li class="fragment">We have implemented homotopy type theory in the scala programming language.</li>
 			<li class="fragment">The scala types of terms bound the HoTT types in a useful way.</li>
 			<li class="fragment"> Symbolic algebra is incorporated by allowing scala objects
 			 to represent HoTT terms.</li>
@@ -525,7 +497,7 @@ final case object Empty extends
 				<li class="fragment"> Particularly for applications, we may have an externally determined
 					notion of <em>a priori</em> usefulness.</li>
 				<li class="fragment"> With Homotopy Type Theory, and Machine learning techniques such as backward propagation, all these
-					can be naturally captured.</li>
+					can be naturally captured; <span class="fragment">we can also capture relationships between mathematical objects.</span> </li>
 			</ul>
 		</section>
 
@@ -557,7 +529,7 @@ final case object Empty extends
 				<li class="fragment"> The distribution on theorems can have other components from goals, backward reasoning, external literature etc.</li>
 				<li class="fragment"> We will use not just  probabilities but vectors for terms -
 				these capture relations, analogies etc.</li>
-				<li class="fragment">We also plan to use formalized mathematics and the mathematical literature.</li>
+				<li class="fragment">We also plan to use formalized mathematics and the mathematical literature for learning.</li>
 			</ul>
 
 		</section>
@@ -638,7 +610,7 @@ object nat$decidable_eq {
 <section>
 	<h3>Concluding Remarks</h3>
 	<ul>
-	  <li class="fragment">Systems such as Alpha-Zero show that computers can learn to make judgements, be creative etc.</li>
+	  <li class="fragment">Systems such as AlphaZero show that computers can learn to make judgements, be original etc.</li>
 		<li class="fragment">Our first steps will expand the range of ways in which computers help in mathematics.</li>
 		<li class="fragment">A better developed system will contribute to <em>semantic tooling</em> for mathematics.</li>
 		<li class="fragment">Finally, if and when really powerful provers are developed, they can extend the reach of mathematics.</li>
