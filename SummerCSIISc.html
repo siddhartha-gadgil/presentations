@@ -45,8 +45,8 @@
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 <section>
-	<h3 class="title"> Automating Mathematics: </h3>
-	<h3> PolyMath, Type Theory and Learning </h3>
+	<h2 class="title"> Automating Mathematics: </h2>
+	<h2> PolyMath, Type Theory and Learning </h2>
 	<p>Department of Mathematics</p>
 	 <p>Indian Institute of Science</p>
 	 <p>Bangalore</p>
@@ -72,8 +72,8 @@ Representation learning, NLP, GANs etc.</li>
 
 <section>
 
-	<h3> Homomogeneous length functions on Groups </h3>
-	<h3> A PolyMath adventure</h3>
+	<h2> Homomogeneous length functions on Groups </h2>
+	<h2> A PolyMath adventure</h2>
 
 
 </section>
@@ -276,7 +276,7 @@ Representation learning, NLP, GANs etc.</li>
 </section>
 
 <section>
-	<h3> The Gross Proof and Beyond </h3>
+	<h2> The Gross Proof and Beyond </h2>
 </section>
 
 <section>
@@ -297,7 +297,7 @@ Representation learning, NLP, GANs etc.</li>
 
 <section>
 <p>A Type for Proofs of $l(word)\leq bound$</p>
-<pre><code class="hljs scala scrollcode">
+<pre><code class="hljs language-scala scrollcode">
 sealed abstract class LinNormBound(
 	val word: Word,
 	val bound: Double)
@@ -377,7 +377,7 @@ final case object Empty extends
 </section>
 
 <section>
-	<h3>What is going on?</h3>
+	<h3>Underlying Theory</h3>
 	<ul>
 	  <li class="fragment">We have to explain:
 			<ul>
@@ -388,6 +388,10 @@ final case object Empty extends
 		</li>
 		<li class="fragment">These are all based on (Homotopy) Type Theoretic foundations of mathematics.</li>
 	</ul>
+</section>
+
+<section>
+	<h2>(Homotopy) Type Theory</h2>
 </section>
 
 <section>
@@ -490,14 +494,38 @@ final case object Empty extends
 	</section>
 
 	<section>
+		<h2>The Proving-Ground Code</h2>
+	</section>
+
+	<section>
+		<h3>Contributors</h3>
+		<ul>
+			<li>Dymtro Mitin</li>
+			<li>Tomoaki Hashizaki</li>
+			<li>Olivier Roland</li>
+			<li>Sayantan Khan</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3>Homotopy Type Theory in Scala</h3>
+		<ul>
+		  <li class="fragment">We have implemented homotopy type theory in the scala language.</li>
+			<li class="fragment">The scala types of terms bound the HoTT types in a useful way.</li>
+			<li class="fragment"> Symbolic algebra is incorporated by allowing scala objects
+			 to represent HoTT terms.</li>
+		</ul>
+	</section>
+
+	<section>
 			<h3> Useful theorems and proofs </h3>
 			<ul>
 				<li class="fragment"> A theorem with a simple statement but difficult proof is useful.</li>
 				<li class="fragment"> A theorem used to prove many other theorems is useful.</li>
 				<li class="fragment"> Particularly for applications, we may have an externally determined
 					notion of <em>a priori</em> usefulness.</li>
-				<li class="fragment"> With homotopy type theory and backward propagation, all these
-					can be naturally captured in simple learning dynamics.</li>
+				<li class="fragment"> With Homotopy Type Theory, and Machine learning techniques such as backward propagation, all these
+					can be naturally captured.</li>
 			</ul>
 		</section>
 
@@ -506,8 +534,7 @@ final case object Empty extends
 		<section>
 			<h3> Reinforcement learning: term-type map </h3>
 			<ul>
-				<li class="fragment"> Given an initial distribution $P_0$ on terms, rules for forming terms recursively gives a new distribution
-
+				<li class="fragment"> Given an initial distribution $P_0$ on terms, rules for forming terms recursively gives a new distribution e.g.
 						$$P = \alpha P_0 + \beta \mu_*(P) + \gamma \theta_*(P \times P) + \dots$$
 					</li>
 				<li class="fragment"> A probability distribution on terms
@@ -515,34 +542,108 @@ final case object Empty extends
 					mapping  (proof distribution). </li>
 				<li class="fragment"> As (inhabited) types themselves are terms, we get a restricted distribution
 					(theorem distribution). </li>
-				<li class="fragment"> We can compare these, flow, backward propagate etc.</li>
-				<li class="fragment"> The distribution on theorems can have other components.</li>
+				<li class="fragment"> We can compare these to get a relative entropy.</li>
+				<li class="fragment"> We also have a (entropy based) cost associated to the generative model.</li>
+
 			</ul>
 
 		</section>
 
 		<section>
-			<h3> Representation learning </h3>
-			<p> Using proximity and order, words, mathematical objects etc can be represented by vectors
-				which capture many of their relations.
-			</p>
+			<h3> Exploration, Learning, Representations </h3>
+			<ul>
+			  <li class="fragment">A <em>good lemma</em> is one where the gain in relative entropy exceeds the cost in generation.</li>
+				<li class="fragment">We will use gradient flows and backward propagation to learn generating systems.</li>
+				<li class="fragment"> The distribution on theorems can have other components from goals, backward reasoning, external literature etc.</li>
+				<li class="fragment"> We will use not just  probabilities but vectors for terms -
+				these capture relations, analogies etc.</li>
+				<li class="fragment">We also plan to use formalized mathematics and the mathematical literature.</li>
+			</ul>
+
 		</section>
+
+<section>
+	<h3>From the Lean Theorem Prover</h3>
+	<pre>
+		<code class="language-scala scrollcode">
+package provingground.library
+import provingground._
+import HoTT._
+import induction._
+import implicits._
+import shapeless._
+import Fold._
+object nat$decidable_eq {
+  val value = lambda("'ag_1531296106_1367828936" :: "nat" :: Type)(({
+    val rxyz = pprodInd.value(piDefn("'aj_117702620" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_751289559" :: Type)(FuncTyp("'c_751289559" :: Type, FuncTyp("'c_751289559" :: Type, Prop))))("nat" :: Type)("'ag_1531296106_1367828936" :: "nat" :: Type)("'aj_117702620" :: "nat" :: Type))))(({
+      val rxyz = natInd.value.rec(Type)
+      rxyz
+    })("punit" :: Type)(lmbda("'h_159188406_990306052" :: "nat" :: Type)(lmbda("'i_854809894_325907817" :: Type)(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_482846896" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_2112253922" :: Type)(FuncTyp("'c_2112253922" :: Type, FuncTyp("'c_2112253922" :: Type, Prop))))("nat" :: Type)("'h_159188406_990306052" :: "nat" :: Type)("'aj_482846896" :: "nat" :: Type))))("'i_854809894_325907817" :: Type))("punit" :: Type))))("'ag_1531296106_1367828936" :: "nat" :: Type)).rec(piDefn("'aj_228954873" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_1303348173" :: Type)(FuncTyp("'c_1303348173" :: Type, FuncTyp("'c_1303348173" :: Type, Prop))))("nat" :: Type)("'ag_1531296106_1367828936" :: "nat" :: Type)("'aj_228954873" :: "nat" :: Type))))
+    rxyz
+  })(lmbda("'s_318103601_490050232" :: piDefn("'aj_15078438_215709177" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_517841910" :: Type)(FuncTyp("'c_517841910" :: Type, FuncTyp("'c_517841910" :: Type, Prop))))("nat" :: Type)("'ag_1531296106_1367828936" :: "nat" :: Type)("'aj_15078438_215709177" :: "nat" :: Type))))(lmbda("_" :: ({
+    val rxyz = natInd.value.rec(Type)
+    rxyz
+  })("punit" :: Type)(lmbda("'h_159188406_753078297" :: "nat" :: Type)(lmbda("'i_854809894_590543722" :: Type)(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_1051336192" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_704808476" :: Type)(FuncTyp("'c_704808476" :: Type, FuncTyp("'c_704808476" :: Type, Prop))))("nat" :: Type)("'h_159188406_753078297" :: "nat" :: Type)("'aj_1051336192" :: "nat" :: Type))))("'i_854809894_590543722" :: Type))("punit" :: Type))))("'ag_1531296106_1367828936" :: "nat" :: Type))("'s_318103601_490050232" :: piDefn("'aj_15078438_215709177" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_517841910" :: Type)(FuncTyp("'c_517841910" :: Type, FuncTyp("'c_517841910" :: Type, Prop))))("nat" :: Type)("'ag_1531296106_1367828936" :: "nat" :: Type)("'aj_15078438_215709177" :: "nat" :: Type))))))(({
+    val rxyz = natInd.value.induc(lmbda("'v_1087445862_593085322" :: "nat" :: Type)(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_202430491" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_374127766" :: Type)(FuncTyp("'c_374127766" :: Type, FuncTyp("'c_374127766" :: Type, Prop))))("nat" :: Type)("'v_1087445862_593085322" :: "nat" :: Type)("'aj_202430491" :: "nat" :: Type))))(({
+      val rxyz = natInd.value.rec(Type)
+      rxyz
+    })("punit" :: Type)(lmbda("'h_159188406_283972159" :: "nat" :: Type)(lmbda("'i_854809894_765942027" :: Type)(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_362557726" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_187883991" :: Type)(FuncTyp("'c_187883991" :: Type, FuncTyp("'c_187883991" :: Type, Prop))))("nat" :: Type)("'h_159188406_283972159" :: "nat" :: Type)("'aj_362557726" :: "nat" :: Type))))("'i_854809894_765942027" :: Type))("punit" :: Type))))("'v_1087445862_593085322" :: "nat" :: Type))))
+    rxyz
+  })(("pprod.mk" :: piDefn("'f_858730760" :: Type)(piDefn("'g_84737018" :: Type)(FuncTyp("'f_858730760" :: Type, FuncTyp("'g_84737018" :: Type, ("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))("'f_858730760" :: Type)("'g_84737018" :: Type))))))(piDefn("'aj_1405500650" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_1679528951" :: Type)(FuncTyp("'c_1679528951" :: Type, FuncTyp("'c_1679528951" :: Type, Prop))))("nat" :: Type)("nat.zero" :: "nat" :: Type)("'aj_1405500650" :: "nat" :: Type))))("punit" :: Type)(lambda("'ak_992690145_66345703" :: "nat" :: Type)(({
+    val rxyz = natInd.value.induc(lmbda("$vuyd_613901509_1138574320" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_51816028" :: Type)(FuncTyp("'c_51816028" :: Type, FuncTyp("'c_51816028" :: Type, Prop))))("nat" :: Type)("nat.zero" :: "nat" :: Type)("$vuyd_613901509_1138574320" :: "nat" :: Type))))
+    rxyz
+  })("_" :: ("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_1616709371" :: Type)(FuncTyp("'c_1616709371" :: Type, FuncTyp("'c_1616709371" :: Type, Prop))))("nat" :: Type)("nat.zero" :: "nat" :: Type)("nat.zero" :: "nat" :: Type)))(lambda("'k_621156251_206574004" :: "nat" :: Type)(lmbda("_" :: ("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_1547408363" :: Type)(FuncTyp("'c_1547408363" :: Type, FuncTyp("'c_1547408363" :: Type, Prop))))("nat" :: Type)("nat.zero" :: "nat" :: Type)("'k_621156251_206574004" :: "nat" :: Type)))("_" :: ("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_2022960021" :: Type)(FuncTyp("'c_2022960021" :: Type, FuncTyp("'c_2022960021" :: Type, Prop))))("nat" :: Type)("nat.zero" :: "nat" :: Type)(("nat.succ" :: FuncTyp("nat" :: Type, "nat" :: Type))("'k_621156251_206574004" :: "nat" :: Type))))))("'ak_992690145_66345703" :: "nat" :: Type)))("punit.star" :: "punit" :: Type))(lambda("'v_256405719_429396927" :: "nat" :: Type)(lmbda("'w_566843556_179354281" :: ("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_257559038" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_265527310" :: Type)(FuncTyp("'c_265527310" :: Type, FuncTyp("'c_265527310" :: Type, Prop))))("nat" :: Type)("'v_256405719_429396927" :: "nat" :: Type)("'aj_257559038" :: "nat" :: Type))))(({
+    val rxyz = natInd.value.rec(Type)
+    rxyz
+  })("punit" :: Type)(lmbda("'h_159188406_696790367" :: "nat" :: Type)(lmbda("'i_854809894_317859634" :: Type)(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_1612878706" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_479764664" :: Type)(FuncTyp("'c_479764664" :: Type, FuncTyp("'c_479764664" :: Type, Prop))))("nat" :: Type)("'h_159188406_696790367" :: "nat" :: Type)("'aj_1612878706" :: "nat" :: Type))))("'i_854809894_317859634" :: Type))("punit" :: Type))))("'v_256405719_429396927" :: "nat" :: Type)))(("pprod.mk" :: piDefn("'f_1605051863" :: Type)(piDefn("'g_1443604027" :: Type)(FuncTyp("'f_1605051863" :: Type, FuncTyp("'g_1443604027" :: Type, ("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))("'f_1605051863" :: Type)("'g_1443604027" :: Type))))))(piDefn("'aj_320897960" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_1411998825" :: Type)(FuncTyp("'c_1411998825" :: Type, FuncTyp("'c_1411998825" :: Type, Prop))))("nat" :: Type)(("nat.succ" :: FuncTyp("nat" :: Type, "nat" :: Type))("'v_256405719_429396927" :: "nat" :: Type))("'aj_320897960" :: "nat" :: Type))))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_138014301" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_2131675862" :: Type)(FuncTyp("'c_2131675862" :: Type, FuncTyp("'c_2131675862" :: Type, Prop))))("nat" :: Type)("'v_256405719_429396927" :: "nat" :: Type)("'aj_138014301" :: "nat" :: Type))))(({
+    val rxyz = natInd.value.rec(Type)
+    rxyz
+  })("punit" :: Type)(lmbda("'h_159188406_1856699345" :: "nat" :: Type)(lmbda("'i_854809894_883946601" :: Type)(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_1842985757" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_1398049368" :: Type)(FuncTyp("'c_1398049368" :: Type, FuncTyp("'c_1398049368" :: Type, Prop))))("nat" :: Type)("'h_159188406_1856699345" :: "nat" :: Type)("'aj_1842985757" :: "nat" :: Type))))("'i_854809894_883946601" :: Type))("punit" :: Type))))("'v_256405719_429396927" :: "nat" :: Type)))("punit" :: Type))(lambda("'ak_992690145_1869838569" :: "nat" :: Type)(({
+    val rxyz = natInd.value.induc(lmbda("$vuyd_613901509_1095799675" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_2017105073" :: Type)(FuncTyp("'c_2017105073" :: Type, FuncTyp("'c_2017105073" :: Type, Prop))))("nat" :: Type)(("nat.succ" :: FuncTyp("nat" :: Type, "nat" :: Type))("'v_256405719_429396927" :: "nat" :: Type))("$vuyd_613901509_1095799675" :: "nat" :: Type))))
+    rxyz
+  })("_" :: ("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_1559678193" :: Type)(FuncTyp("'c_1559678193" :: Type, FuncTyp("'c_1559678193" :: Type, Prop))))("nat" :: Type)(("nat.succ" :: FuncTyp("nat" :: Type, "nat" :: Type))("'v_256405719_429396927" :: "nat" :: Type))("nat.zero" :: "nat" :: Type)))(lambda("'k_217786156_1059286668" :: "nat" :: Type)(lmbda("_" :: ("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_998126858" :: Type)(FuncTyp("'c_998126858" :: Type, FuncTyp("'c_998126858" :: Type, Prop))))("nat" :: Type)(("nat.succ" :: FuncTyp("nat" :: Type, "nat" :: Type))("'v_256405719_429396927" :: "nat" :: Type))("'k_217786156_1059286668" :: "nat" :: Type)))("_" :: ("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_590214278" :: Type)(FuncTyp("'c_590214278" :: Type, FuncTyp("'c_590214278" :: Type, Prop))))("nat" :: Type)(("nat.succ" :: FuncTyp("nat" :: Type, "nat" :: Type))("'v_256405719_429396927" :: "nat" :: Type))(("nat.succ" :: FuncTyp("nat" :: Type, "nat" :: Type))("'k_217786156_1059286668" :: "nat" :: Type))))))("'ak_992690145_1869838569" :: "nat" :: Type)))(("pprod.mk" :: piDefn("'f_14519285" :: Type)(piDefn("'g_88262494" :: Type)(FuncTyp("'f_14519285" :: Type, FuncTyp("'g_88262494" :: Type, ("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))("'f_14519285" :: Type)("'g_88262494" :: Type))))))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_161697836" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_257271152" :: Type)(FuncTyp("'c_257271152" :: Type, FuncTyp("'c_257271152" :: Type, Prop))))("nat" :: Type)("'v_256405719_429396927" :: "nat" :: Type)("'aj_161697836" :: "nat" :: Type))))(({
+    val rxyz = natInd.value.rec(Type)
+    rxyz
+  })("punit" :: Type)(lmbda("'h_159188406_1711678532" :: "nat" :: Type)(lmbda("'i_854809894_1639579534" :: Type)(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_1427415108" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_888554361" :: Type)(FuncTyp("'c_888554361" :: Type, FuncTyp("'c_888554361" :: Type, Prop))))("nat" :: Type)("'h_159188406_1711678532" :: "nat" :: Type)("'aj_1427415108" :: "nat" :: Type))))("'i_854809894_1639579534" :: Type))("punit" :: Type))))("'v_256405719_429396927" :: "nat" :: Type)))("punit" :: Type)("'w_566843556_179354281" :: ("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_257559038" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_265527310" :: Type)(FuncTyp("'c_265527310" :: Type, FuncTyp("'c_265527310" :: Type, Prop))))("nat" :: Type)("'v_256405719_429396927" :: "nat" :: Type)("'aj_257559038" :: "nat" :: Type))))(({
+    val rxyz = natInd.value.rec(Type)
+    rxyz
+  })("punit" :: Type)(lmbda("'h_159188406_696790367" :: "nat" :: Type)(lmbda("'i_854809894_317859634" :: Type)(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(("pprod" :: FuncTyp(Type, FuncTyp(Type, Type)))(piDefn("'aj_1612878706" :: "nat" :: Type)(("decidable" :: FuncTyp(Prop, Type))(("eq" :: piDefn("'c_479764664" :: Type)(FuncTyp("'c_479764664" :: Type, FuncTyp("'c_479764664" :: Type, Prop))))("nat" :: Type)("'h_159188406_696790367" :: "nat" :: Type)("'aj_1612878706" :: "nat" :: Type))))("'i_854809894_317859634" :: Type))("punit" :: Type))))("'v_256405719_429396927" :: "nat" :: Type)))("punit.star" :: "punit" :: Type)))))("'ag_1531296106_1367828936" :: "nat" :: Type)))
+}
+
+		</code>
+
+	</pre>
+</section>
 
 		<section>
 			<h3> NLP: extracting from human literature.</h3>
 			<ul>
 				<li class="fragment"> We aim to extract mathematical objects from the literature,
 					with reasonably high accuracy. </li>
-				<li class="fragment"> These can be used for learning, both giving terms from which to generate others,
-					and a distribution on types.</li>
-				<li class="fragment"> This is similar to a translation problem, except the target language has
-					strong restrictions on sentences being meaningful and true.</li>
-				<li class="fragment"> To extract from natural language, we first use a parser and then target an intermediate structured language.</li>
+				<li class="fragment"> These can be used for learning, giving terms for generation and types as goals.</li>
+				<li class="fragment"> This is a translation problem, except the target language has
+					strong restrictions.</li>
+				<li class="fragment"> To extract from natural language, we first
+					<ul>
+						<li>Use a natural language parser.</li>
+						<li>Target an intermediate language (Naproche CNL).</li>
+						<li>We will translate this into HoTT, combing with parsing latex formulas.</li>
+					</ul>
+				</li>
 				</ul>
 			</section>
 
 	</section>
 
+<section>
+	<h3>Concluding Remarks</h3>
+	<ul>
+	  <li class="fragment">Systems such as Alpha-Zero show that computers can learn to make judgements, be creative etc.</li>
+		<li class="fragment">Our first steps will expand the range of ways in which computers help in mathematics.</li>
+		<li class="fragment">A better developed system will contribute to <em>semantic tooling</em> for mathematics.</li>
+		<li class="fragment">Finally, if and when really powerful provers are developed, they can extend the reach of mathematics.</li>
+	</ul>
+</section>
 
 <section>
 	<h1>Thank You</h1>
