@@ -133,7 +133,7 @@ Representation learning, Natural Language Processing, GANs etc.</li>
 		<li class="fragment">Two words are regarded as equal if they can be related by cancellating adjacent letters that are inverses, e.g. $\alpha\beta\bar{\beta}\alpha\beta = \alpha\alpha\beta$.</li>
 		<li class="fragment">This gives a group; <span class="fragment"> e.g.
 			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$. </span></li>
-		<li class="fragment">Ignoring order of letters in a word $g$ gives an element $\bar{g}=\alpha^k\beta^l\sim (k, l)$  of $\mathbb{Z}^2$; thus we get a pullback homogeneous, conjugacy-invariant pseudo-length on $\mathbb{F}_2$.</li>
+		<li class="fragment">Ignoring order of letters in a word $g$ gives an element $\bar{g}=\alpha^k\beta^l\leftrightarrow (k, l)\in \mathbb{Z}^2$;<span class="fragment"> thus we get a pullback homogeneous, conjugacy-invariant pseudo-length on $\mathbb{F}_2$.</span></li>
 	</ul>
 </section>
 
@@ -181,7 +181,7 @@ Representation learning, Natural Language Processing, GANs etc.</li>
 	  <li class="fragment">Can consider quotients larger than $\mathbb{Z}^2$: negative results by Sawin, Silberman, Tao. </li>
 		<li class="fragment">There were also attempted constructions based on functional analysis.</li>
 		<li class="fragment">Given a candidate $l: G \to [0, \infty)$, try to fix this
-			using <em>homogenizations</em> and the <em>Kobayashi construction</em>.
+			using <em>homogenization</em> and the <em>Kobayashi construction</em>.
 		</li>
 		<li class="fragment">I hoped to combine these with an approach based on <em>non-crossing matchings</em>.</li>
 	</ul>
@@ -199,7 +199,7 @@ Representation learning, Natural Language Processing, GANs etc.</li>
 			<li class="fragment highlight-current-blue">there are no <em>crossings</em></li>
 		 </ul>
 	 	</li>
-		<li class="fragment"> The norm is the number of unmatched letters.</li>
+		<li class="fragment"> We minimize the number of unmatched letters.</li>
 	</ul>
 </section>
 <section>
@@ -302,8 +302,9 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 		<li class="fragment">Objects of this type are proofs of bounds.</li>
 		<li class="fragment">The only way to construct such objects of this type is by constructors of its subtypes (<em>case classes</em>).</li>
 		<li class="fragment">A proof of a bound for conjugacy invariant length functions is correct iff it <strong>typechecks</strong> (i.e. compiles).</li>
-		<li class="fragment">We need to load (i.e. run) to check proofs using homogenity, as also to see what is proved.</li>
 		<li class="fragment">This is inspired by <em>Propostions as Types</em> in <em>Dependent Type Theories</em>. </li>
+		<li class="fragment"> However, we need to load (i.e. run) to check proofs using homogenity, as also to see what is proved.</li>
+
 	</ul>
 </section>
 
@@ -342,7 +343,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 		 be discovered by a tree search.</li>
 		 <li class="fragment">In practice, there is a combinatorial explosion unless
 		 we are selective while branching.</li>
-		 <li class="fragment">A good way to tree-search in mathematics is to look for <em>good </em> intermediate lemmas.</li>
+		 <li class="fragment">A good way to choose branches is to look for <em>good </em> intermediate lemmas.</li>
 		 <li class="fragment">We consider an example problem: given a set $M$ with a multiplication $mul$ and
 		 left and right identitites $e_l$ and $e_r$, deduce $e_l=e_r$.</li>
 	</ul>
@@ -351,7 +352,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 <section>
 	<h3>Underlying Theory</h3>
 	<ul>
-	  <li class="fragment">We have to explain:
+	  <li class="fragment">We have not explained:
 			<ul>
 			  <li class="fragment highlight-current-blue">The philosophy behind the domain specific foundations.</li>
 				<li class="fragment highlight-current-blue">What we mean by the formalized proof.</li>
@@ -369,11 +370,11 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 <section>
 	<h3>Type Systems, Type Theories, Parts of Speech</h3>
 	<ul>
-	  <li class="fragment">Statements/expressions/phrases in Programming Languages/Logical Systems/Natural languages are formed
+	  <li class="fragment">Statements/expressions/phrases in programming languages/formal logical systems/natural languages are formed
 		from simpler ones using the rules of syntax.</li>
 		<li class="fragment">The rules of syntax are determined by the types/parts-of-speech of the sub-expressions.</li>
 		<li class="fragment">In natural language, simple type systems and first-order logic, the set of types is fixed.</li>
-		<li class="fragment"> In most programming languages and in Higher-order logic, we have <em>type forming rules,</em> allowing types to be formed from other types.</li>
+		<li class="fragment"> In most programming languages and in higher-order logic, we have <em>type forming rules,</em> allowing types to be formed from other types.</li>
 	</ul>
 </section>
 
@@ -409,7 +410,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 		<li class="fragment">The type of dependent functions is $\Pi_{a: A} P(a)$.</li>
 		<li class="fragment">If $a: A$ and $f: \Pi_{a: A} P(a)$, we can form $f(a) : P(a)$.</li>
 		<li class="fragment">We can also form the type $\Sigma_{a: A} P(a)$ of <em>dependent pairs</em> $(a : A, b : P(a))$.</li>
-		<li class="fragment">Dependent pairs, Vectors etc. are  <em>inductive types.</em></li>
+		<li class="fragment">Dependent pairs, Vectors etc. are  <em>inductive types</em> or <em>inductive type families.</em></li>
 
 	</ul>
 </section>
@@ -418,9 +419,8 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 	<h3>Propositions as types</h3>
 	<ul>
 		<li class="fragment">A type $A$ is <em>inhabited</em> if there is a term $a$ with $a : A$.</li>
-		<li class="fragment">By <em> propostion</em> we mean a logical statement that must be true or false.</li>
-		<li class="fragment">We represent propositions by types.</li>
-		<li class="fragment">If a type $A$ is viewed as a proposition, a term $a : A$ is a <em class="fragment highlight-current-blue">proof</em> of (or witness to) $A$.
+		<li class="fragment">We interpret types as propositions, i.e., logical statements.</li>
+		<li class="fragment">If a type $A$ is interpreted as a proposition, a term $a : A$ is interpreted as a <em class="fragment highlight-current-blue">proof</em> of (or witness to) $A$.
 		<li class="fragment">In particular, a proposition is <strong>true</strong> if and only if the corresponding type is <strong>inhabited</strong>.</li>
 		<li class="fragment">Note that we must be able to form types representing mathematical propositions by the type formation rules.</li>
 	</ul>
@@ -483,9 +483,9 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 		<h3>Homotopy Type Theory in Scala</h3>
 		<ul>
 		  <li class="fragment">We have implemented homotopy type theory in the scala programming language.</li>
-			<li class="fragment">The scala types of terms bound the HoTT types in a useful way.</li>
+			<li class="fragment">The scala types of terms bound the HoTT types in a useful way (scala has subtypes).</li>
 			<li class="fragment"> Symbolic algebra is incorporated by allowing scala objects
-			 to represent HoTT terms.</li>
+			 to represent HoTT terms and using appropriate data structures.</li>
 		</ul>
 	</section>
 
@@ -497,7 +497,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 				<li class="fragment"> Particularly for applications, we may have an externally determined
 					notion of <em>a priori</em> usefulness.</li>
 				<li class="fragment"> With Homotopy Type Theory, and Machine learning techniques such as backward propagation, all these
-					can be naturally captured; <span class="fragment">we can also capture relationships between mathematical objects.</span> </li>
+					can be naturally captured; <span class="fragment">we can also try to capture relationships between mathematical objects.</span> </li>
 			</ul>
 		</section>
 
@@ -513,7 +513,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 					 gives one on types by
 					mapping  (proof distribution). </li>
 				<li class="fragment"> As (inhabited) types themselves are terms, we get a restricted distribution
-					(theorem distribution). </li>
+					(proposition distribution). </li>
 				<li class="fragment"> We can compare these to get a relative entropy.</li>
 				<li class="fragment"> We also have a (entropy based) cost associated to the generative model.</li>
 
@@ -525,8 +525,8 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 			<h3> Exploration, Learning, Representations </h3>
 			<ul>
 			  <li class="fragment">A <em>good lemma</em> is one where the gain in relative entropy exceeds the cost in generation.</li>
-				<li class="fragment">We will use gradient flows and backward propagation to learn generating systems.</li>
-				<li class="fragment"> The distribution on theorems can have other components from goals, backward reasoning, external literature etc.</li>
+				<li class="fragment">We will use gradient flows and backward propagation to train generative models.</li>
+				<li class="fragment"> The proposition distribution can have other components from goals, backward reasoning, external literature, experimentation etc.</li>
 				<li class="fragment"> We will use not just  probabilities but vectors for terms -
 				these capture relations, analogies etc.</li>
 				<li class="fragment">We also plan to use formalized mathematics and the mathematical literature for learning.</li>
@@ -595,11 +595,11 @@ object nat$decidable_eq {
 				<li class="fragment"> These can be used for learning, giving terms for generation and types as goals.</li>
 				<li class="fragment"> This is a translation problem, except the target language has
 					strong restrictions.</li>
-				<li class="fragment"> To extract from natural language, we first
+				<li class="fragment"> To extract from natural language, we
 					<ul>
-						<li>Use a natural language parser.</li>
-						<li>Target an intermediate language (Naproche CNL).</li>
-						<li>We will translate this into HoTT, combing with parsing latex formulas.</li>
+						<li>use a natural language parser,</li>
+						<li>target an intermediate language (Naproche CNL),</li>
+						<li>aim to translate this into HoTT, combing with parsing latex formulas.</li>
 					</ul>
 				</li>
 				</ul>
@@ -611,52 +611,13 @@ object nat$decidable_eq {
 	<h3>Concluding Remarks</h3>
 	<ul>
 	  <li class="fragment">Systems such as AlphaZero show that computers can learn to make judgements, be original etc.</li>
-		<li class="fragment">Our first steps will expand the range of ways in which computers help in mathematics.</li>
+		<li class="fragment">Our first steps should expand the range of ways in which computers help in mathematics.</li>
 		<li class="fragment">A better developed system will contribute to <em>semantic tooling</em> for mathematics.</li>
 		<li class="fragment">Finally, if and when really powerful provers are developed, they can extend the reach of mathematics.</li>
 	</ul>
 </section>
 
-<section>
-	<h1>Thank You</h1>
-</section>
 
-<!-- Extra slides -->
-
-
-<section>
-	<ul>
-		<li><strong>Lemma:</strong> If $x = s(wy)s^{-1} = t(zw^{-1})t^{-1}$, we have $l(x)\leq \frac{l(y)+ l(z)}{2}$.</li>
-		<li class="fragment"><strong>Proof:</strong> $l(x^nx^n) = l(s(wy)^ns^{-1}t(zw^{-1})^nt^{-1})$ $\leq n(l(y) +l(z)) + 2(l(s) + l(t))$
-			 <img src="internal-repetition.png" scale="20%" style="border:none; background-color: white;">
-		</li>
-		<li class="fragment">Use $l(x) = \frac{l(x^nx^n)}{2n}$ and take limits.</li>
-	</ul>
-</section>
-
-<section>
-	<ul>
-		<li> <strong>Lemma:</strong> $f(m, k) \leq\frac{f(m-1, k) + f(m+1, k-1)}{2}$, where $f(m, k) = l(x^m[x, y]^k)$.</li>
-		<li class="fragment">In other words, for $Y$ a Rademacher random variable, i.e., $Y$ is $1$ or $-1$ each with probability $1/2$,
-			$f(m, k)\leq E(f( (m, k - 1/2) + Y(1, -1/2) ))$.</li>
-		<li class="fragment">Hence for $Y_i$ i.i.d. Rademacher random variables, $f(0, n) \leq E(f((Y_1 + Y_2 + \dots + Y_{2n}) (1, -1/2) ))$,</li>
-		<li class="fragment">By triangle inequality, $f(a, b) \leq A\Vert (a, b) \Vert$.</li>
-		<li class="fragment">$Y_1 + Y_2 + \dots Y_{2n}$ has mean $(0, 0)$ and variance $2n$, so $E(\Vert Y_1 + Y_2 + \dots Y_{2n} \Vert) \leq B\sqrt{n}$.</li>
-		<li class="fragment">We deduce that $l([x, y]^n) = f(0, n) \leq C\sqrt{n}$, hence $l([x, y]) = 0$.</li>
-	</ul>
-</section>
-
-<section>
-	<h3>Epilogue: Quasification</h3>
-	<ul>
-		<li class="fragment"> The function $l: G \to [0, \infty)$ is a <em>quasi-pseudo-length function</em>  if there exists $c \in \mathbb{R}$ such that
-			 $l(gh) \leq l(g) + l(h) + c$, for all $g,h\in G$.
-		<li class="fragment">We see that for a homogeneous quasi-pseudo-length function, $l([x, y]) \leq 4c$ for all $x, y\in G$.</li>
-		<li class="fragment">Free groups have homogeneous quasi-pseudo-length functions that are not pullbacks of norms.</li>
-		<li class="fragment"> But, for a group with vanishing <em>stable commutator length</em>, e.g. if $G$ is solvable or $G=Sl(n , \mathbb{Z})$, $n\geq 3$, <span class="fragment">any homogeneous
-			quasi-pseudo-length function is equivalent to the pullback of a norm.</span></li>
-	</ul>
-</section>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
