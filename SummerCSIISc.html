@@ -45,7 +45,7 @@
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 <section>
-	<h2 class="title"> Automating Mathematics: </h2>
+	<h2 class="title"> Automating Mathematics </h2>
 	<h2> PolyMath, Type Theory and Learning </h2>
 	<p>Department of Mathematics</p>
 	 <p>Indian Institute of Science</p>
@@ -134,7 +134,7 @@ Representation learning, Natural Language Processing, GANs etc.</li>
 <section>
 	<h3>Length functions</h3>
 	<ul>
-	  <li class="fragment">Fix a group $G$, i.e. a set with an associative product with inverses.</li>
+	  <li class="fragment">Fix a group $G = (G, \cdot)$, i.e. a set with an associative product with inverses.</li>
 		<li class="fragment">A <em>pseudo-length function</em> $l: G \to [0, \infty)$ is a function  such that:
 			<ul>
 				<li>$l(e) = 0$.</li>
@@ -150,7 +150,7 @@ Representation learning, Natural Language Processing, GANs etc.</li>
 		<ul>
 		  <li>A pseudo-length function $l$ is said to be conjugacy invariant if $l(ghg^{-1})=l(h)$ for all $g, h \in G$.</li>
 			<li class="fragment">$l$ is  said to be <em>homogeneous</em> if $l(g^n) = nl(g)$ for all $g \in G$. </li>
-			<li class="fragment">On the group $\mathbb{Z}^2$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
+			<li class="fragment">On the additive group $(\mathbb{Z}^2, +)$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
 		</ul>
 </section>
 
@@ -162,7 +162,8 @@ Representation learning, Natural Language Processing, GANs etc.</li>
 		<li class="fragment">Two words are regarded as equal if they can be related by cancellating adjacent letters that are inverses, e.g. $\alpha\beta\bar{\beta}\alpha\beta = \alpha\alpha\beta$.</li>
 		<li class="fragment">This gives a group; <span class="fragment"> e.g.
 			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$. </span></li>
-		<li class="fragment">Ignoring order of letters in a word $g$ gives an element $\bar{g}=\alpha^k\beta^l\leftrightarrow (k, l)\in \mathbb{Z}^2$;<span class="fragment"> thus we get a pullback homogeneous, conjugacy-invariant pseudo-length on $\mathbb{F}_2$.</span></li>
+		<li class="fragment">Ignoring order of letters in a word $g$ gives an element $\bar{g}=\alpha^k\beta^l\leftrightarrow (k, l)\in \mathbb{Z}^2$, e.g. $\alpha\beta\beta\alpha\bar{\beta} \mapsto (2, 1)$;
+			<span class="fragment"> $l(g) = l_{\mathbb{Z}^2}((k, l))$ gives a <em>pullback</em> homogeneous, conjugacy-invariant pseudo-length on $\mathbb{F}_2$.</span></li>
 	</ul>
 </section>
 
@@ -191,9 +192,9 @@ Representation learning, Natural Language Processing, GANs etc.</li>
 	  <li class="fragment">Fix $l$ homomogeneous pseudo-length function.
 			<li class="fragment">The triangle inequality gives bounds on $l(gh)$ in terms of $l(g)$ and $l(h)$.</li>
 			<li class="fragment">Homogeneity gives a bound on $l(g)$ in terms of a bound on $l(g^n)$; also use conjugacy invariance.</li>
-			<li class="fragment">Find bounds for elements in terms of bounds for others, especially
+			<li class="fragment">Find bounds in terms of bounds for other elements:
 				<ul>
-				<li class="fragment highlight-current-blue">$l([x, y])$ in terms of $l(x)$ and $l(y)$</li>
+				<li><span class="fragment highlight-current-blue">$l([x, y])$ in terms of $l(x)$ and $l(y)$</span>, where $[x, y] = xyx^{-1}y^{-1}$</li>
 				<li class="fragment highlight-current-blue">$l(g)$ for fixed $g$ in terms of bounds on generators.</li>
 			</ul>
 			</li>
@@ -292,10 +293,10 @@ Representation learning, Natural Language Processing, GANs etc.</li>
 <section>
 	<h3>Computing bounds and proofs</h3>
 	<ul>
-	  <li class="fragment">For $g=ah$, $a \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, the length $l^{}_{WC}(g)$ is the minimum of:
+	  <li class="fragment">For $g=xh$, $x \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, the length $l^{}_{WC}(g)$ is the minimum of:
 			<ul>
-				<li class="fragment highlight-current-blue">$1 + l^{}_{WC}(h)$ : corresponding to $a$ unmatched.</li>
-				<li class="fragment highlight-current-blue">$\min\{l^{}_{WC}(x) + l^{}_{WC}(y): h = x\bar{a}y \}$.</li>
+				<li class="fragment highlight-current-blue">$1 + l^{}_{WC}(h)$ : corresponding to $x$ unmatched.</li>
+				<li class="fragment highlight-current-blue">$\min\{l^{}_{WC}(u) + l^{}_{WC}(v): h = u\bar{x}v \}$.</li>
 			</ul>
 		</li>
 		<li class="fragment">We can describe a minimal non-crossing matching by a similar recursive definition.</li>
@@ -399,7 +400,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 <section>
 	<h3>Type Systems, Type Theories, Parts of Speech</h3>
 	<ul>
-	  <li class="fragment">Statements/expressions/phrases in programming languages/formal logical systems/natural languages are formed
+	  <li class="fragment">Statements and expressions in programming languages/formal logical systems and sentences/phrases in natural languages are formed
 		from simpler ones using the rules of syntax.</li>
 		<li class="fragment">The rules of syntax are determined by the types/parts-of-speech of the sub-expressions.</li>
 		<li class="fragment">In natural language, simple type systems and first-order logic, the set of types is fixed.</li>
@@ -483,7 +484,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 			<li class="fragment"> A Type theory is a type system rich enough to replace
 				Set Theory + FOL as foundations for mathematics.</li>
 			<li class="fragment"> A term $a$ having a type $A$, denoted $a : A$, is analogous to
-				an element $a$ belonging to a set $A$, i.e., $a \in A$.</li>
+				 $a \in A$.</li>
 			<li class="fragment"> Rules for forming terms and types, and for determining
 				types, are purely <em class="fragment highlight-current-blue"> syntactic. </em></li>
 			<li class="fragment"> Nevertheless, the rules for forming types are rich enough that types can play the role of sets
