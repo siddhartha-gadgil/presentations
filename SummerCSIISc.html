@@ -400,11 +400,11 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 <section>
 	<h3>Type Systems, Type Theories, Parts of Speech</h3>
 	<ul>
-	  <li class="fragment">Statements and expressions in programming languages/formal logical systems and sentences/phrases in natural languages are formed
+	  <li class="fragment">Statements and expressions in programming languages/formal logical systems, like sentences/phrases in natural languages, are formed
 		from simpler ones using the rules of syntax.</li>
-		<li class="fragment">The rules of syntax are determined by the types/parts-of-speech of the sub-expressions.</li>
-		<li class="fragment">In natural language, simple type systems and first-order logic, the set of types is fixed.</li>
-		<li class="fragment"> In most programming languages and in higher-order logic, we have <em>type forming rules,</em> allowing types to be formed from other types.</li>
+		<li class="fragment">The rules of syntax are determined purely by the types/parts-of-speech of the constituents.</li>
+		<li class="fragment">In <em>natural languages</em>, simple type systems and <em>first-order logic</em>, the set of types is fixed.</li>
+		<li class="fragment"> In most programming languages and in <em>higher-order logic</em>, we have <em>type forming rules,</em> allowing types to be formed, say from other types.</li>
 	</ul>
 </section>
 
@@ -428,7 +428,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 		<li class="fragment">This means they can be argument and results of functions, assigned to variables etc.</li>
 		<li class="fragment">Type forming rules can involve terms (objects), for example vectors of length $n$ form a type $Vec(A)(n)$.</li>
 		<li class="fragment">Types themselves have types, called universes $\mathfrak{U}$.</li>
-		<li class="fragment">A function $P: A \to \mathfrak{U}$ to a universe is called a <em>type family.</em> </li>
+		<li class="fragment">A function $P: A \to \mathfrak{U}$ to a universe is called a <em>type family, e.g. $(n : \mathbb{N}) \mapsto Vec(\mathbb{R})(n)$.</em> </li>
 	</ul>
 </section>
 
@@ -483,7 +483,7 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 		<ul>
 			<li class="fragment"> A Type theory is a type system rich enough to replace
 				Set Theory + FOL as foundations for mathematics.</li>
-			<li class="fragment"> A term $a$ having a type $A$, denoted $a : A$, is analogous to
+			<li class="fragment"> A term $a$ having a type $A$ corresponds to
 				 $a \in A$.</li>
 			<li class="fragment"> Rules for forming terms and types, and for determining
 				types, are purely <em class="fragment highlight-current-blue"> syntactic. </em></li>
@@ -516,7 +516,6 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 			<li class="fragment">The scala types of terms bound the HoTT types in a useful way (scala has subtypes).</li>
 			<li class="fragment"> Symbolic algebra is incorporated by allowing scala objects (data structures)
 			 to represent HoTT terms.</li>
-			 <li class="fragment">By using Homotopy Type Theory, we get reasonable compositional behaviour and value and policy functions naturally.</li>
 		</ul>
 	</section>
 
@@ -553,14 +552,18 @@ final case object Empty extends LinNormBound(Word(Vector()), 0)
 		</section>
 
 		<section>
-			<h3> Exploration, Learning, Representations </h3>
+			<h3> Exploration and  Learning </h3>
 			<ul>
-			  <li class="fragment">A <em>good lemma</em> is one where the gain in relative entropy exceeds the cost in generation.</li>
-				<li class="fragment">We will use gradient flows and backward propagation to train generative models.</li>
-				<li class="fragment"> The proposition distribution can have other components from goals, backward reasoning, external literature, experimentation etc.</li>
-				<li class="fragment"> We will use not just  probabilities but vectors for terms -
-				these capture relations, analogies etc.</li>
-				<li class="fragment">We also plan to use formalized mathematics and the mathematical literature for learning.</li>
+			  <li class="fragment">A <em>good lemma</em> is one where the gain in relative entropy from remebering the proof exceeds the cost in generation.</li>
+				<li class="fragment">This is the criterion used in the tree search.</li>
+				<li class="fragment">
+					This naturally extends in various ways:
+					<ul>
+					  <li class="fragment"> learning weights by using gradient flow (backward propagation). </li>
+						<li class="fragment"> using other components for the <em>proposition distribution</em>: from the literature, experimentation, backward reasoning from goals etc. </li>
+						<li class="fragment"> basing model on vectors (representation learning).</li>
+					</ul>
+				</li>
 			</ul>
 
 		</section>
@@ -641,7 +644,8 @@ object nat$decidable_eq {
 <section>
 	<h3>Concluding Remarks</h3>
 	<ul>
-	  <li class="fragment">Systems such as AlphaZero show that computers can learn to make judgements, be original etc.</li>
+	  <li class="fragment">Systems such as AlphaGo Zero show that computers can learn to make judgements, be original etc.</li>
+		<li class="fragment">Hence we can hope that computers acquire a succession of new mathematical capabilities.</li>
 		<li class="fragment">Our first steps should expand the range of ways in which computers help in mathematics.</li>
 		<li class="fragment">A better developed system will contribute to <em>semantic tooling</em> for mathematics.</li>
 		<li class="fragment">Finally, if and when really powerful provers are developed, they can extend the reach of mathematics.</li>
