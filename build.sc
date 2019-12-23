@@ -22,7 +22,7 @@ object illustrations extends ScalaJSModule{
     def pack(): define.Command[PathRef] = T.command {
       def js = fastOpt()
       val target = os.pwd/ "js" / "illustrations.js"
-      pprint.log(target)
+    //   pprint.log(target)
       os.copy.over(js.path, target, createFolders = true)
       js
     }
