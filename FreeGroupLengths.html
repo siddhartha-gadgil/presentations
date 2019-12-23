@@ -44,16 +44,17 @@
 
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
-			<section>
+			<section data-background-image="proof-screen.png" data-background-opacity="0.4">
 
 				<h3> Free groups, Lengths and Computer Proofs </h3>
 				<h5>Siddhartha Gadgil</h5>
 				<p>Indian Institute of Science</p>
 				<h5> joint with </h5>
 				<p class="fragment highlight-blue">the rest of (spontaneous) polymath 14</p>
+				<div id="test-div"></div>
 
 			</section>
-			<section>
+			<section  data-background-image="department.jpg" data-background-opacity="0.4"  data-background-transition="concave">
 				<h3>The PolyMath 14 participants</h3>
 				<ul>
 					<li>Tobias Fritz, MPI MIS</li>
@@ -67,7 +68,7 @@
 
 			</section>
 
-			<section>
+			<section data-transition="concave">
 				<ul>
 					<li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare
 						had asked him.</li>
@@ -81,7 +82,7 @@
 				</ul>
 			</section>
 
-			<section>
+			<section data-transition="zoom">
 				<h3>Length functions</h3>
 				<ul>
 					<li class="fragment">Fix a group $G$, i.e. a set with an associative product with inverses.</li>
@@ -110,7 +111,7 @@
 					<li class="fragment">Homogeneity was motivated by norms on vector spaces.</li>
 				</ul>
 			</section>
-			<section>
+			<section data-transition="convex">
 				<h3>Length functions on $\mathbb{Z}^2$</h3>
 				<ul>
 					<li class="fragment">The group $(\mathbb{Z}^2, +) = \{(n, m) : n, m \in \mathbb{Z}\}$ with
@@ -422,6 +423,8 @@
 //			} );
 
 			</script>
+			<script src="js/illustrations.js"></script>
+			<script>Illustrations.load()</script>
 
 </body>
 
