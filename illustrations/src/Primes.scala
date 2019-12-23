@@ -19,10 +19,10 @@ object Primes{
 
     val pc = new Primes(100000)
 
-    val progressions =  pc.primeArithmeticProgressions.take(200000).groupBy(_.size)
+    lazy val progressions =  pc.primeArithmeticProgressions.take(200000).groupBy(_.size)
 
     @JSExport
-    val progressionSizes = progressions.mapValues(_.size).toArray.sortBy(_._1).map(_._2).mkString(", ")
+    lazy val progressionSizes = progressions.mapValues(_.size).toArray.sortBy(_._1).map(_._2).mkString(", ")
 }
 
 class Primes(val max: Int){

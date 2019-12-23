@@ -14,7 +14,7 @@ object Illustrations{
         import scala.xml.Node
 
         val testDiv: Node = <div><em>(plus a computer)</em>
-            <p>{ Primes.progressionSizes }</p>
+          <!--  <p>{ Primes.progressionSizes }</p> -->
             </div>
 
         val positionOpt = Option(dom.document.querySelector("#test-div"))
