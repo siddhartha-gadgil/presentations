@@ -1,5 +1,5 @@
 import mill._, scalalib._, scalajslib._, define.Task
-import ammonite.ops._
+// import ammonite.ops._
 
 object illustrations extends ScalaJSModule{
     def scalaVersion = "2.12.10"
@@ -21,7 +21,9 @@ object illustrations extends ScalaJSModule{
   
     def pack(): define.Command[PathRef] = T.command {
       def js = fastOpt()
-      cp.over(js.path, pwd/ "docs" / "js" / "probability.js")
+      val target = os.pwd/ "js" / "illustrations.js"
+      pprint.log(target)
+      os.copy.over(js.path, target, createFolders = true)
       js
     }
   
