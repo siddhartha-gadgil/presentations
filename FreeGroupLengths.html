@@ -99,7 +99,7 @@
 				</ul>
 			</section>
 
-			<section>
+			<section data-state="invariance">
 				<h3>Conjugacy-invariance and Homogeneity</h3>
 				<ul>
 					<li class="fragment">A pseudo-length function $l$ is said to be <em>conjugacy invariant</em> if
@@ -425,6 +425,16 @@
 			</script>
 			<script src="js/illustrations.js"></script>
 			<script>Illustrations.load()</script>
+
+			<script>
+				Reveal.addEventListener( 'invariance', function() {
+					var msg = new SpeechSynthesisUtterance('Invariance');
+					msg.lang = 'en-GB';
+					{{/*  window.speechSynthesis.speak(msg);  */}}
+					Invariance.load()
+				}, false );
+				
+			</script>
 
 </body>
 
