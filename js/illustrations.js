@@ -1889,6 +1889,47 @@ function $m_Lillustrations_Illustrations$() {
   return $n_Lillustrations_Illustrations$
 }
 /** @constructor */
+function $c_Lillustrations_InvarianceSpeech$() {
+  $c_O.call(this)
+}
+$c_Lillustrations_InvarianceSpeech$.prototype = new $h_O();
+$c_Lillustrations_InvarianceSpeech$.prototype.constructor = $c_Lillustrations_InvarianceSpeech$;
+/** @constructor */
+function $h_Lillustrations_InvarianceSpeech$() {
+  /*<skip>*/
+}
+$h_Lillustrations_InvarianceSpeech$.prototype = $c_Lillustrations_InvarianceSpeech$.prototype;
+$c_Lillustrations_InvarianceSpeech$.prototype.load__V = (function() {
+  var msg = new $g.SpeechSynthesisUtterance("conjugacy invariance");
+  msg.lang = "en-GB";
+  $g.speechSynthesis.speak(msg)
+});
+$c_Lillustrations_InvarianceSpeech$.prototype.$$js$exported$meth$load__O = (function() {
+  this.load__V()
+});
+$c_Lillustrations_InvarianceSpeech$.prototype.init___ = (function() {
+  $c_O.prototype.init___.call(this);
+  $n_Lillustrations_InvarianceSpeech$ = this;
+  return this
+});
+$c_Lillustrations_InvarianceSpeech$.prototype.load = (function() {
+  return this.$$js$exported$meth$load__O()
+});
+var $d_Lillustrations_InvarianceSpeech$ = new $TypeData().initClass({
+  Lillustrations_InvarianceSpeech$: 0
+}, false, "illustrations.InvarianceSpeech$", {
+  Lillustrations_InvarianceSpeech$: 1,
+  O: 1
+});
+$c_Lillustrations_InvarianceSpeech$.prototype.$classData = $d_Lillustrations_InvarianceSpeech$;
+var $n_Lillustrations_InvarianceSpeech$ = (void 0);
+function $m_Lillustrations_InvarianceSpeech$() {
+  if ((!$n_Lillustrations_InvarianceSpeech$)) {
+    $n_Lillustrations_InvarianceSpeech$ = new $c_Lillustrations_InvarianceSpeech$().init___()
+  };
+  return $n_Lillustrations_InvarianceSpeech$
+}
+/** @constructor */
 function $c_Lillustrations_Primes() {
   $c_O.call(this);
   this.primeVec$1 = null;
@@ -1941,9 +1982,9 @@ $c_Lillustrations_Primes.prototype.primes__sci_Stream = (function() {
 });
 $c_Lillustrations_Primes.prototype.primeAp__I__I__sci_Vector = (function(first, second) {
   return $m_Lillustrations_Primes$().ap__I__I__sci_Stream(first, second).takeWhile__F1__sci_Stream(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
-    return (function(x$6$2) {
-      var x$6 = $uI(x$6$2);
-      return $this.$$anonfun$primeAp$1__p1__I__Z(x$6)
+    return (function(x$7$2) {
+      var x$7 = $uI(x$7$2);
+      return $this.$$anonfun$primeAp$1__p1__I__Z(x$7)
     })
   })(this))).toVector__sci_Vector()
 });
@@ -1962,20 +2003,20 @@ $c_Lillustrations_Primes.prototype.primeArithmeticProgressions$lzycompute__p1__s
 $c_Lillustrations_Primes.prototype.primeArithmeticProgressions__sci_Stream = (function() {
   return (((((this.bitmap$0$1 & 16) << 24) >> 24) === 0) ? this.primeArithmeticProgressions$lzycompute__p1__sci_Stream() : this.primeArithmeticProgressions$1)
 });
-$c_Lillustrations_Primes.prototype.$$anonfun$primeAp$1__p1__I__Z = (function(x$6) {
-  return this.primeSet__sci_Set().contains__O__Z(x$6)
+$c_Lillustrations_Primes.prototype.$$anonfun$primeAp$1__p1__I__Z = (function(x$7) {
+  return this.primeSet__sci_Set().contains__O__Z(x$7)
 });
-$c_Lillustrations_Primes.prototype.$$anonfun$primeArithmeticProgressions$2__p1__I__I__Z = (function(y$1, x$7) {
-  return (x$7 < y$1)
+$c_Lillustrations_Primes.prototype.$$anonfun$primeArithmeticProgressions$2__p1__I__I__Z = (function(y$1, x$8) {
+  return (x$8 < y$1)
 });
 $c_Lillustrations_Primes.prototype.$$anonfun$primeArithmeticProgressions$3__p1__I__I__sci_Vector = (function(y$1, x) {
   return this.primeAp__I__I__sci_Vector(x, y$1)
 });
 $c_Lillustrations_Primes.prototype.$$anonfun$primeArithmeticProgressions$1__p1__I__sci_Stream = (function(y) {
   return $as_sci_Stream(this.primes__sci_Stream().takeWhile__F1__sci_Stream(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, y) {
-    return (function(x$7$2) {
-      var x$7 = $uI(x$7$2);
-      return $this.$$anonfun$primeArithmeticProgressions$2__p1__I__I__Z(y, x$7)
+    return (function(x$8$2) {
+      var x$8 = $uI(x$8$2);
+      return $this.$$anonfun$primeArithmeticProgressions$2__p1__I__I__Z(y, x$8)
     })
   })(this, y))).map__F1__scg_CanBuildFrom__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2, y) {
     return (function(x$2) {
@@ -2054,10 +2095,15 @@ $c_Lillustrations_Primes$.prototype.pc__Lillustrations_Primes = (function() {
 });
 $c_Lillustrations_Primes$.prototype.progressions$lzycompute__p1__sci_Map = (function() {
   if (((((this.bitmap$0$1 & 1) << 24) >> 24) === 0)) {
-    this.progressions$1 = this.pc__Lillustrations_Primes().primeArithmeticProgressions__sci_Stream().take__I__sci_Stream(200000).groupBy__F1__sci_Map(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
+    this.progressions$1 = $as_sc_TraversableLike(this.pc__Lillustrations_Primes().primeArithmeticProgressions__sci_Stream().take__I__sci_Stream(200000).filter__F1__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
       return (function(x$2$2) {
         var x$2 = $as_sci_Vector(x$2$2);
-        return $this.$$anonfun$progressions$1__p1__sci_Vector__I(x$2)
+        return $this.$$anonfun$progressions$1__p1__sci_Vector__Z(x$2)
+      })
+    })(this)))).groupBy__F1__sci_Map(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2) {
+      return (function(x$3$2) {
+        var x$3 = $as_sci_Vector(x$3$2);
+        return this$2.$$anonfun$progressions$2__p1__sci_Vector__I(x$3)
       })
     })(this)));
     this.bitmap$0$1 = (((this.bitmap$0$1 | 1) << 24) >> 24)
@@ -2070,19 +2116,19 @@ $c_Lillustrations_Primes$.prototype.progressions__sci_Map = (function() {
 $c_Lillustrations_Primes$.prototype.progressionSizes$lzycompute__p1__T = (function() {
   if (((((this.bitmap$0$1 & 2) << 24) >> 24) === 0)) {
     this.progressionSizes$1 = new $c_scm_ArrayOps$ofInt().init___AI($m_s_Predef$().intArrayOps__AI__AI($asArrayOf_I(new $c_scm_ArrayOps$ofRef().init___AO($m_s_Predef$().refArrayOps__AO__AO($asArrayOf_O(new $c_scm_ArrayOps$ofRef().init___AO($m_s_Predef$().refArrayOps__AO__AO($asArrayOf_O(this.progressions__sci_Map().mapValues__F1__sci_Map(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
-      return (function(x$3$2) {
-        var x$3 = $as_sci_Stream(x$3$2);
-        return $this.$$anonfun$progressionSizes$1__p1__sci_Stream__I(x$3)
+      return (function(x$4$2) {
+        var x$4 = $as_sci_Stream(x$4$2);
+        return $this.$$anonfun$progressionSizes$1__p1__sci_Stream__I(x$4)
       })
     })(this))).toArray__s_reflect_ClassTag__O($m_s_reflect_ClassTag$().apply__jl_Class__s_reflect_ClassTag($d_T2.getClassOf())), 1))).sortBy__F1__s_math_Ordering__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2) {
-      return (function(x$4$2) {
-        var x$4 = $as_T2(x$4$2);
-        return this$2.$$anonfun$progressionSizes$2__p1__T2__I(x$4)
-      })
-    })(this)), $m_s_math_Ordering$Int$()), 1))).map__F1__scg_CanBuildFrom__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3) {
       return (function(x$5$2) {
         var x$5 = $as_T2(x$5$2);
-        return this$3.$$anonfun$progressionSizes$3__p1__T2__I(x$5)
+        return this$2.$$anonfun$progressionSizes$2__p1__T2__I(x$5)
+      })
+    })(this)), $m_s_math_Ordering$Int$()), 1))).map__F1__scg_CanBuildFrom__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3) {
+      return (function(x$6$2) {
+        var x$6 = $as_T2(x$6$2);
+        return this$3.$$anonfun$progressionSizes$3__p1__T2__I(x$6)
       })
     })(this)), $m_s_Array$().canBuildFrom__s_reflect_ClassTag__scg_CanBuildFrom($m_s_reflect_ClassTag$().Int__s_reflect_ClassTag())), 1))).mkString__T__T(", ");
     this.bitmap$0$1 = (((this.bitmap$0$1 | 2) << 24) >> 24)
@@ -2104,17 +2150,20 @@ $c_Lillustrations_Primes$.prototype.$$anonfun$recSieve$1__p1__I__I__Z = (functio
 $c_Lillustrations_Primes$.prototype.$$anonfun$ap$1__p1__I__I__I__I = (function(first$1, second$1, j) {
   return ((first$1 + $imul(j, ((second$1 - first$1) | 0))) | 0)
 });
-$c_Lillustrations_Primes$.prototype.$$anonfun$progressions$1__p1__sci_Vector__I = (function(x$2) {
-  return x$2.size__I()
+$c_Lillustrations_Primes$.prototype.$$anonfun$progressions$1__p1__sci_Vector__Z = (function(x$2) {
+  return (x$2.size__I() > 2)
 });
-$c_Lillustrations_Primes$.prototype.$$anonfun$progressionSizes$1__p1__sci_Stream__I = (function(x$3) {
+$c_Lillustrations_Primes$.prototype.$$anonfun$progressions$2__p1__sci_Vector__I = (function(x$3) {
   return x$3.size__I()
 });
-$c_Lillustrations_Primes$.prototype.$$anonfun$progressionSizes$2__p1__T2__I = (function(x$4) {
-  return x$4.$$und1$mcI$sp__I()
+$c_Lillustrations_Primes$.prototype.$$anonfun$progressionSizes$1__p1__sci_Stream__I = (function(x$4) {
+  return x$4.size__I()
 });
-$c_Lillustrations_Primes$.prototype.$$anonfun$progressionSizes$3__p1__T2__I = (function(x$5) {
-  return x$5.$$und2$mcI$sp__I()
+$c_Lillustrations_Primes$.prototype.$$anonfun$progressionSizes$2__p1__T2__I = (function(x$5) {
+  return x$5.$$und1$mcI$sp__I()
+});
+$c_Lillustrations_Primes$.prototype.$$anonfun$progressionSizes$3__p1__T2__I = (function(x$6) {
+  return x$6.$$und2$mcI$sp__I()
 });
 $c_Lillustrations_Primes$.prototype.init___ = (function() {
   $c_O.prototype.init___.call(this);
@@ -13887,6 +13936,9 @@ function $f_sc_TraversableLike__filterImplList__psc_TraversableLike__sci_List__F
   var result = $thiz.noneIn$1__psc_TraversableLike__sci_List__F1__Z__sci_List(self, p, isFlipped);
   return result
 }
+function $f_sc_TraversableLike__filter__F1__O($thiz, p) {
+  return $thiz.filterImpl__F1__Z__O(p, false)
+}
 function $f_sc_TraversableLike__filterNot__F1__O($thiz, p) {
   return $thiz.filterImpl__F1__Z__O(p, true)
 }
@@ -17372,6 +17424,9 @@ $c_sc_AbstractTraversable.prototype.map__F1__scg_CanBuildFrom__O = (function(f, 
 $c_sc_AbstractTraversable.prototype.filterImpl__F1__Z__O = (function(p, isFlipped) {
   return $f_sc_TraversableLike__filterImpl__F1__Z__O(this, p, isFlipped)
 });
+$c_sc_AbstractTraversable.prototype.filter__F1__O = (function(p) {
+  return $f_sc_TraversableLike__filter__F1__O(this, p)
+});
 $c_sc_AbstractTraversable.prototype.filterNot__F1__O = (function(p) {
   return $f_sc_TraversableLike__filterNot__F1__O(this, p)
 });
@@ -18113,6 +18168,9 @@ $c_scm_ArrayOps$ofInt.prototype.map__F1__scg_CanBuildFrom__O = (function(f, bf) 
 $c_scm_ArrayOps$ofInt.prototype.filterImpl__F1__Z__O = (function(p, isFlipped) {
   return $f_sc_TraversableLike__filterImpl__F1__Z__O(this, p, isFlipped)
 });
+$c_scm_ArrayOps$ofInt.prototype.groupBy__F1__sci_Map = (function(f) {
+  return $f_sc_TraversableLike__groupBy__F1__sci_Map(this, f)
+});
 $c_scm_ArrayOps$ofInt.prototype.to__scg_CanBuildFrom__O = (function(cbf) {
   return $f_sc_TraversableLike__to__scg_CanBuildFrom__O(this, cbf)
 });
@@ -18351,6 +18409,9 @@ $c_scm_ArrayOps$ofRef.prototype.map__F1__scg_CanBuildFrom__O = (function(f, bf) 
 });
 $c_scm_ArrayOps$ofRef.prototype.filterImpl__F1__Z__O = (function(p, isFlipped) {
   return $f_sc_TraversableLike__filterImpl__F1__Z__O(this, p, isFlipped)
+});
+$c_scm_ArrayOps$ofRef.prototype.groupBy__F1__sci_Map = (function(f) {
+  return $f_sc_TraversableLike__groupBy__F1__sci_Map(this, f)
 });
 $c_scm_ArrayOps$ofRef.prototype.to__scg_CanBuildFrom__O = (function(cbf) {
   return $f_sc_TraversableLike__to__scg_CanBuildFrom__O(this, cbf)
@@ -18621,6 +18682,9 @@ $c_sjs_js_ArrayOps.prototype.map__F1__scg_CanBuildFrom__O = (function(f, bf) {
 $c_sjs_js_ArrayOps.prototype.filterImpl__F1__Z__O = (function(p, isFlipped) {
   return $f_sc_TraversableLike__filterImpl__F1__Z__O(this, p, isFlipped)
 });
+$c_sjs_js_ArrayOps.prototype.groupBy__F1__sci_Map = (function(f) {
+  return $f_sc_TraversableLike__groupBy__F1__sci_Map(this, f)
+});
 $c_sjs_js_ArrayOps.prototype.to__scg_CanBuildFrom__O = (function(cbf) {
   return $f_sc_TraversableLike__to__scg_CanBuildFrom__O(this, cbf)
 });
@@ -18877,6 +18941,9 @@ $c_s_xml_NodeBuffer.prototype.map__F1__scg_CanBuildFrom__O = (function(f, bf) {
 });
 $c_s_xml_NodeBuffer.prototype.filterImpl__F1__Z__O = (function(p, isFlipped) {
   return $f_sc_TraversableLike__filterImpl__F1__Z__O(this, p, isFlipped)
+});
+$c_s_xml_NodeBuffer.prototype.groupBy__F1__sci_Map = (function(f) {
+  return $f_sc_TraversableLike__groupBy__F1__sci_Map(this, f)
 });
 $c_s_xml_NodeBuffer.prototype.to__scg_CanBuildFrom__O = (function(cbf) {
   return $f_sc_TraversableLike__to__scg_CanBuildFrom__O(this, cbf)
@@ -28904,6 +28971,7 @@ var $d_scm_ArrayBuffer = new $TypeData().initClass({
 });
 $c_scm_ArrayBuffer.prototype.$classData = $d_scm_ArrayBuffer;
 $e.Illustrations = $m_Lillustrations_Illustrations$();
+$e.Invariance = $m_Lillustrations_InvarianceSpeech$();
 $e.Primes = $m_Lillustrations_Primes$();
 }).call(this);
 //# sourceMappingURL=out.js.map
