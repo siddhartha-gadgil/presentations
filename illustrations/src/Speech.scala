@@ -28,7 +28,7 @@ object SpeechSynthesis extends js.Object {
 object InvarianceSpeech{
     @JSExport
     def load() = {
-        val msg = new SpeechSynthesisUtterance("conjugacy invariance")
+        val msg = new SpeechSynthesisUtterance("conjugacy invariance and homogeneity")
         msg.lang = "en-GB"
         SpeechSynthesis.speak(msg)       
     }

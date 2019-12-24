@@ -1900,7 +1900,7 @@ function $h_Lillustrations_InvarianceSpeech$() {
 }
 $h_Lillustrations_InvarianceSpeech$.prototype = $c_Lillustrations_InvarianceSpeech$.prototype;
 $c_Lillustrations_InvarianceSpeech$.prototype.load__V = (function() {
-  var msg = new $g.SpeechSynthesisUtterance("conjugacy invariance");
+  var msg = new $g.SpeechSynthesisUtterance("conjugacy invariance and homogeneity");
   msg.lang = "en-GB";
   $g.speechSynthesis.speak(msg)
 });
