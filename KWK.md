@@ -6,7 +6,7 @@ __Title:__ "Automating Mathematics?"
 
 Starting with just the rules of chess, it took four hours of playing against itself for AlphaZero, a computer program, to become the strongest chess player on the planet, playing with a "dynamic, open style" and preferring moves that are "risky and aggressive". With a couple of days of self-play, AlphaZero discovered the best standard openings, and even discarded a few of them. Could a future computer program, starting with adding and multiplying natural numbers, discover the mysteries of the primes?
 
-We discuss the many recent developments point to such a future. These range from the phenomenal advances in Artificial Intelligence, to advances in the foundations of mathematics, to mathematical proofs making trains safer.
+We discuss the many recent developments that point to such a future. These range from the phenomenal advances in Artificial Intelligence, to advances in the foundations of mathematics, to mathematical proofs making trains safer.
 
 ## Outline
 
