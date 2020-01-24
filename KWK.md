@@ -19,7 +19,7 @@ Siddhartha began his research career in Topology and has worked for many years i
 * The Quest: table with Chess, Go, Mathematics
 * Mathematics
   * prime numbers
-  * three questions: infinitude, APs, twin primes
+  * three questions: infinitude, twin primes, arithmetic progressions
   * why: concepts
   * example: Curvature and Relativity
 * Puzzles
