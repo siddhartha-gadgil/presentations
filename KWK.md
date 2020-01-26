@@ -80,3 +80,36 @@ Siddhartha began his research career in Topology and has worked for many years i
   * some deep learning has been used together with these.
   * but in other domains, AI shows intuition, _originality_ and _analogical/compositional thinking_
 * Conclusion: Open AI.
+
+## Notes
+
+### Mizar version of the formalization
+
+__Credit:__ Markus Wenzel and Freek Wiedijk
+
+Here is the final part of a Mizar formalization of the ‘romantic proof’.
+The full Mizar formalization is 44 lines long. It builds on the Mizar
+Mathematical Library (http://mizar.org/JFM/), which is part of the
+Mizar system. Here we have used Mizar version 6.1.10.
+
+```mizar
+reserve n,p for Nat;
+theorem Euclid: ex p st p is prime & p > n
+proof
+set k = n! + 1;
+n! > 0 by NEWTON:23;
+then n! >= 0 + 1 by NAT_1:38;
+then k >= 1 + 1 by REAL_1:55;
+then consider p such that
+A1: p is prime & p divides k by INT_2:48;
+A2: p <> 0 & p > 1 by A1,INT_2:def 5;
+take p;
+thus p is prime by A1;
+assume p <= n;
+then p divides n! by A2,NAT_LAT:16;
+then p divides 1 by A1,NAT_1:57;
+hence contradiction by A2,NAT_1:54;
+end;
+theorem {p: p is prime} is infinite
+from Unbounded(Euclid);
+```
