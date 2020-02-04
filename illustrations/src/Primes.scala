@@ -19,10 +19,23 @@ object Primes{
 
     val pc = new Primes(100000)
 
-    lazy val progressions =  pc.primeArithmeticProgressions.take(200000).filter(_.size > 2).groupBy(_.size)
+    lazy val progressions =  pc.primeArithmeticProgressions.take(1000000).groupBy(_.size)
 
     @JSExport
     lazy val progressionSizes = progressions.mapValues(_.size).toArray.sortBy(_._1).map(_._2).mkString(", ")
+
+    def primeLI(n: Int) = 
+       if (pc.primeSet.contains(n)) s"""<li class="prime">$n</li>""" else s"<li>$n</li>" 
+    
+    def primesBetween(n: Int, m: Int): String = (n to m).toVector.map(primeLI(_)).mkString(" ")
+
+    def twinPrime(n: Int) = pc.primeSet.contains(n) && (pc.primeSet.intersect(Set(n -2, n + 2)).nonEmpty)
+
+    def twinPrimeLI(n: Int) = 
+       if (twinPrime(n)) s"""<li class="twin-prime">$n</li>""" else s"<li>$n</li>" 
+
+    def twinPrimesBetween(n: Int, m: Int): String = (n to m).toVector.map(twinPrimeLI(_)).mkString(" ")
+
 }
 
 class Primes(val max: Int){

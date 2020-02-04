@@ -2,7 +2,12 @@ ul.numbers li {
     display:inline;
   }
 
-.highlight {
+.prime {
     background-color: white;
     color: maroon;
+}
+
+.twin-prime {
+  background-color: white;
+    color: blueviolet;
 }
