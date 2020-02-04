@@ -1,0 +1,8 @@
+ul.numbers li {
+    display:inline;
+  }
+
+.highlight {
+    background-color: white;
+    color: maroon;
+}
