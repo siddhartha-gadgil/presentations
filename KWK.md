@@ -22,7 +22,7 @@ Siddhartha began his research career in Topology and has worked for many years i
   * three questions: infinitude, twin primes, arithmetic progressions
   * why: concepts
   * example: Curvature and Relativity
-* Puzzles
+* Puzzles (and Games)
   * Solution (answer with justification) hard to find, easy to check.
   * Examples: jigsaw, rubik's cube, detective stories, orbits of planets.
   * formal and informal solutions.
