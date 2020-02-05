@@ -1,13 +1,34 @@
 ul.numbers li {
-    display:inline;
-  }
+    display: inline;
+}
 
 .prime {
     background-color: white;
-    color: maroon;
+    color: blue;
+    border-radius: 7px;
+    padding: 3px;
 }
 
 .twin-prime {
-  background-color: white;
+    background-color: white;
+    color: blueviolet;
+    border-radius: 7px;
+    padding: 3px;
+}
+
+.group {
+    background-color: lightgrey;
+    border-radius: 15px;
+    margin: 3px;
+    padding: 3px;
+    white-space: nowrap;
+}
+
+.number-groups li {
+    display: inline;
+    line-height: 60px;
+}
+
+.prime-term {
     color: blueviolet;
 }

@@ -36,6 +36,13 @@ object Primes{
 
     def twinPrimesBetween(n: Int, m: Int): String = (n to m).toVector.map(twinPrimeLI(_)).mkString(" ")
 
+    def apSpan(ap: Vector[Int]) = {
+        val list = ap.map{n=> s"""<li class="prime-term">$n</li>"""}.mkString(" ")
+        s"""<span class="group">$list</span>"""
+    }
+
+    def someAPs(s: Stream[Vector[Int]], n: Int) = s.take(n).toVector.sortBy(_.head).map(apSpan(_)).mkString(" ")
+
 }
 
 class Primes(val max: Int){
@@ -54,5 +61,5 @@ class Primes(val max: Int){
         primes.flatMap(y =>
             primes.takeWhile(_ < y).map(x => primeAp(x, y))
             ) 
-
+    def primeArithOf(length: Int, limit : Int = 1000000) = primeArithmeticProgressions.take(limit).filter(_.size == length)
 }
