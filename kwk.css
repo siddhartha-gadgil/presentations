@@ -5,30 +5,31 @@ ul.numbers li {
 .prime {
     background-color: white;
     color: blue;
-    border-radius: 7px;
-    padding: 3px;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 .twin-prime {
     background-color: white;
     color: blueviolet;
-    border-radius: 7px;
+    border-radius: 5px;
     padding: 3px;
 }
 
 .group {
     background-color: lightgrey;
-    border-radius: 15px;
-    margin: 3px;
-    padding: 3px;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 2px;
     white-space: nowrap;
 }
 
 .number-groups li {
     display: inline;
-    line-height: 60px;
+    line-height: 40px;
 }
 
 .prime-term {
     color: blueviolet;
+    font-size: 25px;
 }
