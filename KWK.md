@@ -24,7 +24,7 @@ Siddhartha began his research career in Topology and has worked for many years i
   * example: Curvature and Relativity
 * Puzzles (and Games)
   * Solution (answer with justification) hard to find, easy to check.
-  * Examples: jigsaw, rubik's cube, detective stories, orbits of planets.
+  * Examples: jigsaw, Sudoku, Rubik's cube, detective stories, orbits of planets.
   * formal and informal solutions.
 * Reasoning for puzzles
   * deductive/algorithmic: small number of steps following a small number of rules (which may depend on a small number of parameters).
