@@ -42,3 +42,7 @@ ul.numbers li {
     text-align: center;
     margin: auto;
 }
+
+table.box{
+    border: 2px solid white;
+}
