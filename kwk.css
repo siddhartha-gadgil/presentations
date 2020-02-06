@@ -20,16 +20,25 @@ ul.numbers li {
     background-color: lightgrey;
     border-radius: 5px;
     margin: 2px;
-    padding: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     white-space: nowrap;
 }
 
 .number-groups li {
     display: inline;
-    line-height: 50px;
+    line-height:2.5;
 }
 
 .prime-term {
     color: blueviolet;
-    font-size: 25px;
+    font-size: 20px;
+}
+
+.huge{
+    font-size: 180px;
+    text-align: center;
+    margin: auto;
 }
