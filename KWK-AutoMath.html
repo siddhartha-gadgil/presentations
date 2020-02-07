@@ -1786,17 +1786,36 @@
 				<h3>Lengths of arithmetic progressions</h3>
 				<ul>
 					<li class="fragment">
-						For the first million pairs of primes, the longest arithmetic sequence of primes starting with these have lengths as follows. 
-						<small class="fragment"><table>
-							<tr>
-								<td><strong>length</strong></td>
-								<td align="center">2</td> <td align="center">3</td> <td align="center">4</td> <td align="center">5</td> <td align="center">6</td> <td align="center">7</td> <td align="center">8</td> <td align="center">9</td> <td align="center">10</td>							</tr>
-							<tr>
-								<td><strong>number</strong></td> 
-								<td align="center">856944</td> <td align="center">110386</td> <td align="center">27836</td> <td align="center">3665</td> <td align="center">980</td> <td align="center">127</td> <td align="center">46</td> <td align="center">15</td> <td align="center">1</td>
-							</tr>
-						</table>
-					</small>
+						For the first million pairs of primes, the longest arithmetic sequence of primes starting with
+						these have lengths as follows.
+						<small class="fragment">
+							<table>
+								<tr>
+									<td><strong>length</strong></td>
+									<td align="center">2</td>
+									<td align="center">3</td>
+									<td align="center">4</td>
+									<td align="center">5</td>
+									<td align="center">6</td>
+									<td align="center">7</td>
+									<td align="center">8</td>
+									<td align="center">9</td>
+									<td align="center">10</td>
+								</tr>
+								<tr>
+									<td><strong>number</strong></td>
+									<td align="center">856944</td>
+									<td align="center">110386</td>
+									<td align="center">27836</td>
+									<td align="center">3665</td>
+									<td align="center">980</td>
+									<td align="center">127</td>
+									<td align="center">46</td>
+									<td align="center">15</td>
+									<td align="center">1</td>
+								</tr>
+							</table>
+						</small>
 					</li>
 					<li class="fragment">
 						The largest explicitly known arithmetic progression is of length $27$.
@@ -1809,7 +1828,7 @@
 				<h3>Some questions</h3>
 				<ul>
 					<li class="fragment"><strong>Question:</strong> Are there infinitely many primes?</li>
-					<li class="fragment"><strong>Answer:</strong> Yes, as Euclid showed long ago.</li>
+					<li class="fragment"><strong>Answer:</strong> Yes, as shown by Euclid.</li>
 					<li class="fragment"><strong>Question:</strong> Are there arbitrarily long arithmetic sequences of
 						primes? </li>
 					<li class="fragment"><strong>Answer:</strong> Yes, by the Green-Tao theorem from 2004.</li>
@@ -1822,16 +1841,130 @@
 				<h1>Puzzles, Games, Reasoning</h1>
 			</section>
 
-			<section data-transition="zoom">
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h3>Puzzles</h3>
+				<ul>
+					<li class="fragment"><strong>Some puzzles:</strong> jigsaw, sudoku, detective stories, quiz
+						questions, planetary motion </li>
+					<li class="fragment">A puzzle is a precisely stated problem for which
+						<ul>
+							<li>it is (fairly) easy to <em>check</em> that a solution is correctly, but</li>
+							<li>it is hard to <em>find</em> the solution.</li>
+						</ul>
+					</li>
+					<li class="fragment"> A solution may be <strong>formal</strong> or <strong>informal</strong>. </li>
+					<li class="fragment"> We solve puzzles by a mixture of <em>deduction</em> (algorithms) and
+						<em>intuition</em>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-color="#b5533c">
 				<img src="Humpty_Dumpty_Tenniel-When_I_use_a_word.png" height="600px;" alt="" />
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h3>Deductive reasoning/Algorithms</h3>
+				<ul>
+					<li>We</li>
+					<ul>
+						<li class="fragment">perform a small number of deductions/ calculations/ moves.</li>
+						<li class="fragment">following a small number of rules, possibly using a small number of
+							parameters.</li>
+					</ul>
+					<li class="fragment"> A computer's notion of <em>small</em> is very different.</li>
+					<li class="fragment"> There have been huge improvements in algorithms: <em
+							class="fragment">multiplication with carry-over,</em> <em
+							class="fragment">fingerprints,</em> <em class="fragment">SMT solvers.</em></li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h3>Tacit knowledge</h3>
+				<ul>
+					<li class="fragment"> <em>Tacit knowledge</em> is the kind of knowledge that is difficult to transfer to another
+						person by means of writing it down or verbalizing it.</li>
+					<li class="fragment">
+						Michael Polanyi:  &ldquo;we can know more than we can tell.&rdquo;
+					</li>
+					<li class="fragment"> <strong>Examples:</strong> riding a bicycle, speaking a language.</li>
+					<li class="fragment"> Experts have a substantial amount of tacit knowledge.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h3>Intuition</h3>
+				<ul>
+					<li class="fragment">Intuition is based on tacit knowledge learned through experience</li>
+					<li class="fragment">To be useful, it should be correct <em>often enough</em>
+						<ul>
+							<li>A <em>hunch</em> is sometimes correct.</li>
+							<li>A <em>judgement</em> is often correct.</li>
+						</ul>
+					</li>
+					<li class="fragment">We use this when we <em>guess and verify</em>.</li>
+					<li class="fragment">Computers can compensated by following on far more hunches, and looking more moves ahead before making a judgement.</li>
+				</ul>
+			</section>
+
+
+
+			<section data-transition="zoom-in slide-out" data-background="alpha-zero.jpg">
+				<h1>Computers and Games</h1>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<h3> Rewards, values and policies </h3>
+				<ul>
+					<li class="fragment"> The rules of a game (e.g. chess) tell us
+						<ul>
+							<li class="fragment">what moves we can make.</li>
+							<li class="fragment">what reward we get at a stage - e.g. win/loss/draw at the end.</li>
+						</ul>
+					</li>
+					<li class="fragment"> In a simple game like tic-tac-toe, we can simply calculate the reward in all cases.</li>
+					<li class="fragment"> In most cases however, we need
+						<ul>
+							<li class="fragment">A <em>policy</em> - what moves to consider.</li>
+							<li class="fragment">A  (relative) <em>value</em> telling us what future reward we can expect based on the present position.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section  data-background-color="#002b36">
+				<h3>Kasparov vs  Deep Blue</h3>
+					<ul>
+						<li class="fragment">In Chess, a basic value is obtained by counting pieces and pawns with weights.</li>
+						<li class="fragment">For openings, we only consider a small subset of possible move sequences.</li>
+						<li class="fragment"> Deep Blue (and chess theory) extend these.</li>
+						<li class="fragment"> The value and policy functions of Kasparov were far better, but compensated for by Deep Blue being able to consider far more move sequences.</li>
+						<li class="fragment"> &ldquo; Play the opening like a book, the middle game like a magician, and the endgame like a machine.  &rdquo; – Spielmann</li>
+					</ul>
+	
+			</section>
+			<section  data-background-color="#002b36">
+				<h3>AlphaGo vs Lee Sedol</h3>
+					<ul>
+						<li class="fragment"> In the chines game Go, the  number of legal moves is much larger, causing the number of sequences for a weak policy to grow very fast.</li>
+						<li class="fragment"> More importantly, it is very hard to describe a good value function.</li>
+						<li class="fragment"> This makes it far harder for computers.</li>
+						<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world champion Lee Sedol.</li>
+						<li class="fragment"> In March 2017, AlphaGo defeated the world number 1 Ke Jie comprehensively.</li>
+	
+					</ul>
+			</section>
+			<section  data-background-color="#002b36">
+				<h3>AlphaGo and Learning</h3>
+				<ul>
+					<li class="fragment"> The policy and value functions of AlphaGo are deep neural networks that were trained.</li>
+					<li class="fragment"> The policy network was trained by learning to predict the next move from games of expert players.</li>
+					<li class="fragment"> The value network was trained by AlphaGo playing against versions of itself.</li>
+					<li class="fragment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
+					<li class="fragment"> AlphaGo came up with unexpected moves.</li>
+				</ul>
 			</section>
 
 			<section data-transition="zoom-in slide-out" data-background-color="#b5533c">
 				<h1>Mathematical Proofs</h1>
-			</section>
-
-			<section data-transition="zoom-in slide-out" data-background="alpha-zero.jpg">
-				<h1>Computers and Games</h1>
 			</section>
 
 			<section data-transition="zoom-in slide-out" data-background="kepler.png">

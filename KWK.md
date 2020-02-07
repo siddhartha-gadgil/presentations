@@ -48,7 +48,7 @@ Siddhartha began his research career in Topology and has worked for many years i
     * derive value (likely reward), policy (likely to maximize value)
   * deep Blue vs Kasparov
   * the tradeoff and Go
-  * AlphaGo vs Lee Seedol and Ki Jie
+  * AlphaGo vs Lee Seedol and Ke Jie
   * AlphaGoZero
   * AlphaZero in chess
   * conclusions of reasoning
