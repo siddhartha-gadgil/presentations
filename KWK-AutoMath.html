@@ -1881,10 +1881,11 @@
 			<section data-transition="convex" data-background-color="#b5533c">
 				<h3>Tacit knowledge</h3>
 				<ul>
-					<li class="fragment"> <em>Tacit knowledge</em> is the kind of knowledge that is difficult to transfer to another
+					<li class="fragment"> <em>Tacit knowledge</em> is the kind of knowledge that is difficult to
+						transfer to another
 						person by means of writing it down or verbalizing it.</li>
 					<li class="fragment">
-						Michael Polanyi:  &ldquo;we can know more than we can tell.&rdquo;
+						Michael Polanyi: &ldquo;we can know more than we can tell.&rdquo;
 					</li>
 					<li class="fragment"> <strong>Examples:</strong> riding a bicycle, speaking a language.</li>
 					<li class="fragment"> Experts have a substantial amount of tacit knowledge.</li>
@@ -1902,7 +1903,8 @@
 						</ul>
 					</li>
 					<li class="fragment">We use this when we <em>guess and verify</em>.</li>
-					<li class="fragment">Computers can compensated by following on far more hunches, and looking more moves ahead before making a judgement.</li>
+					<li class="fragment">Computers can compensated by following on far more hunches, and looking more
+						moves ahead before making a judgement.</li>
 				</ul>
 			</section>
 
@@ -1912,7 +1914,7 @@
 				<h1>Computers and Games</h1>
 			</section>
 
-			<section  data-background-color="#002b36">
+			<section data-background-color="#002b36">
 				<h3> Rewards, values and policies </h3>
 				<ul>
 					<li class="fragment"> The rules of a game (e.g. chess) tell us
@@ -1921,43 +1923,54 @@
 							<li class="fragment">what reward we get at a stage - e.g. win/loss/draw at the end.</li>
 						</ul>
 					</li>
-					<li class="fragment"> In a simple game like tic-tac-toe, we can simply calculate the reward in all cases.</li>
+					<li class="fragment"> In a simple game like tic-tac-toe, we can simply calculate the reward in all
+						cases.</li>
 					<li class="fragment"> In most cases however, we need
 						<ul>
 							<li class="fragment">A <em>policy</em> - what moves to consider.</li>
-							<li class="fragment">A  (relative) <em>value</em> telling us what future reward we can expect based on the present position.</li>
+							<li class="fragment">A (relative) <em>value</em> telling us what future reward we can expect
+								based on the present position.</li>
 						</ul>
 					</li>
 				</ul>
 			</section>
-			<section  data-background-color="#002b36">
-				<h3>Kasparov vs  Deep Blue</h3>
-					<ul>
-						<li class="fragment">In Chess, a basic value is obtained by counting pieces and pawns with weights.</li>
-						<li class="fragment">For openings, we only consider a small subset of possible move sequences.</li>
-						<li class="fragment"> Deep Blue (and chess theory) extend these.</li>
-						<li class="fragment"> The value and policy functions of Kasparov were far better, but compensated for by Deep Blue being able to consider far more move sequences.</li>
-						<li class="fragment"> &ldquo; Play the opening like a book, the middle game like a magician, and the endgame like a machine.  &rdquo; – Spielmann</li>
-					</ul>
-	
+			<section data-background-color="#002b36">
+				<h3>Kasparov vs Deep Blue</h3>
+				<ul>
+					<li class="fragment">In Chess, a basic value is obtained by counting pieces and pawns with weights.
+					</li>
+					<li class="fragment">For openings, we only consider a small subset of possible move sequences.</li>
+					<li class="fragment"> Deep Blue (and chess theory) extend these.</li>
+					<li class="fragment"> The value and policy functions of Kasparov were far better, but compensated
+						for by Deep Blue being able to consider far more move sequences.</li>
+					<li class="fragment"> &ldquo; Play the opening like a book, the middle game like a magician, and the
+						endgame like a machine. &rdquo; – Spielmann</li>
+				</ul>
+
 			</section>
-			<section  data-background-color="#002b36">
+			<section data-background-color="#002b36">
 				<h3>AlphaGo vs Lee Sedol</h3>
-					<ul>
-						<li class="fragment"> In the chines game Go, the  number of legal moves is much larger, causing the number of sequences for a weak policy to grow very fast.</li>
-						<li class="fragment"> More importantly, it is very hard to describe a good value function.</li>
-						<li class="fragment"> This makes it far harder for computers.</li>
-						<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world champion Lee Sedol.</li>
-						<li class="fragment"> In March 2017, AlphaGo defeated the world number 1 Ke Jie comprehensively.</li>
-	
-					</ul>
+				<ul>
+					<li class="fragment"> In the chines game Go, the number of legal moves is much larger, causing the
+						number of sequences for a weak policy to grow very fast.</li>
+					<li class="fragment"> More importantly, it is very hard to describe a good value function.</li>
+					<li class="fragment"> This makes it far harder for computers.</li>
+					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
+						champion Lee Sedol.</li>
+					<li class="fragment"> In March 2017, AlphaGo defeated the world number 1 Ke Jie comprehensively.
+					</li>
+
+				</ul>
 			</section>
-			<section  data-background-color="#002b36">
+			<section data-background-color="#002b36">
 				<h3>AlphaGo and Learning</h3>
 				<ul>
-					<li class="fragment"> The policy and value functions of AlphaGo are deep neural networks that were trained.</li>
-					<li class="fragment"> The policy network was trained by learning to predict the next move from games of expert players.</li>
-					<li class="fragment"> The value network was trained by AlphaGo playing against versions of itself.</li>
+					<li class="fragment"> The policy and value functions of AlphaGo are deep neural networks that were
+						trained.</li>
+					<li class="fragment"> The policy network was trained by learning to predict the next move from games
+						of expert players.</li>
+					<li class="fragment"> The value network was trained by AlphaGo playing against versions of itself.
+					</li>
 					<li class="fragment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
 					<li class="fragment"> AlphaGo came up with unexpected moves.</li>
 				</ul>
@@ -1967,12 +1980,130 @@
 				<h1>Mathematical Proofs</h1>
 			</section>
 
+			<section data-background-color="#b5533c">
+				<h3>Infinitude of primes</h3>
+				<ul>
+					<li> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
+					<li> <strong>Proof:</strong> Let $p > 1$ be the smallest factor of $n$ other than $1$.
+					</li>
+					<li>Then $p$ must be a prime as
+						<ul>
+							<li>Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
+							<li>But $p$ is the smallest factor of $n$, so $q = p$.</li>
+							<li>So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Infinitude of primes</h3>
+				<ul>
+					<li> <strong>Lemma:</strong> For any number positive integer $n$, there is a prime bigger than $n$.
+					</li>
+					<li> <strong>Proof:</strong> Let $m = n! + 1$, where $n!=1\times 2\times3\times\dots n$ and let $p$
+						be a <em>prime</em> factor of $m$.
+					</li>
+					<li>Then $p$ must be greater than $n$, as, if $p \leq n$,
+						<ul>
+							<li>$p$ divides $n!$, and</li>
+							<li>$p$ divides $n! + 1$, which means</li>
+							<li>$p$ divides $1 = (n! + 1) - n!$, which is absurd.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Formal Mathematical Proofs</h3>
+				<ul>
+					<li>A formal mathematical proof is a series of deductions.</li>
+					<li>Each deduction follows the rules of logic.</li>
+					<li>We start with some axioms.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Formal proof in Mizar</h3>
+<div class="smallish"><pre><code class="mizar" height="800px">reserve n,p for Nat;
+theorem Euclid: ex p st p is prime & p > n
+proof
+set k = n! + 1;
+n! > 0 by NEWTON:23;
+then n! >= 0 + 1 by NAT_1:38;
+then k >= 1 + 1 by REAL_1:55;
+then consider p such that
+A1: p is prime & p divides k by INT_2:48;
+A2: p <> 0 & p > 1 by A1,INT_2:def 5;
+take p;
+thus p is prime by A1;
+assume p <= n;
+then p divides n! by A2,NAT_LAT:16;
+then p divides 1 by A1,NAT_1:57;
+hence contradiction by A2,NAT_1:54;
+end;
+theorem {p: p is prime} is infinite
+from Unbounded(Euclid);
+</code></pre></div>
+<p>Full proof of infinitude of primes is 44 lines long.</p>
+			</section>
+
 			<section data-transition="zoom-in slide-out" data-background="kepler.png">
 				<h1>Computer Proofs</h1>
 				<h2>in</h2>
 				<h1>Mathematics</h1>
 			</section>
 
+			<section>
+				<h3> Universal deducer? </h3>
+				<ul>
+					<li class="fragment"> A universal deducer is a computable function (algorithm) which, given a
+						proposition (formula),
+						returns a proof if it is deducible and otherwise returns failure.</li>
+					<li class="fragment"> By results of Turing, there is no such algorithm. </li>
+					<li class="fragment"> Practically, we can conclude that there is no best deducer,
+						as any given proof can be found by some deducer but no deducer can find all proofs. </li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Some computer-assisted proofs</h3>
+				<ul>
+					<li><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$ colours.</li>
+					<li><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
+						the hexagonal close packing.</li>
+					<li><strong>Boolean Pythagorean triples problem:</strong> is it possible to colour each of the
+						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
+						satisfying $a^{2}+b^{2}=c^{2}$ are all the same color.</li>
+					<li>All these proofs are long (maybe unavoidable).</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3> Robbins conjecture </h3>
+				<ul>
+					<li class="fragment"> Robbins conjecture was a conjectural characterization of Boolean algebras in
+						terms of
+						associativity and commutativity of $\vee$ and the Robbins equation
+						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
+					<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
+						automated theorem prover EQP, which is a Resolution Theorem Prover with Paramodulation.</li>
+					<li class="fragment"> So far, this seems to be the only major success of deductive theorem provers.
+					</li>
+			</section>
+
+			<section>
+				<ul>
+					<li>
+						A question on a blog of Terence Tao, asked to him by Apoorva Khare, was answered in PolyMath 14.
+					</li>
+					<li>
+						A crucial step in the discovery was a computer generated but human readable proof I posted.
+					</li>
+					<p></p>
+					<iframe src="kwk-gross-proof.html" frameborder="0" width="800px" height="400px"></iframe>
+				</ul>
+			</section>
 
 			<section data-transition="zoom-in slide-out" data-background="sea.jpg">
 				<h1>Formal methods</h1>
@@ -1997,7 +2128,7 @@
 			</section>
 
 			<section data-background-color="#002b36">
-				<h4>Completely correct always worth it?</h4>
+				<h4>When we need <em>completely correct always</em></h4>
 
 				<table class="box">
 					<tr class="fragment">
@@ -2040,6 +2171,40 @@
 					</tr>
 				</table>
 
+			</section>
+			<section data-background-color="#002b36">
+				<h3>Interactive Theorem Provers</h3>
+				<ul>
+					<li>These are software systems where proofs are obtained by human-machine collaboration.</li>
+					<li>The computer both finds (parts of) proofs and checks correctness.</li>
+					<li>Some very large mathematical proofs have been verified by such systems.</li>
+					<li>Formal methods are also based on interactive provers.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>Who guards the guards?</h3>
+				<ul>
+					<li>
+						A computer verified proof is only as trustworthy as the system that verified the proof.
+					</li>
+					<li>
+						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small <em>trusted kernel</em>, which can be thoroughly checked.
+					</li>
+					<li>
+						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in three languages.
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>Rules of the game?</h3>
+				<ul>
+					<li>Around a 100 years ago, after battling paradoxes foundations of mathematics were built on Set Theory and First-order logic.</li>
+					<li>However, formal proofs in these foundation become long and opaque, and don't resemble real life mathematics.</li>
+					<li>Instead, interactive proof systems use richer foundations that have evolved over time.</li>
+					<li>A dramatic advance in the new foundations came about with the discovery of connections with <em>topology</em>, a branch of mathematics.</li>
+				</ul>
 			</section>
 
 

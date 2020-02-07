@@ -79,7 +79,7 @@ Siddhartha began his research career in Topology and has worked for many years i
   * computers purely deductively can still better human mixed approach, but with the cost of proofs not useful to learn from.
   * some deep learning has been used together with these.
   * but in other domains, AI shows intuition, _originality_ and _analogical/compositional thinking_
-* Conclusion: Open AI.
+* Conclusion: Open AI
 
 ## Notes
 
@@ -113,3 +113,18 @@ end;
 theorem {p: p is prime} is infinite
 from Unbounded(Euclid);
 ```
+
+## Conclusions
+
+* AI systems in other fields have shown superhuman
+capabilities in many cognitive tasks.
+* Algorithmic methods of proving are already powerful in mathematics.
+* For automating mathematics:
+  * clear approaches and work-points.
+  * no evident barriers?
+* Partial progress towards the automating mathematics
+can lead to
+  * New uses of computers in discovering mathematics.
+  * Semantic search in the literature.
+  * Automatic experimentation, testing, plotting, etc.
+  * Search for objects with desired properties, combining various approaches.

@@ -46,3 +46,21 @@ ul.numbers li {
 table.box{
     border: 2px solid white;
 }
+
+.dark{
+    background-color: black;
+    color: lightgrey;
+}
+
+.syntaxhighlighter {
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    max-height: 1024px;
+}
+
+.smallish {
+    display: inline-block;
+    width: 600px;
+    font-size: 0.75em;
+    line-height: 1.5em;
+    vertical-align: top; }
