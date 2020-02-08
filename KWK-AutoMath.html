@@ -43,7 +43,7 @@
 	<div class="reveal">
 
 		<!-- Any section element inside of this container is displayed as a slide -->
-		<div class="slides">
+		<section class="slides">
 			<section data-transition="slide">
 				<h2> Automating Mathematics? </h2>
 				<h2>Siddhartha Gadgil</h2>
@@ -934,7 +934,8 @@
 			<section data-transition="zoom-in slide-out" data-background-color="teal">
 				<h3>Arithmetic progressions in primes</h3>
 				<ul>
-					<li>An <em>arithmetic progression</em> is a sequence of numbers so that the difference between two
+					<li class="fragment">An <em>arithmetic progression</em> is a sequence of numbers so that the
+						difference between two
 						consecutive terms is constant, for example
 						<ul>
 							<li>5, 7, 9, 11.</li>
@@ -942,9 +943,11 @@
 							<li>11, 17, 23, 29.</li>
 						</ul>
 					</li>
-					<li>We consider arithmetic progressions all of whose terms are primes, such as the third example.
+					<li class="fragment">We consider arithmetic progressions all of whose terms are primes, such as the
+						third example.
 					</li>
-					<li>For experiments, we take the first million pairs of primes and extend these while we get primes.
+					<li class="fragment">For experiments, we take the first million pairs of primes and extend these
+						while we get primes.
 					</li>
 				</ul>
 			</section>
@@ -1845,10 +1848,11 @@
 			<section data-background-color="#b5533c">
 				<h3>Infinitude of primes</h3>
 				<ul>
-					<li> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
-					<li> <strong>Proof:</strong> Let $p > 1$ be the smallest factor of $n$ other than $1$.
+					<li class="fragment"> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
+					<li class="fragment"> <strong>Proof:</strong> Let $p > 1$ be the smallest factor of $n$ other than
+						$1$.
 					</li>
-					<li>Then $p$ must be a prime as
+					<li class="fragment">Then $p$ must be a prime as
 						<ul>
 							<li>Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
 							<li>But $p$ is the smallest factor of $n$, so $q = p$.</li>
@@ -1861,12 +1865,14 @@
 			<section data-background-color="#b5533c">
 				<h3>Infinitude of primes</h3>
 				<ul>
-					<li> <strong>Lemma:</strong> For any number positive integer $n$, there is a prime bigger than $n$.
+					<li class="fragment"> <strong>Lemma:</strong> For any number positive integer $n$, there is a prime
+						bigger than $n$.
 					</li>
-					<li> <strong>Proof:</strong> Let $m = n! + 1$, where $n!=1\times 2\times3\times\dots n$ and let $p$
+					<li class="fragment"> <strong>Proof:</strong> Let $m = n! + 1$, where $n!=1\times
+						2\times3\times\dots n$ and let $p$
 						be a <em>prime</em> factor of $m$.
 					</li>
-					<li>Then $p$ must be greater than $n$, as, if $p \leq n$,
+					<li class="fragment">Then $p$ must be greater than $n$, as, if $p \leq n$,
 						<ul>
 							<li>$p$ divides $n!$, and</li>
 							<li>$p$ divides $n! + 1$, which means</li>
@@ -1879,21 +1885,21 @@
 			<section data-background-color="#b5533c">
 				<h3>Formal Mathematical Proofs</h3>
 				<ul>
-					<li>A formal proof or derivation is a finite sequence of sentences, each of which: 
+					<li class="fragment">A formal proof or derivation is a finite sequence of sentences, each of which:
 						<ul>
 							<li>is an axiom (something we believe true about the universe), or</li>
 							<li>is an assumption, or</li>
 							<li>follows from the earlier sentences by a rule of inference.</li>
 						</ul>
 					</li>
-					<li>A formal proof can be checked mechanically.</li>
+					<li class="fragment">A formal proof can be checked mechanically.</li>
 				</ul>
 			</section>
 
 			<section data-background-color="#b5533c">
 				<h3>Formal proof in Mizar</h3>
 				<div class="smallish">
-					<pre><code class="mizar" height="800px">reserve n,p for Nat;
+					<pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
 theorem Euclid: ex p st p is prime & p > n
 proof
 set k = n! + 1;
@@ -1914,7 +1920,7 @@ theorem {p: p is prime} is infinite
 from Unbounded(Euclid);
 </code></pre>
 				</div>
-				<p>Full proof of infinitude of primes is 44 lines long.</p>
+				<p class="fragment">Full proof of infinitude of primes is 44 lines long.</p>
 			</section>
 
 
@@ -1946,7 +1952,7 @@ from Unbounded(Euclid);
 			<section data-transition="convex" data-background-color="teal">
 				<h3>Deductive reasoning/Algorithms</h3>
 				<ul>
-					<li>We</li>
+					<li>When carrying out an algorithm, we</li>
 					<ul>
 						<li class="fragment">perform a small number of deductions/ calculations/ moves.</li>
 						<li class="fragment">following a small number of rules, possibly using a small number of
@@ -2057,7 +2063,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background="sea.jpg" >
+			<section data-transition="zoom-in slide-out" data-background="sea.jpg">
 				<h1>Artificial Intelligence elsewhere.</h1>
 			</section>
 
@@ -2082,13 +2088,15 @@ from Unbounded(Euclid);
 			<section>
 				<h3>Some computer-assisted proofs</h3>
 				<ul>
-					<li><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$ colours.</li>
-					<li><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
+					<li class="fragment"><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$
+						colours.</li>
+					<li class="fragment"><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
 						the hexagonal close packing.</li>
-					<li><strong>Boolean Pythagorean triples problem:</strong> is it possible to colour each of the
+					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> is it possible to colour
+						each of the
 						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
 						satisfying $a^{2}+b^{2}=c^{2}$ are all the same color.</li>
-					<li>All these proofs are long (maybe unavoidable).</li>
+					<li class="fragment">All these proofs are long (maybe unavoidable).</li>
 				</ul>
 			</section>
 
@@ -2110,15 +2118,16 @@ from Unbounded(Euclid);
 					<li>
 						A question on a blog of Terence Tao, asked to him by Apoorva Khare, was answered in PolyMath 14.
 					</li>
-					<li>
+					<li class="fragment">
 						A crucial step in the discovery was a computer generated but human readable proof I posted.
 					</li>
 					<p></p>
-					<iframe src="kwk-gross-proof.html" frameborder="0" width="800px" height="400px"></iframe>
+					<iframe src="kwk-gross-proof.html" frameborder="0" width="800px" height="400px"
+						class="fragment"></iframe>
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background-image="code.png" >
+			<section data-transition="zoom-in slide-out" data-background-image="code.png">
 				<h1>Formal methods</h1>
 				<h2>and</h2>
 				<h1>Interactive Theorem Provers</h1>
@@ -2188,24 +2197,25 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>Interactive Theorem Provers</h3>
 				<ul>
-					<li>These are software systems where proofs are obtained by human-machine collaboration.</li>
-					<li>The computer both finds (parts of) proofs and checks correctness.</li>
-					<li>Some very large mathematical proofs have been verified by such systems.</li>
-					<li>Formal methods are also based on interactive provers.</li>
+					<li class="fragment">These are software systems where proofs are obtained by human-machine
+						collaboration.</li>
+					<li class="fragment">The computer both finds (parts of) proofs and checks correctness.</li>
+					<li class="fragment">Some very large mathematical proofs have been verified by such systems.</li>
+					<li class="fragment">Formal methods are also based on interactive provers.</li>
 				</ul>
 			</section>
 
 			<section data-background-color="#002b36">
 				<h3>Who guards the guards?</h3>
 				<ul>
-					<li>
+					<li class="fragment">
 						A computer verified proof is only as trustworthy as the system that verified the proof.
 					</li>
-					<li>
+					<li class="fragment">
 						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small <em>trusted
 							kernel</em>, which can be thoroughly checked.
 					</li>
-					<li>
+					<li class="fragment">
 						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in three
 						languages.
 					</li>
@@ -2215,61 +2225,82 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>Rules of the game?</h3>
 				<ul>
-					<li>Around a 100 years ago, after battling paradoxes foundations of mathematics were built on Set
+					<li class="fragment">Around 100 years ago, after battling paradoxes, foundations of mathematics were
+						built on Set
 						Theory and First-order logic.</li>
-					<li>However, formal proofs in these foundation become long and opaque, and don't resemble real life
+					<li class="fragment">However, formal proofs in these foundation become long and opaque, and don't
+						resemble real life
 						mathematics.</li>
-					<li>Instead, interactive proof systems use richer foundations that have evolved over time.</li>
-					<li>A dramatic advance in the new foundations came about with the discovery of connections with
+					<li class="fragment">Instead, interactive proof systems use richer foundations that have evolved
+						over time.</li>
+					<li class="fragment">A dramatic advance in the new foundations came about with the recent discovery
+						of connections with
 						<em>topology</em>, a branch of mathematics.</li>
 				</ul>
 			</section>
 
 
-			<section data-transition="zoom-in slide-out" data-background="hills.png">
+			<section data-transition="zoom-in" data-background="hills.png">
 				<h1>The future of computer proofs?</h1>
 			</section>
 
+			<section data-transition="zoom" data-background-color="#b5533c">
+				<ul>
+					<li>
+					Artificial Intelligence can:
+					<ul>
+						<li class="fragment">Generate solutions that we can see are good.</li>
+						<li class="fragment">Judge value based on future rewards.</li>
+						<li class="fragment"> Show originality.</li>
+						<li class="fragment"> Learn things for which we depend on tacit knowledge. </li>
+						<li class="fragment"> Work with limited and/or unstructured data.</li>
+						<li class="fragment"> Organize observations naturally and efficiently.</li>
+					</ul>
+					</li>
+					<li class="fragment">For automating mathematics, it appears that there are clear approaches and no evident barriers.</li>
+				</ul>
+			</section>
+	</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
 
 
-			<script src="js/reveal.js"></script>
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
 
-			<script>
-
-				// Full list of configuration options available at:
-				// https://github.com/hakimel/reveal.js#configuration
-				Reveal.initialize({
-					controls: true,
-					progress: true,
-					history: true,
-					center: true,
-
-					transition: 'slide', // none/fade/slide/concave/concave/zoom
-
-
-					math: {
-						mathjax: '../MathJax/MathJax.js',
-						// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
-						config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
-					},
-
-					// Optional reveal.js plugins
-					dependencies: [
-						{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
-						{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-						{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-						{ src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
-						{ src: 'plugin/zoom-js/zoom.js', async: true },
-						{ src: 'plugin/notes/notes.js', async: true },
-						{ src: 'plugin/math/math.js', async: true }
-					]
-				});
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
 
 //			Reveal.addEventListener( 'slidechanged', function( event ) {
 //				MathJax.Hub.Rerender();
 //			} );
 
-			</script>
+	</script>
 
 </body>
 
