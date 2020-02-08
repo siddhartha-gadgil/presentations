@@ -1837,11 +1837,92 @@
 				</ul>
 			</section>
 
+
+			<section data-transition="zoom-in slide-out" data-background-color="#b5533c">
+				<h1>Mathematical Proofs</h1>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Infinitude of primes</h3>
+				<ul>
+					<li> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
+					<li> <strong>Proof:</strong> Let $p > 1$ be the smallest factor of $n$ other than $1$.
+					</li>
+					<li>Then $p$ must be a prime as
+						<ul>
+							<li>Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
+							<li>But $p$ is the smallest factor of $n$, so $q = p$.</li>
+							<li>So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Infinitude of primes</h3>
+				<ul>
+					<li> <strong>Lemma:</strong> For any number positive integer $n$, there is a prime bigger than $n$.
+					</li>
+					<li> <strong>Proof:</strong> Let $m = n! + 1$, where $n!=1\times 2\times3\times\dots n$ and let $p$
+						be a <em>prime</em> factor of $m$.
+					</li>
+					<li>Then $p$ must be greater than $n$, as, if $p \leq n$,
+						<ul>
+							<li>$p$ divides $n!$, and</li>
+							<li>$p$ divides $n! + 1$, which means</li>
+							<li>$p$ divides $1 = (n! + 1) - n!$, which is absurd.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Formal Mathematical Proofs</h3>
+				<ul>
+					<li>A formal proof or derivation is a finite sequence of sentences, each of which: 
+						<ul>
+							<li>is an axiom (something we believe true about the universe), or</li>
+							<li>is an assumption, or</li>
+							<li>follows from the earlier sentences by a rule of inference.</li>
+						</ul>
+					</li>
+					<li>A formal proof can be checked mechanically.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Formal proof in Mizar</h3>
+				<div class="smallish">
+					<pre><code class="mizar" height="800px">reserve n,p for Nat;
+theorem Euclid: ex p st p is prime & p > n
+proof
+set k = n! + 1;
+n! > 0 by NEWTON:23;
+then n! >= 0 + 1 by NAT_1:38;
+then k >= 1 + 1 by REAL_1:55;
+then consider p such that
+A1: p is prime & p divides k by INT_2:48;
+A2: p <> 0 & p > 1 by A1,INT_2:def 5;
+take p;
+thus p is prime by A1;
+assume p <= n;
+then p divides n! by A2,NAT_LAT:16;
+then p divides 1 by A1,NAT_1:57;
+hence contradiction by A2,NAT_1:54;
+end;
+theorem {p: p is prime} is infinite
+from Unbounded(Euclid);
+</code></pre>
+				</div>
+				<p>Full proof of infinitude of primes is 44 lines long.</p>
+			</section>
+
+
 			<section data-transition="zoom-in slide-out" data-background="jigsaw.jpeg">
 				<h1>Puzzles, Games, Reasoning</h1>
 			</section>
 
-			<section data-transition="convex" data-background-color="#b5533c">
+			<section data-transition="convex" data-background-color="teal">
 				<h3>Puzzles</h3>
 				<ul>
 					<li class="fragment"><strong>Some puzzles:</strong> jigsaw, sudoku, detective stories, quiz
@@ -1858,11 +1939,11 @@
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in convex-out" data-background-color="#b5533c">
+			<section data-transition="zoom-in convex-out" data-background-color="teal">
 				<img src="Humpty_Dumpty_Tenniel-When_I_use_a_word.png" height="600px;" alt="" />
 			</section>
 
-			<section data-transition="convex" data-background-color="#b5533c">
+			<section data-transition="convex" data-background-color="teal">
 				<h3>Deductive reasoning/Algorithms</h3>
 				<ul>
 					<li>We</li>
@@ -1878,7 +1959,7 @@
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="#b5533c">
+			<section data-transition="convex" data-background-color="teal">
 				<h3>Tacit knowledge</h3>
 				<ul>
 					<li class="fragment"> <em>Tacit knowledge</em> is the kind of knowledge that is difficult to
@@ -1892,7 +1973,7 @@
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="#b5533c">
+			<section data-transition="convex" data-background-color="teal">
 				<h3>Intuition</h3>
 				<ul>
 					<li class="fragment">Intuition is based on tacit knowledge learned through experience</li>
@@ -1976,76 +2057,8 @@
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background-color="#b5533c">
-				<h1>Mathematical Proofs</h1>
-			</section>
-
-			<section data-background-color="#b5533c">
-				<h3>Infinitude of primes</h3>
-				<ul>
-					<li> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
-					<li> <strong>Proof:</strong> Let $p > 1$ be the smallest factor of $n$ other than $1$.
-					</li>
-					<li>Then $p$ must be a prime as
-						<ul>
-							<li>Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
-							<li>But $p$ is the smallest factor of $n$, so $q = p$.</li>
-							<li>So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#b5533c">
-				<h3>Infinitude of primes</h3>
-				<ul>
-					<li> <strong>Lemma:</strong> For any number positive integer $n$, there is a prime bigger than $n$.
-					</li>
-					<li> <strong>Proof:</strong> Let $m = n! + 1$, where $n!=1\times 2\times3\times\dots n$ and let $p$
-						be a <em>prime</em> factor of $m$.
-					</li>
-					<li>Then $p$ must be greater than $n$, as, if $p \leq n$,
-						<ul>
-							<li>$p$ divides $n!$, and</li>
-							<li>$p$ divides $n! + 1$, which means</li>
-							<li>$p$ divides $1 = (n! + 1) - n!$, which is absurd.</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#b5533c">
-				<h3>Formal Mathematical Proofs</h3>
-				<ul>
-					<li>A formal mathematical proof is a series of deductions.</li>
-					<li>Each deduction follows the rules of logic.</li>
-					<li>We start with some axioms.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#b5533c">
-				<h3>Formal proof in Mizar</h3>
-<div class="smallish"><pre><code class="mizar" height="800px">reserve n,p for Nat;
-theorem Euclid: ex p st p is prime & p > n
-proof
-set k = n! + 1;
-n! > 0 by NEWTON:23;
-then n! >= 0 + 1 by NAT_1:38;
-then k >= 1 + 1 by REAL_1:55;
-then consider p such that
-A1: p is prime & p divides k by INT_2:48;
-A2: p <> 0 & p > 1 by A1,INT_2:def 5;
-take p;
-thus p is prime by A1;
-assume p <= n;
-then p divides n! by A2,NAT_LAT:16;
-then p divides 1 by A1,NAT_1:57;
-hence contradiction by A2,NAT_1:54;
-end;
-theorem {p: p is prime} is infinite
-from Unbounded(Euclid);
-</code></pre></div>
-<p>Full proof of infinitude of primes is 44 lines long.</p>
+			<section data-transition="zoom-in slide-out" data-background="sea.jpg" >
+				<h1>Artificial Intelligence elsewhere.</h1>
 			</section>
 
 			<section data-transition="zoom-in slide-out" data-background="kepler.png">
@@ -2105,7 +2118,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background="sea.jpg">
+			<section data-transition="zoom-in slide-out" data-background-image="code.png" >
 				<h1>Formal methods</h1>
 				<h2>and</h2>
 				<h1>Interactive Theorem Provers</h1>
@@ -2189,10 +2202,12 @@ from Unbounded(Euclid);
 						A computer verified proof is only as trustworthy as the system that verified the proof.
 					</li>
 					<li>
-						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small <em>trusted kernel</em>, which can be thoroughly checked.
+						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small <em>trusted
+							kernel</em>, which can be thoroughly checked.
 					</li>
 					<li>
-						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in three languages.
+						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in three
+						languages.
 					</li>
 				</ul>
 			</section>
@@ -2200,10 +2215,13 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>Rules of the game?</h3>
 				<ul>
-					<li>Around a 100 years ago, after battling paradoxes foundations of mathematics were built on Set Theory and First-order logic.</li>
-					<li>However, formal proofs in these foundation become long and opaque, and don't resemble real life mathematics.</li>
+					<li>Around a 100 years ago, after battling paradoxes foundations of mathematics were built on Set
+						Theory and First-order logic.</li>
+					<li>However, formal proofs in these foundation become long and opaque, and don't resemble real life
+						mathematics.</li>
 					<li>Instead, interactive proof systems use richer foundations that have evolved over time.</li>
-					<li>A dramatic advance in the new foundations came about with the discovery of connections with <em>topology</em>, a branch of mathematics.</li>
+					<li>A dramatic advance in the new foundations came about with the discovery of connections with
+						<em>topology</em>, a branch of mathematics.</li>
 				</ul>
 			</section>
 

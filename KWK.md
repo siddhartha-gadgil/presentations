@@ -83,6 +83,13 @@ Siddhartha began his research career in Topology and has worked for many years i
 
 ## Notes
 
+## Distributional reinforcement learning
+
+* based on trying to predict reward
+* to handle bimodal cases
+* many agents learning - some pay more attention to positive errors (i.e., where the reward was more than predicted) and some to negative ones.
+* This was found in nature (dopamine reward systems) (and published in Nature).
+
 ### Mizar version of the formalization
 
 __Credit:__ Markus Wenzel and Freek Wiedijk
