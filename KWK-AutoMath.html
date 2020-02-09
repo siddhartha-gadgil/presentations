@@ -1,0 +1,2355 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Automating Mathematics?</title>
+
+	<meta name="description" content="Kaapi with Kuriosity lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="kwk.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<h2> Automating Mathematics? </h2>
+				<h2>Siddhartha Gadgil</h2>
+				<p>Department of Mathematics</p>
+				<p>Indian Institute of Science</p>
+				<p>Bangalore</p>
+				<p><a href="https://github.com/siddhartha-gadgil/ProvingGround"
+						target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
+
+			</section>
+
+			<section data-transition="slide-in fade-out">
+				<table>
+					<tr>
+						<td><img src="kasparov.jpeg" /></td>
+						<td><img src="deep-blue.jpg" width="200" /></td>
+						<td>1997</td>
+					</tr>
+					<tr class="fragment">
+						<td><img src="lee-sedol.jpeg" width="200" /> </td>
+						<td><img src="alphago.webp" width="200" /> </td>
+						<td>2017</td>
+					</tr>
+					<tr>
+						<td class="fragment">
+							<img src="ramanujan.jpeg" width="200" /> </td>
+						<td align="center" class="fragment"><span class="huge"> ? </span> </td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-transition="zoom-in slide-out" data-background-color="teal">
+				<h1>What is Mathematics?</h1>
+			</section>
+
+			<section data-background-color="teal">
+				<h3>Prime numbers</h3>
+				<ul>
+					<li class="fragment">A prime number is a number with exactly two factors, $1$ and the number itself.
+					</li>
+					<li class="fragment">For example, $3$, $5$ and $7$ are primes but $4$ is not a prime as it has
+						factor $2$.</li>
+					<li class="fragment">Primes are a basic object of study in Mathematics.</li>
+					<li class="fragment">We will discuss what we study first, and then why.</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+				<h3>How many primes?</h3>
+				<ul class="numbers">
+					<li class="prime">2</li>
+					<li class="prime">3</li>
+					<li>4</li>
+					<li class="prime">5</li>
+					<li>6</li>
+					<li class="prime">7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li class="prime">11</li>
+					<li>12</li>
+					<li class="prime">13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+					<li class="prime">17</li>
+					<li>18</li>
+					<li class="prime">19</li>
+					<li>20</li>
+					<li>21</li>
+					<li>22</li>
+					<li class="prime">23</li>
+					<li>24</li>
+					<li>25</li>
+					<li>26</li>
+					<li>27</li>
+					<li>28</li>
+					<li class="prime">29</li>
+					<li>30</li>
+					<li class="prime">31</li>
+					<li>32</li>
+					<li>33</li>
+					<li>34</li>
+					<li>35</li>
+					<li>36</li>
+					<li class="prime">37</li>
+					<li>38</li>
+					<li>39</li>
+					<li>40</li>
+					<li class="prime">41</li>
+					<li>42</li>
+					<li class="prime">43</li>
+					<li>44</li>
+					<li>45</li>
+					<li>46</li>
+					<li class="prime">47</li>
+					<li>48</li>
+					<li>49</li>
+					<li>50</li>
+					<li>51</li>
+					<li>52</li>
+					<li class="prime">53</li>
+					<li>54</li>
+					<li>55</li>
+					<li>56</li>
+					<li>57</li>
+					<li>58</li>
+					<li class="prime">59</li>
+					<li>60</li>
+					<li class="prime">61</li>
+					<li>62</li>
+					<li>63</li>
+					<li>64</li>
+					<li>65</li>
+					<li>66</li>
+					<li class="prime">67</li>
+					<li>68</li>
+					<li>69</li>
+					<li>70</li>
+					<li class="prime">71</li>
+					<li>72</li>
+					<li class="prime">73</li>
+					<li>74</li>
+					<li>75</li>
+					<li>76</li>
+					<li>77</li>
+					<li>78</li>
+					<li class="prime">79</li>
+					<li>80</li>
+					<li>81</li>
+					<li>82</li>
+					<li class="prime">83</li>
+					<li>84</li>
+					<li>85</li>
+					<li>86</li>
+					<li>87</li>
+					<li>88</li>
+					<li class="prime">89</li>
+					<li>90</li>
+					<li>91</li>
+					<li>92</li>
+					<li>93</li>
+					<li>94</li>
+					<li>95</li>
+					<li>96</li>
+					<li class="prime">97</li>
+					<li>98</li>
+					<li>99</li>
+					<li>100</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+				<ul class="numbers">
+					<li class="prime">401</li>
+					<li>402</li>
+					<li>403</li>
+					<li>404</li>
+					<li>405</li>
+					<li>406</li>
+					<li>407</li>
+					<li>408</li>
+					<li class="prime">409</li>
+					<li>410</li>
+					<li>411</li>
+					<li>412</li>
+					<li>413</li>
+					<li>414</li>
+					<li>415</li>
+					<li>416</li>
+					<li>417</li>
+					<li>418</li>
+					<li class="prime">419</li>
+					<li>420</li>
+					<li class="prime">421</li>
+					<li>422</li>
+					<li>423</li>
+					<li>424</li>
+					<li>425</li>
+					<li>426</li>
+					<li>427</li>
+					<li>428</li>
+					<li>429</li>
+					<li>430</li>
+					<li class="prime">431</li>
+					<li>432</li>
+					<li class="prime">433</li>
+					<li>434</li>
+					<li>435</li>
+					<li>436</li>
+					<li>437</li>
+					<li>438</li>
+					<li class="prime">439</li>
+					<li>440</li>
+					<li>441</li>
+					<li>442</li>
+					<li class="prime">443</li>
+					<li>444</li>
+					<li>445</li>
+					<li>446</li>
+					<li>447</li>
+					<li>448</li>
+					<li class="prime">449</li>
+					<li>450</li>
+					<li>451</li>
+					<li>452</li>
+					<li>453</li>
+					<li>454</li>
+					<li>455</li>
+					<li>456</li>
+					<li class="prime">457</li>
+					<li>458</li>
+					<li>459</li>
+					<li>460</li>
+					<li class="prime">461</li>
+					<li>462</li>
+					<li class="prime">463</li>
+					<li>464</li>
+					<li>465</li>
+					<li>466</li>
+					<li class="prime">467</li>
+					<li>468</li>
+					<li>469</li>
+					<li>470</li>
+					<li>471</li>
+					<li>472</li>
+					<li>473</li>
+					<li>474</li>
+					<li>475</li>
+					<li>476</li>
+					<li>477</li>
+					<li>478</li>
+					<li class="prime">479</li>
+					<li>480</li>
+					<li>481</li>
+					<li>482</li>
+					<li>483</li>
+					<li>484</li>
+					<li>485</li>
+					<li>486</li>
+					<li class="prime">487</li>
+					<li>488</li>
+					<li>489</li>
+					<li>490</li>
+					<li class="prime">491</li>
+					<li>492</li>
+					<li>493</li>
+					<li>494</li>
+					<li>495</li>
+					<li>496</li>
+					<li>497</li>
+					<li>498</li>
+					<li class="prime">499</li>
+					<li>500</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+				<ul class="numbers">
+					<li>901</li>
+					<li>902</li>
+					<li>903</li>
+					<li>904</li>
+					<li>905</li>
+					<li>906</li>
+					<li class="prime">907</li>
+					<li>908</li>
+					<li>909</li>
+					<li>910</li>
+					<li class="prime">911</li>
+					<li>912</li>
+					<li>913</li>
+					<li>914</li>
+					<li>915</li>
+					<li>916</li>
+					<li>917</li>
+					<li>918</li>
+					<li class="prime">919</li>
+					<li>920</li>
+					<li>921</li>
+					<li>922</li>
+					<li>923</li>
+					<li>924</li>
+					<li>925</li>
+					<li>926</li>
+					<li>927</li>
+					<li>928</li>
+					<li class="prime">929</li>
+					<li>930</li>
+					<li>931</li>
+					<li>932</li>
+					<li>933</li>
+					<li>934</li>
+					<li>935</li>
+					<li>936</li>
+					<li class="prime">937</li>
+					<li>938</li>
+					<li>939</li>
+					<li>940</li>
+					<li class="prime">941</li>
+					<li>942</li>
+					<li>943</li>
+					<li>944</li>
+					<li>945</li>
+					<li>946</li>
+					<li class="prime">947</li>
+					<li>948</li>
+					<li>949</li>
+					<li>950</li>
+					<li>951</li>
+					<li>952</li>
+					<li class="prime">953</li>
+					<li>954</li>
+					<li>955</li>
+					<li>956</li>
+					<li>957</li>
+					<li>958</li>
+					<li>959</li>
+					<li>960</li>
+					<li>961</li>
+					<li>962</li>
+					<li>963</li>
+					<li>964</li>
+					<li>965</li>
+					<li>966</li>
+					<li class="prime">967</li>
+					<li>968</li>
+					<li>969</li>
+					<li>970</li>
+					<li class="prime">971</li>
+					<li>972</li>
+					<li>973</li>
+					<li>974</li>
+					<li>975</li>
+					<li>976</li>
+					<li class="prime">977</li>
+					<li>978</li>
+					<li>979</li>
+					<li>980</li>
+					<li>981</li>
+					<li>982</li>
+					<li class="prime">983</li>
+					<li>984</li>
+					<li>985</li>
+					<li>986</li>
+					<li>987</li>
+					<li>988</li>
+					<li>989</li>
+					<li>990</li>
+					<li class="prime">991</li>
+					<li>992</li>
+					<li>993</li>
+					<li>994</li>
+					<li>995</li>
+					<li>996</li>
+					<li class="prime">997</li>
+					<li>998</li>
+					<li>999</li>
+					<li>1000</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+				<ul class="numbers">
+					<li class="prime">9901</li>
+					<li>9902</li>
+					<li>9903</li>
+					<li>9904</li>
+					<li>9905</li>
+					<li>9906</li>
+					<li class="prime">9907</li>
+					<li>9908</li>
+					<li>9909</li>
+					<li>9910</li>
+					<li>9911</li>
+					<li>9912</li>
+					<li>9913</li>
+					<li>9914</li>
+					<li>9915</li>
+					<li>9916</li>
+					<li>9917</li>
+					<li>9918</li>
+					<li>9919</li>
+					<li>9920</li>
+					<li>9921</li>
+					<li>9922</li>
+					<li class="prime">9923</li>
+					<li>9924</li>
+					<li>9925</li>
+					<li>9926</li>
+					<li>9927</li>
+					<li>9928</li>
+					<li class="prime">9929</li>
+					<li>9930</li>
+					<li class="prime">9931</li>
+					<li>9932</li>
+					<li>9933</li>
+					<li>9934</li>
+					<li>9935</li>
+					<li>9936</li>
+					<li>9937</li>
+					<li>9938</li>
+					<li>9939</li>
+					<li>9940</li>
+					<li class="prime">9941</li>
+					<li>9942</li>
+					<li>9943</li>
+					<li>9944</li>
+					<li>9945</li>
+					<li>9946</li>
+					<li>9947</li>
+					<li>9948</li>
+					<li class="prime">9949</li>
+					<li>9950</li>
+					<li>9951</li>
+					<li>9952</li>
+					<li>9953</li>
+					<li>9954</li>
+					<li>9955</li>
+					<li>9956</li>
+					<li>9957</li>
+					<li>9958</li>
+					<li>9959</li>
+					<li>9960</li>
+					<li>9961</li>
+					<li>9962</li>
+					<li>9963</li>
+					<li>9964</li>
+					<li>9965</li>
+					<li>9966</li>
+					<li class="prime">9967</li>
+					<li>9968</li>
+					<li>9969</li>
+					<li>9970</li>
+					<li>9971</li>
+					<li>9972</li>
+					<li class="prime">9973</li>
+					<li>9974</li>
+					<li>9975</li>
+					<li>9976</li>
+					<li>9977</li>
+					<li>9978</li>
+					<li>9979</li>
+					<li>9980</li>
+					<li>9981</li>
+					<li>9982</li>
+					<li>9983</li>
+					<li>9984</li>
+					<li>9985</li>
+					<li>9986</li>
+					<li>9987</li>
+					<li>9988</li>
+					<li>9989</li>
+					<li>9990</li>
+					<li>9991</li>
+					<li>9992</li>
+					<li>9993</li>
+					<li>9994</li>
+					<li>9995</li>
+					<li>9996</li>
+					<li>9997</li>
+					<li>9998</li>
+					<li>9999</li>
+					<li>10000</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in concave-out" data-background-color="teal">
+				<h3>How about twin primes?</h3>
+				<ul class="numbers">
+					<li>2</li>
+					<li class="twin-prime">3</li>
+					<li>4</li>
+					<li class="twin-prime">5</li>
+					<li>6</li>
+					<li class="twin-prime">7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li class="twin-prime">11</li>
+					<li>12</li>
+					<li class="twin-prime">13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+					<li class="twin-prime">17</li>
+					<li>18</li>
+					<li class="twin-prime">19</li>
+					<li>20</li>
+					<li>21</li>
+					<li>22</li>
+					<li>23</li>
+					<li>24</li>
+					<li>25</li>
+					<li>26</li>
+					<li>27</li>
+					<li>28</li>
+					<li class="twin-prime">29</li>
+					<li>30</li>
+					<li class="twin-prime">31</li>
+					<li>32</li>
+					<li>33</li>
+					<li>34</li>
+					<li>35</li>
+					<li>36</li>
+					<li>37</li>
+					<li>38</li>
+					<li>39</li>
+					<li>40</li>
+					<li class="twin-prime">41</li>
+					<li>42</li>
+					<li class="twin-prime">43</li>
+					<li>44</li>
+					<li>45</li>
+					<li>46</li>
+					<li>47</li>
+					<li>48</li>
+					<li>49</li>
+					<li>50</li>
+					<li>51</li>
+					<li>52</li>
+					<li>53</li>
+					<li>54</li>
+					<li>55</li>
+					<li>56</li>
+					<li>57</li>
+					<li>58</li>
+					<li class="twin-prime">59</li>
+					<li>60</li>
+					<li class="twin-prime">61</li>
+					<li>62</li>
+					<li>63</li>
+					<li>64</li>
+					<li>65</li>
+					<li>66</li>
+					<li>67</li>
+					<li>68</li>
+					<li>69</li>
+					<li>70</li>
+					<li class="twin-prime">71</li>
+					<li>72</li>
+					<li class="twin-prime">73</li>
+					<li>74</li>
+					<li>75</li>
+					<li>76</li>
+					<li>77</li>
+					<li>78</li>
+					<li>79</li>
+					<li>80</li>
+					<li>81</li>
+					<li>82</li>
+					<li>83</li>
+					<li>84</li>
+					<li>85</li>
+					<li>86</li>
+					<li>87</li>
+					<li>88</li>
+					<li>89</li>
+					<li>90</li>
+					<li>91</li>
+					<li>92</li>
+					<li>93</li>
+					<li>94</li>
+					<li>95</li>
+					<li>96</li>
+					<li>97</li>
+					<li>98</li>
+					<li>99</li>
+					<li>100</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+				<ul class="numbers">
+					<li>401</li>
+					<li>402</li>
+					<li>403</li>
+					<li>404</li>
+					<li>405</li>
+					<li>406</li>
+					<li>407</li>
+					<li>408</li>
+					<li>409</li>
+					<li>410</li>
+					<li>411</li>
+					<li>412</li>
+					<li>413</li>
+					<li>414</li>
+					<li>415</li>
+					<li>416</li>
+					<li>417</li>
+					<li>418</li>
+					<li class="twin-prime">419</li>
+					<li>420</li>
+					<li class="twin-prime">421</li>
+					<li>422</li>
+					<li>423</li>
+					<li>424</li>
+					<li>425</li>
+					<li>426</li>
+					<li>427</li>
+					<li>428</li>
+					<li>429</li>
+					<li>430</li>
+					<li class="twin-prime">431</li>
+					<li>432</li>
+					<li class="twin-prime">433</li>
+					<li>434</li>
+					<li>435</li>
+					<li>436</li>
+					<li>437</li>
+					<li>438</li>
+					<li>439</li>
+					<li>440</li>
+					<li>441</li>
+					<li>442</li>
+					<li>443</li>
+					<li>444</li>
+					<li>445</li>
+					<li>446</li>
+					<li>447</li>
+					<li>448</li>
+					<li>449</li>
+					<li>450</li>
+					<li>451</li>
+					<li>452</li>
+					<li>453</li>
+					<li>454</li>
+					<li>455</li>
+					<li>456</li>
+					<li>457</li>
+					<li>458</li>
+					<li>459</li>
+					<li>460</li>
+					<li class="twin-prime">461</li>
+					<li>462</li>
+					<li class="twin-prime">463</li>
+					<li>464</li>
+					<li>465</li>
+					<li>466</li>
+					<li>467</li>
+					<li>468</li>
+					<li>469</li>
+					<li>470</li>
+					<li>471</li>
+					<li>472</li>
+					<li>473</li>
+					<li>474</li>
+					<li>475</li>
+					<li>476</li>
+					<li>477</li>
+					<li>478</li>
+					<li>479</li>
+					<li>480</li>
+					<li>481</li>
+					<li>482</li>
+					<li>483</li>
+					<li>484</li>
+					<li>485</li>
+					<li>486</li>
+					<li>487</li>
+					<li>488</li>
+					<li>489</li>
+					<li>490</li>
+					<li>491</li>
+					<li>492</li>
+					<li>493</li>
+					<li>494</li>
+					<li>495</li>
+					<li>496</li>
+					<li>497</li>
+					<li>498</li>
+					<li>499</li>
+					<li>500</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+				<ul class="numbers">
+					<li>901</li>
+					<li>902</li>
+					<li>903</li>
+					<li>904</li>
+					<li>905</li>
+					<li>906</li>
+					<li>907</li>
+					<li>908</li>
+					<li>909</li>
+					<li>910</li>
+					<li>911</li>
+					<li>912</li>
+					<li>913</li>
+					<li>914</li>
+					<li>915</li>
+					<li>916</li>
+					<li>917</li>
+					<li>918</li>
+					<li>919</li>
+					<li>920</li>
+					<li>921</li>
+					<li>922</li>
+					<li>923</li>
+					<li>924</li>
+					<li>925</li>
+					<li>926</li>
+					<li>927</li>
+					<li>928</li>
+					<li>929</li>
+					<li>930</li>
+					<li>931</li>
+					<li>932</li>
+					<li>933</li>
+					<li>934</li>
+					<li>935</li>
+					<li>936</li>
+					<li>937</li>
+					<li>938</li>
+					<li>939</li>
+					<li>940</li>
+					<li>941</li>
+					<li>942</li>
+					<li>943</li>
+					<li>944</li>
+					<li>945</li>
+					<li>946</li>
+					<li>947</li>
+					<li>948</li>
+					<li>949</li>
+					<li>950</li>
+					<li>951</li>
+					<li>952</li>
+					<li>953</li>
+					<li>954</li>
+					<li>955</li>
+					<li>956</li>
+					<li>957</li>
+					<li>958</li>
+					<li>959</li>
+					<li>960</li>
+					<li>961</li>
+					<li>962</li>
+					<li>963</li>
+					<li>964</li>
+					<li>965</li>
+					<li>966</li>
+					<li>967</li>
+					<li>968</li>
+					<li>969</li>
+					<li>970</li>
+					<li>971</li>
+					<li>972</li>
+					<li>973</li>
+					<li>974</li>
+					<li>975</li>
+					<li>976</li>
+					<li>977</li>
+					<li>978</li>
+					<li>979</li>
+					<li>980</li>
+					<li>981</li>
+					<li>982</li>
+					<li>983</li>
+					<li>984</li>
+					<li>985</li>
+					<li>986</li>
+					<li>987</li>
+					<li>988</li>
+					<li>989</li>
+					<li>990</li>
+					<li>991</li>
+					<li>992</li>
+					<li>993</li>
+					<li>994</li>
+					<li>995</li>
+					<li>996</li>
+					<li>997</li>
+					<li>998</li>
+					<li>999</li>
+					<li>1000</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+				<ul class="numbers">
+					<li>9901</li>
+					<li>9902</li>
+					<li>9903</li>
+					<li>9904</li>
+					<li>9905</li>
+					<li>9906</li>
+					<li>9907</li>
+					<li>9908</li>
+					<li>9909</li>
+					<li>9910</li>
+					<li>9911</li>
+					<li>9912</li>
+					<li>9913</li>
+					<li>9914</li>
+					<li>9915</li>
+					<li>9916</li>
+					<li>9917</li>
+					<li>9918</li>
+					<li>9919</li>
+					<li>9920</li>
+					<li>9921</li>
+					<li>9922</li>
+					<li>9923</li>
+					<li>9924</li>
+					<li>9925</li>
+					<li>9926</li>
+					<li>9927</li>
+					<li>9928</li>
+					<li class="twin-prime">9929</li>
+					<li>9930</li>
+					<li class="twin-prime">9931</li>
+					<li>9932</li>
+					<li>9933</li>
+					<li>9934</li>
+					<li>9935</li>
+					<li>9936</li>
+					<li>9937</li>
+					<li>9938</li>
+					<li>9939</li>
+					<li>9940</li>
+					<li>9941</li>
+					<li>9942</li>
+					<li>9943</li>
+					<li>9944</li>
+					<li>9945</li>
+					<li>9946</li>
+					<li>9947</li>
+					<li>9948</li>
+					<li>9949</li>
+					<li>9950</li>
+					<li>9951</li>
+					<li>9952</li>
+					<li>9953</li>
+					<li>9954</li>
+					<li>9955</li>
+					<li>9956</li>
+					<li>9957</li>
+					<li>9958</li>
+					<li>9959</li>
+					<li>9960</li>
+					<li>9961</li>
+					<li>9962</li>
+					<li>9963</li>
+					<li>9964</li>
+					<li>9965</li>
+					<li>9966</li>
+					<li>9967</li>
+					<li>9968</li>
+					<li>9969</li>
+					<li>9970</li>
+					<li>9971</li>
+					<li>9972</li>
+					<li>9973</li>
+					<li>9974</li>
+					<li>9975</li>
+					<li>9976</li>
+					<li>9977</li>
+					<li>9978</li>
+					<li>9979</li>
+					<li>9980</li>
+					<li>9981</li>
+					<li>9982</li>
+					<li>9983</li>
+					<li>9984</li>
+					<li>9985</li>
+					<li>9986</li>
+					<li>9987</li>
+					<li>9988</li>
+					<li>9989</li>
+					<li>9990</li>
+					<li>9991</li>
+					<li>9992</li>
+					<li>9993</li>
+					<li>9994</li>
+					<li>9995</li>
+					<li>9996</li>
+					<li>9997</li>
+					<li>9998</li>
+					<li>9999</li>
+					<li>10000</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in slide-out" data-background-color="teal">
+				<h3>Arithmetic progressions in primes</h3>
+				<ul>
+					<li class="fragment">An <em>arithmetic progression</em> is a sequence of numbers so that the
+						difference between two
+						consecutive terms is constant, for example
+						<ul>
+							<li>5, 7, 9, 11.</li>
+							<li>4, 7, 10, 13, 16.</li>
+							<li>11, 17, 23, 29.</li>
+						</ul>
+					</li>
+					<li class="fragment">We consider arithmetic progressions all of whose terms are primes, such as the
+						third example.
+					</li>
+					<li class="fragment">For experiments, we take the first million pairs of primes and extend these
+						while we get primes.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+				<ul>
+					<li>
+						Some prime arithmetic progressions of length $3$:
+						<ul class="number-groups">
+							<span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">5</li>
+								<li class="prime-term">7</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">7</li>
+								<li class="prime-term">11</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">11</li>
+								<li class="prime-term">19</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">13</li>
+								<li class="prime-term">23</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">17</li>
+								<li class="prime-term">31</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">23</li>
+								<li class="prime-term">43</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">31</li>
+								<li class="prime-term">59</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">37</li>
+								<li class="prime-term">71</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">41</li>
+								<li class="prime-term">79</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">43</li>
+								<li class="prime-term">83</li>
+							</span> <span class="group">
+								<li class="prime-term">3</li>
+								<li class="prime-term">53</li>
+								<li class="prime-term">103</li>
+							</span> <span class="group">
+								<li class="prime-term">5</li>
+								<li class="prime-term">29</li>
+								<li class="prime-term">53</li>
+							</span> <span class="group">
+								<li class="prime-term">7</li>
+								<li class="prime-term">13</li>
+								<li class="prime-term">19</li>
+							</span> <span class="group">
+								<li class="prime-term">7</li>
+								<li class="prime-term">43</li>
+								<li class="prime-term">79</li>
+							</span> <span class="group">
+								<li class="prime-term">11</li>
+								<li class="prime-term">29</li>
+								<li class="prime-term">47</li>
+							</span> <span class="group">
+								<li class="prime-term">11</li>
+								<li class="prime-term">47</li>
+								<li class="prime-term">83</li>
+							</span> <span class="group">
+								<li class="prime-term">11</li>
+								<li class="prime-term">59</li>
+								<li class="prime-term">107</li>
+							</span> <span class="group">
+								<li class="prime-term">13</li>
+								<li class="prime-term">37</li>
+								<li class="prime-term">61</li>
+							</span> <span class="group">
+								<li class="prime-term">17</li>
+								<li class="prime-term">23</li>
+								<li class="prime-term">29</li>
+							</span> <span class="group">
+								<li class="prime-term">17</li>
+								<li class="prime-term">53</li>
+								<li class="prime-term">89</li>
+							</span> <span class="group">
+								<li class="prime-term">17</li>
+								<li class="prime-term">59</li>
+								<li class="prime-term">101</li>
+							</span> <span class="group">
+								<li class="prime-term">19</li>
+								<li class="prime-term">31</li>
+								<li class="prime-term">43</li>
+							</span> <span class="group">
+								<li class="prime-term">19</li>
+								<li class="prime-term">43</li>
+								<li class="prime-term">67</li>
+							</span> <span class="group">
+								<li class="prime-term">19</li>
+								<li class="prime-term">61</li>
+								<li class="prime-term">103</li>
+							</span> <span class="group">
+								<li class="prime-term">23</li>
+								<li class="prime-term">41</li>
+								<li class="prime-term">59</li>
+							</span> <span class="group">
+								<li class="prime-term">23</li>
+								<li class="prime-term">47</li>
+								<li class="prime-term">71</li>
+							</span> <span class="group">
+								<li class="prime-term">29</li>
+								<li class="prime-term">41</li>
+								<li class="prime-term">53</li>
+							</span> <span class="group">
+								<li class="prime-term">29</li>
+								<li class="prime-term">59</li>
+								<li class="prime-term">89</li>
+							</span> <span class="group">
+								<li class="prime-term">31</li>
+								<li class="prime-term">37</li>
+								<li class="prime-term">43</li>
+							</span> <span class="group">
+								<li class="prime-term">47</li>
+								<li class="prime-term">53</li>
+								<li class="prime-term">59</li>
+							</span>
+						</ul>
+					</li>
+					<li>There are $110386$ of these among the first million.</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="teal">
+
+				<section data-transition="concave" data-background-color="teal">
+					<ul>
+						<li>
+							Some prime arithmetic progressions of length $4$:
+							<ul class="number-groups">
+								<span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">23</li>
+									<li class="prime-term">41</li>
+									<li class="prime-term">59</li>
+								</span> <span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">59</li>
+									<li class="prime-term">113</li>
+									<li class="prime-term">167</li>
+								</span> <span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">89</li>
+									<li class="prime-term">173</li>
+									<li class="prime-term">257</li>
+								</span> <span class="group">
+									<li class="prime-term">7</li>
+									<li class="prime-term">19</li>
+									<li class="prime-term">31</li>
+									<li class="prime-term">43</li>
+								</span> <span class="group">
+									<li class="prime-term">7</li>
+									<li class="prime-term">79</li>
+									<li class="prime-term">151</li>
+									<li class="prime-term">223</li>
+								</span> <span class="group">
+									<li class="prime-term">11</li>
+									<li class="prime-term">17</li>
+									<li class="prime-term">23</li>
+									<li class="prime-term">29</li>
+								</span> <span class="group">
+									<li class="prime-term">13</li>
+									<li class="prime-term">43</li>
+									<li class="prime-term">73</li>
+									<li class="prime-term">103</li>
+								</span> <span class="group">
+									<li class="prime-term">13</li>
+									<li class="prime-term">61</li>
+									<li class="prime-term">109</li>
+									<li class="prime-term">157</li>
+								</span> <span class="group">
+									<li class="prime-term">17</li>
+									<li class="prime-term">29</li>
+									<li class="prime-term">41</li>
+									<li class="prime-term">53</li>
+								</span> <span class="group">
+									<li class="prime-term">19</li>
+									<li class="prime-term">73</li>
+									<li class="prime-term">127</li>
+									<li class="prime-term">181</li>
+								</span> <span class="group">
+									<li class="prime-term">19</li>
+									<li class="prime-term">79</li>
+									<li class="prime-term">139</li>
+									<li class="prime-term">199</li>
+								</span> <span class="group">
+									<li class="prime-term">23</li>
+									<li class="prime-term">53</li>
+									<li class="prime-term">83</li>
+									<li class="prime-term">113</li>
+								</span> <span class="group">
+									<li class="prime-term">29</li>
+									<li class="prime-term">83</li>
+									<li class="prime-term">137</li>
+									<li class="prime-term">191</li>
+								</span> <span class="group">
+									<li class="prime-term">31</li>
+									<li class="prime-term">67</li>
+									<li class="prime-term">103</li>
+									<li class="prime-term">139</li>
+								</span> <span class="group">
+									<li class="prime-term">41</li>
+									<li class="prime-term">47</li>
+									<li class="prime-term">53</li>
+									<li class="prime-term">59</li>
+								</span> <span class="group">
+									<li class="prime-term">41</li>
+									<li class="prime-term">71</li>
+									<li class="prime-term">101</li>
+									<li class="prime-term">131</li>
+								</span> <span class="group">
+									<li class="prime-term">43</li>
+									<li class="prime-term">61</li>
+									<li class="prime-term">79</li>
+									<li class="prime-term">97</li>
+								</span> <span class="group">
+									<li class="prime-term">47</li>
+									<li class="prime-term">59</li>
+									<li class="prime-term">71</li>
+									<li class="prime-term">83</li>
+								</span> <span class="group">
+									<li class="prime-term">47</li>
+									<li class="prime-term">89</li>
+									<li class="prime-term">131</li>
+									<li class="prime-term">173</li>
+								</span> <span class="group">
+									<li class="prime-term">53</li>
+									<li class="prime-term">71</li>
+									<li class="prime-term">89</li>
+									<li class="prime-term">107</li>
+								</span> <span class="group">
+									<li class="prime-term">59</li>
+									<li class="prime-term">83</li>
+									<li class="prime-term">107</li>
+									<li class="prime-term">131</li>
+								</span> <span class="group">
+									<li class="prime-term">61</li>
+									<li class="prime-term">67</li>
+									<li class="prime-term">73</li>
+									<li class="prime-term">79</li>
+								</span>
+							</ul>
+						</li>
+						<li>There are $27836$ of these among the first million.</li>
+					</ul>
+				</section>
+
+				<section data-transition="concave" data-background-color="teal">
+					<ul>
+						<li>
+							Some prime arithmetic progressions of length $5$:
+							<ul class="number-groups">
+								<span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">11</li>
+									<li class="prime-term">17</li>
+									<li class="prime-term">23</li>
+									<li class="prime-term">29</li>
+								</span> <span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">17</li>
+									<li class="prime-term">29</li>
+									<li class="prime-term">41</li>
+									<li class="prime-term">53</li>
+								</span> <span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">47</li>
+									<li class="prime-term">89</li>
+									<li class="prime-term">131</li>
+									<li class="prime-term">173</li>
+								</span> <span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">53</li>
+									<li class="prime-term">101</li>
+									<li class="prime-term">149</li>
+									<li class="prime-term">197</li>
+								</span> <span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">101</li>
+									<li class="prime-term">197</li>
+									<li class="prime-term">293</li>
+									<li class="prime-term">389</li>
+								</span> <span class="group">
+									<li class="prime-term">5</li>
+									<li class="prime-term">131</li>
+									<li class="prime-term">257</li>
+									<li class="prime-term">383</li>
+									<li class="prime-term">509</li>
+								</span> <span class="group">
+									<li class="prime-term">11</li>
+									<li class="prime-term">41</li>
+									<li class="prime-term">71</li>
+									<li class="prime-term">101</li>
+									<li class="prime-term">131</li>
+								</span> <span class="group">
+									<li class="prime-term">13</li>
+									<li class="prime-term">163</li>
+									<li class="prime-term">313</li>
+									<li class="prime-term">463</li>
+									<li class="prime-term">613</li>
+								</span> <span class="group">
+									<li class="prime-term">17</li>
+									<li class="prime-term">167</li>
+									<li class="prime-term">317</li>
+									<li class="prime-term">467</li>
+									<li class="prime-term">617</li>
+								</span> <span class="group">
+									<li class="prime-term">29</li>
+									<li class="prime-term">149</li>
+									<li class="prime-term">269</li>
+									<li class="prime-term">389</li>
+									<li class="prime-term">509</li>
+								</span> <span class="group">
+									<li class="prime-term">37</li>
+									<li class="prime-term">67</li>
+									<li class="prime-term">97</li>
+									<li class="prime-term">127</li>
+									<li class="prime-term">157</li>
+								</span> <span class="group">
+									<li class="prime-term">43</li>
+									<li class="prime-term">103</li>
+									<li class="prime-term">163</li>
+									<li class="prime-term">223</li>
+									<li class="prime-term">283</li>
+								</span> <span class="group">
+									<li class="prime-term">61</li>
+									<li class="prime-term">151</li>
+									<li class="prime-term">241</li>
+									<li class="prime-term">331</li>
+									<li class="prime-term">421</li>
+								</span> <span class="group">
+									<li class="prime-term">71</li>
+									<li class="prime-term">131</li>
+									<li class="prime-term">191</li>
+									<li class="prime-term">251</li>
+									<li class="prime-term">311</li>
+								</span> <span class="group">
+									<li class="prime-term">83</li>
+									<li class="prime-term">173</li>
+									<li class="prime-term">263</li>
+									<li class="prime-term">353</li>
+									<li class="prime-term">443</li>
+								</span> <span class="group">
+									<li class="prime-term">89</li>
+									<li class="prime-term">179</li>
+									<li class="prime-term">269</li>
+									<li class="prime-term">359</li>
+									<li class="prime-term">449</li>
+								</span> <span class="group">
+									<li class="prime-term">113</li>
+									<li class="prime-term">173</li>
+									<li class="prime-term">233</li>
+									<li class="prime-term">293</li>
+									<li class="prime-term">353</li>
+								</span> <span class="group">
+									<li class="prime-term">137</li>
+									<li class="prime-term">167</li>
+									<li class="prime-term">197</li>
+									<li class="prime-term">227</li>
+									<li class="prime-term">257</li>
+								</span>
+							</ul>
+						</li>
+						<li>There are $3665$ of these among the first million.</li>
+					</ul>
+				</section>
+
+				<section data-transition="concave" data-background-color="teal">
+					<ul>
+						<li>
+							Some prime arithmetic progressions of length $6$:
+							<ul class="number-groups">
+								<span class="group">
+									<li class="prime-term">7</li>
+									<li class="prime-term">37</li>
+									<li class="prime-term">67</li>
+									<li class="prime-term">97</li>
+									<li class="prime-term">127</li>
+									<li class="prime-term">157</li>
+								</span> <span class="group">
+									<li class="prime-term">11</li>
+									<li class="prime-term">71</li>
+									<li class="prime-term">131</li>
+									<li class="prime-term">191</li>
+									<li class="prime-term">251</li>
+									<li class="prime-term">311</li>
+								</span> <span class="group">
+									<li class="prime-term">13</li>
+									<li class="prime-term">103</li>
+									<li class="prime-term">193</li>
+									<li class="prime-term">283</li>
+									<li class="prime-term">373</li>
+									<li class="prime-term">463</li>
+								</span> <span class="group">
+									<li class="prime-term">13</li>
+									<li class="prime-term">223</li>
+									<li class="prime-term">433</li>
+									<li class="prime-term">643</li>
+									<li class="prime-term">853</li>
+									<li class="prime-term">1063</li>
+								</span> <span class="group">
+									<li class="prime-term">23</li>
+									<li class="prime-term">263</li>
+									<li class="prime-term">503</li>
+									<li class="prime-term">743</li>
+									<li class="prime-term">983</li>
+									<li class="prime-term">1223</li>
+								</span> <span class="group">
+									<li class="prime-term">41</li>
+									<li class="prime-term">461</li>
+									<li class="prime-term">881</li>
+									<li class="prime-term">1301</li>
+									<li class="prime-term">1721</li>
+									<li class="prime-term">2141</li>
+								</span> <span class="group">
+									<li class="prime-term">53</li>
+									<li class="prime-term">113</li>
+									<li class="prime-term">173</li>
+									<li class="prime-term">233</li>
+									<li class="prime-term">293</li>
+									<li class="prime-term">353</li>
+								</span> <span class="group">
+									<li class="prime-term">73</li>
+									<li class="prime-term">223</li>
+									<li class="prime-term">373</li>
+									<li class="prime-term">523</li>
+									<li class="prime-term">673</li>
+									<li class="prime-term">823</li>
+								</span> <span class="group">
+									<li class="prime-term">83</li>
+									<li class="prime-term">383</li>
+									<li class="prime-term">683</li>
+									<li class="prime-term">983</li>
+									<li class="prime-term">1283</li>
+									<li class="prime-term">1583</li>
+								</span> <span class="group">
+									<li class="prime-term">107</li>
+									<li class="prime-term">137</li>
+									<li class="prime-term">167</li>
+									<li class="prime-term">197</li>
+									<li class="prime-term">227</li>
+									<li class="prime-term">257</li>
+								</span> <span class="group">
+									<li class="prime-term">127</li>
+									<li class="prime-term">457</li>
+									<li class="prime-term">787</li>
+									<li class="prime-term">1117</li>
+									<li class="prime-term">1447</li>
+									<li class="prime-term">1777</li>
+								</span> <span class="group">
+									<li class="prime-term">157</li>
+									<li class="prime-term">307</li>
+									<li class="prime-term">457</li>
+									<li class="prime-term">607</li>
+									<li class="prime-term">757</li>
+									<li class="prime-term">907</li>
+								</span> <span class="group">
+									<li class="prime-term">239</li>
+									<li class="prime-term">359</li>
+									<li class="prime-term">479</li>
+									<li class="prime-term">599</li>
+									<li class="prime-term">719</li>
+									<li class="prime-term">839</li>
+								</span> <span class="group">
+									<li class="prime-term">281</li>
+									<li class="prime-term">401</li>
+									<li class="prime-term">521</li>
+									<li class="prime-term">641</li>
+									<li class="prime-term">761</li>
+									<li class="prime-term">881</li>
+								</span> <span class="group">
+									<li class="prime-term">359</li>
+									<li class="prime-term">389</li>
+									<li class="prime-term">419</li>
+									<li class="prime-term">449</li>
+									<li class="prime-term">479</li>
+									<li class="prime-term">509</li>
+								</span>
+							</ul>
+						</li>
+						<li>There are $980$ of these among the first million.</li>
+					</ul>
+				</section>
+
+				<section data-transition="concave" data-background-color="teal">
+					<ul>
+						<li>
+							Some prime arithmetic progressions of length $7$:
+							<ul class="number-groups">
+								<span class="group">
+									<li class="prime-term">7</li>
+									<li class="prime-term">157</li>
+									<li class="prime-term">307</li>
+									<li class="prime-term">457</li>
+									<li class="prime-term">607</li>
+									<li class="prime-term">757</li>
+									<li class="prime-term">907</li>
+								</span> <span class="group">
+									<li class="prime-term">47</li>
+									<li class="prime-term">257</li>
+									<li class="prime-term">467</li>
+									<li class="prime-term">677</li>
+									<li class="prime-term">887</li>
+									<li class="prime-term">1097</li>
+									<li class="prime-term">1307</li>
+								</span> <span class="group">
+									<li class="prime-term">53</li>
+									<li class="prime-term">1103</li>
+									<li class="prime-term">2153</li>
+									<li class="prime-term">3203</li>
+									<li class="prime-term">4253</li>
+									<li class="prime-term">5303</li>
+									<li class="prime-term">6353</li>
+								</span> <span class="group">
+									<li class="prime-term">71</li>
+									<li class="prime-term">2381</li>
+									<li class="prime-term">4691</li>
+									<li class="prime-term">7001</li>
+									<li class="prime-term">9311</li>
+									<li class="prime-term">11621</li>
+									<li class="prime-term">13931</li>
+								</span> <span class="group">
+									<li class="prime-term">179</li>
+									<li class="prime-term">389</li>
+									<li class="prime-term">599</li>
+									<li class="prime-term">809</li>
+									<li class="prime-term">1019</li>
+									<li class="prime-term">1229</li>
+									<li class="prime-term">1439</li>
+								</span> <span class="group">
+									<li class="prime-term">193</li>
+									<li class="prime-term">613</li>
+									<li class="prime-term">1033</li>
+									<li class="prime-term">1453</li>
+									<li class="prime-term">1873</li>
+									<li class="prime-term">2293</li>
+									<li class="prime-term">2713</li>
+								</span> <span class="group">
+									<li class="prime-term">359</li>
+									<li class="prime-term">1619</li>
+									<li class="prime-term">2879</li>
+									<li class="prime-term">4139</li>
+									<li class="prime-term">5399</li>
+									<li class="prime-term">6659</li>
+									<li class="prime-term">7919</li>
+								</span> <span class="group">
+									<li class="prime-term">829</li>
+									<li class="prime-term">1039</li>
+									<li class="prime-term">1249</li>
+									<li class="prime-term">1459</li>
+									<li class="prime-term">1669</li>
+									<li class="prime-term">1879</li>
+									<li class="prime-term">2089</li>
+								</span> <span class="group">
+									<li class="prime-term">1061</li>
+									<li class="prime-term">1901</li>
+									<li class="prime-term">2741</li>
+									<li class="prime-term">3581</li>
+									<li class="prime-term">4421</li>
+									<li class="prime-term">5261</li>
+									<li class="prime-term">6101</li>
+								</span> <span class="group">
+									<li class="prime-term">1091</li>
+									<li class="prime-term">1301</li>
+									<li class="prime-term">1511</li>
+									<li class="prime-term">1721</li>
+									<li class="prime-term">1931</li>
+									<li class="prime-term">2141</li>
+									<li class="prime-term">2351</li>
+								</span> <span class="group">
+									<li class="prime-term">1453</li>
+									<li class="prime-term">1663</li>
+									<li class="prime-term">1873</li>
+									<li class="prime-term">2083</li>
+									<li class="prime-term">2293</li>
+									<li class="prime-term">2503</li>
+									<li class="prime-term">2713</li>
+								</span>
+							</ul>
+						</li>
+						<li>There are $127$ of these among the first million.</li>
+					</ul>
+				</section>
+
+				<section data-transition="concave" data-background-color="teal">
+					<ul>
+						<li>
+							Some prime arithmetic progressions of length $8$:
+							<ul class="number-groups">
+								<span class="group">
+									<li class="prime-term">619</li>
+									<li class="prime-term">829</li>
+									<li class="prime-term">1039</li>
+									<li class="prime-term">1249</li>
+									<li class="prime-term">1459</li>
+									<li class="prime-term">1669</li>
+									<li class="prime-term">1879</li>
+									<li class="prime-term">2089</li>
+								</span> <span class="group">
+									<li class="prime-term">881</li>
+									<li class="prime-term">1091</li>
+									<li class="prime-term">1301</li>
+									<li class="prime-term">1511</li>
+									<li class="prime-term">1721</li>
+									<li class="prime-term">1931</li>
+									<li class="prime-term">2141</li>
+									<li class="prime-term">2351</li>
+								</span> <span class="group">
+									<li class="prime-term">1019</li>
+									<li class="prime-term">3329</li>
+									<li class="prime-term">5639</li>
+									<li class="prime-term">7949</li>
+									<li class="prime-term">10259</li>
+									<li class="prime-term">12569</li>
+									<li class="prime-term">14879</li>
+									<li class="prime-term">17189</li>
+								</span> <span class="group">
+									<li class="prime-term">1091</li>
+									<li class="prime-term">3821</li>
+									<li class="prime-term">6551</li>
+									<li class="prime-term">9281</li>
+									<li class="prime-term">12011</li>
+									<li class="prime-term">14741</li>
+									<li class="prime-term">17471</li>
+									<li class="prime-term">20201</li>
+								</span> <span class="group">
+									<li class="prime-term">1289</li>
+									<li class="prime-term">2969</li>
+									<li class="prime-term">4649</li>
+									<li class="prime-term">6329</li>
+									<li class="prime-term">8009</li>
+									<li class="prime-term">9689</li>
+									<li class="prime-term">11369</li>
+									<li class="prime-term">13049</li>
+								</span> <span class="group">
+									<li class="prime-term">1637</li>
+									<li class="prime-term">2267</li>
+									<li class="prime-term">2897</li>
+									<li class="prime-term">3527</li>
+									<li class="prime-term">4157</li>
+									<li class="prime-term">4787</li>
+									<li class="prime-term">5417</li>
+									<li class="prime-term">6047</li>
+								</span> <span class="group">
+									<li class="prime-term">1847</li>
+									<li class="prime-term">3947</li>
+									<li class="prime-term">6047</li>
+									<li class="prime-term">8147</li>
+									<li class="prime-term">10247</li>
+									<li class="prime-term">12347</li>
+									<li class="prime-term">14447</li>
+									<li class="prime-term">16547</li>
+								</span> <span class="group">
+									<li class="prime-term">2239</li>
+									<li class="prime-term">2659</li>
+									<li class="prime-term">3079</li>
+									<li class="prime-term">3499</li>
+									<li class="prime-term">3919</li>
+									<li class="prime-term">4339</li>
+									<li class="prime-term">4759</li>
+									<li class="prime-term">5179</li>
+								</span> <span class="group">
+									<li class="prime-term">2693</li>
+									<li class="prime-term">4583</li>
+									<li class="prime-term">6473</li>
+									<li class="prime-term">8363</li>
+									<li class="prime-term">10253</li>
+									<li class="prime-term">12143</li>
+									<li class="prime-term">14033</li>
+									<li class="prime-term">15923</li>
+								</span> <span class="group">
+									<li class="prime-term">3323</li>
+									<li class="prime-term">4583</li>
+									<li class="prime-term">5843</li>
+									<li class="prime-term">7103</li>
+									<li class="prime-term">8363</li>
+									<li class="prime-term">9623</li>
+									<li class="prime-term">10883</li>
+									<li class="prime-term">12143</li>
+								</span>
+							</ul>
+						</li>
+						<li>There are $46$ of these among the first million.</li>
+					</ul>
+				</section>
+
+				<section data-transition="concave" data-background-color="teal">
+
+					<ul class="number-groups">
+						<span class="group">
+							<li class="prime-term">17</li>
+							<li class="prime-term">6947</li>
+							<li class="prime-term">13877</li>
+							<li class="prime-term">20807</li>
+							<li class="prime-term">27737</li>
+							<li class="prime-term">34667</li>
+							<li class="prime-term">41597</li>
+							<li class="prime-term">48527</li>
+							<li class="prime-term">55457</li>
+						</span> <span class="group">
+							<li class="prime-term">137</li>
+							<li class="prime-term">8117</li>
+							<li class="prime-term">16097</li>
+							<li class="prime-term">24077</li>
+							<li class="prime-term">32057</li>
+							<li class="prime-term">40037</li>
+							<li class="prime-term">48017</li>
+							<li class="prime-term">55997</li>
+							<li class="prime-term">63977</li>
+						</span> <span class="group">
+							<li class="prime-term">409</li>
+							<li class="prime-term">619</li>
+							<li class="prime-term">829</li>
+							<li class="prime-term">1039</li>
+							<li class="prime-term">1249</li>
+							<li class="prime-term">1459</li>
+							<li class="prime-term">1669</li>
+							<li class="prime-term">1879</li>
+							<li class="prime-term">2089</li>
+						</span> <span class="group">
+							<li class="prime-term">433</li>
+							<li class="prime-term">3583</li>
+							<li class="prime-term">6733</li>
+							<li class="prime-term">9883</li>
+							<li class="prime-term">13033</li>
+							<li class="prime-term">16183</li>
+							<li class="prime-term">19333</li>
+							<li class="prime-term">22483</li>
+							<li class="prime-term">25633</li>
+						</span> <span class="group">
+							<li class="prime-term">1699</li>
+							<li class="prime-term">5689</li>
+							<li class="prime-term">9679</li>
+							<li class="prime-term">13669</li>
+							<li class="prime-term">17659</li>
+							<li class="prime-term">21649</li>
+							<li class="prime-term">25639</li>
+							<li class="prime-term">29629</li>
+							<li class="prime-term">33619</li>
+						</span> <span class="group">
+							<li class="prime-term">2063</li>
+							<li class="prime-term">3323</li>
+							<li class="prime-term">4583</li>
+							<li class="prime-term">5843</li>
+							<li class="prime-term">7103</li>
+							<li class="prime-term">8363</li>
+							<li class="prime-term">9623</li>
+							<li class="prime-term">10883</li>
+							<li class="prime-term">12143</li>
+						</span> <span class="group">
+							<li class="prime-term">3499</li>
+							<li class="prime-term">3709</li>
+							<li class="prime-term">3919</li>
+							<li class="prime-term">4129</li>
+							<li class="prime-term">4339</li>
+							<li class="prime-term">4549</li>
+							<li class="prime-term">4759</li>
+							<li class="prime-term">4969</li>
+							<li class="prime-term">5179</li>
+						</span> <span class="group">
+							<li class="prime-term">3823</li>
+							<li class="prime-term">6133</li>
+							<li class="prime-term">8443</li>
+							<li class="prime-term">10753</li>
+							<li class="prime-term">13063</li>
+							<li class="prime-term">15373</li>
+							<li class="prime-term">17683</li>
+							<li class="prime-term">19993</li>
+							<li class="prime-term">22303</li>
+						</span> <span class="group">
+							<li class="prime-term">4721</li>
+							<li class="prime-term">7451</li>
+							<li class="prime-term">10181</li>
+							<li class="prime-term">12911</li>
+							<li class="prime-term">15641</li>
+							<li class="prime-term">18371</li>
+							<li class="prime-term">21101</li>
+							<li class="prime-term">23831</li>
+							<li class="prime-term">26561</li>
+						</span> <span class="group">
+							<li class="prime-term">6043</li>
+							<li class="prime-term">6883</li>
+							<li class="prime-term">7723</li>
+							<li class="prime-term">8563</li>
+							<li class="prime-term">9403</li>
+							<li class="prime-term">10243</li>
+							<li class="prime-term">11083</li>
+							<li class="prime-term">11923</li>
+							<li class="prime-term">12763</li>
+						</span>
+					</ul>
+					<ul>
+						<li>There are $15$ prime arithmetic progressions of length $9$ among the first million.</li>
+					</ul>
+				</section>
+
+				<section data-transition="concave" data-background-color="teal">
+					<ul>
+						<li>
+							There is just $1$ arithmetic progressions of length $10$ among the first million.
+
+							<ul class="number-groups">
+								<span class="group">
+									<li class="prime-term">199</li>
+									<li class="prime-term">409</li>
+									<li class="prime-term">619</li>
+									<li class="prime-term">829</li>
+									<li class="prime-term">1039</li>
+									<li class="prime-term">1249</li>
+									<li class="prime-term">1459</li>
+									<li class="prime-term">1669</li>
+									<li class="prime-term">1879</li>
+									<li class="prime-term">2089</li>
+								</span> </ul>
+						</li>
+						<li>
+							The largest explicitly known arithmetic progression is of length $27$.
+						</li>
+					</ul>
+				</section>
+
+
+			</section>
+
+			<section data-transition="concave" data-background="teal">
+				<h3>Lengths of arithmetic progressions</h3>
+				<ul>
+					<li class="fragment">
+						For the first million pairs of primes, the longest arithmetic sequence of primes starting with
+						these have lengths as follows.
+						<small class="fragment">
+							<table>
+								<tr>
+									<td><strong>length</strong></td>
+									<td align="center">2</td>
+									<td align="center">3</td>
+									<td align="center">4</td>
+									<td align="center">5</td>
+									<td align="center">6</td>
+									<td align="center">7</td>
+									<td align="center">8</td>
+									<td align="center">9</td>
+									<td align="center">10</td>
+								</tr>
+								<tr>
+									<td><strong>number</strong></td>
+									<td align="center">856944</td>
+									<td align="center">110386</td>
+									<td align="center">27836</td>
+									<td align="center">3665</td>
+									<td align="center">980</td>
+									<td align="center">127</td>
+									<td align="center">46</td>
+									<td align="center">15</td>
+									<td align="center">1</td>
+								</tr>
+							</table>
+						</small>
+					</li>
+					<li class="fragment">
+						The largest explicitly known arithmetic progression is of length $27$.
+					</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom" data-background-color="teal">
+				<h3>Some questions</h3>
+				<ul>
+					<li class="fragment"><strong>Question:</strong> Are there infinitely many primes?</li>
+					<li class="fragment"><strong>Answer:</strong> Yes, as shown by Euclid.</li>
+					<li class="fragment"><strong>Question:</strong> Are there arbitrarily long arithmetic sequences of
+						primes? </li>
+					<li class="fragment"><strong>Answer:</strong> Yes, by the Green-Tao theorem from 2004.</li>
+					<li class="fragment"><strong>Question:</strong>Are there infinitely many twin primes? </li>
+					<li class="fragment"><strong>Status:</strong> We still do not know.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom-in slide-out" data-background-color="#b5533c">
+				<h1>Mathematical Proofs</h1>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Infinitude of primes</h3>
+				<ul>
+					<li class="fragment"> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
+					<li class="fragment"> <strong>Proof:</strong> Let $p > 1$ be the smallest factor of $n$ other than
+						$1$.
+					</li>
+					<li class="fragment">Then $p$ must be a prime as
+						<ul>
+							<li>Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
+							<li>But $p$ is the smallest factor of $n$, so $q = p$.</li>
+							<li>So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Infinitude of primes</h3>
+				<ul>
+					<li class="fragment"> <strong>Lemma:</strong> For any number positive integer $n$, there is a prime
+						bigger than $n$.
+					</li>
+					<li class="fragment"> <strong>Proof:</strong> Let $m = n! + 1$, where $n!=1\times
+						2\times3\times\dots n$ and let $p$
+						be a <em>prime</em> factor of $m$.
+					</li>
+					<li class="fragment">Then $p$ must be greater than $n$, as, if $p \leq n$,
+						<ul>
+							<li>$p$ divides $n!$, and</li>
+							<li>$p$ divides $n! + 1$, which means</li>
+							<li>$p$ divides $1 = (n! + 1) - n!$, which is absurd.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Formal Mathematical Proofs</h3>
+				<ul>
+					<li class="fragment">A formal proof or derivation is a finite sequence of sentences, each of which:
+						<ul>
+							<li>is an axiom (something we believe true about the universe), or</li>
+							<li>is an assumption, or</li>
+							<li>follows from the earlier sentences by a rule of inference.</li>
+						</ul>
+					</li>
+					<li class="fragment">A formal proof can be checked mechanically.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h3>Formal proof in Mizar</h3>
+				<div class="smallish">
+					<pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
+theorem Euclid: ex p st p is prime & p > n
+proof
+set k = n! + 1;
+n! > 0 by NEWTON:23;
+then n! >= 0 + 1 by NAT_1:38;
+then k >= 1 + 1 by REAL_1:55;
+then consider p such that
+A1: p is prime & p divides k by INT_2:48;
+A2: p <> 0 & p > 1 by A1,INT_2:def 5;
+take p;
+thus p is prime by A1;
+assume p <= n;
+then p divides n! by A2,NAT_LAT:16;
+then p divides 1 by A1,NAT_1:57;
+hence contradiction by A2,NAT_1:54;
+end;
+theorem {p: p is prime} is infinite
+from Unbounded(Euclid);
+</code></pre>
+				</div>
+				<p class="fragment">Full proof of infinitude of primes is 44 lines long.</p>
+			</section>
+
+
+			<section data-transition="zoom-in slide-out" data-background="jigsaw.jpeg">
+				<h1>Puzzles, Games, Reasoning</h1>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Puzzles</h3>
+				<ul>
+					<li class="fragment"><strong>Some puzzles:</strong> jigsaw, sudoku, detective stories, quiz
+						questions, planetary motion </li>
+					<li class="fragment">A puzzle is a precisely stated problem for which
+						<ul>
+							<li>it is (fairly) easy to <em>check</em> that a solution is correctly, but</li>
+							<li>it is hard to <em>find</em> the solution.</li>
+						</ul>
+					</li>
+					<li class="fragment"> A solution may be <strong>formal</strong> or <strong>informal</strong>. </li>
+					<li class="fragment"> We solve puzzles by a mixture of <em>deduction</em> (algorithms) and
+						<em>intuition</em>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-color="teal">
+				<img src="Humpty_Dumpty_Tenniel-When_I_use_a_word.png" height="600px;" alt="" />
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Deductive reasoning/Algorithms</h3>
+				<ul>
+					<li>When carrying out an algorithm, we</li>
+					<ul>
+						<li class="fragment">perform a small number of deductions/ calculations/ moves.</li>
+						<li class="fragment">following a small number of rules, possibly using a small number of
+							parameters.</li>
+					</ul>
+					<li class="fragment"> A computer's notion of <em>small</em> is very different.</li>
+					<li class="fragment"> There have been huge improvements in algorithms: <em
+							class="fragment">multiplication with carry-over,</em> <em
+							class="fragment">fingerprints,</em> <em class="fragment">SMT solvers.</em></li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Tacit knowledge</h3>
+				<ul>
+					<li class="fragment"> <em>Tacit knowledge</em> is the kind of knowledge that is difficult to
+						transfer to another
+						person by means of writing it down or verbalizing it.</li>
+					<li class="fragment">
+						Michael Polanyi: &ldquo;we can know more than we can tell.&rdquo;
+					</li>
+					<li class="fragment"> <strong>Examples:</strong> riding a bicycle, speaking a language.</li>
+					<li class="fragment"> Experts have a substantial amount of tacit knowledge.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Intuition</h3>
+				<ul>
+					<li class="fragment">Intuition is based on tacit knowledge learned through experience</li>
+					<li class="fragment">To be useful, it should be correct <em>often enough</em>
+						<ul>
+							<li>A <em>hunch</em> is sometimes correct.</li>
+							<li>A <em>judgement</em> is often correct.</li>
+						</ul>
+					</li>
+					<li class="fragment">We use this when we <em>guess and verify</em>.</li>
+					<li class="fragment">Computers can compensated by following on far more hunches, and looking more
+						moves ahead before making a judgement.</li>
+				</ul>
+			</section>
+
+
+
+			<section data-transition="zoom-in slide-out" data-background="alpha-zero.jpg">
+				<h1>Computers and Games</h1>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3> Rewards, values and policies </h3>
+				<ul>
+					<li class="fragment"> The rules of a game (e.g. chess) tell us
+						<ul>
+							<li class="fragment">what moves we can make.</li>
+							<li class="fragment">what reward we get at a stage - e.g. win/loss/draw at the end.</li>
+						</ul>
+					</li>
+					<li class="fragment"> In a simple game like tic-tac-toe, we can simply calculate the reward in all
+						cases.</li>
+					<li class="fragment"> In most cases however, we need
+						<ul>
+							<li class="fragment">A <em>policy</em> - what moves to consider.</li>
+							<li class="fragment">A (relative) <em>value</em> telling us what future reward we can expect
+								based on the present position.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<h3>Kasparov vs Deep Blue</h3>
+				<ul>
+					<li class="fragment">In Chess, a basic value is obtained by counting pieces and pawns with weights.
+					</li>
+					<li class="fragment">For openings, we only consider a small subset of possible move sequences.</li>
+					<li class="fragment"> Deep Blue (and chess theory) extend these.</li>
+					<li class="fragment"> The value and policy functions of Kasparov were far better, but compensated
+						for by Deep Blue being able to consider far more move sequences.</li>
+					<li class="fragment"> &ldquo; Play the opening like a book, the middle game like a magician, and the
+						endgame like a machine. &rdquo; – Spielmann</li>
+				</ul>
+
+			</section>
+			<section data-background-color="#002b36">
+				<h3>AlphaGo vs Lee Sedol</h3>
+				<ul>
+					<li class="fragment"> In the chines game Go, the number of legal moves is much larger, causing the
+						number of sequences for a weak policy to grow very fast.</li>
+					<li class="fragment"> More importantly, it is very hard to describe a good value function.</li>
+					<li class="fragment"> This makes it far harder for computers.</li>
+					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
+						champion Lee Sedol.</li>
+					<li class="fragment"> In March 2017, AlphaGo defeated the world number 1 Ke Jie comprehensively.
+					</li>
+
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<h3>AlphaGo and Learning</h3>
+				<ul>
+					<li class="fragment"> The policy and value functions of AlphaGo are deep neural networks that were
+						trained.</li>
+					<li class="fragment"> The policy network was trained by learning to predict the next move from games
+						of expert players.</li>
+					<li class="fragment"> The value network was trained by AlphaGo playing against versions of itself.
+					</li>
+					<li class="fragment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
+					<li class="fragment"> AlphaGo came up with unexpected moves.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>AlphaGo Zero and Alpha Zero</h3>
+				<ul>
+					<li class="fragment">AlphaGo was succeeded by AlphaGo Zero, which learnt purely by self play.</li>
+					<li class="fragment">Its successor, AlphaZero, could master a variety of similar games starting with
+						just the rules.</li>
+					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the planet
+						(beating a traditional chess program, Stockfish).</li>
+					<li class="fragment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes piece
+						activity over material, preferring positions that looked risky and aggressive.&rdquo;</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in slide-out" data-background="sea.jpg">
+				<h1>Artificial Intelligence elsewhere.</h1>
+			</section>
+
+			<section>
+				<h3>Generative Query network</h3>
+				<ul>
+					<li class="fragment">In an artifical 3D environment, the network observes 2D images from a few positions.</li>
+					<li class="fragment">It had to predict the observed image from a new position.</li>
+					<li class="fragment">To do this, the 2D image was mapped to a <em>concise</em> representation by a network, which was
+						then used to predict the image from a different viewpoint.</li>
+					<li class="fragment">The concise representation factorized by colour, shape and size (among other things).</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Generative Adversarial Network</h3>
+				<ul>
+					<li class="fragment">These consist of a pair of networks, contesting with
+						each other.</li>
+					<li class="fragment"> One network generates candidates (generative) and
+						the other evaluates them (discriminative).</li>
+					<li class="fragment">For example the discriminative network tries to
+						distinguish between real images and synthetic ones
+						generated by the generative network.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Distributional reinforcement learning</h3>
+				<ul>
+					<li>In <em>temporal reinforcement learning</em>, a network tries to predict (average) future rewards.</li>
+					<li>However, sometimes the reward is usually of one of two kinds, very big or very small, so the average is not useful.</li>
+					<li>In <em>distributional reinforcement learning</em> we have several predictors, which react differently to positive and negative errors, i.e., to whether the actual reward was above or below the prediction.</li>
+					<li>Recently, similar distributions of dopamine cells was found in the brains of mice.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in slide-out" data-background="kepler.png">
+				<h1>Computer Proofs</h1>
+				<h2>in</h2>
+				<h1>Mathematics</h1>
+			</section>
+
+			<section>
+				<h3> Universal deducer? </h3>
+				<ul>
+					<li class="fragment"> A universal deducer is a computable function (algorithm) which, given a
+						proposition (formula),
+						returns a proof if it is deducible and otherwise returns failure.</li>
+					<li class="fragment"> By results of Turing, there is no such algorithm. </li>
+					<li class="fragment"> Practically, we can conclude that there is no best deducer,
+						as any given proof can be found by some deducer but no deducer can find all proofs. </li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Some computer-assisted proofs</h3>
+				<ul>
+					<li class="fragment"><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$
+						colours.</li>
+					<li class="fragment"><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
+						the hexagonal close packing.</li>
+					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> is it possible to colour
+						each of the
+						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
+						satisfying $a^{2}+b^{2}=c^{2}$ are all the same color.</li>
+					<li class="fragment">All these proofs are long (maybe unavoidable).</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3> Robbins conjecture </h3>
+				<ul>
+					<li class="fragment"> Robbins conjecture was a conjectural characterization of Boolean algebras in
+						terms of
+						associativity and commutativity of $\vee$ and the Robbins equation
+						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
+					<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
+						automated theorem prover EQP, which is a Resolution Theorem Prover with Paramodulation.</li>
+					<li class="fragment"> So far, this seems to be the only major success of deductive theorem provers.
+					</li>
+			</section>
+
+			<section>
+				<ul>
+					<li>
+						A question on a blog of Terence Tao, asked to him by Apoorva Khare, was answered in PolyMath 14.
+					</li>
+					<li class="fragment">
+						A crucial step in the discovery was a computer generated but human readable proof I posted.
+					</li>
+					<p></p>
+					<iframe src="kwk-gross-proof.html" frameborder="0" width="800px" height="400px"
+						class="fragment"></iframe>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in slide-out" data-background-image="code.png">
+				<h1>Formal methods</h1>
+				<h2>and</h2>
+				<h1>Interactive Theorem Provers</h1>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>Formal methods</h3>
+				<ul>
+					<li class="fragment">
+						Formal methods are design techniques based on
+						<ul>
+							<li class="fragment">using rigorously specified mathematical models to build software and
+								hardware systems,</li>
+							<li class="fragment">using <em>mathematical proof</em> to ensure correct behavior.</li>
+						</ul>
+					</li>
+					<li class="fragment">This gives a much greater certainty of correctness.</li>
+					<li class="fragment">However, proofs are much harder than tests.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>When we need <em>completely correct always</em></h4>
+
+				<table class="box">
+					<tr class="fragment">
+						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
+						<td>Pentium FDIV Bug</td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
+						<td>Therac 25 radiation machine</td>
+						<td> <span class="fragment"> Safety critical</span> </td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
+						<td>WhatsApp Pegasus attack</td>
+						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
+					</tr>
+				</table>
+
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Users of formal methods</h4>
+
+				<table class="box">
+					<tr class="fragment">
+						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
+						<td>Intel Chips</td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
+						<td>Paris driverless metro</td>
+						<td> <span class="fragment"> Safety critical</span> </td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
+						<td>Scala dotty compiler</td>
+						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
+					</tr>
+				</table>
+
+			</section>
+			<section data-background-color="#002b36">
+				<h3>Interactive Theorem Provers</h3>
+				<ul>
+					<li class="fragment">These are software systems where proofs are obtained by human-machine
+						collaboration.</li>
+					<li class="fragment">The computer both finds (parts of) proofs and checks correctness.</li>
+					<li class="fragment">Some very large mathematical proofs have been verified by such systems.</li>
+					<li class="fragment">Formal methods are also based on interactive provers.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>Who guards the guards?</h3>
+				<ul>
+					<li class="fragment">
+						A computer verified proof is only as trustworthy as the system that verified the proof.
+					</li>
+					<li class="fragment">
+						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small <em>trusted
+							kernel</em>, which can be thoroughly checked.
+					</li>
+					<li class="fragment">
+						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in three
+						languages.
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>Rules of the game?</h3>
+				<ul>
+					<li class="fragment">Around 100 years ago, after battling paradoxes, foundations of mathematics were
+						built on Set
+						Theory and First-order logic.</li>
+					<li class="fragment">However, formal proofs in these foundation become long and opaque, and don't
+						resemble real life
+						mathematics.</li>
+					<li class="fragment">Instead, interactive proof systems use richer foundations that have evolved
+						over time.</li>
+					<li class="fragment">A dramatic advance in the new foundations came about with the recent discovery
+						of connections with
+						<em>topology</em>, a branch of mathematics.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom-in" data-background="hills.png">
+				<h1>The future of computer proofs?</h1>
+			</section>
+
+			<section data-transition="zoom" data-background-color="#b5533c">
+				<ul>
+					<li>
+						Artificial Intelligence can:
+						<ul>
+							<li class="fragment">Generate solutions that we can see are good.</li>
+							<li class="fragment">Judge value based on future rewards.</li>
+							<li class="fragment"> Show originality.</li>
+							<li class="fragment"> Learn things for which we depend on tacit knowledge. </li>
+							<li class="fragment"> Work with limited and/or unstructured data.</li>
+							<li class="fragment"> Organize observations naturally and efficiently.</li>
+						</ul>
+					</li>
+					<li class="fragment">For automating mathematics, it appears that there are clear approaches and no
+						evident barriers.</li>
+				</ul>
+			</section>
+	</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+//			Reveal.addEventListener( 'slidechanged', function( event ) {
+//				MathJax.Hub.Rerender();
+//			} );
+
+	</script>
+
+</body>
+
+</html>

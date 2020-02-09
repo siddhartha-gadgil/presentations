@@ -19,10 +19,30 @@ object Primes{
 
     val pc = new Primes(100000)
 
-    lazy val progressions =  pc.primeArithmeticProgressions.take(200000).filter(_.size > 2).groupBy(_.size)
+    lazy val progressions =  pc.primeArithmeticProgressions.take(1000000).groupBy(_.size)
 
     @JSExport
     lazy val progressionSizes = progressions.mapValues(_.size).toArray.sortBy(_._1).map(_._2).mkString(", ")
+
+    def primeLI(n: Int) = 
+       if (pc.primeSet.contains(n)) s"""<li class="prime">$n</li>""" else s"<li>$n</li>" 
+    
+    def primesBetween(n: Int, m: Int): String = (n to m).toVector.map(primeLI(_)).mkString(" ")
+
+    def twinPrime(n: Int) = pc.primeSet.contains(n) && (pc.primeSet.intersect(Set(n -2, n + 2)).nonEmpty)
+
+    def twinPrimeLI(n: Int) = 
+       if (twinPrime(n)) s"""<li class="twin-prime">$n</li>""" else s"<li>$n</li>" 
+
+    def twinPrimesBetween(n: Int, m: Int): String = (n to m).toVector.map(twinPrimeLI(_)).mkString(" ")
+
+    def apSpan(ap: Vector[Int]) = {
+        val list = ap.map{n=> s"""<li class="prime-term">$n</li>"""}.mkString(" ")
+        s"""<span class="group">$list</span>"""
+    }
+
+    def someAPs(s: Stream[Vector[Int]], n: Int) = s.take(n).toVector.sortBy(_.head).map(apSpan(_)).mkString(" ")
+
 }
 
 class Primes(val max: Int){
@@ -41,5 +61,5 @@ class Primes(val max: Int){
         primes.flatMap(y =>
             primes.takeWhile(_ < y).map(x => primeAp(x, y))
             ) 
-
+    def primeArithOf(length: Int, limit : Int = 1000000) = primeArithmeticProgressions.take(limit).filter(_.size == length)
 }
