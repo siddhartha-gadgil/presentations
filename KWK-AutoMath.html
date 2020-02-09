@@ -1840,6 +1840,17 @@
 				</ul>
 			</section>
 
+			<section data-transition="zoom" data-background-color="teal">
+				<h3>What is the use?</h3>
+				<ul>
+					<li class="fragment">Occasionally, a mathematical result finds unexpected applications.</li>
+					<li class="fragment">Far more often, in finding the answers to mathematical question we discover <strong>concepts</strong>, i.e., ways
+						of looking at the world, which are useful.</li>
+					<li class="fragment">For example, the Tao-Green theorem is based on a viewpoint of Terrence Tao that primes satisfy a dichotomy between <strong>structure</strong> (i.e., regularity like
+						crystals) and <strong>randomness</strong> (i.e., mixing like gases).</li>
+					<li class="fragment">Similarly, <strong>curvature</strong> was studied mathematically before being used in relativity.</li>
+				</ul>
+			</section>
 
 			<section data-transition="zoom-in slide-out" data-background-color="#b5533c">
 				<h1>Mathematical Proofs</h1>
@@ -1849,7 +1860,8 @@
 				<h3>Infinitude of primes</h3>
 				<ul>
 					<li class="fragment"> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
-					<li class="fragment"> <strong>Proof:</strong> Let $p > 1$ be the smallest factor of $n$ other than
+					<li class="fragment"> <strong>Proof:</strong> Let $p > 1$ be the smallest factor of $n$ that is
+						bigger than
 						$1$.
 					</li>
 					<li class="fragment">Then $p$ must be a prime as
@@ -1865,7 +1877,7 @@
 			<section data-background-color="#b5533c">
 				<h3>Infinitude of primes</h3>
 				<ul>
-					<li class="fragment"> <strong>Lemma:</strong> For any number positive integer $n$, there is a prime
+					<li class="fragment"> <strong>Lemma:</strong> For any positive number $n$, there is a prime
 						bigger than $n$.
 					</li>
 					<li class="fragment"> <strong>Proof:</strong> Let $m = n! + 1$, where $n!=1\times
@@ -1932,7 +1944,7 @@ from Unbounded(Euclid);
 				<h3>Puzzles</h3>
 				<ul>
 					<li class="fragment"><strong>Some puzzles:</strong> jigsaw, sudoku, detective stories, quiz
-						questions, planetary motion </li>
+						questions, planetary motions, ... </li>
 					<li class="fragment">A puzzle is a precisely stated problem for which
 						<ul>
 							<li>it is (fairly) easy to <em>check</em> that a solution is correctly, but</li>
@@ -1955,8 +1967,8 @@ from Unbounded(Euclid);
 					<li>When carrying out an algorithm, we</li>
 					<ul>
 						<li class="fragment">perform a small number of deductions/ calculations/ moves.</li>
-						<li class="fragment">following a small number of rules, possibly using a small number of
-							parameters.</li>
+						<li class="fragment">following a small number of rules (possibly depending on a small number of
+							parameters).</li>
 					</ul>
 					<li class="fragment"> A computer's notion of <em>small</em> is very different.</li>
 					<li class="fragment"> There have been huge improvements in algorithms: <em
@@ -1982,7 +1994,8 @@ from Unbounded(Euclid);
 			<section data-transition="convex" data-background-color="teal">
 				<h3>Intuition</h3>
 				<ul>
-					<li class="fragment">Intuition is based on tacit knowledge learned through experience</li>
+					<li class="fragment">Intuition is based on tacit knowledge learned through experience.</li>
+					<li class="fragment">Intuitive reasoning is wrong at least some of the time.</li>
 					<li class="fragment">To be useful, it should be correct <em>often enough</em>
 						<ul>
 							<li>A <em>hunch</em> is sometimes correct.</li>
@@ -1990,11 +2003,25 @@ from Unbounded(Euclid);
 						</ul>
 					</li>
 					<li class="fragment">We use this when we <em>guess and verify</em>.</li>
-					<li class="fragment">Computers can compensated by following on far more hunches, and looking more
-						moves ahead before making a judgement.</li>
 				</ul>
 			</section>
 
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Solving puzzles</h3>
+				<ul>
+					<li class="fragment">Checking a solution should be purely deductive.</li>
+					<li class="fragment">However, finding a solution involves: 
+						<ul>
+							<li class="fragment">deciding what to consider - a <em>policy</em>, which may use <em>hunches</em>, and </li>
+							<li class="fragment">deciding how promising the present approach/situation is - the <em>values</em>, which may use <em>judgements</em>. </li>
+						</ul>
+					</li>
+					<li class="fragment">
+						A computer following a purely algorithmic approach can compensate by following up on far more options, and looking more
+						moves ahead before deciding the value.
+					</li>
+				</ul>
+			</section>
 
 
 			<section data-transition="zoom-in slide-out" data-background="alpha-zero.jpg">
@@ -2038,13 +2065,13 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>AlphaGo vs Lee Sedol</h3>
 				<ul>
-					<li class="fragment"> In the chines game Go, the number of legal moves is much larger, causing the
-						number of sequences for a weak policy to grow very fast.</li>
+					<li class="fragment"> In the chinese game Go, the number of legal moves is much larger, causing the
+						number of sequences for a policy like <em>trying everything</em> to grow very fast.</li>
 					<li class="fragment"> More importantly, it is very hard to describe a good value function.</li>
 					<li class="fragment"> This makes it far harder for computers.</li>
 					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
 						champion Lee Sedol.</li>
-					<li class="fragment"> In March 2017, AlphaGo defeated the world number 1 Ke Jie comprehensively.
+					<li class="fragment"> In March 2017, AlphaGo defeated the world number one Ke Jie comprehensively.
 					</li>
 
 				</ul>
@@ -2066,7 +2093,8 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>AlphaGo Zero and Alpha Zero</h3>
 				<ul>
-					<li class="fragment">AlphaGo was succeeded by AlphaGo Zero, which learnt purely by self play.</li>
+					<li class="fragment">AlphaGo was succeeded (and defeated) by AlphaGo Zero, which learnt purely by
+						self play.</li>
 					<li class="fragment">Its successor, AlphaZero, could master a variety of similar games starting with
 						just the rules.</li>
 					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the planet
@@ -2083,11 +2111,14 @@ from Unbounded(Euclid);
 			<section>
 				<h3>Generative Query network</h3>
 				<ul>
-					<li class="fragment">In an artifical 3D environment, the network observes 2D images from a few positions.</li>
-					<li class="fragment">It had to predict the observed image from a new position.</li>
-					<li class="fragment">To do this, the 2D image was mapped to a <em>concise</em> representation by a network, which was
+					<li class="fragment">In an artifical 3D environment, the network observes 2D images from a few
+						positions.</li>
+					<li class="fragment">It has to predict the observed image from a new position.</li>
+					<li class="fragment">To do this, the 2D image was mapped to a <em>concise</em> representation by a
+						network, which was
 						then used to predict the image from a different viewpoint.</li>
-					<li class="fragment">The concise representation factorized by colour, shape and size (among other things).</li>
+					<li class="fragment">The concise representation factorized by colour, shape and size (among other
+						things).</li>
 				</ul>
 			</section>
 
@@ -2107,10 +2138,14 @@ from Unbounded(Euclid);
 			<section>
 				<h3>Distributional reinforcement learning</h3>
 				<ul>
-					<li>In <em>temporal reinforcement learning</em>, a network tries to predict (average) future rewards.</li>
-					<li>However, sometimes the reward is usually of one of two kinds, very big or very small, so the average is not useful.</li>
-					<li>In <em>distributional reinforcement learning</em> we have several predictors, which react differently to positive and negative errors, i.e., to whether the actual reward was above or below the prediction.</li>
-					<li>Recently, similar distributions of dopamine cells was found in the brains of mice.</li>
+					<li class="fragment">In <em>temporal reinforcement learning</em>, a network tries to predict
+						(average) future rewards.</li>
+					<li class="fragment">However, sometimes the reward is either very big or very small, so the average
+						reward is misleading.</li>
+					<li class="fragment"> In <em>distributional reinforcement learning</em> we have several predictors,
+						which react differently to <em>positive</em> and <em>negative</em> errors.</li>
+					<li class="fragment">Recently, similar distributions of dopamine cells was found in the brains of
+						mice.</li>
 				</ul>
 			</section>
 
@@ -2123,10 +2158,9 @@ from Unbounded(Euclid);
 			<section data-background-color="teal">
 				<h3> Universal deducer? </h3>
 				<ul>
-					<li class="fragment"> A universal deducer is a computable function (algorithm) which, given a
-						proposition (formula),
-						returns a proof if it is deducible and otherwise returns failure.</li>
-					<li class="fragment"> By results of Turing, there is no such algorithm. </li>
+					<li class="fragment"> A universal deducer is an algorithm which, given a
+						mathematical statement either proves it is true or proves it is false.</li>
+					<li class="fragment"> By results of Church, G&ouml;del, Turing, there is no such algorithm. </li>
 					<li class="fragment"> Practically, we can conclude that there is no best deducer,
 						as any given proof can be found by some deducer but no deducer can find all proofs. </li>
 				</ul>
@@ -2197,7 +2231,7 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-background-color="#002b36">
-				<h4>When we need <em>completely correct always</em></h4>
+				<h4>Need <em>completely correct always</em>?</h4>
 
 				<table class="box">
 					<tr class="fragment">
@@ -2291,15 +2325,15 @@ from Unbounded(Euclid);
 				<h1>The future of computer proofs?</h1>
 			</section>
 
-			<section  data-transition="zoom" data-background-color="#5A2720">
+			<section data-transition="zoom" data-background-color="#5A2720">
 				<table>
 					<tr>
-						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;"/> </td>
-						<td><img src="most-human-human.jpg" alt="The most human human" height="250px;"/> </td>
+						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;" /> </td>
+						<td><img src="most-human-human.jpg" alt="The most human human" height="250px;" /> </td>
 					</tr>
 					<tr>
-						<td><img src="second-machine-age.jpeg" alt="The second machine age" height="300px;"/> </td>
-						<td><img src="game-changer.jpeg" alt="Game changer" height="250px;"/> </td>
+						<td><img src="second-machine-age.jpeg" alt="The second machine age" height="300px;" /> </td>
+						<td><img src="game-changer.jpeg" alt="Game changer" height="250px;" /> </td>
 					</tr>
 				</table>
 			</section>
@@ -2317,8 +2351,9 @@ from Unbounded(Euclid);
 							<li class="fragment"> Organize observations naturally and efficiently.</li>
 						</ul>
 					</li>
-					<li class="fragment">For automating mathematics, it appears that there are clear approaches and no
-						evident barriers.</li>
+					<li class="fragment"><strong>Automating mathematics?</strong> <span class="fragment"> It appears
+							that there are clear approaches and no
+							evident barriers.</span></li>
 				</ul>
 			</section>
 	</div>
