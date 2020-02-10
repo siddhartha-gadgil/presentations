@@ -1869,9 +1869,9 @@
 					</li>
 					<li class="fragment">Then $p$ must be a prime as
 						<ul>
-							<li>Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
-							<li>But $p$ is the smallest factor of $n$, so $q = p$.</li>
-							<li>So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
+							<li class="fragment">Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
+							<li class="fragment">But $p$ is the smallest factor of $n$, so $q = p$.</li>
+							<li class="fragment">So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
 						</ul>
 					</li>
 				</ul>
@@ -1889,9 +1889,9 @@
 					</li>
 					<li class="fragment">Then $p$ must be greater than $n$, as, if $p \leq n$,
 						<ul>
-							<li>$p$ divides $n!$, and</li>
-							<li>$p$ divides $n! + 1$, which means</li>
-							<li>$p$ divides $1 = (n! + 1) - n!$, which is absurd.</li>
+							<li class="fragment">$p$ divides $n!$, and</li>
+							<li class="fragment">$p$ divides $n! + 1$, which means</li>
+							<li class="fragment">$p$ divides $1 = (n! + 1) - n!$, which is absurd.</li>
 						</ul>
 					</li>
 				</ul>
@@ -1913,8 +1913,7 @@
 
 			<section data-background-color="#b5533c">
 				<h3>Formal proof in Mizar</h3>
-				<div class="smallish">
-					<pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
+				<div class="smallish"><pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
 theorem Euclid: ex p st p is prime & p > n
 proof
 set k = n! + 1;
@@ -1933,8 +1932,7 @@ hence contradiction by A2,NAT_1:54;
 end;
 theorem {p: p is prime} is infinite
 from Unbounded(Euclid);
-</code></pre>
-				</div>
+</code></pre></div>
 				<p class="fragment">Full proof of infinitude of primes is 44 lines long.</p>
 			</section>
 
@@ -2074,7 +2072,7 @@ from Unbounded(Euclid);
 					<li class="fragment"> This makes it far harder for computers.</li>
 					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
 						champion Lee Sedol.</li>
-					<li class="fragment"> In March 2017, AlphaGo defeated the world number one Ke Jie comprehensively.
+					<li class="fragment"> In January 2017, AlphaGo defeated the world number one Ke Jie comprehensively.
 					</li>
 
 				</ul>
@@ -2388,7 +2386,8 @@ from Unbounded(Euclid);
 				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
 				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
 				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-				{ src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
 				{ src: 'plugin/zoom-js/zoom.js', async: true },
 				{ src: 'plugin/notes/notes.js', async: true },
 				{ src: 'plugin/math/math.js', async: true }
