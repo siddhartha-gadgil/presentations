@@ -1849,9 +1849,9 @@
 					<li class="fragment">Occasionally, a mathematical result finds unexpected applications.</li>
 					<li class="fragment">Far more often, in finding the answers to mathematical question we discover <strong>concepts</strong>, i.e., ways
 						of looking at the world, which are useful.</li>
-					<li class="fragment">For example, the Tao-Green theorem is based on a viewpoint of Terrence Tao that primes satisfy a dichotomy between <strong>structure</strong> (i.e., regularity like
-						crystals) and <strong>randomness</strong> (i.e., mixing like gases).</li>
-					<li class="fragment">Similarly, <strong>curvature</strong> was studied mathematically before being used in relativity.</li>
+					<li class="fragment">For example, Gauss developed the concept of <em>intrinsic curvature</em> motivated by a geodetic survey.</li>
+					<li class="fragment">This was further developed, and generalized to higher dimensions by Riemann.</li>
+					<li class="fragment">Einstein's <strong>general relativity</strong> was based on intrinsic curvature.</li>
 				</ul>
 			</section>
 
@@ -1979,31 +1979,20 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
-				<h3>Tacit knowledge</h3>
+				<h3>Tacit knowledge & Intuition</h3>
 				<ul>
 					<li class="fragment"> <em>Tacit knowledge</em> is the kind of knowledge that is difficult to
 						transfer to another
 						person by means of writing it down or verbalizing it.</li>
-					<li class="fragment">
-						Michael Polanyi: &ldquo;we can know more than we can tell.&rdquo;
-					</li>
 					<li class="fragment"> <strong>Examples:</strong> riding a bicycle, speaking a language.</li>
-					<li class="fragment"> Experts have a substantial amount of tacit knowledge.</li>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
-				<h3>Intuition</h3>
-				<ul>
-					<li class="fragment">Intuition is based on tacit knowledge learned through experience.</li>
-					<li class="fragment">Intuitive reasoning is wrong at least some of the time.</li>
+					<li class="fragment"> Experts have a lot of tacit knowledge.</li>
+					<li class="fragment">Intuition is based on tacit knowledge, typically learned through experience.</li>
 					<li class="fragment">To be useful, it should be correct <em>often enough</em>
 						<ul>
 							<li>A <em>hunch</em> is sometimes correct.</li>
 							<li>A <em>judgement</em> is often correct.</li>
 						</ul>
 					</li>
-					<li class="fragment">We use this when we <em>guess and verify</em>.</li>
 				</ul>
 			</section>
 
@@ -2013,8 +2002,8 @@ from Unbounded(Euclid);
 					<li class="fragment">Checking a solution should be purely deductive.</li>
 					<li class="fragment">However, finding a solution involves: 
 						<ul>
-							<li class="fragment">deciding what to consider - a <em>policy</em>, which may use <em>hunches</em>, and </li>
-							<li class="fragment">deciding how promising the present approach/situation is - the <em>value</em>, which may use <em>judgements</em>. </li>
+							<li class="fragment">deciding what to consider - a <em>policy</em>, which may use intuitive <em>hunches</em>, and </li>
+							<li class="fragment">deciding how promising the present approach/situation is - the <em>value</em>, which may use intuitive <em>judgements</em>. </li>
 						</ul>
 					</li>
 					<li class="fragment">
@@ -2210,72 +2199,9 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-transition="zoom-in slide-out" data-background-image="code.png">
-				<h1>Formal methods</h1>
-				<h2>and</h2>
 				<h1>Interactive Theorem Provers</h1>
 			</section>
 
-			<section data-background-color="#002b36">
-				<h3>Formal methods</h3>
-				<ul>
-					<li class="fragment">
-						Formal methods are design techniques based on
-						<ul>
-							<li class="fragment">using rigorously specified mathematical models to build software and
-								hardware systems,</li>
-							<li class="fragment">using <em>mathematical proof</em> to ensure correct behavior.</li>
-						</ul>
-					</li>
-					<li class="fragment">This gives a much greater certainty of correctness.</li>
-					<li class="fragment">However, proofs are much harder than tests.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#002b36">
-				<h4>Need <em>completely correct always</em>?</h4>
-
-				<table class="box">
-					<tr class="fragment">
-						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
-						<td>Pentium FDIV Bug</td>
-						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
-					</tr>
-					<tr class="fragment">
-						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
-						<td>Therac 25 radiation machine</td>
-						<td> <span class="fragment"> Safety critical</span> </td>
-					</tr>
-					<tr class="fragment">
-						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
-						<td>WhatsApp Pegasus attack</td>
-						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
-					</tr>
-				</table>
-
-			</section>
-
-			<section data-background-color="#002b36">
-				<h4>Users of formal methods</h4>
-
-				<table class="box">
-					<tr class="fragment">
-						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
-						<td>Intel Chips</td>
-						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
-					</tr>
-					<tr class="fragment">
-						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
-						<td>Paris driverless metro</td>
-						<td> <span class="fragment"> Safety critical</span> </td>
-					</tr>
-					<tr class="fragment">
-						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
-						<td>Scala dotty compiler</td>
-						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
-					</tr>
-				</table>
-
-			</section>
 			<section data-background-color="#002b36">
 				<h3>Interactive Theorem Provers</h3>
 				<ul>
@@ -2319,6 +2245,74 @@ from Unbounded(Euclid);
 						of connections with
 						<em>topology</em>, a branch of mathematics.</li>
 				</ul>
+			</section>
+
+
+			<section data-transition="zoom-in slide-out" data-background-image="lake.jpg">
+				<h1>Formal methods</h1>
+				<h2>Mathematical proofs elsewhere</h2>
+			</section>
+
+			<section data-background="#b5533c">
+				<h3>Formal methods</h3>
+				<ul>
+					<li class="fragment">
+						<em>Formal methods</em> mean
+						<ul>
+							<li class="fragment">we specify and describe software, hardware etc. in precise mathematical terms, and</li>
+							<li class="fragment">use <em>mathematical proof</em> to ensure correct behavior.</li>
+						</ul>
+					</li>
+					<li class="fragment">This gives a much greater certainty of correctness.</li>
+					<li class="fragment">However, proofs are much harder than tests.</li>
+					<li class="fragment">Formal proofs use interactive theorem provers.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h4>Need <em>completely correct always</em>?</h4>
+
+				<table class="box">
+					<tr class="fragment">
+						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
+						<td>Pentium FDIV Bug</td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
+						<td>Therac 25 radiation machine</td>
+						<td> <span class="fragment"> Safety critical</span> </td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
+						<td>WhatsApp Pegasus attack</td>
+						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
+					</tr>
+				</table>
+
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h4>Users of formal methods</h4>
+
+				<table class="box">
+					<tr class="fragment">
+						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
+						<td>Intel Chips</td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
+						<td>Paris driverless metro</td>
+						<td> <span class="fragment"> Safety critical</span> </td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
+						<td>Scala dotty compiler</td>
+						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
+					</tr>
+				</table>
+
 			</section>
 
 
