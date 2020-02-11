@@ -1855,11 +1855,11 @@
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background-color="#b5533c">
+			<section data-transition="zoom-in concave-out" data-background-color="#b5533c">
 				<h1>Mathematical Proofs</h1>
 			</section>
 
-			<section data-background-color="#b5533c">
+			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Infinitude of primes</h3>
 				<ul>
 					<li class="fragment"> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
@@ -1877,8 +1877,8 @@
 				</ul>
 			</section>
 
-			<section data-background-color="#b5533c">
-				<h3>Infinitude of primes</h3>
+			<section data-transition="concave" data-background-color="#b5533c">
+				<h3>Infinitude of primes II</h3>
 				<ul>
 					<li class="fragment"> <strong>Lemma:</strong> For any positive number $n$, there is a prime
 						bigger than $n$.
@@ -1897,7 +1897,7 @@
 				</ul>
 			</section>
 
-			<section data-background-color="#b5533c">
+			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Formal Mathematical Proofs</h3>
 				<ul>
 					<li class="fragment">A formal proof or derivation is a finite sequence of sentences, each of which:
@@ -1911,7 +1911,7 @@
 				</ul>
 			</section>
 
-			<section data-background-color="#b5533c">
+			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Formal proof in Mizar</h3>
 				<div class="smallish"><pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
 theorem Euclid: ex p st p is prime & p > n
@@ -1937,7 +1937,7 @@ from Unbounded(Euclid);
 			</section>
 
 
-			<section data-transition="zoom-in slide-out" data-background="jigsaw.jpeg">
+			<section data-transition="zoom-in convex-out" data-background="jigsaw.jpeg">
 				<h1>Puzzles, Games, Reasoning</h1>
 			</section>
 
@@ -1948,7 +1948,7 @@ from Unbounded(Euclid);
 						questions, planetary motions, ... </li>
 					<li class="fragment">A puzzle is a precisely stated problem for which
 						<ul>
-							<li>it is (fairly) easy to <em>check</em> that a solution is correctly, but</li>
+							<li>it is (fairly) easy to <em>check</em> that a solution is correct, but</li>
 							<li>it is hard to <em>find</em> the solution.</li>
 						</ul>
 					</li>
@@ -1964,11 +1964,10 @@ from Unbounded(Euclid);
 
 			<section data-transition="convex" data-background-color="teal">
 				<h3>Deductive reasoning/Algorithms</h3>
-				<ul>
-					<li>When carrying out an algorithm, we</li>
+				<ul>					
 					<ul>
-						<li class="fragment">perform a small number of deductions/ calculations/ moves.</li>
-						<li class="fragment">following a small number of rules (possibly depending on a small number of
+						<li class="fragment">We perform a small number of steps, each step a calculation or move or deduction.</li>
+						<li class="fragment">The steps are based on a small number of rules (possibly depending on a small number of
 							parameters).</li>
 					</ul>
 					<li class="fragment"> A computer's notion of <em>small</em> is very different.</li>
@@ -2094,11 +2093,11 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background="sea.jpg">
+			<section data-transition="zoom" data-background="sea.jpg">
 				<h1>Artificial Intelligence elsewhere.</h1>
 			</section>
 
-			<section>
+			<section data-transition="zoom">
 				<h3>Generative Query network</h3>
 				<ul>
 					<li class="fragment">In an artifical 3D environment, the network observes 2D images from a few
@@ -2112,7 +2111,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section>
+			<section data-transition="zoom">
 				<h3>Generative Adversarial Network</h3>
 				<ul>
 					<li class="fragment">These consist of a pair of networks, contesting with
@@ -2125,7 +2124,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section>
+			<section data-transition="zoom">
 				<h3>Distributional reinforcement learning</h3>
 				<ul>
 					<li class="fragment">In <em>temporal reinforcement learning</em>, a network tries to predict
@@ -2139,13 +2138,13 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background="kepler.png">
+			<section data-transition="zoom-in convex-out" data-background="kepler.png">
 				<h1>Computer Proofs</h1>
 				<h2>in</h2>
 				<h1>Mathematics</h1>
 			</section>
 
-			<section data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<h3> Universal deducer? </h3>
 				<ul>
 					<li class="fragment"> A universal deducer is a program which, given a
@@ -2156,7 +2155,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<h3>Some computer-assisted proofs</h3>
 				<ul>
 					<li class="fragment"><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$
@@ -2171,7 +2170,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<h3> Robbins conjecture </h3>
 				<ul>
 					<li class="fragment"> Robbins conjecture was a conjectural characterization of Boolean algebras in
@@ -2184,7 +2183,7 @@ from Unbounded(Euclid);
 					</li>
 			</section>
 
-			<section data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<ul>
 					<li>
 						A question on a blog of Terence Tao, asked to him by Apoorva Khare, was answered in PolyMath 14.
@@ -2248,12 +2247,12 @@ from Unbounded(Euclid);
 			</section>
 
 
-			<section data-transition="zoom-in slide-out" data-background-image="lake.jpg">
+			<section data-transition="zoom-in convex-out" data-background-image="lake.jpg">
 				<h1>Formal methods</h1>
 				<h2>Mathematical proofs elsewhere</h2>
 			</section>
 
-			<section data-background="#b5533c">
+			<section data-transition="convex" data-background="#b5533c">
 				<h3>Formal methods</h3>
 				<ul>
 					<li class="fragment">
@@ -2269,7 +2268,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-background-color="#b5533c">
+			<section data-transition="convex" data-background-color="#b5533c">
 				<h4>Need <em>completely correct always</em>?</h4>
 
 				<table class="box">
@@ -2292,7 +2291,7 @@ from Unbounded(Euclid);
 
 			</section>
 
-			<section data-background-color="#b5533c">
+			<section data-transition="convex" data-background-color="#b5533c">
 				<h4>Users of formal methods</h4>
 
 				<table class="box">
@@ -2323,12 +2322,12 @@ from Unbounded(Euclid);
 			<section data-transition="zoom" data-background-color="#5A2720">
 				<table>
 					<tr>
-						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;" /> </td>
-						<td><img src="game-changer.jpeg" alt="Game changer" height="250px;" /> </td>						
+						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;" /> </td></td>
+						<td class="fragment"><img src="game-changer.jpeg" alt="Game changer" height="250px;" /> </td>						
 					</tr>
 					<tr>
-						<td><img src="second-machine-age.jpeg" alt="The second machine age" height="300px;" /> </td>
-						<td><img src="most-human-human.jpg" alt="The most human human" height="250px;" /> </td>
+						<td class="fragment"><img src="second-machine-age.jpeg" alt="The second machine age" height="300px;" /> </td>
+						<td class="fragment"><img src="most-human-human.jpg" alt="The most human human" height="250px;" /> </td>
 					</tr>
 				</table>
 			</section>
