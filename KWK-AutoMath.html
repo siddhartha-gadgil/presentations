@@ -1838,7 +1838,7 @@
 					<li class="fragment"><strong>Question:</strong> Are there arbitrarily long arithmetic progressions of
 						primes? </li>
 					<li class="fragment"><strong>Answer:</strong> Yes, by the Green-Tao theorem from 2004.</li>
-					<li class="fragment"><strong>Question:</strong>Are there infinitely many twin primes? </li>
+					<li class="fragment"><strong>Question:</strong> Are there infinitely many twin primes? </li>
 					<li class="fragment"><strong>Status:</strong> We still do not know.</li>
 				</ul>
 			</section>
@@ -1986,7 +1986,7 @@ from Unbounded(Euclid);
 					<li class="fragment"> <strong>Examples:</strong> riding a bicycle, speaking a language.</li>
 					<li class="fragment"> Experts have a lot of tacit knowledge,  typically learned through experience.</li>
 					<li class="fragment">Intuition is based on tacit knowledge.</li>
-					<li class="fragment">While intuition is sometimes wrong, to be useful it should be correct <em>often enough</em>
+					<li class="fragment">While intuition is sometimes wrong, to be useful it should be correct <em>often enough</em>.
 						<ul>
 							<li>A <em>hunch</em> is sometimes correct.</li>
 							<li>A <em>judgement</em> is often correct.</li>
@@ -2023,7 +2023,7 @@ from Unbounded(Euclid);
 					<li class="fragment"> The rules of a game (e.g. chess) tell us
 						<ul>
 							<li class="fragment">what moves we can make.</li>
-							<li class="fragment">what reward we get at a stage - e.g. win/loss/draw at the end.</li>
+							<li class="fragment">what <em>reward</em> we get at a stage - e.g. win/loss/draw at the end.</li>
 						</ul>
 					</li>
 					<li class="fragment"> In a simple game like tic-tac-toe, we can simply calculate the reward in all
@@ -2040,14 +2040,12 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>Kasparov vs Deep Blue</h3>
 				<ul>
-					<li class="fragment">In Chess, a basic value is obtained by counting pieces and pawns with weights.
+					<li class="fragment">In Chess, a basic <strong>value</strong> is obtained by counting pieces and pawns with weights.
 					</li>
-					<li class="fragment">For openings, we only consider a small subset of possible move sequences.</li>
-					<li class="fragment"> Deep Blue (and chess theory) extend these.</li>
+					<li class="fragment"><em>Standard openings</em> also give a <strong>policy</strong> during the early stages of the game, as do <em>endgame tables</em>.</li>
+					<li class="fragment"> Deep Blue, and chess theory, extend these to elaborate, rule based values and policies.</li>
 					<li class="fragment"> The value and policy functions of Kasparov were far better, but compensated
 						for by Deep Blue being able to consider far more move sequences.</li>
-					<li class="fragment"> &ldquo; Play the opening like a book, the middle game like a magician, and the
-						endgame like a machine. &rdquo; – Spielmann</li>
 				</ul>
 
 			</section>
@@ -2069,7 +2067,7 @@ from Unbounded(Euclid);
 				<h3>AlphaGo and Learning</h3>
 				<ul>
 					<li class="fragment"> The policy and value functions of AlphaGo are deep neural networks that were
-						trained.</li>
+						<em>trained</em>.</li>
 					<li class="fragment"> The policy network was trained by learning to predict the next move from games
 						of expert players.</li>
 					<li class="fragment"> The value network was trained by AlphaGo playing against versions of itself.
@@ -2082,9 +2080,9 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>AlphaGo Zero and Alpha Zero</h3>
 				<ul>
-					<li class="fragment">AlphaGo was succeeded (and defeated) by AlphaGo Zero, which learnt purely by
+					<li class="fragment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt purely by
 						self play.</li>
-					<li class="fragment">Its successor, AlphaZero, could master a variety of similar games starting with
+					<li class="fragment">Its successor, <em>AlphaZero</em>, could master a variety of similar games starting with
 						just the rules.</li>
 					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the planet
 						(beating a traditional chess program, Stockfish).</li>
@@ -2103,7 +2101,7 @@ from Unbounded(Euclid);
 					<li class="fragment">In an artifical 3D environment, the network observes 2D images from a few
 						positions.</li>
 					<li class="fragment">It has to predict the observed image from a new position.</li>
-					<li class="fragment">To do this, the 2D image was mapped to a <em>concise</em> representation by a
+					<li class="fragment">To do this, the 2D image was mapped to a <em>concise representation</em> by a
 						network, which was
 						then used to predict the image from a different viewpoint.</li>
 					<li class="fragment">The concise representation factorized by colour, shape and size (among other
@@ -2133,7 +2131,7 @@ from Unbounded(Euclid);
 						reward is misleading.</li>
 					<li class="fragment"> In <em>distributional reinforcement learning</em> we have several predictors,
 						which react differently to <em>positive</em> and <em>negative</em> errors.</li>
-					<li class="fragment">Recently, similar distributions of dopamine cells was found in the brains of
+					<li class="fragment">Recently, similar distributions of <em>dopamine</em> cells was found in the brains of
 						mice.</li>
 				</ul>
 			</section>
@@ -2178,7 +2176,7 @@ from Unbounded(Euclid);
 						associativity and commutativity of $\vee$ and the Robbins equation
 						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
 					<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
-						automated theorem prover EQP, which is a Resolution Theorem Prover with Paramodulation.</li>
+						automated theorem prover <strong>EQP</strong>, which is a Resolution Theorem Prover with Paramodulation.</li>
 					<li class="fragment"> So far, this seems to be the only major success of deductive theorem provers.
 					</li>
 			</section>
@@ -2269,7 +2267,7 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>Need <em>completely correct always</em>?</h4>
+				<h4>Do we need <em>completely correct always</em>?</h4>
 
 				<table class="box">
 					<tr class="fragment">
@@ -2285,7 +2283,7 @@ from Unbounded(Euclid);
 					<tr class="fragment">
 						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
 						<td>WhatsApp Pegasus attack</td>
-						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
+						<td> <span class="fragment"> A bug is a <em>vulnerability</em></span> </td>
 					</tr>
 				</table>
 
@@ -2346,8 +2344,8 @@ from Unbounded(Euclid);
 						</ul>
 					</li>
 					<li class="fragment"><strong>Automating mathematics?</strong> <span class="fragment"> It appears
-							that there are clear approaches and no
-							evident barriers.</span></li>
+							that there are clear approaches and <strong>no
+							evident barriers</strong>.</span></li>
 				</ul>
 			</section>
 	</div>
