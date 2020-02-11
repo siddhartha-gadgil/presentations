@@ -1792,7 +1792,7 @@
 				<h3>Lengths of arithmetic progressions</h3>
 				<ul>
 					<li class="fragment">
-						For the first million pairs of primes, the longest arithmetic sequence of primes starting with
+						For the first million pairs of primes, the longest arithmetic progression of primes starting with
 						these have lengths as follows.
 						<small class="fragment">
 							<table>
@@ -1835,7 +1835,7 @@
 				<ul>
 					<li class="fragment"><strong>Question:</strong> Are there infinitely many primes?</li>
 					<li class="fragment"><strong>Answer:</strong> Yes, as shown by Euclid.</li>
-					<li class="fragment"><strong>Question:</strong> Are there arbitrarily long arithmetic sequences of
+					<li class="fragment"><strong>Question:</strong> Are there arbitrarily long arithmetic progressions of
 						primes? </li>
 					<li class="fragment"><strong>Answer:</strong> Yes, by the Green-Tao theorem from 2004.</li>
 					<li class="fragment"><strong>Question:</strong>Are there infinitely many twin primes? </li>
@@ -1849,17 +1849,17 @@
 					<li class="fragment">Occasionally, a mathematical result finds unexpected applications.</li>
 					<li class="fragment">Far more often, in finding the answers to mathematical question we discover <strong>concepts</strong>, i.e., ways
 						of looking at the world, which are useful.</li>
-					<li class="fragment">For example, the Tao-Green theorem is based on a viewpoint of Terrence Tao that primes satisfy a dichotomy between <strong>structure</strong> (i.e., regularity like
-						crystals) and <strong>randomness</strong> (i.e., mixing like gases).</li>
-					<li class="fragment">Similarly, <strong>curvature</strong> was studied mathematically before being used in relativity.</li>
+					<li class="fragment">For example, Gauss developed the concept of <em>intrinsic curvature</em> motivated by a geodetic survey.</li>
+					<li class="fragment">This was further developed, and generalized to higher dimensions by Riemann.</li>
+					<li class="fragment">Einstein's <strong>general relativity</strong> was based on intrinsic curvature.</li>
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background-color="#b5533c">
+			<section data-transition="zoom-in concave-out" data-background-color="#b5533c">
 				<h1>Mathematical Proofs</h1>
 			</section>
 
-			<section data-background-color="#b5533c">
+			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Infinitude of primes</h3>
 				<ul>
 					<li class="fragment"> <strong>Lemma:</strong> Every number $n > 1$ has a prime factor.</li>
@@ -1869,16 +1869,16 @@
 					</li>
 					<li class="fragment">Then $p$ must be a prime as
 						<ul>
-							<li>Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
-							<li>But $p$ is the smallest factor of $n$, so $q = p$.</li>
-							<li>So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
+							<li class="fragment">Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
+							<li class="fragment">But $p$ is the smallest factor of $n$, so $q = p$.</li>
+							<li class="fragment">So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
 						</ul>
 					</li>
 				</ul>
 			</section>
 
-			<section data-background-color="#b5533c">
-				<h3>Infinitude of primes</h3>
+			<section data-transition="concave" data-background-color="#b5533c">
+				<h3>Infinitude of primes II</h3>
 				<ul>
 					<li class="fragment"> <strong>Lemma:</strong> For any positive number $n$, there is a prime
 						bigger than $n$.
@@ -1889,15 +1889,15 @@
 					</li>
 					<li class="fragment">Then $p$ must be greater than $n$, as, if $p \leq n$,
 						<ul>
-							<li>$p$ divides $n!$, and</li>
-							<li>$p$ divides $n! + 1$, which means</li>
-							<li>$p$ divides $1 = (n! + 1) - n!$, which is absurd.</li>
+							<li class="fragment">$p$ divides $n!$, and</li>
+							<li class="fragment">$p$ divides $n! + 1$, which means</li>
+							<li class="fragment">$p$ divides $1 = (n! + 1) - n!$, which is absurd.</li>
 						</ul>
 					</li>
 				</ul>
 			</section>
 
-			<section data-background-color="#b5533c">
+			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Formal Mathematical Proofs</h3>
 				<ul>
 					<li class="fragment">A formal proof or derivation is a finite sequence of sentences, each of which:
@@ -1911,10 +1911,9 @@
 				</ul>
 			</section>
 
-			<section data-background-color="#b5533c">
+			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Formal proof in Mizar</h3>
-				<div class="smallish">
-					<pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
+				<div class="smallish"><pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
 theorem Euclid: ex p st p is prime & p > n
 proof
 set k = n! + 1;
@@ -1933,13 +1932,12 @@ hence contradiction by A2,NAT_1:54;
 end;
 theorem {p: p is prime} is infinite
 from Unbounded(Euclid);
-</code></pre>
-				</div>
+</code></pre></div>
 				<p class="fragment">Full proof of infinitude of primes is 44 lines long.</p>
 			</section>
 
 
-			<section data-transition="zoom-in slide-out" data-background="jigsaw.jpeg">
+			<section data-transition="zoom-in convex-out" data-background="jigsaw.jpeg">
 				<h1>Puzzles, Games, Reasoning</h1>
 			</section>
 
@@ -1950,7 +1948,7 @@ from Unbounded(Euclid);
 						questions, planetary motions, ... </li>
 					<li class="fragment">A puzzle is a precisely stated problem for which
 						<ul>
-							<li>it is (fairly) easy to <em>check</em> that a solution is correctly, but</li>
+							<li>it is (fairly) easy to <em>check</em> that a solution is correct, but</li>
 							<li>it is hard to <em>find</em> the solution.</li>
 						</ul>
 					</li>
@@ -1966,11 +1964,10 @@ from Unbounded(Euclid);
 
 			<section data-transition="convex" data-background-color="teal">
 				<h3>Deductive reasoning/Algorithms</h3>
-				<ul>
-					<li>When carrying out an algorithm, we</li>
+				<ul>					
 					<ul>
-						<li class="fragment">perform a small number of deductions/ calculations/ moves.</li>
-						<li class="fragment">following a small number of rules (possibly depending on a small number of
+						<li class="fragment">We perform a small number of steps, each step a calculation or move or deduction.</li>
+						<li class="fragment">The steps are based on a small number of rules (possibly depending on a small number of
 							parameters).</li>
 					</ul>
 					<li class="fragment"> A computer's notion of <em>small</em> is very different.</li>
@@ -1981,31 +1978,20 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
-				<h3>Tacit knowledge</h3>
+				<h3>Tacit knowledge & Intuition</h3>
 				<ul>
 					<li class="fragment"> <em>Tacit knowledge</em> is the kind of knowledge that is difficult to
 						transfer to another
 						person by means of writing it down or verbalizing it.</li>
-					<li class="fragment">
-						Michael Polanyi: &ldquo;we can know more than we can tell.&rdquo;
-					</li>
 					<li class="fragment"> <strong>Examples:</strong> riding a bicycle, speaking a language.</li>
-					<li class="fragment"> Experts have a substantial amount of tacit knowledge.</li>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
-				<h3>Intuition</h3>
-				<ul>
-					<li class="fragment">Intuition is based on tacit knowledge learned through experience.</li>
-					<li class="fragment">Intuitive reasoning is wrong at least some of the time.</li>
-					<li class="fragment">To be useful, it should be correct <em>often enough</em>
+					<li class="fragment"> Experts have a lot of tacit knowledge,  typically learned through experience.</li>
+					<li class="fragment">Intuition is based on tacit knowledge.</li>
+					<li class="fragment">While intuition is sometimes wrong, to be useful it should be correct <em>often enough</em>
 						<ul>
 							<li>A <em>hunch</em> is sometimes correct.</li>
 							<li>A <em>judgement</em> is often correct.</li>
 						</ul>
 					</li>
-					<li class="fragment">We use this when we <em>guess and verify</em>.</li>
 				</ul>
 			</section>
 
@@ -2015,8 +2001,8 @@ from Unbounded(Euclid);
 					<li class="fragment">Checking a solution should be purely deductive.</li>
 					<li class="fragment">However, finding a solution involves: 
 						<ul>
-							<li class="fragment">deciding what to consider - a <em>policy</em>, which may use <em>hunches</em>, and </li>
-							<li class="fragment">deciding how promising the present approach/situation is - the <em>value</em>, which may use <em>judgements</em>. </li>
+							<li class="fragment">deciding what to consider - a <em>policy</em>, which may use intuitive <em>hunches</em>, and </li>
+							<li class="fragment">deciding how promising the present approach/situation is - the <em>value</em>, which may use intuitive <em>judgements</em>. </li>
 						</ul>
 					</li>
 					<li class="fragment">
@@ -2074,7 +2060,7 @@ from Unbounded(Euclid);
 					<li class="fragment"> This makes it far harder for computers.</li>
 					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
 						champion Lee Sedol.</li>
-					<li class="fragment"> In March 2017, AlphaGo defeated the world number one Ke Jie comprehensively.
+					<li class="fragment"> In January 2017, AlphaGo defeated the world number one Ke Jie comprehensively.
 					</li>
 
 				</ul>
@@ -2107,11 +2093,11 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background="sea.jpg">
+			<section data-transition="zoom" data-background="sea.jpg">
 				<h1>Artificial Intelligence elsewhere.</h1>
 			</section>
 
-			<section>
+			<section data-transition="zoom">
 				<h3>Generative Query network</h3>
 				<ul>
 					<li class="fragment">In an artifical 3D environment, the network observes 2D images from a few
@@ -2125,7 +2111,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section>
+			<section data-transition="zoom">
 				<h3>Generative Adversarial Network</h3>
 				<ul>
 					<li class="fragment">These consist of a pair of networks, contesting with
@@ -2138,7 +2124,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section>
+			<section data-transition="zoom">
 				<h3>Distributional reinforcement learning</h3>
 				<ul>
 					<li class="fragment">In <em>temporal reinforcement learning</em>, a network tries to predict
@@ -2152,13 +2138,13 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background="kepler.png">
+			<section data-transition="zoom-in convex-out" data-background="kepler.png">
 				<h1>Computer Proofs</h1>
 				<h2>in</h2>
 				<h1>Mathematics</h1>
 			</section>
 
-			<section data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<h3> Universal deducer? </h3>
 				<ul>
 					<li class="fragment"> A universal deducer is a program which, given a
@@ -2169,7 +2155,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<h3>Some computer-assisted proofs</h3>
 				<ul>
 					<li class="fragment"><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$
@@ -2184,7 +2170,7 @@ from Unbounded(Euclid);
 				</ul>
 			</section>
 
-			<section data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<h3> Robbins conjecture </h3>
 				<ul>
 					<li class="fragment"> Robbins conjecture was a conjectural characterization of Boolean algebras in
@@ -2197,7 +2183,7 @@ from Unbounded(Euclid);
 					</li>
 			</section>
 
-			<section data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<ul>
 					<li>
 						A question on a blog of Terence Tao, asked to him by Apoorva Khare, was answered in PolyMath 14.
@@ -2212,72 +2198,9 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-transition="zoom-in slide-out" data-background-image="code.png">
-				<h1>Formal methods</h1>
-				<h2>and</h2>
 				<h1>Interactive Theorem Provers</h1>
 			</section>
 
-			<section data-background-color="#002b36">
-				<h3>Formal methods</h3>
-				<ul>
-					<li class="fragment">
-						Formal methods are design techniques based on
-						<ul>
-							<li class="fragment">using rigorously specified mathematical models to build software and
-								hardware systems,</li>
-							<li class="fragment">using <em>mathematical proof</em> to ensure correct behavior.</li>
-						</ul>
-					</li>
-					<li class="fragment">This gives a much greater certainty of correctness.</li>
-					<li class="fragment">However, proofs are much harder than tests.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#002b36">
-				<h4>Need <em>completely correct always</em>?</h4>
-
-				<table class="box">
-					<tr class="fragment">
-						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
-						<td>Pentium FDIV Bug</td>
-						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
-					</tr>
-					<tr class="fragment">
-						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
-						<td>Therac 25 radiation machine</td>
-						<td> <span class="fragment"> Safety critical</span> </td>
-					</tr>
-					<tr class="fragment">
-						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
-						<td>WhatsApp Pegasus attack</td>
-						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
-					</tr>
-				</table>
-
-			</section>
-
-			<section data-background-color="#002b36">
-				<h4>Users of formal methods</h4>
-
-				<table class="box">
-					<tr class="fragment">
-						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
-						<td>Intel Chips</td>
-						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
-					</tr>
-					<tr class="fragment">
-						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
-						<td>Paris driverless metro</td>
-						<td> <span class="fragment"> Safety critical</span> </td>
-					</tr>
-					<tr class="fragment">
-						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
-						<td>Scala dotty compiler</td>
-						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
-					</tr>
-				</table>
-
-			</section>
 			<section data-background-color="#002b36">
 				<h3>Interactive Theorem Provers</h3>
 				<ul>
@@ -2324,6 +2247,74 @@ from Unbounded(Euclid);
 			</section>
 
 
+			<section data-transition="zoom-in convex-out" data-background-image="lake.jpg">
+				<h1>Formal methods</h1>
+				<h2>Mathematical proofs elsewhere</h2>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h3>Formal methods</h3>
+				<ul>
+					<li class="fragment">
+						<em>Formal methods</em> mean
+						<ul>
+							<li class="fragment">we specify and describe software, hardware etc. in precise mathematical terms, and</li>
+							<li class="fragment">use <em>mathematical proof</em> to ensure correct behavior.</li>
+						</ul>
+					</li>
+					<li class="fragment">This gives a much greater certainty of correctness.</li>
+					<li class="fragment">However, proofs are much harder than tests.</li>
+					<li class="fragment">Formal proofs use interactive theorem provers.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Need <em>completely correct always</em>?</h4>
+
+				<table class="box">
+					<tr class="fragment">
+						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
+						<td>Pentium FDIV Bug</td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
+						<td>Therac 25 radiation machine</td>
+						<td> <span class="fragment"> Safety critical</span> </td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
+						<td>WhatsApp Pegasus attack</td>
+						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
+					</tr>
+				</table>
+
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Users of formal methods</h4>
+
+				<table class="box">
+					<tr class="fragment">
+						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
+						<td>Intel Chips</td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
+						<td>Paris driverless metro</td>
+						<td> <span class="fragment"> Safety critical</span> </td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
+						<td>Scala dotty compiler</td>
+						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
+					</tr>
+				</table>
+
+			</section>
+
+
 			<section data-transition="zoom" data-background="hills.png">
 				<h1>The future of computer proofs?</h1>
 			</section>
@@ -2331,12 +2322,12 @@ from Unbounded(Euclid);
 			<section data-transition="zoom" data-background-color="#5A2720">
 				<table>
 					<tr>
-						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;" /> </td>
-						<td><img src="game-changer.jpeg" alt="Game changer" height="250px;" /> </td>						
+						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;" /> </td></td>
+						<td class="fragment"><img src="game-changer.jpeg" alt="Game changer" height="250px;" /> </td>						
 					</tr>
 					<tr>
-						<td><img src="second-machine-age.jpeg" alt="The second machine age" height="300px;" /> </td>
-						<td><img src="most-human-human.jpg" alt="The most human human" height="250px;" /> </td>
+						<td class="fragment"><img src="second-machine-age.jpeg" alt="The second machine age" height="300px;" /> </td>
+						<td class="fragment"><img src="most-human-human.jpg" alt="The most human human" height="250px;" /> </td>
 					</tr>
 				</table>
 			</section>
@@ -2389,7 +2380,8 @@ from Unbounded(Euclid);
 				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
 				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
 				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-				{ src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
 				{ src: 'plugin/zoom-js/zoom.js', async: true },
 				{ src: 'plugin/notes/notes.js', async: true },
 				{ src: 'plugin/math/math.js', async: true }
