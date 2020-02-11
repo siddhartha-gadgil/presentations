@@ -2,6 +2,7 @@
 set -e
 git push
 git checkout gh-pages
+git pull
 git merge --no-edit master
 git push
 git checkout master
