@@ -53,7 +53,7 @@
 				<p><a href="http://math.iisc.ac.in/~gadgil/">http://math.iisc.ac.in/~gadgil/</a></p>
 				<p><a href="https://github.com/siddhartha-gadgil/ProvingGround"
 						target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
-						
+
 
 			</section>
 
@@ -951,8 +951,8 @@
 					<li class="fragment">We consider arithmetic progressions all of whose terms are primes, such as the
 						third example.
 					</li>
-					<li class="fragment">For experiments, we take the first million pairs of primes and extend these
-						while we get primes.
+					<li class="fragment">For experiments, we take the first million pairs of primes and extend to
+						<em>maximal prime arithmetic progressions</em>.
 					</li>
 				</ul>
 			</section>
@@ -1794,7 +1794,8 @@
 				<h3>Lengths of arithmetic progressions</h3>
 				<ul>
 					<li class="fragment">
-						For the first million pairs of primes, the longest arithmetic progression of primes starting with
+						For the first million pairs of primes, the longest arithmetic progression of primes starting
+						with
 						these have lengths as follows.
 						<small class="fragment">
 							<table>
@@ -1837,7 +1838,8 @@
 				<ul>
 					<li class="fragment"><strong>Question:</strong> Are there infinitely many primes?</li>
 					<li class="fragment"><strong>Answer:</strong> Yes, as shown by Euclid.</li>
-					<li class="fragment"><strong>Question:</strong> Are there arbitrarily long arithmetic progressions of
+					<li class="fragment"><strong>Question:</strong> Are there arbitrarily long arithmetic progressions
+						of
 						primes? </li>
 					<li class="fragment"><strong>Answer:</strong> Yes, by the Green-Tao theorem from 2004.</li>
 					<li class="fragment"><strong>Question:</strong> Are there infinitely many twin primes? </li>
@@ -1849,11 +1851,15 @@
 				<h3>What is the use?</h3>
 				<ul>
 					<li class="fragment">Occasionally, a mathematical result finds unexpected applications.</li>
-					<li class="fragment">Far more often, in finding the answers to mathematical question we discover <strong>concepts</strong>, i.e., ways
+					<li class="fragment">Far more often, in finding the answers to mathematical question we discover
+						<strong>concepts</strong>, i.e., ways
 						of looking at the world, which are useful.</li>
-					<li class="fragment">For example, Gauss developed the concept of <em>intrinsic curvature</em> motivated by a geodetic survey.</li>
-					<li class="fragment">This was further developed, and generalized to higher dimensions by Riemann.</li>
-					<li class="fragment">Einstein's <strong>general relativity</strong> was based on intrinsic curvature.</li>
+					<li class="fragment">For example, Gauss developed the concept of <em>intrinsic curvature</em>
+						motivated by a geodetic survey.</li>
+					<li class="fragment">This was further developed, and generalized to higher dimensions by Riemann.
+					</li>
+					<li class="fragment">Einstein's <strong>general relativity</strong> was based on intrinsic
+						curvature.</li>
 				</ul>
 			</section>
 
@@ -1871,8 +1877,10 @@
 					</li>
 					<li class="fragment">Then $p$ must be a prime as
 						<ul>
-							<li class="fragment">Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$.</li>
-							<li class="fragment">But $p$ is the smallest factor of $n$, so $q = p$.</li>
+							<li class="fragment">Suppose $q > 1$ is a factor of $p$, then $q$ is a factor of $n$ and $q
+								\leq p$.</li>
+							<li class="fragment">But $p$ is the smallest factor of $n$ that is bigger than $1$, so it
+								must be that $q = p$.</li>
 							<li class="fragment">So the only factors of $p$ are $1$ and $p$, i.e., $p$ is a prime.</li>
 						</ul>
 					</li>
@@ -1902,11 +1910,12 @@
 			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Formal Mathematical Proofs</h3>
 				<ul>
-					<li class="fragment">A formal proof or derivation is a finite sequence of sentences, each of which:
+					<li class="fragment">A <strong>formal proof</strong> is a finite sequence of sentences, each of
+						which:
 						<ul>
-							<li>is an axiom (something we believe true about the universe), or</li>
-							<li>is an assumption, or</li>
-							<li>follows from the earlier sentences by a rule of inference.</li>
+							<li class="fragment">is an axiom (something we believe true about the universe), or</li>
+							<li class="fragment">is an assumption, or</li>
+							<li class="fragment">follows from the earlier sentences by a rule of inference.</li>
 						</ul>
 					</li>
 					<li class="fragment">A formal proof can be checked mechanically.</li>
@@ -1915,7 +1924,8 @@
 
 			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Formal proof in Mizar</h3>
-				<div class="smallish"><pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
+				<div class="smallish">
+					<pre class="fragment"><code class="mizar" height="800px">reserve n,p for Nat;
 theorem Euclid: ex p st p is prime & p > n
 proof
 set k = n! + 1;
@@ -1934,7 +1944,8 @@ hence contradiction by A2,NAT_1:54;
 end;
 theorem {p: p is prime} is infinite
 from Unbounded(Euclid);
-</code></pre></div>
+</code></pre>
+				</div>
 				<p class="fragment">Full proof of infinitude of primes is 44 lines long.</p>
 			</section>
 
@@ -1966,14 +1977,16 @@ from Unbounded(Euclid);
 
 			<section data-transition="convex" data-background-color="teal">
 				<h3>Deductive reasoning/Algorithms</h3>
-				<ul>					
+				<ul>
 					<ul>
-						<li class="fragment">We perform a small number of steps, each step a calculation or move or deduction.</li>
-						<li class="fragment">The steps are based on a small number of rules (possibly depending on a small number of
+						<li class="fragment">We perform a small number of steps, each step a calculation or move or
+							deduction.</li>
+						<li class="fragment">The steps are based on a small number of rules (possibly depending on a
+							small number of
 							parameters).</li>
 					</ul>
 					<li class="fragment"> A computer's notion of <em>small</em> is very different.</li>
-					<li class="fragment"> There have been huge improvements in algorithms: <em
+					<li class="fragment"> We can try to solve harder problems by inventing better algorithms: <em
 							class="fragment">multiplication with carry-over,</em> <em
 							class="fragment">fingerprints,</em> <em class="fragment">SMT solvers.</em></li>
 				</ul>
@@ -1986,9 +1999,11 @@ from Unbounded(Euclid);
 						transfer to another
 						person by means of writing it down or verbalizing it.</li>
 					<li class="fragment"> <strong>Examples:</strong> riding a bicycle, speaking a language.</li>
-					<li class="fragment"> Experts have a lot of tacit knowledge,  typically learned through experience.</li>
+					<li class="fragment"> Experts have a lot of tacit knowledge, typically learned through experience.
+					</li>
 					<li class="fragment">Intuition is based on tacit knowledge.</li>
-					<li class="fragment">While intuition is sometimes wrong, to be useful it should be correct <em>often enough</em>.
+					<li class="fragment">While intuition is sometimes wrong, to be useful it should be correct <em>often
+							enough</em>.
 						<ul>
 							<li>A <em>hunch</em> is sometimes correct.</li>
 							<li>A <em>judgement</em> is often correct.</li>
@@ -2001,14 +2016,17 @@ from Unbounded(Euclid);
 				<h3>Solving puzzles</h3>
 				<ul>
 					<li class="fragment">Checking a solution should be purely deductive.</li>
-					<li class="fragment">However, finding a solution involves: 
+					<li class="fragment">However, finding a solution involves:
 						<ul>
-							<li class="fragment">deciding what to consider - a <em>policy</em>, which may use intuitive <em>hunches</em>, and </li>
-							<li class="fragment">deciding how promising the present approach/situation is - the <em>value</em>, which may use intuitive <em>judgements</em>. </li>
+							<li class="fragment">deciding what to consider - a <em>policy</em>, which may use intuitive
+								<em>hunches</em>, and </li>
+							<li class="fragment">deciding how promising the present approach/situation is - the
+								<em>value</em>, which may use intuitive <em>judgements</em>. </li>
 						</ul>
 					</li>
 					<li class="fragment">
-						A computer following a purely algorithmic approach can compensate by following up on far more options, and looking more
+						A computer following a purely algorithmic approach can compensate by following up on far more
+						approaches, and looking more
 						moves ahead before deciding the value.
 					</li>
 				</ul>
@@ -2025,7 +2043,8 @@ from Unbounded(Euclid);
 					<li class="fragment"> The rules of a game (e.g. chess) tell us
 						<ul>
 							<li class="fragment">what moves we can make.</li>
-							<li class="fragment">what <em>reward</em> we get at a stage - e.g. win/loss/draw at the end.</li>
+							<li class="fragment">what <em>reward</em> we get at a stage - e.g. win/loss/draw at the end.
+							</li>
 						</ul>
 					</li>
 					<li class="fragment"> In tic-tac-toe, we can simply calculate the reward.</li>
@@ -2041,10 +2060,13 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>Kasparov vs Deep Blue</h3>
 				<ul>
-					<li class="fragment">In Chess, a basic <strong>value</strong> is obtained by counting pieces and pawns with weights.
+					<li class="fragment">In Chess, a basic <strong>value</strong> is obtained by counting pieces and
+						pawns with weights.
 					</li>
-					<li class="fragment"><em>Standard openings</em> also give a <strong>policy</strong> during the early stages of the game, as do <em>endgame tables</em>.</li>
-					<li class="fragment"> Deep Blue, and chess theory, extend these to elaborate, rule based values and policies.</li>
+					<li class="fragment"><em>Standard openings</em> also give a <strong>policy</strong> during the early
+						stages of the game, as do <em>endgame tables</em>.</li>
+					<li class="fragment"> Deep Blue, and chess theory, extend these to elaborate (rule based) values and
+						policies.</li>
 					<li class="fragment"> The value and policy functions of Kasparov were far better, but compensated
 						for by Deep Blue being able to consider far more move sequences.</li>
 				</ul>
@@ -2054,7 +2076,7 @@ from Unbounded(Euclid);
 				<h3>AlphaGo vs Lee Sedol</h3>
 				<ul>
 					<li class="fragment"> In the chinese game Go, the number of legal moves is much larger, so
-						<em>trying everything</em> leads to too many moves.</li>
+						<em>trying everything</em> means we cannot look many moves ahead.</li>
 					<li class="fragment"> More importantly, it is very hard to describe a good value function.</li>
 					<li class="fragment"> This makes it far harder for computers.</li>
 					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
@@ -2080,9 +2102,11 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>AlphaGo Zero and Alpha Zero</h3>
 				<ul>
-					<li class="fragment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt purely by
+					<li class="fragment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt
+						purely by
 						self play.</li>
-					<li class="fragment">Its successor, <em>AlphaZero</em>, could master a variety of similar games starting with
+					<li class="fragment">Its successor, <em>AlphaZero</em>, could master a variety of similar games
+						starting with
 						just the rules.</li>
 					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the planet
 						(beating a traditional chess program, Stockfish).</li>
@@ -2131,7 +2155,8 @@ from Unbounded(Euclid);
 						reward is misleading.</li>
 					<li class="fragment"> In <em>distributional reinforcement learning</em> we have several predictors,
 						which react differently to <em>positive</em> and <em>negative</em> errors.</li>
-					<li class="fragment">Recently, similar distributions of <em>dopamine</em> cells was found in the brains of
+					<li class="fragment">Recently, similar distributions of <em>dopamine</em> cells was found in the
+						brains of
 						mice.</li>
 				</ul>
 			</section>
@@ -2160,11 +2185,11 @@ from Unbounded(Euclid);
 						colours.</li>
 					<li class="fragment"><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
 						the hexagonal close packing.</li>
-					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> is it possible to colour
+					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Is it possible to colour
 						each of the
 						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
-						satisfying $a^{2}+b^{2}=c^{2}$ are all the same color.</li>
-					<li class="fragment">All these proofs are long (maybe unavoidable).</li>
+						satisfying $a^{2}+b^{2}=c^{2}$ are all the same color?</li>
+					<li class="fragment">All these proofs are long (perhaps unavoidable).</li>
 				</ul>
 			</section>
 
@@ -2176,7 +2201,7 @@ from Unbounded(Euclid);
 						associativity and commutativity of $\vee$ and the Robbins equation
 						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
 					<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
-						automated theorem prover <strong>EQP</strong>, which is a Resolution Theorem Prover with Paramodulation.</li>
+						automated theorem prover <strong>EQP</strong>.</li>
 					<li class="fragment"> So far, this seems to be the only major success of deductive theorem provers.
 					</li>
 			</section>
@@ -2206,7 +2231,8 @@ from Unbounded(Euclid);
 						collaboration.</li>
 					<li class="fragment">The computer both finds (parts of) proofs and checks correctness.</li>
 					<li class="fragment">Some very large mathematical proofs have been verified by such systems.</li>
-					<li class="fragment">Formal methods are also based on interactive provers.</li>
+					<li class="fragment">The ease of proving in such systems depends on how good it is at finding
+						proofs.</li>
 				</ul>
 			</section>
 
@@ -2253,13 +2279,10 @@ from Unbounded(Euclid);
 			<section data-transition="convex" data-background="#b5533c">
 				<h3>Formal methods</h3>
 				<ul>
-					<li class="fragment">
-						<em>Formal methods</em> mean
-						<ul>
-							<li class="fragment">we specify and describe software, hardware etc. in precise mathematical terms, and</li>
-							<li class="fragment">use <em>mathematical proof</em> to ensure correct behavior.</li>
-						</ul>
+
+					<li class="fragment">We specify and describe software, hardware etc. in precise mathematical terms.
 					</li>
+					<li class="fragment">We give <em>mathematical proofs</em> to ensure correct behavior.</li>
 					<li class="fragment">This gives a much greater certainty of correctness.</li>
 					<li class="fragment">However, proofs are much harder than tests.</li>
 					<li class="fragment">Formal proofs use interactive theorem provers.</li>
@@ -2320,12 +2343,15 @@ from Unbounded(Euclid);
 			<section data-transition="zoom" data-background-color="#5A2720">
 				<table>
 					<tr>
-						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;" /> </td></td>
-						<td class="fragment"><img src="game-changer.jpeg" alt="Game changer" height="250px;" /> </td>						
+						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;" /> </td>
+						</td>
+						<td class="fragment"><img src="game-changer.jpeg" alt="Game changer" height="250px;" /> </td>
 					</tr>
 					<tr>
-						<td class="fragment"><img src="second-machine-age.jpeg" alt="The second machine age" height="300px;" /> </td>
-						<td class="fragment"><img src="most-human-human.jpg" alt="The most human human" height="250px;" /> </td>
+						<td class="fragment"><img src="second-machine-age.jpeg" alt="The second machine age"
+								height="300px;" /> </td>
+						<td class="fragment"><img src="most-human-human.jpg" alt="The most human human"
+								height="250px;" /> </td>
 					</tr>
 				</table>
 			</section>
@@ -2345,7 +2371,7 @@ from Unbounded(Euclid);
 					</li>
 					<li class="fragment"><strong>Automating mathematics?</strong> <span class="fragment"> It appears
 							that there are clear approaches and <strong>no
-							evident barriers</strong>.</span></li>
+								evident barriers</strong>.</span></li>
 				</ul>
 			</section>
 	</div>
