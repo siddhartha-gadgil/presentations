@@ -1,1 +1,3 @@
+git checkout gh-pages
 rsync -avz --exclude .git --exclude node_modules --exclude out --exclude .metals --exclude test/ . math.iisc.ac.in:/home/gadgil/public_html/presentations/
+git checkout master
