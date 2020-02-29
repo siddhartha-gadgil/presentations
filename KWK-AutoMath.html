@@ -2092,7 +2092,8 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>AlphaGo and Learning</h3>
 				<ul>
-					<li class="fragment"> The policy and value functions of AlphaGo are <em>deep neural networks</em> that were
+					<li class="fragment"> The policy and value functions of AlphaGo are <em>deep neural networks</em>
+						that were
 						<em>trained</em>.</li>
 					<li class="fragment"> The policy network was trained by learning to predict the next move from games
 						of expert players.</li>
@@ -2231,7 +2232,8 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>Interactive Theorem Provers</h3>
 				<ul>
-					<li class="fragment"><em>Interactive Theorem Provers</em> are software systems where proofs are obtained by human-machine
+					<li class="fragment"><em>Interactive Theorem Provers</em> are software systems where proofs are
+						obtained by human-machine
 						collaboration.</li>
 					<li class="fragment">The computer both finds (parts of) proofs and checks correctness.</li>
 					<li class="fragment">Some very large mathematical proofs have been verified by such systems.</li>
@@ -2260,7 +2262,8 @@ from Unbounded(Euclid);
 			<section data-background-color="#002b36">
 				<h3>Foundations of mathematics</h3>
 				<ul>
-					<li> <em>Foundations</em> are rules for describing objects and statements and making deductions.</li>
+					<li> <em>Foundations</em> are rules for describing objects and statements and making deductions.
+					</li>
 					<li class="fragment">The standard foundations of mathematics are
 						based on Set
 						Theory and First-order logic.</li>
@@ -2360,22 +2363,37 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-transition="zoom" data-background-color="teal">
-				<ul>
-					<li>
-						Artificial Intelligence can:
-						<ul>
-							<li class="fragment">Generate solutions that we can see are good.</li>
-							<li class="fragment">Judge value based on future rewards.</li>
-							<li class="fragment"> Show originality.</li>
-							<li class="fragment"> Learn things for which we depend on tacit knowledge. </li>
-							<li class="fragment"> Work with limited and/or unstructured data.</li>
-							<li class="fragment"> Organize observations naturally and efficiently.</li>
-						</ul>
-					</li>
-					<li class="fragment"><strong>Automating mathematics?</strong> <span class="fragment"> It appears
-							that there are clear approaches and <strong>no
-								evident barriers</strong>.</span></li>
-				</ul>
+				<section>
+					<ul>
+						<li>
+							Artificial Intelligence can:
+							<ul>
+								<li class="fragment">Make moves that we can appreciate.</li>
+								<li class="fragment">Judge value based on future rewards.</li>
+								<li class="fragment"> Show originality.</li>
+								<li class="fragment"> Acquire tacit (to us) knowledge. </li>
+								<li class="fragment"> Work with limited and/or unstructured data, by
+									<strong>self-play</strong>
+									and by <strong>sythetic tasks</strong>.</li>
+								<li class="fragment"> Organize observations naturally and efficiently.</li>
+							</ul>
+						</li>
+						<li class="fragment"><strong>Automating mathematics?</strong> <span class="fragment"> It appears
+								that there are clear approaches and <strong>no
+									evident barriers</strong>.</span></li>
+					</ul>
+				</section>
+				<section data-transition="zoom" data-background-color="teal">
+					<ul>
+						<li><strong>Rules</strong> for generating mathematical objects, including statements and proofs,
+							are given by (<em>efficient</em>, <em>modular</em>) foundations.</li>
+						<li> A <strong>reward</strong> can be defined in terms of generating many proofs efficiently.
+						</li>
+						<li> Mathematical heuristics can be captured with <strong>composite moves</strong>.</li>
+						<li> We can define reasonable <strong>value</strong> functions, e.g. recognizing non-trivial lemmas.</li>
+						<li> Behaviour cloning can be based on formalized mathematics, and possibly using <em>natural language processing</em> to extract from the literature.</li>
+					</ul>
+				</section>
 			</section>
 	</div>
 	</div>
