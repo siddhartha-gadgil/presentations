@@ -87,7 +87,8 @@
 			<section data-background-color="teal">
 				<h3>Prime numbers</h3>
 				<ul>
-					<li class="frag-ment">A prime number is a number with exactly two factors, $1$ and the number itself.
+					<li class="frag-ment">A prime number is a number with exactly two factors, $1$ and the number
+						itself.
 					</li>
 					<li class="frag-ment">For example, $3$, $5$ and $7$ are primes but $4$ is not a prime as it has
 						factor $2$.</li>
@@ -1958,12 +1959,15 @@ from Unbounded(Euclid);
 					<li>Verifying a formal proof is purely mechanical.</li>
 					<li> However, to find the proof, in addition to (mechanical) computations and deductions,
 						<ul>
-							<li> We <strong>stated</strong> a useful <em>lemma</em>, or  judged that a previously known result was useful. </li>
-							<li> We <strong>considered</strong> the <em>smallest factor $> 1$</em>, <strong>made</strong> and proved the statement that it was prime.</li>
-							<li> We considered (a prime factor of) $(n + 1)!$, which we identified by <strong>backward reasoning</strong>.</li>
+							<li> We <strong>stated</strong> a useful <em>lemma</em>, or judged that a previously known
+								result was useful. </li>
+							<li> We <strong>considered</strong> the <em>smallest factor $> 1$</em>,
+								<strong>made</strong> and proved the statement that it was prime.</li>
+							<li> We considered (a prime factor of) $(n + 1)!$, which we identified by <strong>backward
+									reasoning</strong>.</li>
 						</ul>
 					</li>
-					<li>It is hard to formulate rules for such things.</li>
+					<li>It is hard to formulate <strong>rules</strong> for such things.</li>
 				</ul>
 			</section>
 
@@ -2019,7 +2023,8 @@ from Unbounded(Euclid);
 					<li class="frag-ment"> Experts have a lot of tacit knowledge, typically learned through experience.
 					</li>
 					<li class="frag-ment"><em>Intuition</em> is based on tacit knowledge.</li>
-					<li class="frag-ment">While intuition is sometimes wrong, to be useful it should be correct <em>often
+					<li class="frag-ment">While intuition is sometimes wrong, to be useful it should be correct
+						<em>often
 							enough</em>.
 						<ul>
 							<li>A <em>hunch</em> is sometimes correct.</li>
@@ -2060,7 +2065,8 @@ from Unbounded(Euclid);
 					<li class="frag-ment"> The rules of a game (e.g. chess) tell us
 						<ul>
 							<li class="frag-ment">what moves we can make.</li>
-							<li class="frag-ment">what <em>reward</em> we get at a stage - e.g. win/loss/draw at the end.
+							<li class="frag-ment">what <em>reward</em> we get at a stage - e.g. win/loss/draw at the
+								end.
 							</li>
 						</ul>
 					</li>
@@ -2068,7 +2074,8 @@ from Unbounded(Euclid);
 					<li class="frag-ment"> In most cases however, we need
 						<ul>
 							<li class="frag-ment">A <em>policy</em> - what moves to consider.</li>
-							<li class="frag-ment">A (relative) <em>value</em> telling us what future reward we can expect
+							<li class="frag-ment">A (relative) <em>value</em> telling us what future reward we can
+								expect
 								based on the present position.</li>
 						</ul>
 					</li>
@@ -2080,9 +2087,11 @@ from Unbounded(Euclid);
 					<li class="frag-ment">In Chess, a basic <strong>value</strong> is obtained by counting pieces and
 						pawns with weights.
 					</li>
-					<li class="frag-ment"><em>Standard openings</em> also give a <strong>policy</strong> during the early
+					<li class="frag-ment"><em>Standard openings</em> also give a <strong>policy</strong> during the
+						early
 						stages of the game, as do <em>endgame tables</em>.</li>
-					<li class="frag-ment"> Deep Blue, and chess theory, extend these to elaborate (rule based) values and
+					<li class="frag-ment"> Deep Blue, and chess theory, extend these to elaborate (rule based) values
+						and
 						policies.</li>
 					<li class="frag-ment"> The value and policy functions of Kasparov were far better, but compensated
 						for by Deep Blue being able to consider far more move sequences.</li>
@@ -2098,7 +2107,8 @@ from Unbounded(Euclid);
 					<li class="frag-ment"> This makes it far harder for computers.</li>
 					<li class="frag-ment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
 						champion Lee Sedol.</li>
-					<li class="frag-ment"> In January 2017, AlphaGo defeated the world number one Ke Jie comprehensively.
+					<li class="frag-ment"> In January 2017, AlphaGo defeated the world number one Ke Jie
+						comprehensively.
 					</li>
 				</ul>
 			</section>
@@ -2108,7 +2118,8 @@ from Unbounded(Euclid);
 					<li class="frag-ment"> The policy and value functions of AlphaGo are <em>deep neural networks</em>
 						that were
 						<em>trained</em>.</li>
-					<li class="frag-ment"> The policy network was trained by learning to predict the next move from games
+					<li class="frag-ment"> The policy network was trained by learning to predict the next move from
+						games
 						of expert players.</li>
 					<li class="frag-ment"> The value network was trained by AlphaGo playing against versions of itself.
 					</li>
@@ -2128,7 +2139,8 @@ from Unbounded(Euclid);
 						just the rules.</li>
 					<li class="frag-ment">AlphaZero took just 4 hours to become the strongest chess player on the planet
 						(beating a traditional chess program, Stockfish).</li>
-					<li class="frag-ment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes piece
+					<li class="frag-ment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes
+						piece
 						activity over material, preferring positions that looked risky and aggressive.&rdquo;</li>
 				</ul>
 			</section>
@@ -2376,37 +2388,43 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-transition="zoom" data-background-color="teal">
-				<section>
+
+				<ul>
+					<li>
+						Artificial Intelligence can:
+						<ul>
+							<li class="frag-ment">Make moves that we can appreciate.</li>
+							<li class="frag-ment">Judge value based on future rewards.</li>
+							<li class="frag-ment"> Show originality.</li>
+							<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
+							<li class="frag-ment"> Work with limited and/or unstructured data, by
+								<strong>self-play</strong>
+								and by <strong>sythetic tasks</strong>.</li>
+							<li class="frag-ment"> Organize observations naturally and efficiently, capturing global structure and enabling analogies.</li>
+						</ul>
+					</li>
+				</ul>
+
+
+			</section>
+			<section data-transition="zoom" data-background-color="teal">
+				<ul>
 					<ul>
-						<li>
-							Artificial Intelligence can:
-							<ul>
-								<li class="frag-ment">Make moves that we can appreciate.</li>
-								<li class="frag-ment">Judge value based on future rewards.</li>
-								<li class="frag-ment"> Show originality.</li>
-								<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
-								<li class="frag-ment"> Work with limited and/or unstructured data, by
-									<strong>self-play</strong>
-									and by <strong>sythetic tasks</strong>.</li>
-								<li class="frag-ment"> Organize observations naturally and efficiently.</li>
-							</ul>
-						</li>
-						<li class="frag-ment"><strong>Automating mathematics?</strong> <span class="frag-ment"> It appears
-								that there are clear approaches and <strong>no
-									evident barriers</strong>.</span></li>
-					</ul>
-				</section>
-				<section data-transition="zoom" data-background-color="teal">
-					<ul>
-						<li><strong>Rules</strong> for generating mathematical objects, including statements and proofs,
-							are given by (<em>efficient</em>, <em>modular</em>) foundations.</li>
+						<li>Foundations give (<em>efficient</em>, <em>modular</em>) <strong>Rules</strong>
+							 for generating objects, statements, proofs.</li>
 						<li> A <strong>reward</strong> can be defined in terms of generating many proofs efficiently.
 						</li>
 						<li> Mathematical heuristics can be captured with <strong>composite moves</strong>.</li>
-						<li> We can define reasonable <strong>value</strong> functions, e.g. recognizing non-trivial lemmas.</li>
-						<li> Behaviour cloning can be based on formalized mathematics, and possibly using <em>natural language processing</em> to extract from the literature.</li>
+						<li> We can define reasonable <strong>value</strong> functions, e.g. recognizing non-trivial
+							lemmas.
+						</li>
+						<li> Behaviour cloning can use formalized mathematics, <em>natural
+								language processing</em>.</li>
 					</ul>
-				</section>
+					<li class="frag-ment"><strong>Automating mathematics?</strong> <span class="frag-ment"> It appears
+							that there are clear approaches and <strong>no
+								evident barriers</strong>.</span></li>
+				</ul>
 			</section>
 	</div>
 	</div>
