@@ -60,16 +60,23 @@ table.box{
 .syntaxhighlighter {
     overflow-y: auto !important;
     overflow-x: auto !important;
-    max-height: 1024px;
 }
 
 .smallish {
     display: inline-block;
     width: 600px;
-    font-size: 0.75em;
+    font-size: 0.9em;
     line-height: 1.5em;
     vertical-align: top; }
 
 em, strong{
     color: lightgoldenrodyellow;
 }
+
+.reveal pre code {
+    display: block;
+    padding: 5px;
+    overflow: auto;
+    max-height: 600px;
+    word-wrap: normal; }
+  
