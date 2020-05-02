@@ -29,10 +29,15 @@ ul.numbers li {
 
 .number-groups li {
     display: inline;
-    line-height:2.5;
+    line-height:2.4;
 }
 
 .prime-term {
+    color: blueviolet;
+    font-size: 30px;
+}
+
+.prime-term-small {
     color: blueviolet;
     font-size: 20px;
 }
