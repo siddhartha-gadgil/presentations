@@ -29,7 +29,7 @@ ul.numbers li {
 
 .number-groups li {
     display: inline;
-    line-height:2.4;
+    line-height: 2.4;
 }
 
 .prime-term {
@@ -42,17 +42,17 @@ ul.numbers li {
     font-size: 20px;
 }
 
-.huge{
+.huge {
     font-size: 180px;
     text-align: center;
     margin: auto;
 }
 
-table.box{
+table.box {
     border: 2px solid white;
 }
 
-.dark{
+.dark {
     background-color: black;
     color: lightgrey;
 }
@@ -67,9 +67,10 @@ table.box{
     width: 600px;
     font-size: 0.9em;
     line-height: 1.5em;
-    vertical-align: top; }
+    vertical-align: top;
+}
 
-em, strong{
+em, strong {
     color: lightgoldenrodyellow;
 }
 
@@ -78,5 +79,9 @@ em, strong{
     padding: 5px;
     overflow: auto;
     max-height: 600px;
-    word-wrap: normal; }
-  
+    word-wrap: normal;
+}
+
+html.dimbg .slide-background {
+    opacity: 0.7 !important;
+}
