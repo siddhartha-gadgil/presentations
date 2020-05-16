@@ -87,7 +87,8 @@
 			<section data-background-color="teal">
 				<h3>Prime numbers</h3>
 				<ul>
-					<li class="frag-ment">A <em>prime number</em> is a number with exactly two factors, $1$ and the number
+					<li class="frag-ment">A <em>prime number</em> is a number with exactly two factors, $1$ and the
+						number
 						itself.
 					</li>
 					<li class="frag-ment">For example, $3$, $5$ and $7$ are primes but $4$ is not a prime as it has
@@ -1920,7 +1921,8 @@
 						<ul>
 							<li class="frag-ment">is an axiom (something we believe true about the universe), or</li>
 							<li class="frag-ment">is an assumption, or</li>
-							<li class="frag-ment">follows from the earlier sentences by a <em>rule of inference</em>.</li>
+							<li class="frag-ment">follows from the earlier sentences by a <em>rule of inference</em>.
+							</li>
 						</ul>
 					</li>
 					<li class="frag-ment">A formal proof can be checked mechanically.</li>
@@ -1951,7 +1953,7 @@ theorem {p: p is prime} is infinite
 from Unbounded(Euclid);
 </code></pre>
 				</div>
-				<p>The full formal proof  is 44 lines</p>
+				<p>The full formal proof is 44 lines</p>
 			</section>
 
 			<section data-transition="concave" data-background-color="#b5533c">
@@ -1959,7 +1961,8 @@ from Unbounded(Euclid);
 					<li>Verifying a formal proof is purely mechanical.</li>
 					<li> However, to find the proof, in addition to (mechanical) computations and deductions,
 						<ul>
-							<li> We <strong>stated</strong> useful <em>lemmas</em>, or <strong>judged</strong> that previously known
+							<li> We <strong>stated</strong> useful <em>lemmas</em>, or <strong>judged</strong> that
+								previously known
 								results were useful. </li>
 							<li> We <strong>considered</strong> the <em>smallest factor $> 1$</em>,
 								<strong>conjectured</strong> and proved the statement that it was prime.</li>
@@ -1999,11 +2002,11 @@ from Unbounded(Euclid);
 			<section data-transition="convex" data-background-color="teal">
 				<h3>Deductive reasoning/Algorithms</h3>
 				<ul>
-						<li class="frag-ment">We perform a small number of steps, each step a calculation or move or
-							deduction.</li>
-						<li class="frag-ment">The steps are based on a small number of rules (possibly depending on a
-							small number of
-							parameters).</li>
+					<li class="frag-ment">We perform a small number of steps, each step a calculation or move or
+						deduction.</li>
+					<li class="frag-ment">The steps are based on a small number of rules (possibly depending on a
+						small number of
+						parameters).</li>
 					<li class="frag-ment"> A computer's notion of <em>small</em> is very different.</li>
 					<li class="frag-ment"> We can try to solve harder problems by inventing better algorithms: <em
 							class="frag-ment">multiplication with carry-over,</em> <em
@@ -2145,6 +2148,18 @@ from Unbounded(Euclid);
 
 			<section data-transition="zoom" data-background="sea.jpg">
 				<h1>Artificial Intelligence elsewhere.</h1>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Word Embeddings</h3>
+				<ul>
+					<li>
+						Words are <em>embedded</em> as points in space, in a way that captures relations.</li>
+					<li>To do this, we set up the problem of predicting a word given its neighbours.</li>
+					<li>We look for solutions of this problem that involve mapping words into space, and predicting from neighbours using the points.
+					</li>
+					<li> Analogies such as <em>Paris</em>  is to <em>France</em> as <em>Berlin</em> is to <em>Germany</em> are captured by <em>vector operations</em>.</li>
+				</ul>
 			</section>
 
 			<section data-transition="zoom">
@@ -2399,7 +2414,8 @@ from Unbounded(Euclid);
 							<li class="frag-ment"> Work with limited and/or unstructured data, by
 								<strong>self-play</strong>
 								and by <strong>synthetic tasks</strong>.</li>
-							<li class="frag-ment"> Organize observations naturally and efficiently, capturing global structure and enabling analogies.</li>
+							<li class="frag-ment"> Organize observations naturally and efficiently, capturing global
+								structure and enabling analogies.</li>
 						</ul>
 					</li>
 				</ul>
@@ -2408,17 +2424,18 @@ from Unbounded(Euclid);
 			</section>
 			<section data-transition="zoom" data-background-color="teal">
 				<ul>
-						<li>Foundations give (<em>efficient</em>, <em>modular</em>) <strong>rules</strong>
-							 for generating objects, statements, proofs.</li>
-						<li> A <strong>reward</strong> can be defined in terms of power and efficiency of proving/disproving statements.
-						</li>
-						<li> Mathematical heuristics can be captured with <strong>composite moves</strong>, and 
-							used for <em>policy</em> functions.</li>
-						<li> We can define reasonable <strong>value</strong> functions, e.g. recognizing non-trivial
-							lemmas.
-						</li>
-						<li> Behaviour cloning can use formalized mathematics, <em>natural
-								language processing</em>.</li>
+					<li>Foundations give (<em>efficient</em>, <em>modular</em>) <strong>rules</strong>
+						for generating objects, statements, proofs.</li>
+					<li> A <strong>reward</strong> can be defined in terms of power and efficiency of proving/disproving
+						statements.
+					</li>
+					<li> Mathematical heuristics can be captured with <strong>composite moves</strong>, and
+						used for <em>policy</em> functions.</li>
+					<li> We can define reasonable <strong>value</strong> functions, e.g. recognizing non-trivial
+						lemmas.
+					</li>
+					<li> Behaviour cloning can use formalized mathematics, <em>natural
+							language processing</em>.</li>
 					<li class="frag-ment"><strong>Automating mathematics?</strong> <span class="frag-ment"> It appears
 							that there are clear approaches and <strong>no
 								evident barriers</strong>.</span></li>
