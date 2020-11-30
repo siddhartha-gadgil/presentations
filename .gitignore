@@ -14,3 +14,4 @@ js/reveal.min.js
 .metals/
 .bloop/
 out/
+.vscode/

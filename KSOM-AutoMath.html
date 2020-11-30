@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Automating Mathematics?</title>
+
+	<meta name="description" content="Kaapi with Kuriosity lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="kwk.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<h2> Automating Mathematics? </h2>
+				<h3>Siddhartha Gadgil</h3>
+				<p>Department of Mathematics</p>
+				<p>Indian Institute of Science</p>
+				<p>Bangalore</p>
+				<p><a href="http://math.iisc.ac.in/~gadgil/">http://math.iisc.ac.in/~gadgil/</a></p>
+				<p><a href="https://github.com/siddhartha-gadgil/ProvingGround"
+						target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
+
+
+			</section>
+
+			<section data-transition="slide-in fade-out">
+				<table>
+					<tr>
+						<td><img src="kasparov.jpeg" /></td>
+						<td><img src="deep-blue.jpg" width="200" /></td>
+						<td>1997</td>
+					</tr>
+					<tr class="frag-ment">
+						<td><img src="lee-sedol.jpeg" width="200" /> </td>
+						<td><img src="alphago.webp" width="200" /> </td>
+						<td>2017</td>
+					</tr>
+					<tr>
+						<td class="frag-ment">
+							<img src="ramanujan.jpeg" width="200" /> </td>
+						<td align="center" class="frag-ment"><span class="huge"> ? </span> </td>
+						<td class="frag-ment">
+							Whether?<br>When?<br>How?
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background="kepler.png" data-state="dimbg">
+				<h1>Computer Proofs</h1>
+				<h2>in</h2>
+				<h1>Mathematics</h1>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3> Universal deducer? </h3>
+				<ul>
+					<li class="frag-ment"> A universal deducer is a program which, given a
+						mathematical statement, either proves it is true or proves it is false.</li>
+					<li class="frag-ment"> By results of Church, G&ouml;del, Turing, such a program is impossible. </li>
+					<li class="frag-ment"> Practically, we can conclude that there is no best deducer,
+						as any given proof can be found by some deducer but no deducer can find all proofs. </li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Some computer-assisted proofs</h3>
+				<ul>
+					<li class="frag-ment"><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$
+						colours.</li>
+					<li class="frag-ment"><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
+						the hexagonal close packing.</li>
+					<li class="frag-ment"><strong>Boolean Pythagorean triples problem:</strong> Is it possible to colour
+						each of the
+						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
+						satisfying $a^{2}+b^{2}=c^{2}$ are all the same color?</li>
+					<li class="frag-ment">All these proofs are long (perhaps unavoidable).</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3> Robbins conjecture </h3>
+				<ul>
+					<li class="frag-ment"> Robbins conjecture was a conjectural characterization of Boolean algebras in
+						terms of
+						associativity and commutativity of $\vee$ and the Robbins equation
+						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
+					<li class="frag-ment"> This was conjectured in the 1930s, and finally proved in 1996 using the
+						automated theorem prover <strong>EQP</strong>.</li>
+					<li class="frag-ment"> So far, this seems to be the only major success of deductive theorem provers.
+					</li>
+			</section>
+
+			<section data-transition="concave" data-background-color="#b5533c">
+				<h3>Formal Mathematical Proofs</h3>
+				<ul>
+					<li class="frag-ment">A <strong>formal proof</strong> is a finite sequence of sentences, each of
+						which:
+						<ul>
+							<li class="frag-ment">is an axiom (something we believe true about the universe), or</li>
+							<li class="frag-ment">is an assumption, or</li>
+							<li class="frag-ment">follows from the earlier sentences by a <em>rule of inference</em>.
+							</li>
+						</ul>
+					</li>
+					<li class="frag-ment">A formal proof can be checked mechanically.</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="#b5533c">
+				<h4>Formal proof of infinitude of primes in Mizar</h4>
+				<div class="smallish">
+					<pre class="frag-ment"><code class="mizar" height="1000px">reserve n,p for Nat;
+theorem Euclid: ex p st p is prime & p > n
+proof
+set k = n! + 1;
+n! > 0 by NEWTON:23;
+then n! >= 0 + 1 by NAT_1:38;
+then k >= 1 + 1 by REAL_1:55;
+then consider p such that
+A1: p is prime & p divides k by INT_2:48;
+A2: p <> 0 & p > 1 by A1,INT_2:def 5;
+take p;
+thus p is prime by A1;
+assume p <= n;
+then p divides n! by A2,NAT_LAT:16;
+then p divides 1 by A1,NAT_1:57;
+hence contradiction by A2,NAT_1:54;
+end;
+theorem {p: p is prime} is infinite
+from Unbounded(Euclid);
+</code></pre>
+				</div>
+				<p>The full formal proof is 44 lines</p>
+			</section>
+
+			<section data-transition="concave" data-background-color="#b5533c">
+				<ul>
+					<li>Verifying a formal proof is purely mechanical.</li>
+					<li> However, to find the proof, in addition to (mechanical) computations and deductions,
+						<ul>
+							<li> We <strong>stated</strong> useful <em>lemmas</em>, or <strong>judged</strong> that
+								previously known
+								results were useful. </li>
+							<li> We <strong>considered</strong> the <em>smallest factor $> 1$</em>,
+								<strong>conjectured</strong> and proved the statement that it was prime.</li>
+							<li> We considered (a prime factor of) $n! + 1$, based on <strong>backward
+									reasoning</strong>.</li>
+						</ul>
+					</li>
+					<li>It is hard to formulate <strong>rules</strong> for these steps.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background="jigsaw.jpeg">
+				<h1>Puzzles, Games, Reasoning</h1>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Puzzles</h3>
+				<ul>
+					<li class="frag-ment"><strong>Some puzzles:</strong> jigsaw, sudoku, detective stories, quiz
+						questions, planetary motions, ... </li>
+					<li class="frag-ment">A puzzle is a precisely stated problem for which
+						<ul>
+							<li>it is (fairly) easy to <em>check</em> that a solution is correct, but</li>
+							<li>it is hard to <em>find</em> the solution.</li>
+						</ul>
+					</li>
+					<li class="frag-ment"> A solution may be <strong>formal</strong> or <strong>informal</strong>. </li>
+					<li class="frag-ment"> We solve puzzles by a mixture of <em>deduction</em> (algorithms) and
+						<em>intuition</em>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-color="teal">
+				<img src="Humpty_Dumpty_Tenniel-When_I_use_a_word.png" height="600px;" alt="" />
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Deductive reasoning/Algorithms</h3>
+				<ul>
+					<li class="frag-ment">We perform a small number of steps, each step a calculation or move or
+						deduction.</li>
+					<li class="frag-ment">The steps are based on a small number of rules (possibly depending on a
+						small number of
+						parameters).</li>
+					<li class="frag-ment"> A computer's notion of <em>small</em> is very different.</li>
+					<li class="frag-ment"> We can try to solve harder problems by inventing better algorithms: <em
+							class="frag-ment">multiplication with carry-over,</em> <em
+							class="frag-ment">fingerprints,</em> <em class="frag-ment">SMT solvers.</em></li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Tacit knowledge & Intuition</h3>
+				<ul>
+					<li class="frag-ment"> <em>Tacit knowledge</em> is the kind of knowledge that is difficult to
+						transfer to another
+						person by means of writing it down or verbalizing it.</li>
+					<li class="frag-ment"> <strong>Examples:</strong> riding a bicycle, speaking a language.</li>
+					<li class="frag-ment"> Experts have a lot of tacit knowledge, typically learned through experience.
+					</li>
+					<li class="frag-ment"><em>Intuition</em> is based on tacit knowledge.</li>
+					<li class="frag-ment">While intuition is sometimes wrong, to be useful it should be correct
+						<em>often
+							enough</em>.
+						<ul>
+							<li>A <em>hunch</em> is sometimes correct.</li>
+							<li>A <em>judgement</em> is often correct.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Solving puzzles</h3>
+				<ul>
+					<li class="frag-ment">Checking a solution should be purely deductive.</li>
+					<li class="frag-ment">However, finding a solution involves:
+						<ul>
+							<li class="frag-ment">deciding what to consider - a <em>policy</em>, which may use intuitive
+								<em>hunches</em>, and </li>
+							<li class="frag-ment">deciding how promising the present approach/situation is - the
+								<em>value</em>, which may use intuitive <em>judgements</em>. </li>
+						</ul>
+					</li>
+					<li class="frag-ment">
+						A computer following a purely algorithmic approach can compensate by following up on far more
+						approaches, and looking for consequences further
+						ahead before deciding the value.
+					</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom-in slide-out" data-background="alpha-zero.jpg">
+				<h1>Computers and Games</h1>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3> Rewards, values and policies </h3>
+				<ul>
+					<li class="frag-ment"> The rules of a game (e.g. chess) tell us
+						<ul>
+							<li class="frag-ment">what moves we can make.</li>
+							<li class="frag-ment">what <em>reward</em> we get at a stage - e.g. win/loss/draw at the
+								end.
+							</li>
+						</ul>
+					</li>
+					<li class="frag-ment"> In tic-tac-toe, we can simply calculate the reward.</li>
+					<li class="frag-ment"> In most cases however, we need
+						<ul>
+							<li class="frag-ment">A <em>policy</em> - what moves to consider.</li>
+							<li class="frag-ment">A (relative) <em>value</em> telling us what future reward we can
+								expect
+								based on the present position.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<h3>Kasparov vs Deep Blue</h3>
+				<ul>
+					<li class="frag-ment">In Chess, a basic <strong>value</strong> is obtained by counting pieces and
+						pawns with weights.
+					</li>
+					<li class="frag-ment"><em>Standard openings</em> also give a <strong>policy</strong> during the
+						early
+						stages of the game, as do <em>endgame tables</em>.</li>
+					<li class="frag-ment"> Deep Blue, and chess theory, extend these to elaborate (rule based) values
+						and
+						policies.</li>
+					<li class="frag-ment"> The value and policy functions of Kasparov were far better, but compensated
+						for by Deep Blue being able to consider far more move sequences.</li>
+				</ul>
+
+			</section>
+			<section data-background-color="#002b36">
+				<h3>AlphaGo vs Lee Sedol</h3>
+				<ul>
+					<li class="frag-ment"> In the chinese game Go, the number of legal moves is much larger, so
+						<em>trying everything</em> means we cannot look many moves ahead.</li>
+					<li class="frag-ment"> More importantly, it is very hard to describe a good value function.</li>
+					<li class="frag-ment"> This makes it far harder for computers.</li>
+					<li class="frag-ment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
+						champion Lee Sedol.</li>
+					<li class="frag-ment"> In January 2017, AlphaGo defeated the world number one Ke Jie
+						comprehensively.
+					</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<h3>AlphaGo and Learning</h3>
+				<ul>
+					<li class="frag-ment"> The policy and value functions of AlphaGo are <em>deep neural networks</em>
+						that were
+						<em>trained</em>.</li>
+					<li class="frag-ment"> The policy network was trained by learning to predict the next move from
+						games
+						of expert players.</li>
+					<li class="frag-ment"> The value network was trained by AlphaGo playing against versions of itself.
+					</li>
+					<li class="frag-ment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
+					<li class="frag-ment"> AlphaGo came up with unexpected moves.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>AlphaGo Zero and Alpha Zero</h3>
+				<ul>
+					<li class="frag-ment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt
+						purely by
+						self play.</li>
+					<li class="frag-ment">Its successor, <em>AlphaZero</em>, could master a variety of similar games
+						starting with
+						just the rules.</li>
+					<li class="frag-ment">AlphaZero took just 4 hours to become the strongest chess player on the planet
+						(beating a traditional chess program, Stockfish).</li>
+					<li class="frag-ment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes
+						piece
+						activity over material, preferring positions that looked risky and aggressive.&rdquo;</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom" data-background="sea.jpg">
+				<h1>Artificial Intelligence elsewhere.</h1>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Word Embeddings</h3>
+				<ul>
+					<li>
+					       To give words a <em>structure</em> and capture relations, words are <em>embedded</em> as points in space.</li>
+					<li>To do this, (in <strong>Word2Vec</strong>) we set up the problem of predicting a word given its neighbours.</li>
+					<li>We look for solutions of this problem that involve mapping words into space, and predicting from neighbours using the points.
+					</li>
+					<li> Analogies such as <em>Paris</em>  is to <em>France</em> as <em>Berlin</em> is to <em>Germany</em> are captured by <em>vector operations</em>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Generative Query network</h3>
+				<ul>
+					<li class="frag-ment">In an artifical 3D environment, the network observes 2D images from a few
+						positions.</li>
+					<li class="frag-ment">It has to predict the observed image from a new position.</li>
+					<li class="frag-ment">To do this, the 2D image was mapped to a <em>concise representation</em> by a
+						network, which was
+						then used to predict the image from a different viewpoint.</li>
+					<li class="frag-ment">The concise representation factorized by colour, shape and size (among other
+						things).</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Generative Adversarial Network</h3>
+				<ul>
+					<li class="frag-ment">These consist of a pair of networks, contesting with
+						each other.</li>
+					<li class="frag-ment"> One network generates candidates (generative) and
+						the other evaluates them (discriminative).</li>
+					<li class="frag-ment">For example the discriminative network tries to
+						distinguish between real images and synthetic ones
+						generated by the generative network.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Distributional reinforcement learning</h3>
+				<ul>
+					<li class="frag-ment">In <em>temporal reinforcement learning</em>, a network tries to predict
+						(average) future rewards.</li>
+					<li class="frag-ment">However, sometimes the reward is either very big or very small, so the average
+						reward is misleading.</li>
+					<li class="frag-ment"> In <em>distributional reinforcement learning</em> we have several predictors,
+						which react differently to <em>positive</em> and <em>negative</em> errors.</li>
+					<li class="frag-ment">Recently, similar distributions of <em>dopamine</em> cells was found in the
+						brains of
+						mice.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
+					<li>
+						A question on a blog of Terence Tao, asked to him by Apoorva Khare, was answered in PolyMath 14.
+					</li>
+					<li class="frag-ment">
+						A crucial step in the discovery was a computer generated but human readable proof I posted.
+					</li>
+					<p></p>
+					<iframe src="kwk-gross-proof.html" frameborder="0" width="800px" height="400px"
+						class="frag-ment"></iframe>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in slide-out" data-background-image="code.png">
+				<h1>Interactive Theorem Provers</h1>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>Interactive Theorem Provers</h3>
+				<ul>
+					<li class="frag-ment"><em>Interactive Theorem Provers</em> are software systems where proofs are
+						obtained by human-machine
+						collaboration.</li>
+					<li class="frag-ment">The computer both finds (parts of) proofs and checks correctness.</li>
+					<li class="frag-ment">Some very large mathematical proofs have been verified by such systems.</li>
+					<li class="frag-ment">The ease of proving in such systems depends on how good it is at finding
+						proofs.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>Who guards the guards?</h3>
+				<ul>
+					<li class="frag-ment">
+						A computer verified proof is only as trustworthy as the system that verified the proof.
+					</li>
+					<li class="frag-ment">
+						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small <em>trusted
+							kernel</em>, which can be thoroughly checked.
+					</li>
+					<li class="frag-ment">
+						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in three
+						languages.
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h3>Foundations of mathematics</h3>
+				<ul>
+					<li> <em>Foundations</em> are rules for describing objects and statements and making deductions.
+					</li>
+					<li class="frag-ment">The standard foundations of mathematics are
+						based on Set
+						Theory and First-order logic.</li>
+					<li class="frag-ment">However, formal proofs in these foundation become long and opaque.</li>
+					<li class="frag-ment">Instead, interactive proof systems use richer foundations that have evolved
+						over time.</li>
+					<li class="frag-ment">A dramatic advance in the new foundations came about with the recent discovery
+						of connections with
+						<em>topology</em>, a branch of mathematics.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom-in convex-out" data-background-image="lake.jpg">
+				<h1 style="color:goldenrod">Formal methods</h1>
+				<h2>Mathematical proofs elsewhere</h2>
+				<p>&nbsp;</p>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h3>Formal methods</h3>
+				<ul>
+
+					<li class="frag-ment">We specify and describe software, hardware etc. in precise mathematical terms.
+					</li>
+					<li class="frag-ment">We give <em>mathematical proofs</em> to ensure correct behavior.</li>
+					<li class="frag-ment">This gives a much greater certainty of correctness.</li>
+					<li class="frag-ment">However, proofs are much harder than tests.</li>
+					<li class="frag-ment">Formal proofs use interactive theorem provers.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Do we need <em>completely correct always</em>?</h4>
+
+				<table class="box">
+					<tr class="frag-ment">
+						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
+						<td>Pentium FDIV Bug</td>
+						<td> <span class="frag-ment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="frag-ment">
+						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
+						<td>Therac 25 radiation machine</td>
+						<td> <span class="frag-ment"> Safety critical</span> </td>
+					</tr>
+					<tr class="frag-ment">
+						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
+						<td>WhatsApp Pegasus attack</td>
+						<td> <span class="frag-ment"> A bug is a <em>vulnerability</em></span> </td>
+					</tr>
+				</table>
+
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Users of formal methods</h4>
+
+				<table class="box">
+					<tr class="frag-ment">
+						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
+						<td>Intel Chips</td>
+						<td> <span class="frag-ment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="frag-ment">
+						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
+						<td>Paris driverless metro</td>
+						<td> <span class="frag-ment"> Safety critical</span> </td>
+					</tr>
+					<tr class="frag-ment">
+						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
+						<td>Scala dotty compiler</td>
+						<td> <span class="frag-ment"> A bug is a vulnerability</span> </td>
+					</tr>
+				</table>
+
+			</section>
+
+
+			<section data-transition="zoom" data-background="hills.png">
+				<h1>The future of computer proofs?</h1>
+			</section>
+
+			<section data-transition="zoom" data-background-color="#5A2720">
+				<table>
+					<tr>
+						<td><img src="deep-thinking.jpeg" alt="Deep thinking (Kasparov)" height="250px;" /> </td>
+						</td>
+						<td class="frag-ment"><img src="game-changer.jpeg" alt="Game changer" height="250px;" /> </td>
+					</tr>
+					<tr>
+						<td class="frag-ment"><img src="second-machine-age.jpeg" alt="The second machine age"
+								height="300px;" /> </td>
+						<td class="frag-ment"><img src="most-human-human.jpg" alt="The most human human"
+								height="250px;" /> </td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-transition="zoom" data-background-color="teal">
+
+				<ul>
+					<li>
+						Artificial Intelligence can:
+						<ul>
+							<li class="frag-ment">Make moves that we can appreciate.</li>
+							<li class="frag-ment">Judge value based on future rewards.</li>
+							<li class="frag-ment"> Show originality.</li>
+							<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
+							<li class="frag-ment"> Work with limited and/or unstructured data, by
+								<strong>self-play</strong>
+								and by <strong>synthetic tasks</strong>.</li>
+							<li class="frag-ment"> Organize observations naturally and efficiently, capturing global
+								structure and enabling analogies.</li>
+						</ul>
+					</li>
+				</ul>
+
+
+			</section>
+			<section data-transition="zoom" data-background-color="teal">
+				<ul>
+					<li>Foundations give (<em>efficient</em>, <em>modular</em>) <strong>rules</strong>
+						for generating objects, statements, proofs.</li>
+					<li> A <strong>reward</strong> can be defined in terms of power and efficiency of proving/disproving
+						statements.
+					</li>
+					<li> Mathematical heuristics can be captured with <strong>composite moves</strong>, and
+						used for <em>policy</em> functions.</li>
+					<li> We can define reasonable <strong>value</strong> functions, e.g. recognizing non-trivial
+						lemmas.
+					</li>
+					<li> Behaviour cloning can use formalized mathematics, <em>natural
+							language processing</em>.</li>
+					<li class="frag-ment"><strong>Automating mathematics?</strong> <span class="frag-ment"> It appears
+							that there are clear approaches and <strong>no
+								evident barriers</strong>.</span></li>
+				</ul>
+			</section>
+	</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				//				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+//			Reveal.addEventListener( 'slidechanged', function( event ) {
+//				MathJax.Hub.Rerender();
+//			} );
+
+	</script>
+
+</body>
+
+</html>
