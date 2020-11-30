@@ -18,67 +18,67 @@ Siddhartha began his research career in Topology and has worked for many years i
 
 * The Quest: table with Chess, Go, Mathematics
 * Mathematics
-  * prime numbers
-  * three questions: infinitude, twin primes, arithmetic progressions
-  * why: concepts
-  * example: Curvature and Relativity
+    * prime numbers
+    * three questions: infinitude, twin primes, arithmetic progressions
+    * why: concepts
+    * example: Curvature and Relativity
 * Puzzles (and Games)
-  * Solution (answer with justification) hard to find, easy to check.
-  * Examples: jigsaw, Sudoku, Rubik's cube, detective stories, orbits of planets.
-  * formal and informal solutions.
+    * Solution (answer with justification) hard to find, easy to check.
+    * Examples: jigsaw, Sudoku, Rubik's cube, detective stories, orbits of planets.
+    * formal and informal solutions.
 * Reasoning for puzzles
-  * deductive/algorithmic: small number of steps following a small number of rules (which may depend on a small number of parameters).
-  * intuition
-    * not deductive
-    * based on experience
-    * correct often enough to be useful: a _hunch_ is sometimes correct, a _judgement_ is usually correct.
-  * checking a solution must be deductive, but finding one efficiently involves a mix of deduction and intuition.
-  * tacit knowledge and expert systems
+    * deductive/algorithmic: small number of steps following a small number of rules (which may depend on a small number of parameters).
+    * intuition
+        * not deductive
+        * based on experience
+        * correct often enough to be useful: a _hunch_ is sometimes correct, a _judgement_ is usually correct.
+    * checking a solution must be deductive, but finding one efficiently involves a mix of deduction and intuition.
+    * tacit knowledge and expert systems
 
 * Mathematical proof: justification of a mathematical statement.
-  * based on the rules of logic.
-  * rules of logic are sound (and complete).
-  * so far as we know, they are also consistent, and can express everything in the real world.
+    * based on the rules of logic.
+    * rules of logic are sound (and complete).
+    * so far as we know, they are also consistent, and can express everything in the real world.
 * Infinitude of primes
-  * informal proof
-  * formal proof.
+    * informal proof
+    * formal proof.
 * Games and computers
-  * teaching a computer to play chess
-    * given reward
-    * derive value (likely reward), policy (likely to maximize value)
-  * deep Blue vs Kasparov
-  * the tradeoff and Go
-  * AlphaGo vs Lee Seedol and Ke Jie
-  * AlphaGoZero
-  * AlphaZero in chess
-  * conclusions of reasoning
+    * teaching a computer to play chess
+        * given reward
+        * derive value (likely reward), policy (likely to maximize value)
+    * deep Blue vs Kasparov
+    * the tradeoff and Go
+    * AlphaGo vs Lee Seedol and Ke Jie
+    * AlphaGoZero
+    * AlphaZero in chess
+    * conclusions of reasoning
 * GQNs and composition/analogy : factorizes colour, shape and size.
 * Computer mathematical proofs
-  * four colour problem
-  * Robins conjecture
-  * Kepler conjecture
-  * Pythogorean triples
-  * About these:
-    * deductive, often domain specific
-    * not "solutions" - not easy to verify, hence learn from.
+    * four colour problem
+    * Robins conjecture
+    * Kepler conjecture
+    * Pythogorean triples
+    * About these:
+        * deductive, often domain specific
+        * not "solutions" - not easy to verify, hence learn from.
 * Interactive theorem provers
-  * verify and complete proofs
-  * trusted kernel
-  * can have significant automation
-  * used in formal methods
+    * verify and complete proofs
+    * trusted kernel
+    * can have significant automation
+    * used in formal methods
 * Formal methods
-  * Some errors: Pentium bug, TimSort, Pegasus attack on WhatsApp
-  * Escaped extensive testing as they are in corner cases
-  * Still matter
-    * safety critical
-    * vulnerability
-  * __Solution:__
-    * Mathematically prove correctness, with the help of and verified by computers
-    * This is facilitated by better foundations: allowing composition.
+    * Some errors: Pentium bug, TimSort, Pegasus attack on WhatsApp
+    * Escaped extensive testing as they are in corner cases
+    * Still matter
+        * safety critical
+        * vulnerability
+    * __Solution:__
+        * Mathematically prove correctness, with the help of and verified by computers
+        * This is facilitated by better foundations: allowing composition.
 * Where we are:
-  * computers purely deductively can still better human mixed approach, but with the cost of proofs not useful to learn from.
-  * some deep learning has been used together with these.
-  * but in other domains, AI shows intuition, _originality_ and _analogical/compositional thinking_
+    * computers purely deductively can still better human mixed approach, but with the cost of proofs not useful to learn from.
+    * some deep learning has been used together with these.
+    * but in other domains, AI shows intuition, _originality_ and _analogical/compositional thinking_
 * Conclusion: Open AI
 
 ## Notes
@@ -127,11 +127,21 @@ from Unbounded(Euclid);
 capabilities in many cognitive tasks.
 * Algorithmic methods of proving are already powerful in mathematics.
 * For automating mathematics:
-  * clear approaches and work-points.
-  * no evident barriers?
+    * clear approaches and work-points.
+    * no evident barriers?
 * Partial progress towards the automating mathematics
 can lead to
-  * New uses of computers in discovering mathematics.
-  * Semantic search in the literature.
-  * Automatic experimentation, testing, plotting, etc.
-  * Search for objects with desired properties, combining various approaches.
+    * New uses of computers in discovering mathematics.
+    * Semantic search in the literature.
+    * Automatic experimentation, testing, plotting, etc.
+    * Search for objects with desired properties, combining various approaches.
+
+## KSOM lecture
+
+### KSOM Abstract
+
+Starting with just the rules of chess, it took four hours of playing against itself for AlphaZero, a computer program, to become the strongest chess player on the planet, playing with a "dynamic, open style" and preferring moves that are "risky and aggressive". With a couple of days of self-play, AlphaZero discovered the best standard openings, and even discarded a few of them.
+
+Could computers similarly acquire all the major capabilities used by Mathematicians and the Mathematics community in the discovery and proof of Mathematical results and concepts? The use of computers for experimentation and computations while doing mathematics has become routine, and computers have also begun to provide rigorous proofs of special classes of results, presumably beyond human capabilities. Further, interactive proof systems allow the verification of results in collaboration with mathematicians. We shall sketch some of the ways in which computers are increasingly being used in producing mathematical proofs.
+
+It is however in other cognitive domains, such as board games, visual and linguistic tasks etc. that computers show superhuman capabilities, including of a nature that were believed to be especially difficult for machines. We discuss some of these successes, what is behind them, and what this suggests for the future of computers in mathematics.
