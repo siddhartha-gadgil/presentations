@@ -66,9 +66,8 @@
 					</li>
 					<li>When?</li>
 					<li><strong>How?</strong></li>
-					<li>Computers are being used in a growing number of ways in discovering mathematics.</li>
-					<li>However, it is their capabilities in other cognitive domains that suggests they can do much
-						more.</li>
+					<li>Computers are already used in several ways.</li>
+					<li>Capabilities in other cognitive domains that suggests they can do much more.</li>
 				</ul>
 			</section>
 
@@ -124,7 +123,8 @@
 					<li>Compact enumeration.</li>
 					<li>Exact real number arithmetic.</li>
 					<li>Linear programming.</li>
-					<li>SAT solvers and SMT solvers.</li>
+					<li>Decidability of <strong>real semi-algebraic geometry</strong>.</li>
+					<li><strong>SAT</strong> solvers and SMT solvers.</li>
 				</ul>
 			</section>
 
@@ -157,8 +157,8 @@
 							<li class="frag-ment"> what are <strong>well-formed expressions</strong>, i.e., represent
 								mathematical
 								objects.</li>
-							<li class="frag-ment"> valid <strong>deductions</strong>, more generally
-								<strong>judgements</strong>.</li>
+							<li class="frag-ment"> <strong>valid deductions</strong>, more generally
+								make <strong>judgements</strong>,</li>
 							<li class="frag-ment"> <strong>axioms</strong>, which are well-formed propositions that we
 								take to be true (or proved).
 							</li>
@@ -175,25 +175,25 @@
 				<h4>Formal proof of infinitude of primes in Mizar</h4>
 				<div class="smallish">
 					<pre class="frag-ment"><code class="mizar" height="1000px">reserve n,p for Nat;
-theorem Euclid: ex p st p is prime & p > n
-proof
-set k = n! + 1;
-n! > 0 by NEWTON:23;
-then n! >= 0 + 1 by NAT_1:38;
-then k >= 1 + 1 by REAL_1:55;
-then consider p such that
-A1: p is prime & p divides k by INT_2:48;
-A2: p <> 0 & p > 1 by A1,INT_2:def 5;
-take p;
-thus p is prime by A1;
-assume p <= n;
-then p divides n! by A2,NAT_LAT:16;
-then p divides 1 by A1,NAT_1:57;
-hence contradiction by A2,NAT_1:54;
-end;
-theorem {p: p is prime} is infinite
-from Unbounded(Euclid);
-</code></pre>
+					theorem Euclid: ex p st p is prime & p > n
+					proof
+					set k = n! + 1;
+					n! > 0 by NEWTON:23;
+					then n! >= 0 + 1 by NAT_1:38;
+					then k >= 1 + 1 by REAL_1:55;
+					then consider p such that
+					A1: p is prime & p divides k by INT_2:48;
+					A2: p <> 0 & p > 1 by A1,INT_2:def 5;
+					take p;
+					thus p is prime by A1;
+					assume p <= n;
+					then p divides n! by A2,NAT_LAT:16;
+					then p divides 1 by A1,NAT_1:57;
+					hence contradiction by A2,NAT_1:54;
+					end;
+					theorem {p: p is prime} is infinite
+					from Unbounded(Euclid);
+					</code></pre>
 				</div>
 				<p>The full formal proof is 44 lines</p>
 			</section>
@@ -212,7 +212,8 @@ from Unbounded(Euclid);
 					</li>
 					<li class="frag-ment"> The reader is expected to deduce all assertions
 						(or at least believe that he/she can do so).</li>
-					<li><strong>Formalization:</strong> finding <em>mechanically verifiable</em> proofs.
+					<li><strong>Formalization:</strong> finding <em>mechanically verifiable</em> proofs &mdash; this
+						ensures correctness .
 					</li>
 					<li> A barrier to formalization is ZFC-foundations.</li>
 					<!-- <li class="fragment"> Interactive proof systems modelled on human proofs, such as Mizar and Naproche,
@@ -243,9 +244,11 @@ from Unbounded(Euclid);
 						<strong>syntactically</strong> equally valid, i.e., the usual language of mathematics is an
 						informal language.
 					</li>
-					<li class="frag-ment"> Statements and proofs formalized in first-order logic are <strong>verbose</strong> and <strong>opaque</strong>.
+					<li class="frag-ment"> Statements and proofs formalized in first-order logic are
+						<strong>verbose</strong> and <strong>opaque</strong>.
 					</li>
-					<li class="frag-ment"> Propositions and Proofs are not <strong>mathematical objects (first
+					<li class="frag-ment"> Statements (propositions) and Proofs are not <strong>mathematical objects
+							(first
 							class)</strong> - they cannot be arguments or
 						values of functions, and so are not <strong>composable</strong>.
 						We instead have patterns of proof (such as induction).</li>
@@ -279,8 +282,8 @@ from Unbounded(Euclid);
 						collaboration.</li>
 					<li class="frag-ment">The computer both finds (parts of) proofs and checks correctness.</li>
 					<li class="frag-ment">The ease of proving in such systems depends on how <strong>concise</strong>
-						and <strong>composable</strong> proofs are in the system (the foundations) as well as 
-						the strength of its <strong>elaborator</strong>.</li>
+						and <strong>composable</strong> proofs are in the system (the foundations) as well as
+						the strength of its <strong>elaborator</strong> and <strong>tactics</strong>.</li>
 				</ul>
 			</section>
 
@@ -386,25 +389,26 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-background-color="#002b36" data-transition="concave">
-				<h4> Programming a Computer for Playing Chess</h4>
+				<h4><q>Programming a Computer for Playing Chess</q></h4>
 				<ul>
 					<li class="frag-ment"> Playing Chess can be based on
 						<ul>
 							<li class="frag-ment">judging the <strong>value</strong> of a fixed players position.</li>
 							<li class="frag-ment">a <strong>policy</strong>: sequences of moves to consider.
 							</li>
-							<li class="frag-ment"><em>Standard openings</em> give a <strong>policy</strong> , as do
-								<em>endgame tables</em>.</li>
 						</ul>
 					</li>
-					<li class="frag-ment"> We consider the value at the end of sequences moves we consider.</li>
-					<li class="frag-ment"> Using this, we recursively decide the best moves
-						based on alternately maximizing and minimizing.
+					<li class="frag-ment"> We compute (and use) the value at the end of sequences moves we consider.
 					</li>
-					<li class="frag-ment">Various heuristics, such as <strong>quiescence search</strong> and
+					<li class="frag-ment"> We recursively decide the best moves
+						by <strong>minimax</strong> &mdash; alternately maximizing and minimizing.
+					</li>
+					<li class="frag-ment">We refine using various heuristics, such as <strong>quiescence search</strong>
+						and
 						<strong>$\alpha-\beta$ pruning</strong>.
 					</li>
-
+					<li class="frag-ment"><em>Openings</em> give a <strong>policy</strong> , as do
+						<em>endgame tables</em>.</li>
 				</ul>
 			</section>
 			<section data-background-color="#002b36" data-transition="concave">
@@ -412,7 +416,8 @@ from Unbounded(Euclid);
 				<ul>
 					<li>In 1997, a computer <strong>Deep Blue</strong> defeated the Chess world champion Gary Kasparov.
 					</li>
-					<li class="frag-ment"> Deep Blue, and chess theory, extend these to elaborate (rule based) values
+					<li class="frag-ment"> Deep Blue, and chess theory, extend the above methods to elaborate (rule
+						based) values
 						and
 						policies.</li>
 					<li>However, Deep Blues was limited in certain <strong>capabilities</strong>.</li>
@@ -426,7 +431,8 @@ from Unbounded(Euclid);
 				<ul>
 					<li class="frag-ment"> In the chinese game Go, the number of legal moves is much larger, so
 						<em>trying everything</em> means we cannot look many moves ahead.</li>
-					<li class="frag-ment"> More importantly, it is very hard to describe a good value function.</li>
+					<li class="frag-ment"> More importantly, it is very hard to describe a good value function (we use
+						<strong>tacit knowledge</strong>).</li>
 					<li class="frag-ment"> This makes it far harder for computers.</li>
 					<li class="frag-ment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
 						champion Lee Sedol.</li>
@@ -453,10 +459,11 @@ from Unbounded(Euclid);
 			</section>
 
 			<section data-transition="zoom">
-				<h3>Deep learning (e.g. policy).</h3>
+				<h3>Deep learning (policy).</h3>
 				<ul>
-					<li>We <em>search</em> for an optimal policy, with respect to an appropriate smooth
-						<strong>loss</strong> in a space of functions smoothly parametrized by $\mathbb{R}^N$.</li>
+					<li>We <em>search</em> for an optimal policy in a space of functions smoothly parametrized by
+						$\mathbb{R}^N$ with respect to an appropriate smooth
+						<strong>loss</strong>.</li>
 					<li>The space of functions we consider are compositions of the form $$\Phi = \Psi_k\circ \Psi_{k
 						-1}\circ \dots \circ \Psi_1,$$ where the functions $\Psi_j$ are <em>layers</em>, and are
 						smoothly parametrized by $\mathbb{R}^{n_j}$, with $N = n_1 + n_2 + \dots + n_j$.</li>
@@ -464,11 +471,13 @@ from Unbounded(Euclid);
 			</section>
 			<section data-transition="zoom-in concave-out">
 				<ul>
-					<li>A <em>dense layer</em> is a function of the form $$y = \sigma(Ax)$$ with $A$ a linear function
+					<li>A <em>dense layer</em> is a function of the form $y = \sigma(Ax)$, with $A$ a linear function
 						and $\sigma$ the function $x\mapsto e^x/(1 + e^x)$ applied component-wise.</li>
 					<li>This is parametrized by matrix entries of $A$.</li>
 					<li>In a <em>convolutional layer</em>, the linear function is a <strong>convolution</strong>, e.g.,
 						$y_j = \sum_{k} a _k x_{j - k}$.</li>
+					<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j = e^{x_j}/\sum_i
+						e^{x_i}$.</li>
 					<li>Optimization is by variations of gradient flow.</li>
 					<li>By chain rule, this can be computed layer-by-layer (<strong>backward propagation</strong>).</li>
 				</ul>
@@ -590,7 +599,7 @@ from Unbounded(Euclid);
 						<ul>
 							<li>accumulate knowledge.</li>
 							<li>digest the knowledge.</li>
-							<li>solve problems, prove theorems, ask questions:
+							<li>solve/pose problems, prove theorems:
 								<ul>
 									<li>whose answer we want,</li>
 									<li>to accumulate knowledge,</li>
@@ -608,7 +617,7 @@ from Unbounded(Euclid);
 					<li>We need good constructions and choices for:
 						<ul>
 							<li>outcomes,</li>
-							<li>composite moves: which are parameters for policy,</li>
+							<li>composite moves, hence parameters for policy,</li>
 							<li>integration with experimentation,</li>
 							<li>integration with domain specific solvers and other software,</li>
 							<li>integration with (human) mathematics,</li>
@@ -627,7 +636,8 @@ from Unbounded(Euclid);
 						sketched here.</li>
 					<li>It is also valuable to be able to learn from existing mathematics, which could use
 						<em>formalized libraries</em> and <em>natural language processing</em>.</li>
-					<li>On the other hand, for computer proofs to be useful, <strong>we</strong> would like to be able to <strong>learn</strong> from computer
+					<li>On the other hand, for computer proofs to be useful, <strong>we</strong> would like to be able
+						to <strong>learn</strong> from computer
 						generated proofs.</li>
 				</ul>
 			</section>
@@ -664,6 +674,9 @@ from Unbounded(Euclid);
 					<li>A natural question is the <strong>replicability</strong> of the computer proof, which was
 						originally produced in an interactive session.</li>
 				</ul>
+			</section>
+			<section>
+				<video data-autoplay src="http://math.iisc.ac.in/~gadgil/polymath.mp4"></video>
 			</section>
 	</div>
 	</div>

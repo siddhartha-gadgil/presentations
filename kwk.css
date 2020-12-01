@@ -96,3 +96,8 @@ html.dimbg .slide-background {
 .smaller {
     font-size: 35px;
 }
+
+
+pre, code{
+    white-space:pre-line;
+}
