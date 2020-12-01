@@ -64,10 +64,11 @@
 						mathematics community in the <strong>discovery</strong> and <strong>proof</strong> of
 						mathematical results and concepts?
 					</li>
-					<li>When?</li>
-					<li><strong>How?</strong></li>
+					<li>When? <strong>How?</strong></li>
 					<li>Computers are already used in several ways.</li>
 					<li>Capabilities in other cognitive domains that suggests they can do much more.</li>
+					<li>Automated theorem proving is closely related to <strong>computer verification of
+							proofs</strong>.</li>
 				</ul>
 			</section>
 
@@ -78,14 +79,9 @@
 				<h1>Mathematics</h1>
 				<h1>&nbsp;</h1>
 				<span class="attribution">
-
-					By <a href="//commons.wikimedia.org/wiki/User:Cdang" title="User:Cdang">Cdang</a>Derivative work: <a
-						href="//commons.wikimedia.org/wiki/User:Muskid" title="User:Muskid">Muskid</a> - Translation of
-					<a href="//commons.wikimedia.org/wiki/File:Empilement_compact.svg"
-						title="File:Empilement compact.svg">Empilement_compact.svg</a>, <a
-						href="https://creativecommons.org/licenses/by-sa/3.0"
-						title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a
-						href="https://commons.wikimedia.org/w/index.php?curid=33976435">Link</a></span>
+					<a href="https://commons.wikimedia.org/wiki/File:Closepacking.svg">Cdang Derivative work:
+						Muskid</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via
+					Wikimedia Commons</span>
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
@@ -142,135 +138,7 @@
 					</li>
 			</section>
 
-
-			<section data-transition="zoom-in convex-out" data-background-image="lake.jpg">
-				<h1 style="color:goldenrod">Mathematical proofs</h1>
-				<h2>and</h2>
-				<h1>Formalization</h1>
-				<p>&nbsp;</p>
-			</section>
-
-			<section data-transition="convex" data-background="#b5533c">
-				<ul>
-					<li class="frag-ment"> A formal deduction system gives rules that describe
-						<ul>
-							<li class="frag-ment"> what are <strong>well-formed expressions</strong>, i.e., represent
-								mathematical
-								objects.</li>
-							<li class="frag-ment"> <strong>valid deductions</strong>, more generally
-								make <strong>judgements</strong>,</li>
-							<li class="frag-ment"> <strong>axioms</strong>, which are well-formed propositions that we
-								take to be true (or proved).
-							</li>
-						</ul>
-					</li>
-					<li class="frag-ment"> In the usual foundations of mathematics, the rules for forming expressions
-						and making deductions are those of <strong>First-Order Logic</strong>, and the axioms are those
-						of <strong>Set Theory</strong>.
-					</li>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>Formal proof of infinitude of primes in Mizar</h4>
-				<div class="smallish">
-					<pre class="frag-ment"><code class="mizar" height="1000px">reserve n,p for Nat;
-					theorem Euclid: ex p st p is prime & p > n
-					proof
-					set k = n! + 1;
-					n! > 0 by NEWTON:23;
-					then n! >= 0 + 1 by NAT_1:38;
-					then k >= 1 + 1 by REAL_1:55;
-					then consider p such that
-					A1: p is prime & p divides k by INT_2:48;
-					A2: p <> 0 & p > 1 by A1,INT_2:def 5;
-					take p;
-					thus p is prime by A1;
-					assume p <= n;
-					then p divides n! by A2,NAT_LAT:16;
-					then p divides 1 by A1,NAT_1:57;
-					hence contradiction by A2,NAT_1:54;
-					end;
-					theorem {p: p is prime} is infinite
-					from Unbounded(Euclid);
-					</code></pre>
-				</div>
-				<p>The full formal proof is 44 lines</p>
-			</section>
-
-			<section data-transition="convex" data-background="#b5533c">
-				<ul>
-					<li class="frag-ment"> A proof in real-life mathematics consists of:
-						<ul>
-							<li class="frag-ment"> definitions, axioms, assumptions, notation; </li>
-							<li class="frag-ment"> assertions; </li>
-							<li class="frag-ment"> hints about which assertions, definitions etc. are used in the proof
-								of a given assertion.</li>
-							<li class="frag-ment"> focussing attention.</li>
-							<li class="frag-ment"> introducing variables, hypotheses etc.</li>
-						</ul>
-					</li>
-					<li class="frag-ment"> The reader is expected to deduce all assertions
-						(or at least believe that he/she can do so).</li>
-					<li><strong>Formalization:</strong> finding <em>mechanically verifiable</em> proofs &mdash; this
-						ensures correctness .
-					</li>
-					<li> A barrier to formalization is ZFC-foundations.</li>
-					<!-- <li class="fragment"> Interactive proof systems modelled on human proofs, such as Mizar and Naproche,
-				follow a similar approach.</li> -->
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background="#b5533c">
-				<p class="smaller">
-					&ldquo; Since the first half of the 20th century mathematics has been presented as a science based
-					on
-					ZFC and ZFC was introduced as a particular theory in Predicate Logic.
-				</p>
-				<p class="smaller">
-					&ldquo; Therefore someone who wanted to get to the bottom of things in mathematics had a simple
-					road to follow - learn what Predicate Logic is, then learn a particular theory called ZFC, then
-					learn how to translate propositions about a few basic mathematical concepts into formulas of
-					ZFC, and then <strong> learn to believe, through examples, that the
-						rest of mathematics can be reduced
-						to these few basic concepts</strong>.&rdquo;</p>
-				<div style="text-align:right">Vladimir Voevodsky</div>
-			</section>
-
-			<section data-transition="convex" data-background="#b5533c">
-				<h3> New (better) foundations? </h3>
-				<ul>
-					<li class="frag-ment"> In the usual foundations of mathematics, $sin(3)$ and $3(sin)$ are
-						<strong>syntactically</strong> equally valid, i.e., the usual language of mathematics is an
-						informal language.
-					</li>
-					<li class="frag-ment"> Statements and proofs formalized in first-order logic are
-						<strong>verbose</strong> and <strong>opaque</strong>.
-					</li>
-					<li class="frag-ment"> Statements (propositions) and Proofs are not <strong>mathematical objects
-							(first
-							class)</strong> - they cannot be arguments or
-						values of functions, and so are not <strong>composable</strong>.
-						We instead have patterns of proof (such as induction).</li>
-
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background="#b5533c">
-				<ul>
-					<li>In <strong>Type Theory</strong>, we have syntactic rules to form not only new terms but
-						new <em>types</em> of terms.</li>
-					<li>For instance, in Church's <strong>Higher-Order Logic</strong>, if $A$ and $B$ are types, we can
-						form the function type $A \to B$. As a result $sin(3)$ is syntactically valid but $3(sin)$ is
-						not.</li>
-					<li>Further, in <strong>Dependent Type Theory</strong>, propositions and proofs are also
-						mathematical objects.</li>
-					<li>Voevodsky discovered deep connections between Type Theory and Homotopy Theory, creating the
-						field of <strong>Homotopy Type Theory</strong>.</li>
-				</ul>
-			</section>
-
-			<section data-transition="zoom-in concave-out" data-background-image="code.png">
+			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
 				<h1>Interactive Theorem Provers</h1>
 			</section>
 
@@ -280,10 +148,13 @@
 					<li class="frag-ment"><em>Interactive Theorem Provers</em> are software systems where proofs are
 						obtained by human-machine
 						collaboration.</li>
-					<li class="frag-ment">The computer both finds (parts of) proofs and checks correctness.</li>
+					<li class="frag-ment">The computer both finds (parts of) proofs and verifies
+						<strong>correctness</strong>.</li>
 					<li class="frag-ment">The ease of proving in such systems depends on how <strong>concise</strong>
-						and <strong>composable</strong> proofs are in the system (the foundations) as well as
+						and <strong>composable</strong> proofs are and
 						the strength of its <strong>elaborator</strong> and <strong>tactics</strong>.</li>
+					<li>The first of these depends on <strong>foundations</strong> and the second is <strong>automated
+							theorem proving</strong>.</li>
 				</ul>
 			</section>
 
@@ -316,7 +187,7 @@
 			</section>
 
 
-			<section data-transition="zoom-in convex-out" data-background-image="campus.jpg">
+			<section data-transition="zoom-in convex-out" data-background-image="hills.png">
 				<h1>&nbsp;</h1>
 				<h1 style="color:#fffdd0">Formal methods</h1>
 				<h2>Mathematical proofs elsewhere</h2>
@@ -327,12 +198,15 @@
 				<h3>Formal methods</h3>
 				<ul>
 
-					<li class="frag-ment">We specify and describe software, hardware etc. in precise mathematical terms.
+					<li class="frag-ment">We <strong>specify</strong> (describe) software, hardware etc. in precise
+						mathematical terms.
 					</li>
-					<li class="frag-ment">We give <em>mathematical proofs</em> to ensure correct behavior.</li>
+					<li class="frag-ment">We give <strong>mathematical proofs</strong>, which are <strong>computer
+							verified</strong>, to ensure correct behavior.</li>
 					<li class="frag-ment">This gives a much greater certainty of correctness.</li>
 					<li class="frag-ment">However, proofs are much harder than tests.</li>
-					<li class="frag-ment">Formal proofs use interactive theorem provers.</li>
+					<li class="frag-ment">Formal proofs use interactive theorem provers; with better provers we can
+						prove more often.</li>
 				</ul>
 			</section>
 
@@ -476,7 +350,8 @@
 					<li>This is parametrized by matrix entries of $A$.</li>
 					<li>In a <em>convolutional layer</em>, the linear function is a <strong>convolution</strong>, e.g.,
 						$y_j = \sum_{k} a _k x_{j - k}$.</li>
-					<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j = e^{x_j}/\sum_i
+					<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j =
+						e^{x_j}/\sum_i
 						e^{x_i}$.</li>
 					<li>Optimization is by variations of gradient flow.</li>
 					<li>By chain rule, this can be computed layer-by-layer (<strong>backward propagation</strong>).</li>
@@ -563,33 +438,54 @@
 			</section>
 
 			<section data-transition="zoom">
-
+				<h3><q>Attention is all you need</q></h3>
 				<ul>
-					<li>
-						Artificial Intelligence can:
-						<ul>
-							<li class="frag-ment">Make moves that we can appreciate.</li>
-							<li class="frag-ment">Judge value based on future rewards.</li>
-							<li class="frag-ment"> Show originality.</li>
-							<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
-							<li class="frag-ment"> Work with limited and/or unstructured data, by
-								<strong>self-play</strong>,
-								using <strong>synthetic tasks</strong> and by <strong>self-supervised learning</strong>.
-							</li>
-							<li class="frag-ment"> Organize observations naturally and efficiently, capturing global,
-								<em>compositional</em>
-								structure and enabling analogies.</li>
-						</ul>
+					<li>The meaning of a word depends on the context, i.e., other words surrounding it.</li>
+					<li>In the <em>transformer architecture</em>, this is captured by <strong>learning</strong>
+						key-value pairs that determine to which other words to pay attention.
+					</li>
+					<li>The encoding of words includes position vectors, defined by using harmonics.</li>
+					<li>This has lead to revolutionary improvements, including forming the basis for <strong>GPT
+							3</strong>.</li>
+					<li>Attention based are used in <strong>AlphaFold 2</strong>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Semantics in Networks</h3>
+				<ul>
+					<li>In image processing, successive layers capture features at increasing levels of
+						<strong>abstraction</strong>.</li>
+					<li>Often (parts of) networks are shared, to better capture structure and meaning
+						AlphaGo learnt better in part by having a common neural network.</li>
+					<li>In <em>zero shot translation</em>, a network translated between new pairs of languages;
+						apparently based on an internal language.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom">
+				<h4>Capabilities of Artificial Intelligence</h4>
+				<ul>
+					<li class="frag-ment">Make moves that we can appreciate.</li>
+					<li class="frag-ment">Judge value based on future rewards.</li>
+					<li class="frag-ment"> Show originality.</li>
+					<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
+					<li class="frag-ment"> Work with limited and/or unstructured data, by
+						<strong>self-play</strong>,
+						using <strong>synthetic tasks</strong> and by <strong>self-supervised learning</strong>.
+					</li>
+					<li class="frag-ment"> Organize observations naturally and efficiently, capturing
+						<strong>composition</strong>, <strong>abstraction</strong> and other <strong>semantics</strong>.
 					</li>
 				</ul>
 
 
 			</section>
 
-			<section data-transition="zoom" data-background="hills.png">
-				<h1 style="color: goldenrod">Artificial Intelligence</h1>
-				<h3 style="color: goldenrod">for</h3>
-				<h1 style="color: goldenrod"> Mathematical Proofs?</h1>
+			<section data-transition="zoom" data-background="code.png">
+				<h1>Artificial Intelligence</h1>
+				<h3>for</h3>
+				<h1> Mathematical Proofs?</h1>
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
@@ -636,9 +532,9 @@
 						sketched here.</li>
 					<li>It is also valuable to be able to learn from existing mathematics, which could use
 						<em>formalized libraries</em> and <em>natural language processing</em>.</li>
-					<li>On the other hand, for computer proofs to be useful, <strong>we</strong> would like to be able
-						to <strong>learn</strong> from computer
-						generated proofs.</li>
+					<li>As Kevin Buzzard remarked, a computer system could use all of mathematics for analogies.</li>
+					<li>However, for computer proofs to be useful, <strong>we</strong> would like to
+						<strong>learn</strong> from computer proofs.</li>
 				</ul>
 			</section>
 
@@ -676,6 +572,10 @@
 				</ul>
 			</section>
 			<section>
+
+				<p>A similar proof can indeed be <a href="http://math.iisc.ac.in/~gadgil/PolyProof.html"
+						target="_blank">obtained</a>.</p>
+
 				<video data-autoplay src="http://math.iisc.ac.in/~gadgil/polymath.mp4"></video>
 			</section>
 	</div>
