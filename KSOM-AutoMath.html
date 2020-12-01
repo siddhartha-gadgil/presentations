@@ -212,7 +212,7 @@
 					</li>
 					<li class="frag-ment"> The reader is expected to deduce all assertions
 						(or at least believe that he/she can do so).</li>
-					<li><strong>Formalization:</strong> finding <em>mechanically verifiable</em> proofs &mdash; this
+					<li><strong>Formalization:</strong> finding <em>mechanically verifiable</em> proofs &mdash; to
 						ensures correctness .
 					</li>
 					<li> A barrier to formalization is ZFC-foundations.</li>
@@ -280,7 +280,7 @@
 					<li class="frag-ment"><em>Interactive Theorem Provers</em> are software systems where proofs are
 						obtained by human-machine
 						collaboration.</li>
-					<li class="frag-ment">The computer both finds (parts of) proofs and checks correctness.</li>
+					<li class="frag-ment">The computer both finds (parts of) proofs and verify <strong>correctness</strong>.</li>
 					<li class="frag-ment">The ease of proving in such systems depends on how <strong>concise</strong>
 						and <strong>composable</strong> proofs are in the system (the foundations) as well as
 						the strength of its <strong>elaborator</strong> and <strong>tactics</strong>.</li>
@@ -327,12 +327,12 @@
 				<h3>Formal methods</h3>
 				<ul>
 
-					<li class="frag-ment">We specify and describe software, hardware etc. in precise mathematical terms.
+					<li class="frag-ment">We <strong>specify</strong> (describe) software, hardware etc. in precise mathematical terms.
 					</li>
-					<li class="frag-ment">We give <em>mathematical proofs</em> to ensure correct behavior.</li>
+					<li class="frag-ment">We give <strong>mathematical proofs</strong>, which are <strong>computer verified</strong>, to ensure correct behavior.</li>
 					<li class="frag-ment">This gives a much greater certainty of correctness.</li>
 					<li class="frag-ment">However, proofs are much harder than tests.</li>
-					<li class="frag-ment">Formal proofs use interactive theorem provers.</li>
+					<li class="frag-ment">Formal proofs use interactive theorem provers; with better provers we can prove more often.</li>
 				</ul>
 			</section>
 
@@ -476,7 +476,8 @@
 					<li>This is parametrized by matrix entries of $A$.</li>
 					<li>In a <em>convolutional layer</em>, the linear function is a <strong>convolution</strong>, e.g.,
 						$y_j = \sum_{k} a _k x_{j - k}$.</li>
-					<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j = e^{x_j}/\sum_i
+					<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j =
+						e^{x_j}/\sum_i
 						e^{x_i}$.</li>
 					<li>Optimization is by variations of gradient flow.</li>
 					<li>By chain rule, this can be computed layer-by-layer (<strong>backward propagation</strong>).</li>
@@ -563,23 +564,43 @@
 			</section>
 
 			<section data-transition="zoom">
-
+				<h3><q>Attention is all you need</q></h3>
 				<ul>
-					<li>
-						Artificial Intelligence can:
-						<ul>
-							<li class="frag-ment">Make moves that we can appreciate.</li>
-							<li class="frag-ment">Judge value based on future rewards.</li>
-							<li class="frag-ment"> Show originality.</li>
-							<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
-							<li class="frag-ment"> Work with limited and/or unstructured data, by
-								<strong>self-play</strong>,
-								using <strong>synthetic tasks</strong> and by <strong>self-supervised learning</strong>.
-							</li>
-							<li class="frag-ment"> Organize observations naturally and efficiently, capturing global,
-								<em>compositional</em>
-								structure and enabling analogies.</li>
-						</ul>
+					<li>The meaning of a word depends on the context, i.e., other words surrounding it.</li>
+					<li>In the <em>transformer architecture</em>, this is captured by <strong>learning</strong>
+						key-value pairs that determine to which other words to pay attention.
+					</li>
+					<li>The encoding of words includes position vectors, defined by using harmonics.</li>
+					<li>This has lead to revolutionary improvements, including forming the basis for <strong>GPT 3</strong>.</li>
+					<li>Attention based are used in <strong>AlphaFold 2</strong>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom">
+				<h3>Semantics in Networks</h3>
+				<ul>
+					<li>In image processing, successive layers capture features at increasing levels of
+						<strong>abstraction</strong>.</li>
+					<li>Often (parts of) networks are shared, to better capture structure and meaning
+						AlphaGo learnt better in part by having a common neural network.</li>
+					<li>In <em>zero shot translation</em>, a network translated between new pairs of languages;
+						apparently based on an internal language.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom">
+				<h4>Capabilities of Artificial Intelligence</h4>
+				<ul>
+					<li class="frag-ment">Make moves that we can appreciate.</li>
+					<li class="frag-ment">Judge value based on future rewards.</li>
+					<li class="frag-ment"> Show originality.</li>
+					<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
+					<li class="frag-ment"> Work with limited and/or unstructured data, by
+						<strong>self-play</strong>,
+						using <strong>synthetic tasks</strong> and by <strong>self-supervised learning</strong>.
+					</li>
+					<li class="frag-ment"> Organize observations naturally and efficiently, capturing
+						<strong>composition</strong>, <strong>abstraction</strong> and other <strong>semantics</strong>.
 					</li>
 				</ul>
 
@@ -636,9 +657,9 @@
 						sketched here.</li>
 					<li>It is also valuable to be able to learn from existing mathematics, which could use
 						<em>formalized libraries</em> and <em>natural language processing</em>.</li>
-					<li>On the other hand, for computer proofs to be useful, <strong>we</strong> would like to be able
-						to <strong>learn</strong> from computer
-						generated proofs.</li>
+					<li>As Kevin Buzzard remarked, a computer system could use all of mathematics for analogies.</li>
+					<li>However, for computer proofs to be useful, <strong>we</strong> would like to
+						<strong>learn</strong> from computer proofs.</li>
 				</ul>
 			</section>
 
@@ -676,6 +697,10 @@
 				</ul>
 			</section>
 			<section>
+
+				<p>A similar proof can indeed be <a href="http://math.iisc.ac.in/~gadgil/PolyProof.html"
+						target="_blank">obtained</a>.</p>
+
 				<video data-autoplay src="http://math.iisc.ac.in/~gadgil/polymath.mp4"></video>
 			</section>
 	</div>
