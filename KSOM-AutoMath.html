@@ -103,9 +103,9 @@
 					<li class="frag-ment"><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
 						the hexagonal close packing.</li>
 					<li class="frag-ment"><strong>Boolean Pythagorean triples problem:</strong> Is it possible to colour
-						each of the
-						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
-						satisfying $a^{2}+b^{2}=c^{2}$ are all the same color?</li>
+						the
+						positive integers either red or blue, so that if three integers $a$, $b$, $c$,
+						satisfy $a^{2}+b^{2}=c^{2}$, they are not all the same colour?</li>
 					<li><strong>Smale conjecture</strong> for hyperbolic $3$-manifolds.</li>
 				</ul>
 			</section>
@@ -115,9 +115,9 @@
 				<ul>
 					<li>Numerical computation.</li>
 					<li>Enumeration.</li>
-					<li>Symbolic algebra.</li>
-					<li>Compact enumeration.</li>
-					<li>Exact real number arithmetic.</li>
+					<li>Symbolic and computational algebra.</li>
+					<li><strong>Compact</strong> enumeration.</li>
+					<li><strong>Exact</strong> real number arithmetic.</li>
 					<li>Linear programming.</li>
 					<li>Decidability of <strong>real semi-algebraic geometry</strong>.</li>
 					<li><strong>SAT</strong> solvers and SMT solvers.</li>
@@ -127,7 +127,8 @@
 			<section data-transition="convex" data-background-color="teal">
 				<h3> Robbins conjecture </h3>
 				<ul>
-					<li class="frag-ment"> Robbins conjecture was a conjectural characterization of Boolean algebras in
+					<li class="frag-ment"> <strong>Robbins conjecture</strong> was a conjectural characterization of
+						<em>Boolean algebras</em> in
 						terms of
 						associativity and commutativity of $\vee$ and the Robbins equation
 						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
@@ -153,7 +154,8 @@
 					<li class="frag-ment">The ease of proving in such systems depends on how <strong>concise</strong>
 						and <strong>composable</strong> proofs are and
 						the strength of its <strong>elaborator</strong> and <strong>tactics</strong>.</li>
-					<li>The first of these depends on <strong>foundations</strong> and the second is <strong>automated
+					<li>The former depends on <strong>foundations</strong> and the latter is essentially
+						<strong>automated
 							theorem proving</strong>.</li>
 				</ul>
 			</section>
@@ -173,6 +175,11 @@
 						languages.
 					</li>
 				</ul>
+
+			</section>
+
+			<section
+				data-background-iframe="https://www.newyorker.com/cartoon/a24624?utm_source=onsite-share&utm_medium=email&utm_campaign=onsite-share&utm_brand=the-new-yorker">
 			</section>
 
 			<section data-transition="concave" data-background-color="#002b36">
@@ -201,8 +208,9 @@
 					<li class="frag-ment">We <strong>specify</strong> (describe) software, hardware etc. in precise
 						mathematical terms.
 					</li>
-					<li class="frag-ment">We give <strong>mathematical proofs</strong>, which are <strong>computer
-							verified</strong>, to ensure correct behavior.</li>
+					<li class="frag-ment">We give <strong>mathematical proofs</strong> of correct behavior, which are
+						<strong>computer
+							verified</strong>.</li>
 					<li class="frag-ment">This gives a much greater certainty of correctness.</li>
 					<li class="frag-ment">However, proofs are much harder than tests.</li>
 					<li class="frag-ment">Formal proofs use interactive theorem provers; with better provers we can
@@ -234,7 +242,7 @@
 			</section>
 
 			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>Users of formal methods</h4>
+				<h4>Some users of formal methods</h4>
 
 				<table class="box">
 					<tr class="frag-ment">
@@ -281,7 +289,7 @@
 						and
 						<strong>$\alpha-\beta$ pruning</strong>.
 					</li>
-					<li class="frag-ment"><em>Openings</em> give a <strong>policy</strong> , as do
+					<li class="frag-ment"><em>Openings</em> give a <strong>policy</strong>, as do
 						<em>endgame tables</em>.</li>
 				</ul>
 			</section>
@@ -290,11 +298,9 @@
 				<ul>
 					<li>In 1997, a computer <strong>Deep Blue</strong> defeated the Chess world champion Gary Kasparov.
 					</li>
-					<li class="frag-ment"> Deep Blue, and chess theory, extend the above methods to elaborate (rule
-						based) values
-						and
-						policies.</li>
-					<li>However, Deep Blues was limited in certain <strong>capabilities</strong>.</li>
+					<li class="frag-ment"> Deep Blue was based on extending the above methods to elaborate (rule
+						based) values and policies (chess theory).</li>
+					<li>However, Deep Blues was very limited in certain <strong>capabilities</strong>.</li>
 					<li class="frag-ment"> The value and policy functions of Kasparov were far better, but compensated
 						for by Deep Blue being able to consider far more move sequences.</li>
 				</ul>
@@ -345,8 +351,8 @@
 			</section>
 			<section data-transition="zoom-in concave-out">
 				<ul>
-					<li>A <em>dense layer</em> is a function of the form $y = \sigma(Ax)$, with $A$ a linear function
-						and $\sigma$ the function $x\mapsto e^x/(1 + e^x)$ applied component-wise.</li>
+					<li>A <em>dense layer</em> is a function of the form $y = \sigma(Ax)$, where $A= (a_{ij})$ is a linear function
+						and $\sigma$ is $x\mapsto e^x/(1 + e^x)$ applied component-wise.</li>
 					<li>This is parametrized by matrix entries of $A$.</li>
 					<li>In a <em>convolutional layer</em>, the linear function is a <strong>convolution</strong>, e.g.,
 						$y_j = \sum_{k} a _k x_{j - k}$.</li>
@@ -398,7 +404,7 @@
 			<section data-transition="concave" data-background-color="#b5533c">
 				<h3>Generative Query network</h3>
 				<ul>
-					<li class="frag-ment">In an artifical 3D environment, the network observes 2D images from a few
+					<li class="frag-ment">In an artificial 3D environment, the network observes 2D images from a few
 						positions.</li>
 					<li class="frag-ment">It has to predict the observed image from a new position.</li>
 					<li class="frag-ment">To do this, the 2D image was mapped to a <em>concise representation</em> by a
@@ -409,7 +415,7 @@
 				</ul>
 			</section>
 
-			<section data-transition="concave" data-background-color="#b5533c"S>
+			<section data-transition="concave" data-background-color="#b5533c" S>
 				<h3>Generative Adversarial Network</h3>
 				<ul>
 					<li class="frag-ment">These consist of a pair of networks, contesting with
@@ -456,8 +462,8 @@
 				<ul>
 					<li>In image processing, successive layers capture features at increasing levels of
 						<strong>abstraction</strong>.</li>
-					<li>Often (parts of) networks are shared, to better capture structure and meaning
-						AlphaGo learnt better in part by having a common neural network.</li>
+					<li>Often (parts of) networks are <em>shared</em>, to better capture structure and meaning. For example,
+						AlphaGo Zero learnt better in part by having a single neural network for policy and value.</li>
 					<li>In <em>zero shot translation</em>, a network translated between new pairs of languages;
 						apparently based on an internal language.</li>
 				</ul>
@@ -528,7 +534,7 @@
 					<li>Machine learning is being used in Automated and Interactive theorem proving for <strong>premise
 							selection</strong> as well as choosing tactics and parameters.</li>
 					<li>I have been working on a system which I call <a
-							href="https://github.com/siddhartha-gadgil/ProvingGround">ProvingGround</a> long the lines
+							href="https://github.com/siddhartha-gadgil/ProvingGround">ProvingGround</a> along the lines
 						sketched here.</li>
 					<li>It is also valuable to be able to learn from existing mathematics, which could use
 						<em>formalized libraries</em> and <em>natural language processing</em>.</li>
