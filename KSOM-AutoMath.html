@@ -351,16 +351,16 @@
 			</section>
 			<section data-transition="zoom-in concave-out">
 				<ul>
-					<li>A <em>dense layer</em> is a function of the form $y = \sigma(Ax)$, where $A= (a_{ij})$ is a
-						linear function
+					<li>A <em>dense layer</em> is a function of the form $y = \sigma(Ax + b)$, where $A= (a_{ij})$ is a
+						linear function, $b$ a vector,
 						and $\sigma$ is $x\mapsto e^x/(1 + e^x)$ applied component-wise.</li>
-					<li>This is parametrized by matrix entries of $A$.</li>
-					<li>In a <em>convolutional layer</em>, the linear function is a <strong>convolution</strong>, e.g.,
+					<li>This is parametrized by entries of $A$ and $b$.</li>
+					<li>In a <em>convolutional layer</em>, the linear function $A$ is a <strong>convolution</strong>, e.g.,
 						$y_j = \sum_{k} a _k x_{j - k}$.</li>
 					<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j =
 						e^{x_j}/\sum_i
 						e^{x_i}$.</li>
-					<li>Optimization is by variations of gradient flow.</li>
+					<li>Optimization is by variations of <strong>gradient flow</strong>.</li>
 					<li>By chain rule, this can be computed layer-by-layer (<strong>backward propagation</strong>).</li>
 				</ul>
 			</section>
@@ -459,7 +459,7 @@
 			</section>
 
 			<section data-transition="concave">
-				<h3>Semantics in Networks</h3>
+				<h3>Emergent Semantics?</h3>
 				<ul>
 					<li>In image processing, successive layers capture features at increasing levels of
 						<strong>abstraction</strong>.</li>
@@ -483,8 +483,9 @@
 						using <strong>synthetic tasks</strong> and by <strong>self-supervised learning</strong>.
 					</li>
 					<li class="frag-ment"> Organize objects naturally and efficiently, capturing
-						<strong>composition</strong>, <strong>abstraction</strong> and other <strong>semantics</strong>.
+						<strong>composition</strong>, <strong>abstraction</strong> etc..
 					</li>
+					<li>Discover <em>concepts</em> by solving problems?</li>
 				</ul>
 
 
