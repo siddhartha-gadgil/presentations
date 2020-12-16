@@ -101,3 +101,7 @@ html.dimbg .slide-background {
 pre, code{
     white-space:pre-line;
 }
+
+.defn {
+    font-style: italic;
+}
