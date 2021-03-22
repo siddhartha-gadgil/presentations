@@ -1,0 +1,1208 @@
+<html>
+
+<head>
+  <link rel="icon" href="IIScLogo.jpg">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="pg.css">
+  <link rel="stylesheet" href="../css/zenburn.css">
+  <title>Logs for an induction problem</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <h3>Logs for an induction problem</h3>
+    <div class="record">2021.03.22 15:02:01:191 [main ] [<span style="color: blue">INFO </span>] <span
+        style="color: green">provingground.interface.InductionSession.InductionSession:12</span> -
+      This is a Bot based run for testing a simple induction problem:
+      given f(n) = f(n + 1) for all n, we conclude that f(0) = f(n).
+      We are using a simple local prover, so that all the work should be done by Bots.
+    </div>
+    <div class="record">2021.03.22 15:02:01:206 [main ] [<span style="color: blue">INFO </span>] <span
+        style="color: green">provingground.interface.InductionSession.InductionSession:22</span> - JAVA_OPTS: -Xms512m
+      -Xmx4g -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints</div>
+    <div class="record">2021.03.22 15:02:01:207 [main ] [<span style="color: blue">INFO </span>] <span
+        style="color: green">provingground.interface.InductionSession.InductionSession:24</span> - JAVA_HOME:
+      /home/gadgil/graalvm</div>
+
+    <div class="record">2021.03.22 15:02:03:391 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.LocalProver], id: (0,-1826627102), content:
+      LocalProver(TermState([Star : 0.2, 0 : 0.2, (`$m : A) ↦ ((`$n : A) ↦ ((`$o : A) ↦ ((`````````$br : (`$m = `$n) :
+      `$m
+      = `$n) ↦ ((ind{(`$gfj : A) ↦ ((`$gfk : A) ↦ (`$gfj = `$gfk))(`$m)(`$n)}{(`$p : A) ↦ ((`$q : A) ↦ ((````$s : (`$p =
+      `$q) : `$p = `$q) ↦ ((`$q = `$o) → (`$p = `$o))))}((`$p : A) ↦ ((```````$ase : (`$p = `$o) : `$p = `$o) ↦
+      (```````$ase : (`$p = `$o))))) (`````````$br : (`$m = `$n)))))) : 0.2, (f) (0) : 0.2, (`$l : A) ↦ (Refl(A,`$l)) :
+      0.2],[Nat.Typ : 0.5, A :
+      0.5],Vector(),[],[],{}),TermGenParams(0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.3,0.0,0.5,0.0,0.0,0.0,
+      <function1>),1.0E-4,None,12 minutes,1.01,0.0,1.0,10000,10,1.0,1.0,None,false,false,0.5,1.0,None), hash:
+        -1826627102
+    </div>
+
+    <div class="record">2021.03.22 15:02:03:407 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.induction.ExstInducDefn], id: (1,-2038764428), content:
+      ExstInducDefn(Nat.Typ,Vector(0, (`x : Nat.Typ) ↦ (((_ + 1)) (`x))),Nat), hash: -2038764428</div>
+
+    <div class="record">2021.03.22 15:02:03:413 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (2,1572855270), content:
+      SeekGoal(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f)
+      (`n))),{},Vector()), hash: 1572855270</div>
+
+    <div class="record">2021.03.22 15:02:04:449 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (4,2140677300), content:
+      FailedToProve(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f)
+      (`n))),{},Vector()), hash: 2140677300</div>
+
+    <div class="record">2021.03.22 15:02:04:471 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (5,-1982789205), content:
+      ProofLambda(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))),(`n
+      :
+      Nat.Typ ) ~> ((f) (0) = (f) (`n)),{},{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1))
+      (`n)))},$anunt,false), hash: -1982789205</div>
+
+    <div class="record">2021.03.22 15:02:04:473 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (6,-1348779554), content:
+      SeekGoal((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1))
+      (`n)))},Vector(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f)
+      (`n))))),
+      hash: -1348779554</div>
+
+    <div class="record">2021.03.22 15:02:04:549 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (7,912248026), content:
+      Consequence(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),((`n : Nat.Typ ) ~> ((f) (`n) =
+      (f)
+      (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))),Some(Wrap((((`$antfo_1) , (`$antfo_2)) : ∑((``n :
+      Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero)))) ↦ ((`$antfk : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_
+      +
+      1)) (`n)))) ↦ ((vacuousSym) ((`$antfo_2) ((`$antfk) (`$antfo_1) : ((f) (`$antfo_1) = (f) (((_ + 1))
+      (`$antfo_1))))))))),{}), hash: 912248026</div>
+
+    <div class="record">2021.03.22 15:02:04:550 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (8,394346440), content:
+      SeekGoal(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),{},Vector(((`n : Nat.Typ ) ~> ((f)
+      (`n)
+      = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 394346440</div>
+
+    <div class="record">2021.03.22 15:02:04:660 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (9,2101026428), content:
+      Contradicts(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f)
+      (`n))),(((`n
+      : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) →
+      (Zero))))),Some(Wrap((`$antfx : ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f)
+      (0) = (f) (`n)))) ↦ ((((`$antgq_1) , ((($antgq_2_1) , ($antgq_2_2)))) : (((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_
+      +
+      1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero)))))) ↦ (($antgq_2_2) (((`$antfx) (`$antgq_1))
+      ($antgq_2_1) : ((f) (0) = (f) ($antgq_2_1))))))),{}), hash: 2101026428</div>
+
+    <div class="record">2021.03.22 15:02:04:661 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (10,-1662394972), content:
+      SeekGoal((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) →
+      (Zero))))),{},Vector()), hash: -1662394972</div>
+
+    <div class="record">2021.03.22 15:02:05:530 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (12,768937575), content:
+      FailedToProve(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),{},Vector(((`n : Nat.Typ ) ~>
+      ((f)
+      (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 768937575</div>
+
+    <div class="record">2021.03.22 15:02:05:565 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (14,1113637397), content:
+      FailedToProve((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f)
+      (``n))
+      → (Zero))))),{},Vector()), hash: 1113637397</div>
+
+    <div class="record">2021.03.22 15:02:05:831 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (16,1445951461), content:
+      FailedToProve((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ +
+      1))
+      (`n)))},Vector(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f)
+      (`n))))),
+      hash: 1445951461</div>
+
+
+    <div class="record">2021.03.22 15:02:05:844 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (17,-2065823356), content:
+      Consequence((Nat.Typ) → (Zero),(`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)),Some(Wrap((`$eyjbi : (Nat.Typ) → (Zero)) ↦
+      ((`$eyjbh : Nat.Typ) ↦ ((vacuousSym) ((`$eyjbi) (`$eyjbh)) : ((f) (0) = (f) (`$eyjbh)))))),{Given $anunt : (`n :
+      Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))}), hash: -2065823356</div>
+
+    <div class="record">2021.03.22 15:02:05:844 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (18,1967238250), content:
+      SeekGoal((Nat.Typ) → (Zero),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},Vector((`n :
+      Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~>
+      ((f)
+      (0) = (f) (`n))))), hash: 1967238250</div>
+
+    <div class="record">2021.03.22 15:02:05:852 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekInstances], id: (24,1714046687), content:
+      SeekInstances(type= Nat.Typ, goal = ∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))), context =
+      {}, forConsequences = Vector(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0)
+      =
+      (f) (`n))))), hash: 1714046687</div>
+
+    <div class="record">2021.03.22 15:02:05:856 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FromAll], id: (21,1171158346), content:
+      FromAll(Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), ∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) →
+      (Zero)))),(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) →
+      (Zero))))),Some((`$eyiwy : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) ↦ ((((`$eyixr_1) , (`$eyixr_2)) :
+      ∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero)))) ↦ (((`$eyiwy) , (((`$eyixr_1) ,
+      (`$eyixr_2))))))),{},Vector()), hash: 1171158346</div>
+
+    <div class="record">2021.03.22 15:02:05:904 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FromAll], id: (25,-1545961481), content:
+      FromAll(Vector((f) (0) = (f) (0), (`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1))
+      (`$eywao))))),(`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)),Some((`$ezkok : ((f) (0) = (f) (0)) : (f) (0) = (f) (0)) ↦
+      ((`$ezlxn : (`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao))))) ↦
+      (ind(Nat.Typ)((`$eyvjo : Nat.Typ) ↦ ((f) (0) = (f) (`$eyvjo)))(`$ezkok : ((f) (0) = (f) (0)))(`$ezlxn)))),{Given
+      $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},Vector(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ +
+      1))
+      (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: -1545961481</div>
+
+    <div class="record">2021.03.22 15:02:06:023 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (26,-192917488), content:
+      Contradicts((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n))
+      →
+      (Zero))))),PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycgo : Nat.Typ ) ~>
+      ((f)
+      (0) = (f) (`$eycgo))),Some(Wrap((((`$eycfz_1) , ((($eycfz_2_1) , ($eycfz_2_2)))) : (((`n : Nat.Typ ) ~> ((f) (`n)
+      =
+      (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero)))))) ↦ ((`$eychc : PlusTyp(∑((``n :
+      Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycgo : Nat.Typ ) ~> ((f) (0) = (f) (`$eycgo)))) ↦
+      ((rec(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eychm : Nat.Typ ) ~> ((f) (0)
+      =
+      (f) (`$eychm))))(Zero)((((`$eycjd_1) , (`$eycjd_2)) : ∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) →
+      (Zero)))) ↦ ((`$eycjd_2) ((`$eycfz_1) (`$eycjd_1) : ((f) (`$eycjd_1) = (f) (((_ + 1)) (`$eycjd_1))))))((`$eycku :
+      (`$eycju : Nat.Typ ) ~> ((f) (0) = (f) (`$eycju))) ↦ (($eycfz_2_2) ((`$eycku) ($eycfz_2_1) : ((f) (0) = (f)
+      ($eycfz_2_1)))))) (`$eychc))))),{}), hash: -192917488</div>
+
+    <div class="record">2021.03.22 15:02:06:024 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (27,-2055483369), content:
+      SeekGoal(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f)
+      (0) = (f) (`$eycfh))),{},Vector()), hash: -2055483369</div>
+
+    <div class="record">2021.03.22 15:02:06:045 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (28,1753609221), content:
+      SeekGoal((f) (0) = (f) (0),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},Vector((`n :
+      Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~>
+      ((f)
+      (0) = (f) (`n))))), hash: 1753609221</div>
+
+    <div class="record">2021.03.22 15:02:06:046 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (29,458134677), content:
+      SeekGoal((`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao)))),{Given $anunt
+      :
+      (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},Vector((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n :
+      Nat.Typ
+      ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 458134677</div>
+
+    <div class="record">2021.03.22 15:02:06:049 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (30,1562777754), content:
+      SeekGoal((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))),{},Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_
+      +
+      1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: 1562777754</div>
+
+    <div class="record">2021.03.22 15:02:06:049 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (31,-1958650133), content:
+      SeekGoal(∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))),{},Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_
+      +
+      1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -1958650133</div>
+
+    <div class="record">2021.03.22 15:02:07:092 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (32,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:07:093 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (33,1138192414), content:
+      FailedToProve(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~>
+      ((f) (0) = (f) (`$eycfh))),{},Vector()), hash: 1138192414</div>
+
+    <div class="record">2021.03.22 15:02:07:146 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (34,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:07:147 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (35,-320629365), content:
+      FailedToProve((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))),{},Vector(((`n : Nat.Typ ) ~>
+      ((f)
+      (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: -320629365</div>
+
+    <div class="record">2021.03.22 15:02:07:552 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (36,1860898873), hash : 1860898873</div>
+
+    <div class="record">2021.03.22 15:02:07:553 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (37,-157168942), content:
+      FailedToProve((Nat.Typ) → (Zero),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},Vector((`n
+      :
+      Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~>
+      ((f)
+      (0) = (f) (`n))))), hash: -157168942</div>
+
+    <div class="record">2021.03.22 15:02:08:298 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (38,-960726594), hash : -960726594</div>
+
+    <div class="record">2021.03.22 15:02:08:299 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (39,-370163653), content:
+      FailedToProve((f) (0) = (f) (`n),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))); Given `n :
+      Nat.Typ},Vector((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) →
+      ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: -370163653</div>
+
+    <div class="record">2021.03.22 15:02:15:311 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (40,200214717), content:
+      Consequence((Nat.Typ) → (Zero),(`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1))
+      (`$eychd))),Some(Wrap((`$aovlip : (Nat.Typ) → (Zero)) ↦ ((`$aovlio : Nat.Typ) ↦ ((vacuousSym) ((`$aovlip)
+      (`$aovlio)) : ((f) (`$aovlio) = (f) (((_ + 1)) (`$aovlio))))))),{}), hash: 200214717</div>
+
+    <div class="record">2021.03.22 15:02:15:311 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (41,182223471), content:
+      SeekGoal((Nat.Typ) → (Zero),{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))), ((`n :
+      Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 182223471
+    </div>
+
+    <div class="record">2021.03.22 15:02:15:318 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (42,-1098739854), content:
+      ProofLambda((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))),(f) (`$eychd) = (f) (((_ + 1))
+      (`$eychd)),{},{Given `$eychd : Nat.Typ},`$eychd,true), hash: -1098739854</div>
+
+    <div class="record">2021.03.22 15:02:15:319 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (43,-1032179604), content:
+      SeekGoal((f) (`$eychd) = (f) (((_ + 1)) (`$eychd)),{Given `$eychd : Nat.Typ},Vector((`$eychd : Nat.Typ ) ~> ((f)
+      (`$eychd) = (f) (((_ + 1)) (`$eychd))), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ )
+      ~>
+      ((f) (0) = (f) (`n))))), hash: -1032179604</div>
+
+    <div class="record">2021.03.22 15:02:15:322 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (44,1352081432), content:
+      ProofLambda((Nat.Typ) → (Zero),Zero,{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},{Given
+      $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))); Given $aovuhs : Nat.Typ},$aovuhs,false), hash:
+      1352081432</div>
+
+    <div class="record">2021.03.22 15:02:15:322 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (46,1806102803), content:
+      SeekGoal(Zero,{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))); Given $aovuhs :
+      Nat.Typ},Vector((Nat.Typ) → (Zero), (`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f)
+      (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 1806102803</div>
+
+    <div class="record">2021.03.22 15:02:15:325 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FromAny], id: (45,-945613990), content:
+      FromAny(Vector(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))), (`$eycfh : Nat.Typ ) ~> ((f)
+      (0)
+      = (f) (`$eycfh))),PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ )
+      ~> ((f) (0) = (f) (`$eycfh))),true,Vector(Some(Wrap((((`$aovpdy_1) , (`$aovpdy_2)) : ∑((``n : Nat.Typ) ↦ (((f)
+      (``n)
+      = (f) (((_ + 1)) (``n))) → (Zero)))) ↦ (FirstIncl(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n)))
+      →
+      (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))),((`$aovpdy_1) , (`$aovpdy_2)))))), Some(Wrap((`$aovqla
+      :
+      (`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))) ↦ (ScndIncl(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_
+      +
+      1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))),`$aovqla))))),{},Vector()), hash:
+      -945613990</div>
+
+    <div class="record">2021.03.22 15:02:15:355 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FromAll], id: (47,-227526147), content:
+      FromAll(Vector((f) (0) = (f) (1), (`$aovxuz : Nat.Typ ) ~> (((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f)
+      (((_ + 1)) (`$aovxuz)) = (f) (((_ + 2)) (`$aovxuz))))),(`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1))
+      (`$eychd))),Some((`$aowved : ((f) (0) = (f) (1)) : (f) (0) = (f) (1)) ↦ ((`$aowxel : (`$aovxuz : Nat.Typ ) ~>
+      (((f)
+      (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_ + 1)) (`$aovxuz)) = (f) (((_ + 2)) (`$aovxuz))))) ↦
+      (ind(Nat.Typ)((`$aovxqv : Nat.Typ) ↦ ((f) (`$aovxqv) = (f) (((_ + 1)) (`$aovxqv))))(`$aowved : ((f) (0) = (f)
+      (1)))(`$aowxel)))),{},Vector(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0)
+      =
+      (f) (`n))))), hash: -227526147</div>
+
+    <div class="record">2021.03.22 15:02:16:177 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (48,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:16:177 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (49,-1977580391), content:
+      FailedToProve((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))),{},Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f)
+      (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -1977580391</div>
+
+    <div class="record">2021.03.22 15:02:16:231 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (50,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:16:231 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (51,-823303974), content:
+      FailedToProve(∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))),{},Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f)
+      (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -823303974</div>
+
+    <div class="record">2021.03.22 15:02:16:547 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (52,1860898873), hash : 1860898873</div>
+
+    <div class="record">2021.03.22 15:02:16:548 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Proved], id: (53,622749941), content:
+      Proved((f) (0) = (f) (0),Some(Refl(A,(f) (0))),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1))
+      (`n)))}), hash: 622749941</div>
+
+    <div class="record">2021.03.22 15:02:16:564 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (54,1860898873), hash : 1860898873</div>
+
+    <div class="record">2021.03.22 15:02:16:565 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (55,-395073045), content:
+      FailedToProve((`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao)))),{Given
+      $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},Vector((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)),
+      ((`n
+      : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: -395073045
+    </div>
+
+    <div class="record">2021.03.22 15:02:16:575 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (56,200214717), content:
+      Consequence((Nat.Typ) → (Zero),(`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))),Some(Wrap((`$aujnzm :
+      (Nat.Typ)
+      → (Zero)) ↦ ((`$aujnzl : Nat.Typ) ↦ ((vacuousSym) ((`$aujnzm) (`$aujnzl)) : ((f) (`$aujnzl) = (f) (((_ + 1))
+      (`$aujnzl))))))),{}), hash: 200214717</div>
+
+    <div class="record">2021.03.22 15:02:16:576 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (57,-163838375), content:
+      SeekGoal((Nat.Typ) → (Zero),{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n : Nat.Typ ) ~>
+      ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -163838375
+    </div>
+
+    <div class="record">2021.03.22 15:02:16:580 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (58,-1187822207), content:
+      Consequence((Nat.Typ) → (Zero),(`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1))
+      (`$eywao)))),Some(Wrap((`$aujovw : (Nat.Typ) → (Zero)) ↦ ((`$aujovv : Nat.Typ) ↦ ((vacuousSym) ((`$aujovw)
+      (`$aujovv)))))),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))}), hash: -1187822207</div>
+
+    <div class="record">2021.03.22 15:02:16:581 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (59,-28472743), content:
+      SeekGoal((Nat.Typ) → (Zero),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},Vector((`$eywao
+      :
+      Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao)))), (`n : Nat.Typ ) ~> ((f) (0) =
+      (f)
+      (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash:
+      -28472743</div>
+
+    <div class="record">2021.03.22 15:02:16:582 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (60,-66188552), content:
+      ProofLambda((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))),(f) (`n) = (f) (((_ + 1)) (`n)),{},{Given `n :
+      Nat.Typ},`n,true), hash: -66188552</div>
+
+    <div class="record">2021.03.22 15:02:16:582 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (61,1782106), content:
+      SeekGoal((f) (`n) = (f) (((_ + 1)) (`n)),{Given `n : Nat.Typ},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1))
+      (`n))), (((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) →
+      (Zero))))))), hash: 1782106</div>
+
+    <div class="record">2021.03.22 15:02:16:584 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (62,-1111030040), content:
+      ProofLambda((`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao)))),((f) (0) =
+      (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao))),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ +
+      1))
+      (`n)))},{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))); Given `$eywao :
+      Nat.Typ},`$eywao,true), hash: -1111030040</div>
+
+    <div class="record">2021.03.22 15:02:16:584 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (63,1797997881), content:
+      SeekGoal(((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao))),{Given $anunt : (`n : Nat.Typ ) ~> ((f)
+      (`n) = (f) (((_ + 1)) (`n))); Given `$eywao : Nat.Typ},Vector((`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) →
+      ((f) (0) = (f) (((_ + 1)) (`$eywao)))), (`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) =
+      (f)
+      (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 1797997881</div>
+
+    <div class="record">2021.03.22 15:02:16:587 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (64,-1950511267), content:
+      Contradicts(∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))),(`$aujija : Nat.Typ ) ~> ((f) (0) = (f)
+      (`$aujija)),Some(Wrap((((`$aujiir_1) , (`$aujiir_2)) : ∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero)))) ↦
+      ((`$aujika : (`$aujija : Nat.Typ ) ~> ((f) (0) = (f) (`$aujija))) ↦ ((`$aujiir_2) ((`$aujika) (`$aujiir_1) : ((f)
+      (0) = (f) (`$aujiir_1))))))),{}), hash: -1950511267</div>
+
+    <div class="record">2021.03.22 15:02:16:588 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (65,744288363), content:
+      SeekGoal((`$aujiht : Nat.Typ ) ~> ((f) (0) = (f) (`$aujiht)),{},Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ +
+      1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: 744288363</div>
+
+    <div class="record">2021.03.22 15:02:16:590 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekInstances], id: (66,804784248), content:
+      SeekInstances(type= Nat.Typ, goal = ∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))), context = {},
+      forConsequences = Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0)
+      =
+      (f) (``n)) → (Zero))))))), hash: 804784248</div>
+
+    <div class="record">2021.03.22 15:02:16:591 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (67,-176647279), content:
+      SeekGoal((f) (0) = (f) (1),{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))), ((`n :
+      Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: -176647279
+    </div>
+
+    <div class="record">2021.03.22 15:02:16:592 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (68,1338981183), content:
+      SeekGoal((`$aovxuz : Nat.Typ ) ~> (((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_ + 1)) (`$aovxuz)) =
+      (f)
+      (((_ + 2)) (`$aovxuz)))),{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))), ((`n :
+      Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 1338981183
+    </div>
+
+    <div class="record">2021.03.22 15:02:16:593 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (69,75838829), content:
+      SeekGoal(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),{},Vector(PlusTyp(∑((``n : Nat.Typ) ↦
+      (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash:
+      75838829
+    </div>
+
+    <div class="record">2021.03.22 15:02:16:594 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (70,-662083146), content:
+      SeekGoal((`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)),{},Vector(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f)
+      (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash: -662083146</div>
+
+    <div class="record">2021.03.22 15:02:16:609 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (71,195644619), content:
+      Contradicts((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))),∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1))
+      (``n))) → (Zero))),Some(Wrap((`$aujijd : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) ↦ ((((`$aujijt_1) ,
+      (`$aujijt_2)) : ∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero)))) ↦ ((`$aujijt_2) ((`$aujijd)
+      (`$aujijt_1) : ((f) (`$aujijt_1) = (f) (((_ + 1)) (`$aujijt_1)))))))),{}), hash: 195644619</div>
+
+    <div class="record">2021.03.22 15:02:16:610 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (72,-1958650133), content:
+      SeekGoal(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),{},Vector((((`n : Nat.Typ ) ~> ((f)
+      (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -1958650133
+    </div>
+
+    <div class="record">2021.03.22 15:02:16:619 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FromAll], id: (73,346008163), content:
+      FromAll(Vector((f) (0) = (f) (1), (`$aukadb : Nat.Typ ) ~> (((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f)
+      (((_ + 1)) (`$aukadb)) = (f) (((_ + 2)) (`$aukadb))))),(`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1))
+      (`n))),Some((`$aukvme : ((f) (0) = (f) (1)) : (f) (0) = (f) (1)) ↦ ((`$aukxgo : (`$aukadb : Nat.Typ ) ~> (((f)
+      (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_ + 1)) (`$aukadb)) = (f) (((_ + 2)) (`$aukadb))))) ↦
+      (ind(Nat.Typ)((`$aukaat : Nat.Typ) ↦ ((f) (`$aukaat) = (f) (((_ + 1)) (`$aukaat))))(`$aukvme : ((f) (0) = (f)
+      (1)))(`$aukxgo)))),{},Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f)
+      (0) = (f) (``n)) → (Zero))))))), hash: 346008163</div>
+
+    <div class="record">2021.03.22 15:02:17:303 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (74,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:17:304 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (75,-1822553325), content:
+      FailedToProve((Nat.Typ) → (Zero),{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))),
+      ((`n
+      : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: -1822553325
+    </div>
+
+    <div class="record">2021.03.22 15:02:17:366 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (76,-636425184), hash : -636425184</div>
+
+    <div class="record">2021.03.22 15:02:17:366 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (77,1299879026), content:
+      FailedToProve((f) (`$eychd) = (f) (((_ + 1)) (`$eychd)),{Given `$eychd : Nat.Typ},Vector((`$eychd : Nat.Typ ) ~>
+      ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n :
+      Nat.Typ
+      ) ~> ((f) (0) = (f) (`n))))), hash: 1299879026</div>
+
+    <div class="record">2021.03.22 15:02:18:105 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (78,-924796204), hash : -924796204</div>
+
+    <div class="record">2021.03.22 15:02:18:105 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (79,-1889091132), content:
+      FailedToProve(Zero,{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))); Given $aovuhs :
+      Nat.Typ},Vector((Nat.Typ) → (Zero), (`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f)
+      (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: -1889091132</div>
+
+    <div class="record">2021.03.22 15:02:18:610 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (80,-1978095355), content:
+      Contradicts((Nat.Typ) → (Zero),Nat.Typ,Some(Wrap((`$bcpyez : (Nat.Typ) → (Zero)) ↦ ((`$bcpygg : Nat.Typ) ↦
+      ((`$bcpyez) (`$bcpygg))))),{}), hash: -1978095355</div>
+
+    <div class="record">2021.03.22 15:02:18:611 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (81,2030296338), content:
+      SeekGoal(Nat.Typ,{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))), ((`n : Nat.Typ )
+      ~>
+      ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 2030296338</div>
+
+    <div class="record">2021.03.22 15:02:18:671 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (82,224824769), content:
+      ProofLambda((Nat.Typ) → (Zero),Zero,{},{Given $bcwibv : Nat.Typ},$bcwibv,false), hash: 224824769</div>
+
+    <div class="record">2021.03.22 15:02:18:671 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (83,-481832037), content:
+      SeekGoal(Zero,{Given $bcwibv : Nat.Typ},Vector((Nat.Typ) → (Zero), (`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f)
+      (((_
+      + 1)) (`$eychd))), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f)
+      (`n))))), hash: -481832037</div>
+
+    <div class="record">2021.03.22 15:02:19:784 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (84,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:19:785 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (85,1256106969), content:
+      FailedToProve((Nat.Typ) → (Zero),{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n : Nat.Typ )
+      ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash:
+      1256106969
+    </div>
+
+    <div class="record">2021.03.22 15:02:19:789 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (86,-1221931372), content:
+      SeekGoal((f) (0) = (f) (1),{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n : Nat.Typ ) ~>
+      ((f)
+      (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -1221931372
+    </div>
+
+    <div class="record">2021.03.22 15:02:19:789 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (87,-707699526), content:
+      SeekGoal((`$aukadb : Nat.Typ ) ~> (((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_ + 1)) (`$aukadb)) =
+      (f)
+      (((_ + 2)) (`$aukadb)))),{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n : Nat.Typ ) ~> ((f)
+      (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -707699526</div>
+
+    <div class="record">2021.03.22 15:02:19:793 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (88,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:19:793 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (89,-624052839), content:
+      FailedToProve(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),{},Vector(PlusTyp(∑((``n :
+      Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))),
+      hash: -624052839</div>
+
+    <div class="record">2021.03.22 15:02:19:803 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (90,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:19:804 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (91,809636831), content:
+      FailedToProve((`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)),{},Vector(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n)
+      =
+      (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash: 809636831</div>
+
+    <div class="record">2021.03.22 15:02:19:835 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (92,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:19:836 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (93,-823303974), content:
+      FailedToProve(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),{},Vector((((`n : Nat.Typ ) ~>
+      ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -823303974
+    </div>
+
+    <div class="record">2021.03.22 15:02:19:839 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (94,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:19:839 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (95,-245371910), content:
+      FailedToProve((`$aujiht : Nat.Typ ) ~> ((f) (0) = (f) (`$aujiht)),{},Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f)
+      (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -245371910</div>
+
+    <div class="record">2021.03.22 15:02:19:906 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (96,1333333614), hash : 1333333614</div>
+
+    <div class="record">2021.03.22 15:02:19:907 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (97,383532847), content:
+      FailedToProve((f) (`n) = (f) (((_ + 1)) (`n)),{Given `n : Nat.Typ},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_
+      +
+      1)) (`n))), (((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n))
+      →
+      (Zero))))))), hash: 383532847</div>
+
+    <div class="record">2021.03.22 15:02:19:912 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (98,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:19:912 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (99,-1805365457), content:
+      FailedToProve((f) (0) = (f) (1),{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))),
+      ((`n
+      : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: -1805365457
+    </div>
+
+    <div class="record">2021.03.22 15:02:19:933 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (100,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:19:934 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (101,1594648668), content:
+      FailedToProve((`$aovxuz : Nat.Typ ) ~> (((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_ + 1))
+      (`$aovxuz))
+      = (f) (((_ + 2)) (`$aovxuz)))),{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1)) (`$eychd))), ((`n
+      :
+      Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 1594648668
+    </div>
+
+    <div class="record">2021.03.22 15:02:20:372 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (102,1860898873), hash : 1860898873</div>
+
+    <div class="record">2021.03.22 15:02:20:373 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (103,-1282827605), content:
+      FailedToProve((Nat.Typ) → (Zero),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1))
+      (`n)))},Vector((`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao)))), (`n :
+      Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~>
+      ((f)
+      (0) = (f) (`n))))), hash: -1282827605</div>
+
+    <div class="record">2021.03.22 15:02:21:215 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (104,131197552), hash : 131197552</div>
+
+    <div class="record">2021.03.22 15:02:21:215 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Proved], id: (105,1528375826), content:
+      Proved(((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao))),Some((```````````$br : ((f) (0) = (f)
+      (`$eywao)) : (f) (0) = (f) (`$eywao)) ↦ (((ind{(`$bhukot : A) ↦ ((`$bhukou : A) ↦ (`$bhukot = `$bhukou))((f)
+      (0))((f) (`$eywao))}{(`$p : A) ↦ ((`$q : A) ↦ ((````$s : (`$p = `$q) : `$p = `$q) ↦ ((`$q = (f) (((_ + 1))
+      (`$eywao))) → (`$p = (f) (((_ + 1)) (`$eywao))))))}((`$p : A) ↦ ((````````$ase : (`$p = (f) (((_ + 1)) (`$eywao)))
+      :
+      `$p = (f) (((_ + 1)) (`$eywao))) ↦ (````````$ase : (`$p = (f) (((_ + 1)) (`$eywao))))))) (```````````$br : ((f)
+      (0)
+      = (f) (`$eywao)))) (($anunt) (`$eywao) : ((f) (`$eywao) = (f) (((_ + 1)) (`$eywao)))) : ((f) (0) = (f) (((_ + 1))
+      (`$eywao))))),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))); Given `$eywao : Nat.Typ}),
+      hash:
+      1528375826</div>
+
+    <div class="record">2021.03.22 15:02:28:170 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (106,-1978095355), content:
+      Contradicts((Nat.Typ) → (Zero),Nat.Typ,Some(Wrap((`$cnqzet : (Nat.Typ) → (Zero)) ↦ ((`$cnqzfg : Nat.Typ) ↦
+      ((`$cnqzet) (`$cnqzfg))))),{}), hash: -1978095355</div>
+
+    <div class="record">2021.03.22 15:02:28:171 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (107,1973879845), content:
+      SeekGoal(Nat.Typ,{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n : Nat.Typ ) ~> ((f) (`n) =
+      (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: 1973879845</div>
+
+    <div class="record">2021.03.22 15:02:28:172 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (108,1035281542), content:
+      Contradicts((f) (0) = (f) (1),((f) (0) = (f) (1)) → (Zero),Some(Wrap((`$cnrbho : ((f) (0) = (f) (1)) : (f) (0) =
+      (f)
+      (1)) ↦ ((`$cnrbhr : ((f) (0) = (f) (1)) → (Zero)) ↦ ((`$cnrbhr) (`$cnrbho : ((f) (0) = (f) (1))))))),{}), hash:
+      1035281542</div>
+
+    <div class="record">2021.03.22 15:02:28:173 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (109,182223471), content:
+      SeekGoal(((f) (0) = (f) (1)) → (Zero),{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1))
+      (`$eychd))),
+      ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash:
+      182223471</div>
+
+    <div class="record">2021.03.22 15:02:28:178 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (110,-257263582), content:
+      Consequence((Nat.Typ) → (Zero),(`$aujiht : Nat.Typ ) ~> ((f) (0) = (f) (`$aujiht)),Some(Wrap((`$cnrnry : (Nat.Typ)
+      →
+      (Zero)) ↦ ((`$cnrnrs : Nat.Typ) ↦ ((vacuousSym) ((`$cnrnry) (`$cnrnrs)) : ((f) (0) = (f) (`$cnrnrs)))))),{}),
+      hash:
+      -257263582</div>
+
+    <div class="record">2021.03.22 15:02:28:178 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (111,1699188889), content:
+      SeekGoal((Nat.Typ) → (Zero),{},Vector((`$aujiht : Nat.Typ ) ~> ((f) (0) = (f) (`$aujiht)), (((`n : Nat.Typ ) ~>
+      ((f)
+      (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: 1699188889</div>
+
+    <div class="record">2021.03.22 15:02:28:185 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (112,-257263582), content:
+      Consequence((Nat.Typ) → (Zero),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)),Some(Wrap((`$cnrznu : (Nat.Typ) →
+      (Zero)) ↦ ((`$cnrzns : Nat.Typ) ↦ ((vacuousSym) ((`$cnrznu) (`$cnrzns)) : ((f) (0) = (f) (`$cnrzns)))))),{}),
+      hash:
+      -257263582</div>
+
+    <div class="record">2021.03.22 15:02:28:185 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (113,204051123), content:
+      SeekGoal((Nat.Typ) → (Zero),{},Vector((`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)), PlusTyp(∑((``n : Nat.Typ)
+      ↦
+      (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash:
+      204051123</div>
+
+    <div class="record">2021.03.22 15:02:28:186 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (114,1486898587), content:
+      Consequence((Nat.Typ) → (Zero),(`$aovxuz : Nat.Typ ) ~> (((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_
+      +
+      1)) (`$aovxuz)) = (f) (((_ + 2)) (`$aovxuz)))),Some(Wrap((`$cnrxel : (Nat.Typ) → (Zero)) ↦ ((`$cnrxej : Nat.Typ) ↦
+      ((vacuousSym) ((`$cnrxel) (`$cnrxej)))))),{}), hash: 1486898587</div>
+
+    <div class="record">2021.03.22 15:02:28:186 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (115,-676657369), content:
+      SeekGoal((Nat.Typ) → (Zero),{},Vector((`$aovxuz : Nat.Typ ) ~> (((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) →
+      ((f)
+      (((_ + 1)) (`$aovxuz)) = (f) (((_ + 2)) (`$aovxuz)))), (`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1))
+      (`$eychd))), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))),
+      hash: -676657369</div>
+
+    <div class="record">2021.03.22 15:02:28:188 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (116,1527784112), content:
+      Contradicts(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$cnrbsb : Nat.Typ ) ~> ((f)
+      (`$cnrbsb) = (f) (((_ + 1)) (`$cnrbsb))),Some(Wrap((((`$cnrbpq_1) , (`$cnrbpq_2)) : ∑((``n : Nat.Typ) ↦ (((f)
+      (``n)
+      = (f) (((_ + 1)) (``n))) → (Zero)))) ↦ ((`$cnrbwb : (`$cnrbsb : Nat.Typ ) ~> ((f) (`$cnrbsb) = (f) (((_ + 1))
+      (`$cnrbsb)))) ↦ ((`$cnrbpq_2) ((`$cnrbwb) (`$cnrbpq_1) : ((f) (`$cnrbpq_1) = (f) (((_ + 1))
+      (`$cnrbpq_1)))))))),{}),
+      hash: 1527784112</div>
+
+    <div class="record">2021.03.22 15:02:28:189 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (117,1707028616), content:
+      SeekGoal((`$cnrbkw : Nat.Typ ) ~> ((f) (`$cnrbkw) = (f) (((_ + 1)) (`$cnrbkw))),{},Vector(PlusTyp(∑((``n :
+      Nat.Typ)
+      ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash:
+      1707028616</div>
+
+    <div class="record">2021.03.22 15:02:28:201 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (118,1998297624), content:
+      ProofLambda((`$aujiht : Nat.Typ ) ~> ((f) (0) = (f) (`$aujiht)),(f) (0) = (f) (`$aujiht),{},{Given `$aujiht :
+      Nat.Typ},`$aujiht,true), hash: 1998297624</div>
+
+    <div class="record">2021.03.22 15:02:28:201 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (119,860430553), content:
+      SeekGoal((f) (0) = (f) (`$aujiht),{Given `$aujiht : Nat.Typ},Vector((`$aujiht : Nat.Typ ) ~> ((f) (0) = (f)
+      (`$aujiht)), (((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n))
+      →
+      (Zero))))))), hash: 860430553</div>
+
+    <div class="record">2021.03.22 15:02:28:202 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (120,543567557), content:
+      ProofLambda((Nat.Typ) → (Zero),Zero,{},{Given $cnsphi : Nat.Typ},$cnsphi,false), hash: 543567557</div>
+
+    <div class="record">2021.03.22 15:02:28:202 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (121,1025950899), content:
+      SeekGoal(Zero,{Given $cnsphi : Nat.Typ},Vector((Nat.Typ) → (Zero), (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1))
+      (`n))), (((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) →
+      (Zero))))))), hash: 1025950899</div>
+
+    <div class="record">2021.03.22 15:02:28:203 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (122,676857425), content:
+      ProofLambda((Nat.Typ) → (Zero),Zero,{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))},{Given
+      $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))); Given $cnspqo : Nat.Typ},$cnspqo,false), hash:
+      676857425</div>
+
+    <div class="record">2021.03.22 15:02:28:203 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (123,548049933), content:
+      SeekGoal(Zero,{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))); Given $cnspqo :
+      Nat.Typ},Vector((Nat.Typ) → (Zero), (`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1))
+      (`$eywao)))), (`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) →
+      ((`n
+      : Nat.Typ ) ~> ((f) (0) = (f) (`n))))), hash: 548049933</div>
+
+    <div class="record">2021.03.22 15:02:28:204 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (124,-1984648924), content:
+      ProofLambda((`$aovxuz : Nat.Typ ) ~> (((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_ + 1)) (`$aovxuz))
+      =
+      (f) (((_ + 2)) (`$aovxuz)))),((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_ + 1)) (`$aovxuz)) = (f)
+      (((_
+      + 2)) (`$aovxuz))),{},{Given `$aovxuz : Nat.Typ},`$aovxuz,true), hash: -1984648924</div>
+
+    <div class="record">2021.03.22 15:02:28:204 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (125,-983170214), content:
+      SeekGoal(((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_ + 1)) (`$aovxuz)) = (f) (((_ + 2))
+      (`$aovxuz))),{Given `$aovxuz : Nat.Typ},Vector((`$aovxuz : Nat.Typ ) ~> (((f) (`$aovxuz) = (f) (((_ + 1))
+      (`$aovxuz))) → ((f) (((_ + 1)) (`$aovxuz)) = (f) (((_ + 2)) (`$aovxuz)))), (`$eychd : Nat.Typ ) ~> ((f) (`$eychd)
+      =
+      (f) (((_ + 1)) (`$eychd))), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0)
+      =
+      (f) (`n))))), hash: -983170214</div>
+
+    <div class="record">2021.03.22 15:02:28:208 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (126,697341972), content:
+      ProofLambda((`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)),(f) (0) = (f) (`$eycfh),{},{Given `$eycfh :
+      Nat.Typ},`$eycfh,true), hash: 697341972</div>
+
+    <div class="record">2021.03.22 15:02:28:208 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (127,-609198473), content:
+      SeekGoal((f) (0) = (f) (`$eycfh),{Given `$eycfh : Nat.Typ},Vector((`$eycfh : Nat.Typ ) ~> ((f) (0) = (f)
+      (`$eycfh)),
+      PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f)
+      (`$eycfh))))), hash: -609198473</div>
+
+    <div class="record">2021.03.22 15:02:28:215 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekInstances], id: (128,623203071), content:
+      SeekInstances(type= Nat.Typ, goal = ∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))), context =
+      {}, forConsequences = Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f)
+      (0) = (f) (``n)) → (Zero))))))), hash: 623203071</div>
+
+    <div class="record">2021.03.22 15:02:28:218 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekInstances], id: (129,1089025913), content:
+      SeekInstances(type= Nat.Typ, goal = ∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))), context =
+      {}, forConsequences = Vector(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh
+      :
+      Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash: 1089025913</div>
+
+    <div class="record">2021.03.22 15:02:28:229 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Proved], id: (130,1690537211), content:
+      Proved((`$eywao : Nat.Typ ) ~> (((f) (0) = (f) (`$eywao)) → ((f) (0) = (f) (((_ + 1)) (`$eywao)))),Some((``$eywao
+      :
+      Nat.Typ) ↦ ((````````````$br : ((f) (0) = (f) (``$eywao)) : (f) (0) = (f) (``$eywao)) ↦ (((ind{(`$cnsvor : A) ↦
+      ((`$cnsvos : A) ↦ (`$cnsvor = `$cnsvos))((f) (0))((f) (``$eywao))}{(`$p : A) ↦ ((`$q : A) ↦ ((````$s : (`$p = `$q)
+      :
+      `$p = `$q) ↦ ((`$q = (f) (((_ + 1)) (``$eywao))) → (`$p = (f) (((_ + 1)) (``$eywao))))))}((`$p : A) ↦
+      ((`````````$ase : (`$p = (f) (((_ + 1)) (``$eywao))) : `$p = (f) (((_ + 1)) (``$eywao))) ↦ (`````````$ase : (`$p =
+      (f) (((_ + 1)) (``$eywao))))))) (````````````$br : ((f) (0) = (f) (``$eywao)))) (($anunt) (``$eywao) : ((f)
+      (``$eywao) = (f) (((_ + 1)) (``$eywao)))) : ((f) (0) = (f) (((_ + 1)) (``$eywao)))))),{Given $anunt : (`n :
+      Nat.Typ
+      ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))}), hash: 1690537211</div>
+
+    <div class="record">2021.03.22 15:02:28:256 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (131,370275952), content:
+      Contradicts((`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)),∑((``$eycfh : Nat.Typ) ↦ (((f) (0) = (f) (``$eycfh))
+      →
+      (Zero))),Some(Wrap((`$cnrfdv : (`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))) ↦ ((((`$cnrffn_1) ,
+      (`$cnrffn_2))
+      : ∑((``$eycfh : Nat.Typ) ↦ (((f) (0) = (f) (``$eycfh)) → (Zero)))) ↦ ((`$cnrffn_2) ((`$cnrfdv) (`$cnrffn_1) : ((f)
+      (0) = (f) (`$cnrffn_1))))))),{}), hash: 370275952</div>
+
+    <div class="record">2021.03.22 15:02:28:257 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (132,75838829), content:
+      SeekGoal(∑((``$eycfh : Nat.Typ) ↦ (((f) (0) = (f) (``$eycfh)) → (Zero))),{},Vector(PlusTyp(∑((``n : Nat.Typ) ↦
+      (((f)
+      (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash: 75838829
+    </div>
+
+    <div class="record">2021.03.22 15:02:28:359 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FromAll], id: (133,1533542666), content:
+      FromAll(Vector((f) (0) = (f) (0), (`$cntbhe : Nat.Typ ) ~> (((f) (0) = (f) (`$cntbhe)) → ((f) (0) = (f) (((_ + 1))
+      (`$cntbhe))))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)),Some((`$cnumwx : ((f) (0) = (f) (0)) : (f) (0) =
+      (f) (0)) ↦ ((`$cnupyk : (`$cntbhe : Nat.Typ ) ~> (((f) (0) = (f) (`$cntbhe)) → ((f) (0) = (f) (((_ + 1))
+      (`$cntbhe))))) ↦ (ind(Nat.Typ)((`$cntawm : Nat.Typ) ↦ ((f) (0) = (f) (`$cntawm)))(`$cnumwx : ((f) (0) = (f)
+      (0)))(`$cnupyk)))),{},Vector(PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh
+      :
+      Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash: 1533542666</div>
+
+    <div class="record">2021.03.22 15:02:28:383 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FromAll], id: (134,1804430118), content:
+      FromAll(Vector((f) (0) = (f) (0), (`$cnswfq : Nat.Typ ) ~> (((f) (0) = (f) (`$cnswfq)) → ((f) (0) = (f) (((_ + 1))
+      (`$cnswfq))))),(`$aujiht : Nat.Typ ) ~> ((f) (0) = (f) (`$aujiht)),Some((`$cnumvq : ((f) (0) = (f) (0)) : (f) (0)
+      =
+      (f) (0)) ↦ ((`$cnuyer : (`$cnswfq : Nat.Typ ) ~> (((f) (0) = (f) (`$cnswfq)) → ((f) (0) = (f) (((_ + 1))
+      (`$cnswfq))))) ↦ (ind(Nat.Typ)((`$cnswbm : Nat.Typ) ↦ ((f) (0) = (f) (`$cnswbm)))(`$cnumvq : ((f) (0) = (f)
+      (0)))(`$cnuyer)))),{},Vector((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f)
+      (0) = (f) (``n)) → (Zero))))))), hash: 1804430118</div>
+
+    <div class="record">2021.03.22 15:02:28:499 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (135,-1268560455), content:
+      Contradicts((`$aovxuz : Nat.Typ ) ~> (((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_ + 1)) (`$aovxuz))
+      =
+      (f) (((_ + 2)) (`$aovxuz)))),∑((``$aovxuz : Nat.Typ) ↦ ((((f) (``$aovxuz) = (f) (((_ + 1)) (``$aovxuz))) , (((f)
+      (((_ + 1)) (``$aovxuz)) = (f) (((_ + 2)) (``$aovxuz))) → (Zero))))),Some(Wrap((`$cnrith : (`$aovxuz : Nat.Typ ) ~>
+      (((f) (`$aovxuz) = (f) (((_ + 1)) (`$aovxuz))) → ((f) (((_ + 1)) (`$aovxuz)) = (f) (((_ + 2)) (`$aovxuz))))) ↦
+      ((((`$cnrizh_1) , (((`$cnrizh_2_1 : ((f) (`$cnrizh_1) = (f) (((_ + 1)) (`$cnrizh_1)))) , ($cnrizh_2_2)))) :
+      ∑((``$aovxuz : Nat.Typ) ↦ ((((f) (``$aovxuz) = (f) (((_ + 1)) (``$aovxuz))) , (((f) (((_ + 1)) (``$aovxuz)) = (f)
+      (((_ + 2)) (``$aovxuz))) → (Zero)))))) ↦ (($cnrizh_2_2) (((`$cnrith) (`$cnrizh_1)) (`$cnrizh_2_1 : ((f)
+      (`$cnrizh_1)
+      = (f) (((_ + 1)) (`$cnrizh_1)))) : ((f) (((_ + 1)) (`$cnrizh_1)) = (f) (((_ + 2)) (`$cnrizh_1)))))))),{}), hash:
+      -1268560455</div>
+
+    <div class="record">2021.03.22 15:02:28:499 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (136,737722029), content:
+      SeekGoal(∑((``$aovxuz : Nat.Typ) ↦ ((((f) (``$aovxuz) = (f) (((_ + 1)) (``$aovxuz))) , (((f) (((_ + 1))
+      (``$aovxuz))
+      = (f) (((_ + 2)) (``$aovxuz))) → (Zero))))),{},Vector((`$eychd : Nat.Typ ) ~> ((f) (`$eychd) = (f) (((_ + 1))
+      (`$eychd))), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n))))),
+      hash: 737722029</div>
+
+    <div class="record">2021.03.22 15:02:29:028 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Proved], id: (137,-575604452), content:
+      Proved((`n : Nat.Typ ) ~> ((f) (0) = (f) (`n)),Some(ind(Nat.Typ)((`$eyvjo : Nat.Typ) ↦ ((f) (0) = (f)
+      (`$eyvjo)))(Refl(A,(f) (0)))((``$eywao : Nat.Typ) ↦ ((````````````$br : ((f) (0) = (f) (``$eywao)) : (f) (0) = (f)
+      (``$eywao)) ↦ (((ind{(`$cnsvor : A) ↦ ((`$cnsvos : A) ↦ (`$cnsvor = `$cnsvos))((f) (0))((f) (``$eywao))}{(`$p : A)
+      ↦
+      ((`$q : A) ↦ ((````$s : (`$p = `$q) : `$p = `$q) ↦ ((`$q = (f) (((_ + 1)) (``$eywao))) → (`$p = (f) (((_ + 1))
+      (``$eywao))))))}((`$p : A) ↦ ((`````````$ase : (`$p = (f) (((_ + 1)) (``$eywao))) : `$p = (f) (((_ + 1))
+      (``$eywao))) ↦ (`````````$ase : (`$p = (f) (((_ + 1)) (``$eywao))))))) (````````````$br : ((f) (0) = (f)
+      (``$eywao)))) (($anunt) (``$eywao) : ((f) (``$eywao) = (f) (((_ + 1)) (``$eywao)))) : ((f) (0) = (f) (((_ + 1))
+      (``$eywao))))))),{Given $anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))}), hash: -575604452</div>
+
+    <div class="record">2021.03.22 15:02:29:028 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicted], id: (138,559393684), content:
+      Contradicted((((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n))
+      →
+      (Zero))))),Some(Wrap((((`$antgq_1) , ((($antgq_2_1) , ($antgq_2_2)))) : (((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_
+      +
+      1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero)))))) ↦ (($antgq_2_2) ((ind(Nat.Typ)((`$eyvjo :
+      Nat.Typ) ↦ ((f) (0) = (f) (`$eyvjo)))(Refl(A,(f) (0)))((``$eywao : Nat.Typ) ↦ ((````````````$br : ((f) (0) = (f)
+      (``$eywao)) : (f) (0) = (f) (``$eywao)) ↦ (((ind{(`$cnsvor : A) ↦ ((`$cnsvos : A) ↦ (`$cnsvor = `$cnsvos))((f)
+      (0))((f) (``$eywao))}{(`$p : A) ↦ ((`$q : A) ↦ ((````$s : (`$p = `$q) : `$p = `$q) ↦ ((`$q = (f) (((_ + 1))
+      (``$eywao))) → (`$p = (f) (((_ + 1)) (``$eywao))))))}((`$p : A) ↦ ((`````````$ase : (`$p = (f) (((_ + 1))
+      (``$eywao))) : `$p = (f) (((_ + 1)) (``$eywao))) ↦ (`````````$ase : (`$p = (f) (((_ + 1)) (``$eywao)))))))
+      (````````````$br : ((f) (0) = (f) (``$eywao)))) ((`$antgq_1) (``$eywao) : ((f) (``$eywao) = (f) (((_ + 1))
+      (``$eywao)))) : ((f) (0) = (f) (((_ + 1)) (``$eywao))))))) ($antgq_2_1) : ((f) (0) = (f) ($antgq_2_1)))))),{}),
+      hash: 559393684</div>
+
+    <div class="record">2021.03.22 15:02:29:341 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (139,101440222), hash : 101440222</div>
+
+    <div class="record">2021.03.22 15:02:29:342 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Proved], id: (140,1009265376), content:
+      Proved(Nat.Typ,Some(0),{}), hash: 1009265376</div>
+
+    <div class="record">2021.03.22 15:02:29:351 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (141,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:29:351 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (142,-1973902812), content:
+      FailedToProve((`$aukadb : Nat.Typ ) ~> (((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_ + 1))
+      (`$aukadb))
+      = (f) (((_ + 2)) (`$aukadb)))),{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n : Nat.Typ )
+      ~>
+      ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -1973902812
+    </div>
+
+    <div class="record">2021.03.22 15:02:29:356 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (143,1121741754), hash : 1121741754</div>
+
+    <div class="record">2021.03.22 15:02:29:356 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (144,-1019703198), content:
+      FailedToProve((f) (0) = (f) (1),{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n : Nat.Typ )
+      ~>
+      ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -1019703198
+    </div>
+
+    <div class="record">2021.03.22 15:02:29:389 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:141</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.GeneratedEquationNodes], id: (145,477954973), hash : 477954973</div>
+
+    <div class="record">2021.03.22 15:02:29:389 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.FailedToProve], id: (146,2146944503), content:
+      FailedToProve(Zero,{Given $bcwibv : Nat.Typ},Vector((Nat.Typ) → (Zero), (`$eychd : Nat.Typ ) ~> ((f) (`$eychd) =
+      (f)
+      (((_ + 1)) (`$eychd))), ((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) =
+      (f)
+      (`n))))), hash: 2146944503</div>
+
+    <div class="record">2021.03.22 15:02:29:452 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (147,1035281542), content:
+      Contradicts((f) (0) = (f) (1),((f) (0) = (f) (1)) → (Zero),Some(Wrap((`$csoikb : ((f) (0) = (f) (1)) : (f) (0) =
+      (f)
+      (1)) ↦ ((`$csoikd : ((f) (0) = (f) (1)) → (Zero)) ↦ ((`$csoikd) (`$csoikb : ((f) (0) = (f) (1))))))),{}), hash:
+      1035281542</div>
+
+    <div class="record">2021.03.22 15:02:29:453 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (148,-163838375), content:
+      SeekGoal(((f) (0) = (f) (1)) → (Zero),{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n :
+      Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))),
+      hash:
+      -163838375</div>
+
+    <div class="record">2021.03.22 15:02:29:455 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Consequence], id: (149,1486898587), content:
+      Consequence((Nat.Typ) → (Zero),(`$aukadb : Nat.Typ ) ~> (((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_
+      +
+      1)) (`$aukadb)) = (f) (((_ + 2)) (`$aukadb)))),Some(Wrap((`$csonva : (Nat.Typ) → (Zero)) ↦ ((`$csonuy : Nat.Typ) ↦
+      ((vacuousSym) ((`$csonva) (`$csonuy)))))),{}), hash: 1486898587</div>
+
+    <div class="record">2021.03.22 15:02:29:456 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (150,-551158234), content:
+      SeekGoal((Nat.Typ) → (Zero),{},Vector((`$aukadb : Nat.Typ ) ~> (((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) →
+      ((f)
+      (((_ + 1)) (`$aukadb)) = (f) (((_ + 2)) (`$aukadb)))), (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n
+      :
+      Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))),
+      hash:
+      -551158234</div>
+
+    <div class="record">2021.03.22 15:02:29:473 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.ProofLambda], id: (151,-1068637302), content:
+      ProofLambda((`$aukadb : Nat.Typ ) ~> (((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_ + 1)) (`$aukadb))
+      =
+      (f) (((_ + 2)) (`$aukadb)))),((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_ + 1)) (`$aukadb)) = (f)
+      (((_
+      + 2)) (`$aukadb))),{},{Given `$aukadb : Nat.Typ},`$aukadb,true), hash: -1068637302</div>
+
+    <div class="record">2021.03.22 15:02:29:474 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (152,-125840303), content:
+      SeekGoal(((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_ + 1)) (`$aukadb)) = (f) (((_ + 2))
+      (`$aukadb))),{Given `$aukadb : Nat.Typ},Vector((`$aukadb : Nat.Typ ) ~> (((f) (`$aukadb) = (f) (((_ + 1))
+      (`$aukadb))) → ((f) (((_ + 1)) (`$aukadb)) = (f) (((_ + 2)) (`$aukadb)))), (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_
+      +
+      1)) (`n))), (((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n))
+      →
+      (Zero))))))), hash: -125840303</div>
+
+    <div class="record">2021.03.22 15:02:29:495 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (153,-2007847696), content:
+      SeekGoal((f) (0) = (f) (0),{},Vector((`$aujiht : Nat.Typ ) ~> ((f) (0) = (f) (`$aujiht)), (((`n : Nat.Typ ) ~>
+      ((f)
+      (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -2007847696
+    </div>
+
+    <div class="record">2021.03.22 15:02:29:495 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (154,-215138369), content:
+      SeekGoal((`$cnswfq : Nat.Typ ) ~> (((f) (0) = (f) (`$cnswfq)) → ((f) (0) = (f) (((_ + 1))
+      (`$cnswfq)))),{},Vector((`$aujiht : Nat.Typ ) ~> ((f) (0) = (f) (`$aujiht)), (((`n : Nat.Typ ) ~> ((f) (`n) = (f)
+      (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))), hash: -215138369</div>
+
+    <div class="record">2021.03.22 15:02:29:496 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (155,-13851035), content:
+      SeekGoal((f) (0) = (f) (0),{},Vector((`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)), PlusTyp(∑((``n : Nat.Typ)
+      ↦
+      (((f) (``n) = (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash:
+      -13851035</div>
+
+    <div class="record">2021.03.22 15:02:29:496 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (156,-1913767845), content:
+      SeekGoal((`$cntbhe : Nat.Typ ) ~> (((f) (0) = (f) (`$cntbhe)) → ((f) (0) = (f) (((_ + 1))
+      (`$cntbhe)))),{},Vector((`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh)), PlusTyp(∑((``n : Nat.Typ) ↦ (((f) (``n)
+      =
+      (f) (((_ + 1)) (``n))) → (Zero))),(`$eycfh : Nat.Typ ) ~> ((f) (0) = (f) (`$eycfh))))), hash: -1913767845</div>
+
+    <div class="record">2021.03.22 15:02:29:515 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Proved], id: (157,845440661), content:
+      Proved(((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) → ((`n : Nat.Typ ) ~> ((f) (0) = (f)
+      (`n))),Some((`$anunt : (`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) ↦ (ind(Nat.Typ)((`$eyvjo : Nat.Typ) ↦
+      ((f) (0) = (f) (`$eyvjo)))(Refl(A,(f) (0)))((``$eywao : Nat.Typ) ↦ ((````````````$br : ((f) (0) = (f) (``$eywao))
+      : (f) (0) = (f) (``$eywao)) ↦ (((ind{(`$cnsvor : A) ↦ ((`$cnsvos : A) ↦ (`$cnsvor = `$cnsvos))((f) (0))((f)
+      (``$eywao))}{(`$p : A) ↦ ((`$q : A) ↦ ((````$s : (`$p = `$q) : `$p = `$q) ↦ ((`$q = (f) (((_ + 1)) (``$eywao))) →
+      (`$p = (f) (((_ + 1)) (``$eywao))))))}((`$p : A) ↦ ((`````````$ase : (`$p = (f) (((_ + 1)) (``$eywao))) : `$p =
+      (f) (((_ + 1)) (``$eywao))) ↦ (`````````$ase : (`$p = (f) (((_ + 1)) (``$eywao))))))) (````````````$br : ((f) (0)
+      = (f) (``$eywao)))) ((`$anunt) (``$eywao) : ((f) (``$eywao) = (f) (((_ + 1)) (``$eywao)))) : ((f) (0) = (f) (((_ +
+      1)) (``$eywao)))))))),{}), hash: 845440661
+    </div>
+
+    <div class="record">2021.03.22 15:02:29:624 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.Contradicts], id: (158,-1268560455), content:
+      Contradicts((`$aukadb : Nat.Typ ) ~> (((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_ + 1)) (`$aukadb))
+      =
+      (f) (((_ + 2)) (`$aukadb)))),∑((``$aukadb : Nat.Typ) ↦ ((((f) (``$aukadb) = (f) (((_ + 1)) (``$aukadb))) , (((f)
+      (((_ + 1)) (``$aukadb)) = (f) (((_ + 2)) (``$aukadb))) → (Zero))))),Some(Wrap((`$csohgn : (`$aukadb : Nat.Typ ) ~>
+      (((f) (`$aukadb) = (f) (((_ + 1)) (`$aukadb))) → ((f) (((_ + 1)) (`$aukadb)) = (f) (((_ + 2)) (`$aukadb))))) ↦
+      ((((`$csohme_1) , (((`$csohme_2_1 : ((f) (`$csohme_1) = (f) (((_ + 1)) (`$csohme_1)))) , ($csohme_2_2)))) :
+      ∑((``$aukadb : Nat.Typ) ↦ ((((f) (``$aukadb) = (f) (((_ + 1)) (``$aukadb))) , (((f) (((_ + 1)) (``$aukadb)) = (f)
+      (((_ + 2)) (``$aukadb))) → (Zero)))))) ↦ (($csohme_2_2) (((`$csohgn) (`$csohme_1)) (`$csohme_2_1 : ((f)
+      (`$csohme_1)
+      = (f) (((_ + 1)) (`$csohme_1)))) : ((f) (((_ + 1)) (`$csohme_1)) = (f) (((_ + 2)) (`$csohme_1)))))))),{}), hash:
+      -1268560455</div>
+
+    <div class="record">2021.03.22 15:02:29:625 [scala-e...] [<span style="color: green">DEBUG</span>] <span
+        style="color: green">provingground.learning.PostBuffer.post:327</span> - Post; tag:
+      TypeTag[provingground.learning.HoTTMessages.SeekGoal], id: (159,842372138), content:
+      SeekGoal(∑((``$aukadb : Nat.Typ) ↦ ((((f) (``$aukadb) = (f) (((_ + 1)) (``$aukadb))) , (((f) (((_ + 1))
+      (``$aukadb))
+      = (f) (((_ + 2)) (``$aukadb))) → (Zero))))),{},Vector((`n : Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n))), (((`n
+      :
+      Nat.Typ ) ~> ((f) (`n) = (f) (((_ + 1)) (`n)))) , (∑((``n : Nat.Typ) ↦ (((f) (0) = (f) (``n)) → (Zero))))))),
+      hash:
+      842372138</div>
+
+    <p></p>
+    <p></p>
