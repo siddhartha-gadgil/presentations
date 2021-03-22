@@ -15,4 +15,3 @@ js/reveal.min.js
 .bloop/
 out/
 .vscode/
-dist/*.map
