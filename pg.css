@@ -1,14 +1,9 @@
 pre {
-    overflow-x: auto;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
     background-color: white;
     display: block;
     padding: 10px;
-    margin: 0 0 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 18px;
     font-weight: normal;
     line-height: 1.42857143;
@@ -19,8 +14,27 @@ pre {
     border-radius: 0px
 }
 
-.record {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
+body {
+    background: #191919;
+    background-color: #191919;
+}
+
+.foreground {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: normal;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+pre, code {
+    white-space: pre-line;
+}
+
+div{
+    word-wrap: break-word;
+}
+
+em, strong {
+    color: lightgoldenrodyellow;
 }

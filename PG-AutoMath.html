@@ -16,7 +16,7 @@
 		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/league.css" id="theme">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -70,27 +70,98 @@
 				</ul>
 			</section>
 
-			<section  data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<h3> Homomogeneous length functions on Groups: </h3>
 				<h3> A PolyMath adventure</h3>
-			
-			
+
+
 			</section>
 
-			<section  data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background-color="teal">
 				<ul>
-				  <li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare had asked him.</li>
-							<blockquote class="fragment">
-								Is there a homogeneous, (conjugacy invariant) length function on the free group on two generators?
-							</blockquote>
-						<li class="fragment">Six days later, this was answered in a collaboration involving several mathematicians (and a computer).</li>
-						<li class="fragment">We begin with the story of the answer and its discovery.</li>
+					<li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare
+						had asked him.</li>
+					<blockquote class="fragment">
+						Is there a homogeneous, (conjugacy invariant) length function on the free group on two
+						generators?
+					</blockquote>
+					<li class="fragment">Six days later, this was answered in a collaboration involving several
+						mathematicians (and a computer).</li>
+					<li class="fragment">We begin with the story of the answer and its discovery.</li>
 				</ul>
 			</section>
 
+			<section data-background-iframe="kwk-gross-proof.html"></section>
+
 			<section data-background-iframe="internal-repetition-for-length-functions.html"></section>
 
-			<section data-background-iframe="kwk-gross-proof.html"></section>
+			<section>
+				<pre><code data-trim  class="language-scala">
+		object SuccNOrNEven {
+			import SimpleEvens._, Nats.{Nat => _, _}
+			val claim = n :-> (isEven(n) || isEven(succ(n)))
+			val base = claim(zero).incl1(zeroEven) !: claim(zero)
+			val hyp1 = "n-is-Even" :: isEven(n)
+			val hyp2 = "(n+1)-is-Even" :: isEven(succ(n))
+			val thm = n ~>: (claim(n))
+			val step = n :~> {
+				(claim(n).rec(claim(succ(n)))) {
+				hyp1 :-> (claim(succ(n)).incl2(plusTwoEven(n)(hyp1)))
+				} {hyp2 :-> (claim(succ(n)).incl1((hyp2)))}}
+			val inductor = NatInd.induc(claim)
+			val pf = inductor(base)(step) !: thm
+			}
+	</code>
+</pre>
+			</section>
+
+			<section>
+				<pre><code data-trim  class="language-scala">
+				object LocalConstImpliesConst {
+				import Nats.{Nat => Nt, _}
+				val A = "A" :: Type
+				val f = "f" :: Nt ->: A
+				val ass = "assumption" :: n ~>: (f(n) =:= f(succ(n)))
+				val claim = n :-> (f(zero) =:= f(n))
+				val base = f(zero).refl
+				val hyp = "hypothesis" :: (f(zero) =:= f(n))
+				val step = hyp :-> {
+				IdentityTyp.trans(A)(f(zero))(f(n))(f(succ(n)))(hyp)(ass(n))
+				}
+				val thm = n ~>: (claim(n))
+				val inductor = NatInd.induc(claim)
+				val pf = inductor(base)(n :~> step) !: thm
+				}</code></pre>
+			</section>
+
+			<section>
+				<h3>A problem from a Czech-Slovak Olympiad</h3>
+				<ul>
+					<li>Let ⋆ be a binary operation on a nonempty set $M$.</li>
+					<li>That is, every pair $(a,b) \in M$ is assigned an element $a$ ⋆$ b$ in $M$.</li>
+					<li>Suppose that ⋆ has the additional property that $(a $ ⋆ $b) $ ⋆$ b= a$ and $a$ ⋆ $(a$ ⋆$ b)= b$
+						for all $a,b \in M$.</li>
+					<li>Show that $a$ ⋆ $b = b$ ⋆ $a$ for all $a,b \in M$</li>
+				</ul>
+			</section>
+
+			<section>
+				<p>We seek to derive the following lemmas, with the first result (number 0) being the final goal.</p>
+				<ol start="0">
+					<li>$ m*n = n*m $</li>
+					<li> $ (m*n)*n = m $ </li>
+					<li> $ (m*n)*((m*n)*n) = n$ </li>
+					<li> $ n = (m*n)*((m*n)*n) $</li>
+					<li>$ (m * n) * ((m * n) * n) = (m * n) * n $</li>
+					<li>$ ((m * n) * m * m) = m * n $</li>
+					<li> $ n = (m *n) * m $ </li>
+					<li> $ n * m = ((m * n) * m * m) $</li>
+					<li> $ n * m = m * n $</li>
+				</ol>
+
+			</section>
+
+			<section data-background-iframe="czsl-logs.html"></section>
 
 			<section data-transition="zoom-in convex-out" data-background="Closepacking.svg"
 				data-background-color="teal" data-state="dimbg">
@@ -326,7 +397,8 @@
 					</li>
 					<li class="frag-ment"> Deep Blue was based on extending the above methods to elaborate <strong>(rule
 							based)</strong> values and policies (chess theory), and improved
-						<strong>heuristics</strong>.</li>
+						<strong>heuristics</strong>.
+					</li>
 					<li>However, Deep Blues was very limited in certain <strong>capabilities</strong>.</li>
 					<li class="frag-ment"> The value and policy functions of Kasparov were far better, but compensated
 						for by Deep Blue being able to consider far more move sequences.</li>
@@ -654,7 +726,7 @@
 				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
 				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
 				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
 				{ src: 'plugin/highlight/highlight.js', async: true },
 				{ src: 'plugin/zoom-js/zoom.js', async: true },
 				{ src: 'plugin/notes/notes.js', async: true },
