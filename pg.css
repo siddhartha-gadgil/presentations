@@ -1,0 +1,20 @@
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    background-color: white;
+    display: block;
+    padding: 10px;
+    margin: 0 0 0;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: black;
+    border: 0px solid #cccccc;
+    border-radius: 0px
+}

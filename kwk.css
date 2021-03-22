@@ -86,20 +86,19 @@ html.dimbg .slide-background {
     opacity: 0.7 !important;
 }
 
-.attribution{
-    position:absolute;
-    bottom:0;
-    right:0;
-    font-size:0.5em
+.attribution {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.5em
 }
 
 .smaller {
     font-size: 35px;
 }
 
-
-pre, code{
-    white-space:pre-line;
+pre, code {
+    white-space: pre-line;
 }
 
 .defn {
