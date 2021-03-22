@@ -16,7 +16,7 @@
 		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+	<link rel="stylesheet" href="css/theme/league.css" id="theme">
 
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -45,8 +45,9 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<section class="slides">
 			<section data-transition="slide">
-				<h2> Automating Mathematics? </h2>
-				<h3>Siddhartha Gadgil</h3>
+				<h3>ProvingGround:</h3>
+				<h3> towards Automating Mathematics? </h3>
+				<h4>Siddhartha Gadgil</h4>
 				<p>Department of Mathematics</p>
 				<p>Indian Institute of Science</p>
 				<p>Bangalore</p>
@@ -58,6 +59,7 @@
 			</section>
 
 			<section data-transition="zoom-in fade-out">
+				<h3>Automating Mathematics?</h3>
 				<ul>
 					<li>
 						Can computers acquire <strong>all the major capabilities</strong> used by mathematicians and the
@@ -65,10 +67,24 @@
 						mathematical results and concepts?
 					</li>
 					<li>When? <strong>How?</strong></li>
-					<li>Computers are already used in several ways.</li>
-					<li>Capabilities in other cognitive domains that suggests they can do much more.</li>
-					<li>Automated theorem proving is closely related to <strong>computer verification of
-							proofs</strong>.</li>
+				</ul>
+			</section>
+
+			<section  data-transition="convex" data-background-color="teal">
+				<h3> Homomogeneous length functions on Groups: </h3>
+				<h3> A PolyMath adventure</h3>
+			
+			
+			</section>
+
+			<section  data-transition="convex" data-background-color="teal">
+				<ul>
+				  <li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare had asked him.</li>
+							<blockquote class="fragment">
+								Is there a homogeneous, (conjugacy invariant) length function on the free group on two generators?
+							</blockquote>
+						<li class="fragment">Six days later, this was answered in a collaboration involving several mathematicians (and a computer).</li>
+						<li class="fragment">We begin with the story of the answer and its discovery.</li>
 				</ul>
 			</section>
 
@@ -135,7 +151,8 @@
 						<em>Boolean algebras</em> in
 						terms of
 						associativity and commutativity of $\vee$ and the Robbins equation
-						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
+						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.
+					</li>
 					<li class="frag-ment"> This was conjectured in the 1930s, and finally proved in 1996 using the
 						automated theorem prover <strong>EQP</strong>.</li>
 					<li class="frag-ment"> So far, this seems to be the only major success of <strong>fully
@@ -154,13 +171,15 @@
 						obtained by human-machine
 						collaboration.</li>
 					<li class="frag-ment">The computer both finds (parts of) proofs and verifies
-						<strong>correctness</strong>.</li>
+						<strong>correctness</strong>.
+					</li>
 					<li class="frag-ment">The ease of proving in such systems depends on how <strong>concise</strong>
 						and <strong>composable</strong> proofs are and
 						the strength of its <strong>elaborator</strong> and <strong>tactics</strong>.</li>
 					<li>The former depends on <strong>foundations</strong> and the latter is essentially
 						<strong>automated
-							theorem proving</strong>.</li>
+							theorem proving</strong>.
+					</li>
 				</ul>
 			</section>
 
@@ -189,7 +208,8 @@
 			<section data-transition="concave" data-background-color="#002b36">
 				<ul>
 					<li>The <strong>Feit-Thompson</strong> theorem has been formalized in the system
-						<strong>Coq</strong> by Georges Gonthier and others.</li>
+						<strong>Coq</strong> by Georges Gonthier and others.
+					</li>
 					<li>The <strong>lean mathematical library</strong> has formalizations of a lot of undergraduate
 						mathematics and many advanced results.</li>
 					<li>These not only show that formalization is feasible, but can form data for both <strong>machine
@@ -214,7 +234,8 @@
 					</li>
 					<li class="frag-ment">We give <strong>mathematical proofs</strong> of correct behavior, which are
 						<strong>computer
-							verified</strong>.</li>
+							verified</strong>.
+					</li>
 					<li class="frag-ment">This gives a much greater certainty of correctness.</li>
 					<li class="frag-ment">However, proofs are much harder than tests.</li>
 					<li class="frag-ment">Formal proofs use interactive theorem provers; with better provers we can
@@ -294,7 +315,8 @@
 						<strong>$\alpha-\beta$ pruning</strong>.
 					</li>
 					<li class="frag-ment"><em>Openings</em> give a <strong>policy</strong>, as do
-						<em>endgame tables</em>.</li>
+						<em>endgame tables</em>.
+					</li>
 				</ul>
 			</section>
 			<section data-background-color="#002b36" data-transition="concave">
@@ -303,7 +325,8 @@
 					<li>In 1997, a computer <strong>Deep Blue</strong> defeated the Chess world champion Gary Kasparov.
 					</li>
 					<li class="frag-ment"> Deep Blue was based on extending the above methods to elaborate <strong>(rule
-						based)</strong> values and policies (chess theory), and improved <strong>heuristics</strong>.</li>
+							based)</strong> values and policies (chess theory), and improved
+						<strong>heuristics</strong>.</li>
 					<li>However, Deep Blues was very limited in certain <strong>capabilities</strong>.</li>
 					<li class="frag-ment"> The value and policy functions of Kasparov were far better, but compensated
 						for by Deep Blue being able to consider far more move sequences.</li>
@@ -314,9 +337,11 @@
 				<h3>AlphaGo vs Lee Sedol</h3>
 				<ul>
 					<li class="frag-ment"> In the chinese game Go, the number of legal moves is much larger, so
-						<em>trying everything</em> means we cannot look many moves ahead.</li>
+						<em>trying everything</em> means we cannot look many moves ahead.
+					</li>
 					<li class="frag-ment"> More importantly, it is very hard to describe a good value function (we use
-						<strong>tacit knowledge</strong>).</li>
+						<strong>tacit knowledge</strong>).
+					</li>
 					<li class="frag-ment"> This makes it far harder for computers.</li>
 					<li class="frag-ment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
 						champion Lee Sedol.</li>
@@ -330,7 +355,8 @@
 				<ul>
 					<li class="frag-ment"> The policy and value functions of AlphaGo are <em>deep neural networks</em>
 						that were
-						<em>trained</em>.</li>
+						<em>trained</em>.
+					</li>
 					<li class="frag-ment"> The policy network was initially trained by learning to predict the next move
 						from
 						games
@@ -347,7 +373,8 @@
 				<ul>
 					<li>We <em>search</em> for an optimal policy in a space of functions smoothly parametrized by
 						$\mathbb{R}^N$ with respect to an appropriate smooth
-						<strong>loss</strong>.</li>
+						<strong>loss</strong>.
+					</li>
 					<li>The space of functions we consider are compositions of the form $$\Phi = \Psi_k\circ \Psi_{k
 						-1}\circ \dots \circ \Psi_1,$$ where the functions $\Psi_j$ are <em>layers</em>, and are
 						smoothly parametrized by $\mathbb{R}^{n_j}$, with $N = n_1 + n_2 + \dots + n_j$.</li>
@@ -359,7 +386,8 @@
 						linear function, $b$ a vector,
 						and $\sigma$ is $x\mapsto e^x/(1 + e^x)$ applied component-wise.</li>
 					<li>This is parametrized by entries of $A$ and $b$.</li>
-					<li>In a <em>convolutional layer</em>, the linear function $A$ is a <strong>convolution</strong>, e.g.,
+					<li>In a <em>convolutional layer</em>, the linear function $A$ is a <strong>convolution</strong>,
+						e.g.,
 						$y_j = \sum_{k} a _k x_{j - k}$.</li>
 					<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j =
 						\frac{e^{x_j}}{\sum_i
@@ -402,7 +430,8 @@
 						neighbours using the points.
 					</li>
 					<li> Analogies such as <em>Paris</em> is to <em>France</em> as <em>Madrid</em> is to
-						<em>Spain</em> are captured by <em>vector operations</em>.</li>
+						<em>Spain</em> are captured by <em>vector operations</em>.
+					</li>
 				</ul>
 			</section>
 
@@ -466,7 +495,8 @@
 				<h3>Emergent Semantics?</h3>
 				<ul>
 					<li>In image processing, successive layers capture features at increasing levels of
-						<strong>abstraction</strong>.</li>
+						<strong>abstraction</strong>.
+					</li>
 					<li>Often (parts of) networks are <em>shared</em>, to better capture structure and meaning. For
 						example,
 						AlphaGo Zero learnt better in part by having a single neural network for policy and value.</li>
@@ -544,9 +574,11 @@
 							href="https://github.com/siddhartha-gadgil/ProvingGround">ProvingGround</a> along the lines
 						sketched here.</li>
 					<li>It is also valuable to be able to learn from existing mathematics, which could use
-						<em>formalized libraries</em> and <em>natural language processing</em>.</li>
+						<em>formalized libraries</em> and <em>natural language processing</em>.
+					</li>
 					<li>However, for computer proofs to be useful, <strong>we</strong> would like to
-						<strong>learn</strong> from computer proofs.</li>
+						<strong>learn</strong> from computer proofs.
+					</li>
 				</ul>
 			</section>
 
@@ -585,8 +617,8 @@
 			</section>
 			<section>
 
-				<p>Indeed, a <a href="http://math.iisc.ac.in/~gadgil/PolyProof.html"
-						target="_blank">script</a> gives a similar proof.</p>
+				<p>Indeed, a <a href="http://math.iisc.ac.in/~gadgil/PolyProof.html" target="_blank">script</a> gives a
+					similar proof.</p>
 
 				<iframe width="853" height="505" src="https://www.youtube.com/embed/u-BLziR9FRk" frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
