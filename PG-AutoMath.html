@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Automating Mathematics?</title>
+	<title>ProvingGround: Automating Mathematics?</title>
 
 	<meta name="description" content="Kaapi with Kuriosity lecture">
 	<meta name="author" content="Siddhartha Gadgil">
@@ -20,7 +20,7 @@
 
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
-	<link rel="stylesheet" href="kwk.css">
+	<link rel="stylesheet" href="pg.css">
 
 	<link rel="icon" href="IIScLogo.jpg">
 
@@ -45,7 +45,7 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<section class="slides">
 			<section data-transition="slide">
-				<h3>ProvingGround:</h3>
+				<strong class="larger">ProvingGround: </strong>
 				<h3> towards Automating Mathematics? </h3>
 				<h4>Siddhartha Gadgil</h4>
 				<p>Department of Mathematics</p>
@@ -70,10 +70,32 @@
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
-				<h3> Homomogeneous length functions on Groups: </h3>
-				<h3> A PolyMath adventure</h3>
+			<section data-transition="zoom-in fade-out">
+				<ul>
+					<li>I began my research in <em>low-dimensional topology</em>, doing a Ph.D. at
+						<strong>Caltech</strong>
+						(advisor: David Gabai).
+					</li>
+					<li>During my PostDoc at Stony Brook and for over a decade in India after that, I mainly worked in
+						low-dimensional topology and related fields such as <em>geometric group theory</em> and
+						<em>riemannian geometry</em>.
+					</li>
+					<li>However, for the last few years I have mainly focussed on attempts at <em>automated theorem
+							proving</em>.</li>
+					<li>Surprisingly both these strands came together in my <em>PolyMath adventure.</em></li>
+				</ul>
+			</section>
 
+			<section data-transition="convex" data-background-color="teal">
+				<h3>The PolyMath 14 participants</h3>
+				<ul>
+					<li>Tobias Fritz, MPI MIS</li>
+					<li> Siddhartha Gadgil, IISc, Bangalore </li>
+					<li> Apoorva Khare, IISc, Bangalore</li>
+					<li> Pace Nielsen, BYU </li>
+					<li> Lior Silberman, UBC </li>
+					<li> Terence Tao, UCLA </li>
+				</ul>
 
 			</section>
 
@@ -87,68 +109,96 @@
 					</blockquote>
 					<li class="fragment">Six days later, this was answered in a collaboration involving several
 						mathematicians (and a computer).</li>
-					<li class="fragment">We begin with the story of the answer and its discovery.</li>
+					<li class="fragment">We begin with an account of this episode.</li>
 				</ul>
 			</section>
 
-			<section data-background-iframe="kwk-gross-proof.html"></section>
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
+					<li>Over the first 4-5 days after the question was posted,
+						<ul>
+							<li>there were many (failed, but instructive) attempts to construct such length functions;
+							</li>
+							<li>in particular I focussed on a construction using <em>non-crossing matchings</em>,
+								but this was not homogeneous;</li>
+							<li>the failures of various constructions led to the feeling that
+								$l(\alpha\beta\bar\alpha\bar\beta) = 0$ for homogeneous pseudo-lengths.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
+					<li>Increasingly sharp bounds and methods of combining bounds were found.</li>
+					<li>But there was no visible path to proving $l(\alpha\beta\bar\alpha\bar\beta) = 0$.</li>
+					<li>I searched for bounds using an algorithm to calculate the length based on non-crossing
+						matchings,
+						together with interactive use of homogeneity guided by the mathematics.
+					</li>
+					<li>On Thursday morning, I posted a <strong>computer generated, human readable</strong> proof of a
+						bound, obtained by upgrading the algorithms to find proofs rather than just numbers.</li>
+				</ul>
+			</section>
+
+			<section data-background-iframe="pg-gross-proof.html"></section>
 
 			<section data-background-iframe="internal-repetition-for-length-functions.html"></section>
 
 			<section>
-				<pre><code data-trim  class="language-scala">
-		object SuccNOrNEven {
-			import SimpleEvens._, Nats.{Nat => _, _}
-			val claim = n :-> (isEven(n) || isEven(succ(n)))
-			val base = claim(zero).incl1(zeroEven) !: claim(zero)
-			val hyp1 = "n-is-Even" :: isEven(n)
-			val hyp2 = "(n+1)-is-Even" :: isEven(succ(n))
-			val thm = n ~>: (claim(n))
-			val step = n :~> {
-				(claim(n).rec(claim(succ(n)))) {
-				hyp1 :-> (claim(succ(n)).incl2(plusTwoEven(n)(hyp1)))
-				} {hyp2 :-> (claim(succ(n)).incl1((hyp2)))}}
-			val inductor = NatInd.induc(claim)
-			val pf = inductor(base)(step) !: thm
-			}
+				<pre><code data-trim  class="language-scala">				  
+						val claim: Func[Term, PlusTyp[Term, Term]] = n :-> (isEven(n) || isEven(succ(n)))					  
+						val base: Term = claim(zero).incl1(zeroEven) !: claim(zero)
+						val hyp1: Term = "n-is-Even" :: isEven(n)
+						val hyp2: Term = "(n+1)-is-Even" :: isEven(succ(n))
+						val thm: GenFuncTyp[Term, Term] = n ~>: (claim(n))
+						val step: FuncLike[Term, Func[Term, Term]] = n :~> {
+						  (claim(n).rec(claim(succ(n)))) {
+							hyp1 :-> (claim(succ(n)).incl2(plusTwoEven(n)(hyp1)))
+						  } {hyp2 :-> (claim(succ(n)).incl1((hyp2)))}}
+						val inductor: Func[Term, Func[
+						  FuncLike[Term, Func[Term, Term]],
+						  FuncLike[Term, Term]]] = NatInd.induc(claim)
+						val pf: FuncLike[Term, Term] = inductor(base)(step) !: thm
 	</code>
 </pre>
 			</section>
 
 			<section>
 				<pre><code data-trim  class="language-scala">
-				object LocalConstImpliesConst {
-				import Nats.{Nat => Nt, _}
-				val A = "A" :: Type
-				val f = "f" :: Nt ->: A
-				val ass = "assumption" :: n ~>: (f(n) =:= f(succ(n)))
-				val claim = n :-> (f(zero) =:= f(n))
-				val base = f(zero).refl
-				val hyp = "hypothesis" :: (f(zero) =:= f(n))
-				val step = hyp :-> {
-				IdentityTyp.trans(A)(f(zero))(f(n))(f(succ(n)))(hyp)(ass(n))
-				}
-				val thm = n ~>: (claim(n))
-				val inductor = NatInd.induc(claim)
-				val pf = inductor(base)(n :~> step) !: thm
-				}</code></pre>
+					val A: Typ[Term] = "A" :: Type
+					val f: Func[Term,Term] = "f" :: Nt ->: A				  
+					val ass: FuncLike[Term,Equality[Term]] = 
+						"assumption" :: n ~>: (f(n) =:= f(succ(n)))				  
+					val claim: Func[Term,IdentityTyp[Term]] = 
+						n :-> (f(zero) =:= f(n))				  
+					val base: Refl[Term] = f(zero).refl				  
+					val hyp: Equality[Term] = "hypothesis" :: (f(zero) =:= f(n))
+					val step: Func[Equality[Term],Equality[Term]] = hyp :-> {
+					  IdentityTyp.trans(A)(f(zero))(f(n))(f(succ(n)))(hyp)(ass(n))}				  
+					val thm: GenFuncTyp[Term,Equality[Term]] = n ~>: (claim(n))
+					val inductor: Func[Equality[Term],Func[FuncLike[Term,Func[Equality[Term],Equality[Term]]],FuncLike[Term,Equality[Term]]]] = NatInd.induc(claim)				  
+					val pf: FuncLike[Term,Equality[Term]] = inductor(base)(n :~> step) !: thm</code></pre>
 			</section>
 
 			<section>
-				<h3>A problem from a Czech-Slovak Olympiad</h3>
+				<h3>A Czech-Slovak Olympiad problem</h3>
 				<ul>
-					<li>Let ⋆ be a binary operation on a nonempty set $M$.</li>
-					<li>That is, every pair $(a,b) \in M$ is assigned an element $a$ ⋆$ b$ in $M$.</li>
-					<li>Suppose that ⋆ has the additional property that $(a $ ⋆ $b) $ ⋆$ b= a$ and $a$ ⋆ $(a$ ⋆$ b)= b$
+					<li>Let $*$ be a binary operation on a nonempty set $M$.</li>
+					<li>That is, every pair $(a,b) \in M$ is assigned an element $a * b$ in $M$.</li>
+					<li>Suppose that $*$ has the additional property that $(a * b) * b= a$ and $a * (a * b)= b$
 						for all $a,b \in M$.</li>
-					<li>Show that $a$ ⋆ $b = b$ ⋆ $a$ for all $a,b \in M$</li>
+					<li>Show that $a * b = b * a$ for all $a,b \in M$.</li>
 				</ul>
 			</section>
 
 			<section>
-				<p>We seek to derive the following lemmas, with the first result (number 0) being the final goal.</p>
+				<ul>
+					<li>Along the way, we <em>watch</em> for some lemmas.</li>
+					<li>The first of these (number 0) is the final goal</li>
+				</ul>
 				<ol start="0">
-					<li>$ m*n = n*m $</li>
+					<li><strong> $ m*n = n*m $</strong></li>
 					<li> $ (m*n)*n = m $ </li>
 					<li> $ (m*n)*((m*n)*n) = n$ </li>
 					<li> $ n = (m*n)*((m*n)*n) $</li>
@@ -162,6 +212,8 @@
 			</section>
 
 			<section data-background-iframe="czsl-logs.html"></section>
+
+			<section data-background-iframe="induc-logs.html"></section>
 
 			<section data-transition="zoom-in convex-out" data-background="Closepacking.svg"
 				data-background-color="teal" data-state="dimbg">

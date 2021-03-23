@@ -38,3 +38,7 @@ div{
 em, strong {
     color: lightgoldenrodyellow;
 }
+
+.larger {
+    font-size: 60px;
+}

@@ -29,7 +29,7 @@ For the talk "in" Edinburgh
     * Import from the export format of the _lean theorem prover_.
 * Generating terms, including proofs.
     * Example: $e_l = e_r$.
-    * Recursive generative models; island and higher recursion.
+    * Recursive generative models; island and higher recursion; tangential generation
     * Unification
     * Judging lemmas based on non-triviality
     * Backward reasoning, induction, heuristics
