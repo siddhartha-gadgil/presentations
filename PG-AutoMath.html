@@ -115,6 +115,28 @@
 
 			<section data-transition="convex" data-background-color="teal">
 				<ul>
+					<li>Let $\mathcal{W}$ be the set of finite words in the alphabet $\{\alpha, \beta, \bar\alpha,
+						\bar\beta\}$,
+						with multiplication given by concatenation and $e$ the empty word.
+					</li>
+					<li>
+						<strong>Question:</strong> Is there a non-negative, real-valued function $l$ on $\mathcal{W}$
+						such that for $g, h\in\mathcal{W}$,
+						<ul>
+							<li>$l(e) =0$.</li>
+							<li>$l(g\cdot\lambda\bar\lambda\cdot h) = l(g\cdot h) = l(g\cdot\bar\lambda\lambda\cdot h)$,
+								for $\lambda=\alpha,\beta$,</li>
+							<li>$l(g\cdot h)\leq l(g) + l(h)$,</li>
+							<li>$l(g^n)=nl(g)$, $g^n = g\cdot g\cdot\dots\cdot g$. </li>
+							<li>if $g\neq e$, $l(g) > 0$ <strong>(positivity)</strong> ?</li>
+						</ul>
+					</li>
+					<li>Positivity is omitted for <em>pseudo-lengths</em>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
 					<li>Over the first 4-5 days after the question was posted,
 						<ul>
 							<li>there were many (failed, but instructive) attempts to construct such length functions;
@@ -155,6 +177,19 @@
 							Theory</em>.</li>
 				</ul>
 			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
+					<li>The computer generated proof was obtained by an algorithm using <em>domain specific
+							foundations</em>. </li>
+					<li>Subsequently, we embedded the foundations we used to generate the proofs and formalized the
+						internal repetition trick in ProvingGround.</li>
+					<li>An account of the computer proof was published in the <em>Journal of Automated reasoning</em>.
+					</li>
+					<li>In response to the referees comments we replicated the computer proof
+						(and also addressed the issue of rounding off errors).</li>
+						<li>In the future, all parts should perhaps be done with the <em>Lean Theorem Prover</em>.</li>
+				</ul>
+			</section>
 
 			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
 				<p><strong class="larger">ProvingGround:</strong></p>
@@ -162,13 +197,15 @@
 			</section>
 
 			<section data-background="#b5533c">
-				<h4>HoTT/MLTT with symbolic algebra</h4>
+				<h4>Type Theory with symbolic algebra</h4>
 				<ul>
-					<li>We have implemented a version of <strong>Martin-L&ouml;f Type Theory</strong> (Homotopy Type Theory?) in scala.</li>
+					<li>We have implemented <strong>Martin-L&ouml;f Type Theory</strong> (Homotopy Type Theory?) in
+						scala.</li>
 					<li>These are foundations of mathematics, where proofs and statements are mathematical objects,
 						just like numbers or spaces.
 					</li>
-					<li>There is an integration with some symbolic algebra by allowing wrapped scala objects as terms. </li>
+					<li>There is an integration with some symbolic algebra by allowing wrapped scala objects as terms.
+					</li>
 					<li>Using this we gave a formal proof of the key PolyMath 14 lemma.</li>
 				</ul>
 			</section>
@@ -181,7 +218,8 @@
 					<li>We have implemented inductive types, including indexed inductive types.</li>
 					<li>The scala type of a <em>term</em> (mathematical object) gives bounds on its HoTT type.</li>
 					<li>This is especially useful while working with induction.</li>
-					<li>In the type theory we implement, recursive/inductive definitions always terminate, but are more flexible than
+					<li>In the type theory we implement, recursive/inductive definitions always terminate, but are more
+						flexible than
 						primitive recursion.
 					</li>
 				</ul>
@@ -242,7 +280,7 @@
 					</code></pre>
 			</section>
 			<section data-background="#b5533c">
-				<p>The <em>Ackerman</em> function.</p>
+				<p>The <em>Ackermann</em> function.</p>
 				<pre><code data-trim  class="language-scala">
 					val recNNN: Func[Func[ScalaTerm[SafeLong], ScalaTerm[SafeLong]], Func[Func[NatRing.Nat,Func[Func[ScalaTerm[SafeLong], ScalaTerm[SafeLong]], Func[ScalaTerm[SafeLong], ScalaTerm[SafeLong]]]], Func[NatRing.Nat, Func[ScalaTerm[SafeLong], ScalaTerm[SafeLong]]]]] = NatRing.rec(NatTyp ->: NatTyp)
 
@@ -261,43 +299,73 @@
 				<h2>Accumulating knowledge</h2>
 			</section>
 			<section data-transition="concave" data-background-color="#002b36">
-				<h3>A simple problem</h3>
-				<ul><li>
-					To start with, we took the following as a model problem.
-				</li></ul>
-
-			</section>
-
-			<section data-transition="concave" data-background-color="#002b36">
-				<h3>Generation and recursive distributions</h3>
+				<h4>A simple model problem</h4>
 				<ul>
-					<li></li>
+					<li>Let $M$ be a set, $*$ a binary operation on $M$ and $e_l,e_r\in M$ elements.</li>
+					<li>Assume that <ul>
+							<li>$e_l * a = a$ for all $a\in M$,</li>
+							<li>$a * e_r = a$ for all $a\in M$. </li>
+						</ul>
+					</li>
+					<li>We also use that equality is symmetric and transitive.</li>
+					<li><strong>To prove:</strong> $e_l = e_r$.</li>
+					<li>We need to <em>generate</em> the proof.</li>
 				</ul>
+
 			</section>
 
 			<section data-transition="concave" data-background-color="#002b36">
-				<h3>Unification (syntactic)</h3>
 				<ul>
 					<li>
-
+						We can form terms from other terms by, for instance, by <em>function application</em> (giving $f(a)$).
 					</li>
+					<li>
+						Suppose that rules for forming terms are simple.
+					</li>
+					<li>
+						Then, given an initial distribution $P_0$ on terms, the final distribution can be recursively defined by a relation of the form
+						$$P = \alpha P_0 + \beta \mu_*(P) + \gamma \theta_*(P \times P) + \dots$$
+					</li>
+					<li>Function application alone gives the proof, but with very low a probability.</li>
+					<li><strong>Unification</strong> improves this (but still too low).</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<h4>Identifying lemmas</h4> 
+				<ul>
+					<li>We identify potentially useful lemmas.</li>
+					<li>One criterion is <strong>non-triviality</strong> - lemmas whose proof has much lower probability (higher entropy)
+					than the statement. </li>
+					<li>This can be refined using the Kullback-Liebler divergence between the statement-probability and proof-probability distributions on theorems; however we use an entropy term for parsimony.
+					</li>
+					<li>In the next phase, we will use machine learning.</li>
 				</ul>
 			</section>
 
 			<section data-transition="concave" data-background-color="#002b36">
-				<h3>Identifying lemmas</h3>
+				<h4>Composable, higher-order generation</h4>
+				<ul>
+					<li>To <em>define</em> functions and construct statements with quantifiers, we need to introduce <em>variables</em>, so 
+						 the generating set changes.</li>
+					<li>For this, the evolution function on probability distributions is
+						recursively defined. </li>
+						<li>These are included in a composable, abstract framework for defining ways of generating (special classes of) terms.</li>
+					<li>Using the abstract framework, we have recursive/inductive definitions, rules for targetting special types, backward reasoning etc.</li>
+				</ul>
 			</section>
 
 			<section data-transition="concave" data-background-color="#002b36">
-				<h4>Functions and Quantification: Higher recursion</h4>
-			</section>
-
-			<section data-transition="concave" data-background-color="#002b36">
-				<h4>Induction, backward reasoning</h4>
-			</section>
-
-			<section data-transition="concave" data-background-color="#002b36">
-				<h3>Accumulating knowledge: Equation terms</h3>
+				<ul>
+					<li>To find consequences of lemmas, we also use <em>tangential generation</em>, where terms of a base distribution do not combine
+					with each other, but only with terms of a (recursively defined) tangent distribution.</li>
+					<li>
+						In addition to generating probabilities of terms, we generate <em>equation terms</em>.
+					</li>
+					<li>These allow us to <strong>assimilate</strong> knowledge and combine generation.</li>
+					<li>The assimilated knowledge is also suitable as data for machine learning.</li>
+				</ul>
 			</section>
 
 
@@ -308,7 +376,7 @@
 				<p>&nbsp;</p>
 			</section>
 
-			
+
 			<section data-background-color="teal">
 				<h4>A Czech-Slovak Olympiad problem</h4>
 				<ul>
@@ -317,6 +385,15 @@
 					<li>Suppose that $*$ has the additional property that $(a * b) * b= a$ and $a * (a * b)= b$
 						for all $a,b \in M$.</li>
 					<li>Show that $a * b = b * a$ for all $a,b \in M$.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>Achal Kumar, an undergraduate at IISc, explored solving this with ProvingGround as it was about two years ago.</li>
+					<li>He could solve this, but with manual choice of lemmas (on top of the heuristics).</li>
+					<li>I took this as the first target for autonomous running.</li>
+					<li>Much of the work was actually improving the performance of many parts of the code.</li>
 				</ul>
 			</section>
 
@@ -331,7 +408,7 @@
 					<li> $ (m*n)*((m*n)*n) = n$ </li>
 					<li> $ n = (m*n)*((m*n)*n) $</li>
 					<li>$ (m * n) * ((m * n) * n) = (m * n) * n $</li>
-					<li>$ ((m * n) * m * m) = m * n $</li>
+					<li>$ ((m * n) * m * m) = m * n $</li> 
 					<li> $ n = (m *n) * m $ </li>
 					<li> $ n * m = ((m * n) * m * m) $</li>
 					<li> $ n * m = m * n $</li>
@@ -342,13 +419,40 @@
 			<section data-background-iframe="czsl-logs.html"></section>
 
 			<section data-background-color="teal">
-				<h2>Induction, backward reasoning</h2>
+				<ul>
+					<li>In addition to generating terms (possibly with goals and/or using tangents) and identifying lemmas, we have <em>bots</em> for 
+						(among other things)
+					<ul>
+						<li>using induction/recursion for backward reasoning,</li>
+						<li>introducing variables,</li>
+						<li>instantiation for existential quantifiers,</li>
+						<li>negating goals,</li>
+						<li>proving by contradicting hypothesis,</li>
+						<li>Skolemization.</li>
+					</ul>
+					</li>
+					<li>We seek a proof, with lots of bots, of 
+						$\forall n\in \mathbb{N},\ f(n) = f(n+1) \implies \forall n\in\mathbb{N}, f(n) = f(0)$.</li>
+				</ul>
 			</section>
 
 			<section data-background-iframe="induc-logs.html"></section>
 
 			<section data-background-color="teal">
 				<h3>Towards Machine learning</h3>
+				<ul>
+					<li>For data to start, we import from <em>Lean</em>.</li>
+					<li>We will use machine learning to try to predict the weight of terms in proofs (<em>usefulness</em>) of types (statements),
+						using also their weight in the statement itself.
+					</li>
+					<li>
+						We then seek to predict usefulness from partial knowledge, perhaps just non-triviality.
+					</li>
+					<li>
+						Predicting the weight of terms in the generation of other terms allows <em>Representation learning</em>.
+					</li>
+					<li>In the longer run we hope to use <em>Transformers</em>.</li>
+				</ul>
 			</section>
 
 
