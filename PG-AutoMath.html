@@ -76,12 +76,12 @@
 						<strong>Caltech</strong>
 						(advisor: David Gabai).
 					</li>
-					<li>During my PostDoc at Stony Brook and for over a decade in India after that, I mainly worked in
+					<li>During my PostDoc at Stony Brook, and for over a decade in India after that, I mainly worked in
 						low-dimensional topology and related fields such as <em>geometric group theory</em> and
 						<em>riemannian geometry</em>.
 					</li>
-					<li>However, for the last few years I have mainly focussed on attempts at <em>automated theorem
-							proving</em>.</li>
+					<li>However, for the last few years I have mainly focussed on attempts at <em>Automated Theorem
+							Proving</em>.</li>
 					<li>Surprisingly both these strands came together in my <em>PolyMath adventure.</em></li>
 				</ul>
 			</section>
@@ -103,13 +103,13 @@
 				<ul>
 					<li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare
 						had asked him.</li>
-					<blockquote class="fragment">
+					<blockquote>
 						Is there a homogeneous, (conjugacy invariant) length function on the free group on two
 						generators?
 					</blockquote>
-					<li class="fragment">Six days later, this was answered in a collaboration involving several
+					<li>Six days later, this was answered in a collaboration involving several
 						mathematicians (and a computer).</li>
-					<li class="fragment">We begin with an account of this episode.</li>
+					<li>We begin with an account of this episode.</li>
 				</ul>
 			</section>
 
@@ -122,16 +122,16 @@
 					<li>
 						<strong>Question:</strong> Is there a non-negative, real-valued function $l$ on $\mathcal{W}$
 						such that for $g, h\in\mathcal{W}$,
-						<ul>
-							<li>$l(e) =0$.</li>
+						<ol>
+							<li>$l(e) =0$,</li>
 							<li>$l(g\cdot\lambda\bar\lambda\cdot h) = l(g\cdot h) = l(g\cdot\bar\lambda\lambda\cdot h)$,
-								for $\lambda=\alpha,\beta$,</li>
-							<li>$l(g\cdot h)\leq l(g) + l(h)$,</li>
-							<li>$l(g^n)=nl(g)$, $g^n = g\cdot g\cdot\dots\cdot g$. </li>
-							<li>if $g\neq e$, $l(g) > 0$ <strong>(positivity)</strong> ?</li>
-						</ul>
+								for $\lambda=\alpha,\beta$ <strong>($l$ defined on the free group)</strong>,</li>
+							<li>$l(g\cdot h)\leq l(g) + l(h)$ <strong>(triangle inequality)</strong>,</li>
+							<li>if $g\neq e$, $l(g) > 0$ <strong>(positivity)</strong>,</li>
+							<li>$l(g^n)=nl(g)$, <strong>(homogeneity)</strong>?</li>
+						</ol>
 					</li>
-					<li>Positivity is omitted for <em>pseudo-lengths</em>.</li>
+					<li><em>Pseudo-lengths</em> satisfy 1 &ndash; 3, <em>lengths</em> satisfy 1 &ndash; 4.</li>
 				</ul>
 			</section>
 
@@ -154,9 +154,9 @@
 				<ul>
 					<li>Increasingly sharp bounds and methods of combining bounds were found.</li>
 					<li>But there was no visible path to proving $l(\alpha\beta\bar\alpha\bar\beta) = 0$.</li>
-					<li>I searched for bounds using an algorithm to calculate the length based on non-crossing
-						matchings,
-						together with interactive use of homogeneity guided by the mathematics.
+					<li>I searched for bounds using an algorithm to calculate the <em>non-crossing
+						matchings length</em>,
+						together with interactive use of homogeneity.
 					</li>
 					<li>On Thursday morning, I posted a <strong>computer generated, human readable</strong> proof of a
 						bound, obtained by upgrading the algorithms to find proofs rather than just numbers.</li>
@@ -171,8 +171,8 @@
 							repetition</em> trick. </li>
 					<li>This was extended by Pace Nielsen and Tobias Fritz and generalized by Terence Tao.
 					</li>
-					<li>From this Fritz obtained the key lemma.</li>
-					<li>Using Probability, Terence Tao completed the proof of an answer to the question.</li>
+					<li>From this Fritz obtained a key lemma.</li>
+					<li>Using Probability, Terence Tao completed the proof of a result answering the question.</li>
 					<li>This work became <strong>PolyMath 14</strong>, and has been published in <em>Algebra & Number
 							Theory</em>.</li>
 				</ul>
@@ -200,9 +200,9 @@
 				<h4>Type Theory with symbolic algebra</h4>
 				<ul>
 					<li>We have implemented <strong>Martin-L&ouml;f Type Theory</strong> (Homotopy Type Theory?) in
-						scala.</li>
-					<li>These are foundations of mathematics, where proofs and statements are mathematical objects,
-						just like numbers or spaces.
+					<strong>scala</strong>.</li>
+					<li>These are foundations of mathematics, where proofs and statements are <strong>first class mathematical objects</strong>,
+						like numbers or spaces.
 					</li>
 					<li>There is an integration with some symbolic algebra by allowing wrapped scala objects as terms.
 					</li>
@@ -213,12 +213,12 @@
 			<section data-background-iframe="internal-repetition-for-length-functions.html"></section>
 
 			<section data-background="#b5533c">
-				<h4>Scala type bounds and Recursion/Induction</h4>
+				<h4>Recursion, Induction, scala types</h4>
 				<ul>
-					<li>We have implemented inductive types, including indexed inductive types.</li>
+					<li>ProvingGround has implementations of inductive types, including indexed inductive types.</li>
 					<li>The scala type of a <em>term</em> (mathematical object) gives bounds on its HoTT type.</li>
 					<li>This is especially useful while working with induction.</li>
-					<li>In the type theory we implement, recursive/inductive definitions always terminate, but are more
+					<li>In the type theory we implement, recursive/inductive definitions are total, but are more
 						flexible than
 						primitive recursion.
 					</li>
@@ -238,9 +238,9 @@
 						  (claim(n).rec(claim(succ(n)))) {
 							hyp1 :-> (claim(succ(n)).incl2(plusTwoEven(n)(hyp1)))
 						  } {hyp2 :-> (claim(succ(n)).incl1((hyp2)))}}
-						val inductor: Func[Term, Func[
-						  FuncLike[Term, Func[Term, Term]],
-						  FuncLike[Term, Term]]] = NatInd.induc(claim)
+						val inductor: Func[Term, Func[FuncLike[Term, 
+						Func[Term, Term]],FuncLike[Term, Term]]] = 
+						NatInd.induc(claim)
 						val pf: FuncLike[Term, Term] = inductor(base)(step) !: thm
 	</code>
 </pre>
@@ -317,7 +317,7 @@
 			<section data-transition="concave" data-background-color="#002b36">
 				<ul>
 					<li>
-						We can form terms from other terms by, for instance, by <em>function application</em> (giving $f(a)$).
+						We can form terms from others by, for instance, <em>function application</em>, i.e., $f(a)$ from $f$ and $a$.
 					</li>
 					<li>
 						Suppose that rules for forming terms are simple.
@@ -336,8 +336,10 @@
 				<h4>Identifying lemmas</h4> 
 				<ul>
 					<li>We identify potentially useful lemmas.</li>
-					<li>One criterion is <strong>non-triviality</strong> - lemmas whose proof has much lower probability (higher entropy)
+					<li>Having a simple statement is a simple criterion.</li>
+					<li>Another criterion is <strong>non-triviality</strong> - lemmas whose proof is harder
 					than the statement. </li>
+					<li>The simple problem is easily solved with these.</li>
 					<li>This can be refined using the Kullback-Liebler divergence between the statement-probability and proof-probability distributions on theorems; however we use an entropy term for parsimony.
 					</li>
 					<li>In the next phase, we will use machine learning.</li>
@@ -347,11 +349,11 @@
 			<section data-transition="concave" data-background-color="#002b36">
 				<h4>Composable, higher-order generation</h4>
 				<ul>
-					<li>To <em>define</em> functions and construct statements with quantifiers, we need to introduce <em>variables</em>, so 
+					<li>To <em>define</em> functions as <em>lambdas</em> and construct statements with quantifiers, we need to introduce <em>variables</em>, so 
 						 the generating set changes.</li>
 					<li>For this, the evolution function on probability distributions is
 						recursively defined. </li>
-						<li>These are included in a composable, abstract framework for defining ways of generating (special classes of) terms.</li>
+						<li>These are included in a composable, abstract framework for defining ways of generating appropriate objects, including terms.</li>
 					<li>Using the abstract framework, we have recursive/inductive definitions, rules for targetting special types, backward reasoning etc.</li>
 				</ul>
 			</section>
@@ -359,12 +361,12 @@
 			<section data-transition="concave" data-background-color="#002b36">
 				<ul>
 					<li>To find consequences of lemmas, we also use <em>tangential generation</em>, where terms of a base distribution do not combine
-					with each other, but only with terms of a (recursively defined) tangent distribution.</li>
+					with each other, but only with terms of a tangent distribution.</li>
 					<li>
 						In addition to generating probabilities of terms, we generate <em>equation terms</em>.
 					</li>
-					<li>These allow us to <strong>assimilate</strong> knowledge and combine generation.</li>
-					<li>The assimilated knowledge is also suitable as data for machine learning.</li>
+					<li>These allow us to <strong>accumulate</strong> knowledge and combine generation.</li>
+					<li>The accumulated knowledge is also suitable as data for machine learning.</li>
 				</ul>
 			</section>
 
@@ -390,16 +392,17 @@
 
 			<section data-background-color="teal">
 				<ul>
-					<li>Achal Kumar, an undergraduate at IISc, explored solving this with ProvingGround as it was about two years ago.</li>
+					<li>Achal Kumar, an undergraduate at IISc, explored solving this with ProvingGround (as it then was) about two years ago 
+						(along with Omkar Baraskar).</li>
 					<li>He could solve this, but with manual choice of lemmas (on top of the heuristics).</li>
-					<li>I took this as the first target for autonomous running.</li>
+					<li>This was chosen as the first (serious) target for autonomous running.</li>
 					<li>Much of the work was actually improving the performance of many parts of the code.</li>
 				</ul>
 			</section>
 
 			<section data-background-color="teal">
 				<ul>
-					<li>During the run, we <em>watch</em> for some lemmas.</li>
+					<li>While seeking a proof, we <em>watch</em> for some lemmas.</li>
 					<li>The first of these (number 0) is the final goal</li>
 				</ul>
 				<ol start="0">
@@ -441,7 +444,7 @@
 			<section data-background-color="teal">
 				<h3>Towards Machine learning</h3>
 				<ul>
-					<li>For data to start, we import from <em>Lean</em>.</li>
+					<li>For initial data, we import from <em>Lean</em>.</li>
 					<li>We will use machine learning to try to predict the weight of terms in proofs (<em>usefulness</em>) of types (statements),
 						using also their weight in the statement itself.
 					</li>
