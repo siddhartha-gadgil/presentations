@@ -82,7 +82,7 @@
 					</li>
 					<li>However, for the last few years I have mainly focussed on attempts at <em>Automated Theorem
 							Proving</em>.</li>
-					<li>Surprisingly both these strands came together in my <em>PolyMath adventure.</em></li>
+					<li>Surprisingly both these strands came together in the <em>PolyMath adventure.</em></li>
 				</ul>
 			</section>
 
@@ -159,7 +159,7 @@
 						together with interactive use of homogeneity.
 					</li>
 					<li>On Thursday morning, I posted a <strong>computer generated, human readable</strong> proof of a
-						bound, obtained by upgrading the algorithms to find proofs rather than just numbers.</li>
+						bound, obtained by upgrading the algorithms to find <strong>proofs</strong> rather than just numbers.</li>
 				</ul>
 			</section>
 
@@ -169,7 +169,7 @@
 				<ul>
 					<li>The computer-generated proof was studied by Pace Nielsen, who extracted the <em>internal
 							repetition</em> trick. </li>
-					<li>This was extended by Pace Nielsen and Tobias Fritz and generalized by Terence Tao.
+					<li>This was extended by Pace Nielsen and Tobias Fritz and abstracted by Terence Tao.
 					</li>
 					<li>From this Fritz obtained a key lemma.</li>
 					<li>Using Probability, Terence Tao completed the proof of a result answering the question.</li>
@@ -182,7 +182,7 @@
 					<li>The computer generated proof was obtained by an algorithm using <em>domain specific
 							foundations</em>. </li>
 					<li>Subsequently, we embedded the foundations we used to generate the proofs and formalized the
-						internal repetition trick in ProvingGround.</li>
+						internal repetition trick in <strong>ProvingGround</strong>.</li>
 					<li>An account of the computer proof was published in the <em>Journal of Automated reasoning</em>.
 					</li>
 					<li>In response to the referees comments we replicated the computer proof
@@ -335,7 +335,7 @@
 			<section data-transition="concave" data-background-color="#002b36">
 				<h4>Identifying lemmas</h4> 
 				<ul>
-					<li>We identify potentially useful lemmas.</li>
+					<li>We identify <strong>potentially useful lemmas</strong>.</li>
 					<li>Having a simple statement is a simple criterion.</li>
 					<li>Another criterion is <strong>non-triviality</strong> - lemmas whose proof is harder
 					than the statement. </li>
@@ -350,7 +350,7 @@
 				<h4>Composable, higher-order generation</h4>
 				<ul>
 					<li>To <em>define</em> functions as <em>lambdas</em> and construct statements with quantifiers, we need to introduce <em>variables</em>, so 
-						 the generating set changes.</li>
+						 the initial distribution changes.</li>
 					<li>For this, the evolution function on probability distributions is
 						recursively defined. </li>
 						<li>These are included in a composable, abstract framework for defining ways of generating appropriate objects, including terms.</li>
@@ -435,7 +435,7 @@
 					</ul>
 					</li>
 					<li>We seek a proof, with lots of bots, of 
-						$\forall n\in \mathbb{N},\ f(n) = f(n+1) \implies \forall n\in\mathbb{N}, f(n) = f(0)$.</li>
+						$\forall n\in \mathbb{N}\ \ f(n) = f(n+1) \implies \forall n\in\mathbb{N}\ f(n) = f(0)$.</li>
 				</ul>
 			</section>
 
@@ -445,14 +445,17 @@
 				<h3>Towards Machine learning</h3>
 				<ul>
 					<li>For initial data, we import from <em>Lean</em>.</li>
-					<li>We will use machine learning to try to predict the weight of terms in proofs (<em>usefulness</em>) of types (statements),
-						using also their weight in the statement itself.
+					<li>We trace back a term using equations to get <em>weighted descriptions</em>.</li>
+					<li>We will use machine learning to predict the weights in descriptions of <em>proofs</em>.						
 					</li>
 					<li>
-						We then seek to predict usefulness from partial knowledge, perhaps just non-triviality.
+						The prediction is also based on the weight of a term in the description of the type (statement). 
 					</li>
 					<li>
-						Predicting the weight of terms in the generation of other terms allows <em>Representation learning</em>.
+						We need to also work with <em>unfamiliar</em> terms.
+					</li>
+					<li>
+						Predicting the weight of terms in the descriptions of other terms allows <em>Representation learning</em>.
 					</li>
 					<li>In the longer run we hope to use <em>Transformers</em>.</li>
 				</ul>
