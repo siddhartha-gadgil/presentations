@@ -124,9 +124,7 @@
 				</ul>
 			</section>
 
-			<section data-background="Sudoku.png" data-background-size="50%">
 
-			</section>
 
 			<section data-transition="convex" data-background-color="teal">
 				<h3> Robbins conjecture </h3>
@@ -310,7 +308,8 @@
 					</li>
 					<li class="frag-ment"> Deep Blue was based on extending the above methods to elaborate <strong>(rule
 							based)</strong> values and policies (chess theory), and improved
-						<strong>heuristics</strong>.</li>
+						<strong>heuristics</strong>.
+					</li>
 					<li>However, Deep Blues was very limited in certain <strong>capabilities</strong>.</li>
 					<li class="frag-ment"> The value and policy functions of Kasparov were far better, but compensated
 						for by Deep Blue being able to consider far more move sequences.</li>
@@ -376,7 +375,8 @@
 						<li>This is parametrized by entries of $A$ and $b$.</li>
 						<li>In a <em>convolutional layer</em>, the linear function $A$ is a
 							<strong>convolution</strong>, e.g.,
-							$y_j = \sum_{k} a _k x_{j - k}$.</li>
+							$y_j = \sum_{k} a _k x_{j - k}$.
+						</li>
 						<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j =
 							\frac{e^{x_j}}{\sum_i
 							e^{x_i}}$.</li>
@@ -408,221 +408,94 @@
 
 			<section data-transition="zoom" data-background="code.png">
 				<h1>SAT Solvers</h1>
-				
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>The $N-$Queens problem</h3>
+				<ul>
+					<li>
+						The $N-$queens puzzle is the problem of placing eight chess queens on an $N\times N$ chessboard
+						so that no two queens threaten each other.
+					</li>
+					<li>
+						Thus, a solution requires that no two queens share the same row, column, or diagonal.
+					</li>
+					<li> We formulate this as a so called <strong>Boolean satisfiability (SAT) problem.</strong>
+					</li>
+					<li> A <strong>SAT solver</strong> solves SAT problems.</li>
+					<li>A very large class of problems can be formulated as SAT problems.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>$N$-Queens as SAT</h3>
+				<ul>
+					<li>We associate to each square a <em>boolean</em> variable $Q_{i,j}$ which is <em>true</em> if the
+						square is occupied and <em>false</em> otherwise.</li>
+					<li>We construct logical formulas for the constraints of the $N-$queens puzzle from the
+						$Q_{i,j}$'s using $\neg$ (<em>not</em>), $\vee$(<em>or</em>) and $\wedge$(<em>and</em>).</li>
+					<li>For example, the $i$th row has a queen is the formula $Q_{i,1}\vee Q_{i,2}\vee\dots\vee Q_{i,n}$
+					</li>
+					<li>Similarly, pairs of queens not threatening each other gives formulas such as $\neg Q_{1, 1}\vee
+						\neg Q_{2, 2}$.</li>
+				</ul>
 			</section>
 
 			<section data-background-iframe="Q8.html" data-background-color="teal"></section>
 			<section data-background-iframe="Q3.html" data-background-color="white"></section>
 
-			<section data-transition="zoom" data-background="sea.jpg">
-				<h1>Artificial Intelligence elsewhere</h1>
-			</section>
-
-			<section data-transition="concave" data-background-color="#b5533c">
-				<h3>Word Embeddings</h3>
-				<ul>
-					<li>
-						To give words a <em>structure</em> and capture relations, words are <em>embedded</em> as points
-						in space.</li>
-					<li>To do this, (in <strong>Word2Vec</strong>) we set up the problem of predicting a word given its
-						neighbours.</li>
-					<li>We look for solutions of this problem that involve mapping words into space, and predicting from
-						neighbours using the points.
-					</li>
-					<li> Analogies such as <em>Paris</em> is to <em>France</em> as <em>Madrid</em> is to
-						<em>Spain</em> are captured by <em>vector operations</em>.
-					</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave" data-background-color="#b5533c">
-				<h3>Generative Query network</h3>
-				<ul>
-					<li class="frag-ment">In an artificial 3D environment, the network observes 2D images from a few
-						positions.</li>
-					<li class="frag-ment">It has to predict the observed image from a new position.</li>
-					<li class="frag-ment">To do this, the 2D image was mapped to a <em>concise representation</em> by a
-						network, which was
-						then used to predict the image from a different viewpoint.</li>
-					<li class="frag-ment">The concise representation factorized by colour, shape and size (among other
-						things).</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave" data-background-color="#b5533c" S>
-				<h3>Generative Adversarial Network</h3>
-				<ul>
-					<li class="frag-ment">These consist of a pair of networks, contesting with
-						each other.</li>
-					<li class="frag-ment"> One network generates candidates (generative) and
-						the other evaluates them (discriminative).</li>
-					<li class="frag-ment">For example the discriminative network tries to
-						distinguish between real images and synthetic ones
-						generated by the generative network.</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave" data-background-color="#b5533c">
-				<h3>Distributional reinforcement learning</h3>
-				<ul>
-					<li class="frag-ment">In <em>temporal reinforcement learning</em>, a network tries to predict
-						(average) future rewards.</li>
-					<li class="frag-ment">However, sometimes the reward is either very big or very small, so the average
-						reward is misleading.</li>
-					<li class="frag-ment"> In <em>distributional reinforcement learning</em> we have several predictors,
-						which react differently to <em>positive</em> and <em>negative</em> errors.</li>
-					<li class="frag-ment">Recently, similar distributions of <em>dopamine</em> cells was found in the
-						brains of
-						mice.</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave" data-background-color="#b5533c">
-				<h3><q>Attention is all you need</q></h3>
-				<ul>
-					<li>The meaning of a word depends on the context, i.e., other words surrounding it.</li>
-					<li>In the <em>transformer architecture</em>, this is captured by <strong>learning</strong>
-						to which other words to pay attention for determining the next representation.
-					</li>
-					<li>The encoding of words includes position vectors, defined by using harmonics.</li>
-					<li>This has lead to revolutionary improvements, including forming the basis for <strong>GPT
-							3</strong>.</li>
-					<li>Attention networks are used in <strong>AlphaFold 2</strong>.</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave">
-				<h3>Emergent Semantics?</h3>
-				<ul>
-					<li>In image processing, successive layers capture features at increasing levels of
-						<strong>abstraction</strong>.
-					</li>
-					<li>Often (parts of) networks are <em>shared</em>, to better capture structure and meaning. For
-						example,
-						AlphaGo Zero learnt better in part by having a single neural network for policy and value.</li>
-					<li>In <em>zero-shot translation</em>, a network translated between new pairs of languages;
-						apparently based on an internal language.</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave">
-				<h4>Capabilities of Artificial Intelligence</h4>
-				<ul>
-					<li class="frag-ment">Make moves that we can appreciate.</li>
-					<li class="frag-ment">Judge value based on future rewards.</li>
-					<li class="frag-ment"> Show originality.</li>
-					<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
-					<li class="frag-ment"> Work with limited and/or unstructured data, by
-						<strong>self-play</strong>,
-						using <strong>synthetic tasks</strong> and by <strong>self-supervised learning</strong>.
-					</li>
-					<li class="frag-ment"> Organize objects naturally and efficiently, capturing
-						<strong>composition</strong>, <strong>abstraction</strong> etc.
-					</li>
-					<li>Discover <em>concepts</em> by solving problems?</li>
-				</ul>
-
-
-			</section>
-
-			<section data-transition="zoom" data-background="code.png">
-				<h1>Artificial Intelligence</h1>
-				<h3>for</h3>
-				<h1> Mathematical Proofs?</h1>
-			</section>
-
 			<section data-transition="convex" data-background-color="teal">
+				<h3>SAT Problems</h3>
 				<ul>
-					<li>
-						We can iteratively do and improve at doing:
-						<ul>
-							<li>accumulate knowledge.</li>
-							<li>digest the knowledge.</li>
-							<li>solve (& pose) problems, prove theorems:
-								<ul>
-									<li>whose answer we want,</li>
-									<li>to accumulate knowledge,</li>
-									<li>as exercises to digest knowledge.</li>
-								</ul>
-							</li>
-							<li>develop judgements: truth, importance, difficulty.</li>
-						</ul>
+					<li>We are given finitely many <em>boolean</em> variables $P$, $Q$, ... and finitely many
+						<em>constraints</em> on them.
 					</li>
-					<li>Results may stagnate or be confined to some types and/or some areas.</li>
+					<li>
+						Constraints are logical statements built from the variables using logical operators such as
+						$\neg$ (<em>not</em>), $\vee$(<em>or</em>), $\wedge$(<em>and</em>),
+						$\Rightarrow$(<em>implies</em>) and $\Leftrightarrow$ (<em>equivalent</em>).
+					</li>
+					<li>
+						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can assign
+						truth values to these (i.e., declare each of $P$, $Q$ , ... to be `true` or `false`) so that all
+						the constraints are satisfied.
+					</li>
 				</ul>
 			</section>
 			<section data-transition="convex" data-background-color="teal">
+				<h3>SAT and $P\overset{?}=NP$</h3>
 				<ul>
-					<li>We need good constructions and choices for:
-						<ul>
-							<li>outcomes,</li>
-							<li>composite moves, hence parameters for policy,</li>
-							<li>integration with experimentation,</li>
-							<li>integration with domain specific solvers and other software,</li>
-							<li>integration with (human) mathematics,</li>
-							<li>strategies: e.g., how long to keep trying.</li>
-						</ul>
+					<li>
+						Given a solution to a SAT problem, it is easy to see that it satisfies all the constraints.
 					</li>
+					<li>
+						However, <em>finding</em> a solution may be hard.
+					</li>
+					<li>
+						Algorithmic problems that can be <strong>solved</strong> in polynomial time form the class
+						<strong>$P$</strong> (polynomial).
+					</li>
+					<li>
+						Algorithmic problems whose solution, if it exists, can be <strong>checked</strong> in polynomial
+						time form the class <strong>$NP$</strong> (non-deterministic polynomial).
+					</li>
+					<li>A fundamental question is whether $P = NP$.</li>
 				</ul>
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
+				<h3>Cook-Levine theorem</h3>
 				<ul>
-					<li>Machine learning is being used in Automated and Interactive theorem proving for <strong>premise
-							selection</strong> as well as choosing tactics and parameters.</li>
-					<li>I have been working on a system which I call <a
-							href="https://github.com/siddhartha-gadgil/ProvingGround">ProvingGround</a> along the lines
-						sketched here.</li>
-					<li>It is also valuable to be able to learn from existing mathematics, which could use
-						<em>formalized libraries</em> and <em>natural language processing</em>.
-					</li>
-					<li>However, for computer proofs to be useful, <strong>we</strong> would like to
-						<strong>learn</strong> from computer proofs.
+					<li>The <em>Cook-Levine theorem</em> from the early 1970s showed that if SAT can be solved in polynomial time 
+					then so can every problem in $NP$.</li>
+					<li>
+						There are a large class of problems that are known to be $NP$, making $P=NP$ a very important question.
+					</li>					
+					<li>
+						In practice, computer scientists have focussed efforts on making practically fast SAT solvers, which are
+						used to solve (components of) many different problems by mapping them to SAT.
 					</li>
 				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
-				<ul>
-					<li>
-						A question on a blog of Terence Tao, asked to him by Apoorva Khare, was answered in PolyMath 14.
-					</li>
-					<li class="frag-ment">
-						A crucial step in the discovery was a computer generated but human readable proof I posted.
-					</li>
-					<p></p>
-					<iframe src="kwk-gross-proof.html" frameborder="0" width="800px" height="400px"
-						class="frag-ment"></iframe>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
-
-				<ul>
-					<li>
-						The computer proof was studied by Pace Nielsen, who extracted the <em>internal repetition</em>
-						trick.
-					</li>
-					<li>
-						This was extended by Pace Nielsen and Tobias Fritz and abstracted by Terence Tao.
-					</li>
-					<li>
-						From this Fritz obtained a key lemma, which was used by Terrence Tao to answer the question in
-						the negative, and give a more general result.
-					</li>
-					<li>This was published as PolyMath 14 with 6 authors (including Lior Silberman).</li>
-					<li>A natural question is the <strong>replicability</strong> of the computer proof, which was
-						originally produced in an interactive session.</li>
-				</ul>
-			</section>
-			<section>
-
-				<p>Indeed, a <a href="http://math.iisc.ac.in/~gadgil/PolyProof.html" target="_blank">script</a> gives a
-					similar proof.</p>
-
-				<iframe width="853" height="505" src="https://www.youtube.com/embed/u-BLziR9FRk" frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen></iframe>
 			</section>
 	</div>
 	</div>
