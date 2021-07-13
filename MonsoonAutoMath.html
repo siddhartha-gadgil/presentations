@@ -190,12 +190,15 @@
 			<section data-transition="concave" data-background-color="#002b36">
 				<ul>
 					<li>The <strong>Feit-Thompson</strong> theorem has been formalized in the system
-						<strong>Coq</strong> by Georges Gonthier and others.
+						<strong>Coq</strong> by Georges Gonthier et al.
 					</li>
 					<li>The <strong>lean mathematical library</strong> has formalizations of a lot of undergraduate
 						mathematics and many advanced results.</li>
 					<li>These not only show that formalization is feasible, but can form data for both <strong>machine
 							learning</strong> and advanced <strong>semantic searches</strong> and other tooling.</li>
+					<li>A dramatic development, named the <em>liquid tensor experiment</em>, involved formalization in
+						lean of a foundational theorem of Peter Scholze.
+					</li>
 				</ul>
 			</section>
 
@@ -600,12 +603,87 @@
 			</section>
 			<section data-transition="convex" data-background-color="teal">
 				<h3>
-					The Davis-Putnam algorithmic.
+					The Davis-Putnam algorithm
 				</h3>
 				<ul>
-					
+					<li>
+						Pick a variable $P$ and assign to it, say, $true$.
+					</li>
+					<li>
+						We recursively seek such solutions.
+					</li>
+					<li>
+						In the sub-problem with $P$ assigned $true$,
+						<ol>
+							<li>
+								Any clause containing $P$ is true, so can be dropped.
+							</li>
+							<li>
+								Any clause of the form $\neg P\vee l_1\vee\dots\vee l_n$ (up to reordering) is true if
+								and only the clause $C =l_1\vee\dots\vee l_n$ is true.
+							</li>
+							<li>
+								Any clause containing neither $P$ nor $\neg P$ is unchanged.
+							</li>
+						</ol>
+					</li>
 				</ul>
 			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
+					<li>We recursively reduce to the case with no variables
+						<ul>
+							<li>the set of clauses is either empty or just the empty clause.</li>
+							<li>this gives a solution or a contradiction.</li>
+						</ul>
+					</li>
+					<li>Suppose we recursively have a solution with $P$ being $true$ we get a solution.</li>
+					<li>Otherwise we consider the sub-problem with $P$ false.</li>
+					<li>If the second sub-problem has a positive solution, we get a solution, otherwise a contradiction.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>The DPLL algorithm</h3>
+				<ul>
+					<li>This improves on the DP algorithm by often considering only one branch.</li>
+					<li>If some clause is a <em>unit</em>, i.e., either $P$ or $\neg P$ for a variable $P$, we assign
+						the appropriate value to $P$.</li>
+					<li>This can lead to a cascade.</li>
+					<li>If a variable $P$ is <em>pure</em>, i.e., only one of $P$ and $\neg P$ appears in all clauses,
+						we can assign $P$ the value that
+						appears.
+					</li>
+					<li>In both algorithms, if there is a contradiction, we can construct a <em>resolution</em> proof.
+					</li>
+				</ul>
+			</section>
+			<section data-background-iframe="Q8.html" data-background-color="teal"></section>
+			<section data-background-iframe="Q3.html" data-background-color="white"></section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>SAT Solver-Prover in Lean 4</h3>
+				<ul>
+					<li>
+						A dependently typed language like <em>Lean 4</em> or <em>Idris</em>
+						makes possible,
+						as I implemented with <strong>SATurn</strong>, a program that outputs one of
+						<ul>
+							<li>
+								a solution together with a proof that this is a solution, or
+							</li>
+							<li>
+								a proof that there is no solution.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Furthermore, the compiler verifies that the program terminates for any valid input, and has
+						correct output of one of the above two forms.
+					</li>
+					<li>This was the first time in my experience that such a complex program ran correctly straight away. </li>
+				</ul>
+			</section>
+			<section data-background="lean4-saturn.png" data-background-color="white"></section>
 	</div>
 	</div>
 
