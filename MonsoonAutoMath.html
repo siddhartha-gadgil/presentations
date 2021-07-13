@@ -406,6 +406,19 @@
 				</ul>
 			</section>
 
+			<section data-transition="zoom">
+				<h3>Nature and kinds of software</h3>
+				<ul>
+					<li>Numerical</li>
+					<li>Algorithms: conditions, loops, recursion</li>
+					<li>Symbolic computation and Data structures</li>
+					<li>Composition and Modularity</li>
+					<li>Expert systems: encapsulate human knowledge: this was the first phase of Artificial Intelligence
+					</li>
+					<li>Machine learning: experience and experiments to learn (tacit) knowledge.</li>
+				</ul>
+			</section>
+
 			<section data-transition="zoom" data-background="code.png">
 				<h1>SAT Solvers</h1>
 			</section>
@@ -486,15 +499,111 @@
 			<section data-transition="convex" data-background-color="teal">
 				<h3>Cook-Levine theorem</h3>
 				<ul>
-					<li>The <em>Cook-Levine theorem</em> from the early 1970s showed that if SAT can be solved in polynomial time 
-					then so can every problem in $NP$.</li>
+					<li>The <em>Cook-Levine theorem</em> from the early 1970s showed that if SAT can be solved in
+						polynomial time
+						then so can every problem in $NP$.</li>
 					<li>
-						There are a large class of problems that are known to be $NP$, making $P=NP$ a very important question.
-					</li>					
+						There are a large class of problems that are known to be $NP$, making $P=NP$ a very important
+						question.
+					</li>
 					<li>
-						In practice, computer scientists have focussed efforts on making practically fast SAT solvers, which are
+						In practice, computer scientists have focussed efforts on making practically fast SAT solvers,
+						which are
 						used to solve (components of) many different problems by mapping them to SAT.
 					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>CNF</h3>
+				<ul>
+					<li>
+						A valuation is an assignment of truth values to the variables of a problem.
+					</li>
+					<li>If $P$ is a (boolean) variable, the formulas $P$ and $\neg P$ are called <em>literals</em>.
+					</li>
+					<li>
+						A <em>clause</em> is a disjunction $l_1\vee l_2\vee\dots\vee l_k$ of literals.
+					</li>
+					<li>
+						A clause is <em>satisfied</em> by a valuation if and only if it contains a literal that is
+						<strong>true</strong>.
+					</li>
+					<li>
+						A <em>CNF</em> is a conjunction of clauses, i.e., a set of clauses which must all be true.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Rewriting as CNF</h3>
+				<ul>
+					<li>Any formula can be rewritten as a CNF formula to which it is equivalent.</li>
+					<li>
+						We first rewrite $A\Rightarrow B$ as $\neg B\vee A$ and
+						$A\Leftrightarrow B$ as $(\neg A\wedge \neg B)\vee (A\wedge B)$ to eliminate operators other
+						than $\vee$, $\wedge$ and $\neg$.
+					</li>
+					<li>
+						Next we use $\neg(A \vee B) = \neg A \wedge \neg B$ and $\neg(A \wedge B) = \neg A \vee \neg
+						B$ recursively to get a combination of literals using $\vee$ and $\wedge$
+						only.
+					</li>
+					<li>
+						Finally, using the distributivity property $A \vee (B\wedge C)= (A\vee B)\wedge (A \vee C)$
+						recursively we get a formula in CNF.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Tautologies and Contradictions.</h3>
+				<ul>
+					<li>
+						Since $l\vee l = l$, we can assume that no literal appears more than once in a clause.
+					</li>
+					<li>
+						If a clause contains both $P$ and $\neg P$ for some variable $P$, then this
+						clause is always true, i.e., is a <em>tautology</em>.
+					</li>
+					<li>
+						We assume that there are no tautologies or repeated literals.
+					</li>
+					<li>
+						An empty clause is a contradiction, i.e., it is always false.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Resolution</h3>
+				<ul>
+					<li>
+						Given clauses of the form $C = P\vee l_1\vee l_2\vee \dots\vee l_n$ and $C' =
+						\neg P\vee l'_1\vee l'_2\vee \dots\vee l'_{n'}$ we
+						deduce $l_1\vee l_2\vee \dots\vee l_n\vee l'_1\vee l'_2\vee \dots\vee l'_{n'}$;
+						<ul>
+							<li>If $P$ is false, $C \implies l_1\vee l_2\vee \dots\vee l_n$
+							</li>
+							<li>
+								If $P$ is true, as $C'\implies l'_1\vee l'_2\vee \dots\vee l'_{n'}$
+							</li>
+							<li>
+								In both cases, we have $l_1\vee l_2\vee \dots\vee l_n\vee l'_1\vee l'_2\vee \dots\vee
+								l'_{n'}$.
+							</li>
+						</ul>
+					</li>
+					<li>
+						This deduction is called <em>Resolution</em>.
+					</li>
+					<li>Resolution is <em>refutation complete</em> (for predicate calculus)
+						by a theorem of Davis-Putnam.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>
+					The Davis-Putnam algorithmic.
+				</h3>
+				<ul>
+					
 				</ul>
 			</section>
 	</div>
