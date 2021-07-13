@@ -74,6 +74,10 @@ em, strong {
     color: lightgoldenrodyellow;
 }
 
+.copilot {
+    color: cyan;
+}
+
 .reveal pre code {
     display: block;
     padding: 5px;
