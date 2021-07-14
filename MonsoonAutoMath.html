@@ -196,7 +196,7 @@
 						mathematics and many advanced results.</li>
 					<li>These not only show that formalization is feasible, but can form data for both <strong>machine
 							learning</strong> and advanced <strong>semantic searches</strong> and other tooling.</li>
-					<li>A dramatic development, named the <em>liquid tensor experiment</em>, involved formalization in
+					<li>A dramatic development, named the <strong>liquid tensor experiment</strong>, involved formalization in
 						lean of a foundational theorem of Peter Scholze.
 					</li>
 				</ul>
@@ -412,13 +412,13 @@
 			<section data-transition="zoom">
 				<h3>Nature and kinds of software</h3>
 				<ul>
-					<li>Numerical</li>
+					<li>Numerical computations</li>
 					<li>Algorithms: conditions, loops, recursion</li>
 					<li>Symbolic computation and Data structures</li>
 					<li>Composition and Modularity</li>
-					<li>Expert systems: encapsulate human knowledge: this was the first phase of Artificial Intelligence
+					<li><em>Expert systems:</em> encapsulate human knowledge: this was the first phase of Artificial Intelligence
 					</li>
-					<li>Machine learning: experience and experiments to learn (tacit) knowledge.</li>
+					<li><em>Machine learning:</em> experience and experiments to learn (tacit) knowledge.</li>
 				</ul>
 			</section>
 
@@ -430,7 +430,7 @@
 				<h3>The $N-$Queens problem</h3>
 				<ul>
 					<li>
-						The $N-$queens puzzle is the problem of placing eight chess queens on an $N\times N$ chessboard
+						The $N-$queens puzzle is the problem of placing $N$ chess queens on an $N\times N$ chessboard
 						so that no two queens threaten each other.
 					</li>
 					<li>
@@ -446,10 +446,10 @@
 			<section data-transition="convex" data-background-color="teal">
 				<h3>$N$-Queens as SAT</h3>
 				<ul>
-					<li>We associate to each square a <em>boolean</em> variable $Q_{i,j}$ which is <em>true</em> if the
-						square is occupied and <em>false</em> otherwise.</li>
+					<li>We associate to each square a <em>boolean</em> variable $Q_{i,j}$ which is <em>true</em> iff the
+						square is occupied.</li>
 					<li>We construct logical formulas for the constraints of the $N-$queens puzzle from the
-						$Q_{i,j}$'s using $\neg$ (<em>not</em>), $\vee$(<em>or</em>) and $\wedge$(<em>and</em>).</li>
+						$Q_{i,j}$'s using operators $\neg$ (<em>not</em>), $\vee$(<em>or</em>) and $\wedge$(<em>and</em>).</li>
 					<li>For example, the $i$th row has a queen is the formula $Q_{i,1}\vee Q_{i,2}\vee\dots\vee Q_{i,n}$
 					</li>
 					<li>Similarly, pairs of queens not threatening each other gives formulas such as $\neg Q_{1, 1}\vee
@@ -473,7 +473,7 @@
 					</li>
 					<li>
 						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can assign
-						truth values to these (i.e., declare each of $P$, $Q$ , ... to be `true` or `false`) so that all
+						truth values to these (i.e., declare each of $P$, $Q$ , ... to be $true$ or $false$) so that all
 						the constraints are satisfied.
 					</li>
 				</ul>
@@ -520,7 +520,7 @@
 				<h3>CNF</h3>
 				<ul>
 					<li>
-						A valuation is <span class="copilot">an assignment of truth values to the variables of a problem</span>.
+						A <em>valuation</em> is <span class="copilot">an assignment of truth values to the variables of a problem</span>.
 					</li>
 					<li>If $P$ is a (boolean) variable, the formulas $P$ and $\neg P$ are called <em>literals</em>.
 					</li>
@@ -610,10 +610,7 @@
 						Pick a variable $P$ and assign to it, say, $true$.
 					</li>
 					<li>
-						We recursively seek such solutions.
-					</li>
-					<li>
-						In the sub-problem with $P$ assigned $true$,
+						We recursively seek solutions with $P$ true, by considering a problem with fewer variables.
 						<ol>
 							<li>
 								Any clause containing $P$ is true, so can be dropped.
@@ -631,15 +628,15 @@
 			</section>
 			<section data-transition="convex" data-background-color="teal">
 				<ul>
-					<li>We recursively reduce to the case with no variables
+					<li>The base case for the recursion is where we have no variables.
 						<ul>
 							<li>the set of clauses is either empty or just the empty clause.</li>
 							<li>this gives a solution or a contradiction.</li>
 						</ul>
 					</li>
-					<li>Suppose we recursively have a solution with $P$ being $true$ we get a solution.</li>
-					<li>Otherwise we consider the sub-problem with $P$ false.</li>
-					<li>If the second sub-problem has a positive solution, we get a solution, otherwise a contradiction.
+					<li>Suppose we (recursively) have a solution with $P$ being $true$ we get a solution.</li>
+					<li>Otherwise we consider the associated problem with $P$ false.</li>
+					<li>If the second associated problem has a solution, we get a solution, otherwise a contradiction.
 					</li>
 				</ul>
 			</section>
@@ -654,7 +651,7 @@
 						we can assign $P$ the value that
 						appears.
 					</li>
-					<li>In both algorithms, if there is a contradiction, we can construct a <em>resolution</em> proof.
+					<li>In both algorithms, if there is no solution, we can deduce the empty clause by <em>resolution</em>.
 					</li>
 				</ul>
 			</section>
