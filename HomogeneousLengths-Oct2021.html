@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Homomogeneous length functions on Groups</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/hl.css">
+
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="icon" href="IIScLogo.jpg">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+
+	<h3> Homomogeneous length functions on Groups </h3>
+	<h3> A PolyMath adventure</h3>
+	 <h5>Siddhartha Gadgil</h5>
+	 <p>Indian Institute of Science</p>
+	 <h5> joint with </h5>
+	 <p class="fraggment highlight-blue">the rest of (spontaneous) polymath 14</p>
+
+</section>
+<section>
+		<h3>The PolyMath 14 participants</h3>
+		<ul>
+			<li>Tobias Fritz, MPI MIS</li>
+			<li> Siddhartha Gadgil, IISc, Bangalore </li>
+			<li> Apoorva Khare, IISc, Bangalore</li>
+			<li>	Pace Nielsen, BYU </li>
+			<li> Lior Silberman, UBC </li>
+			<li> Terence Tao, UCLA </li>
+		</ul>
+
+
+</section>
+
+<section data-transition="zoom-in convex-out" data-background-image="hills.png">
+	<h1>&nbsp;</h1>
+	<h2>The PolyMath Adventure</h2>
+	<p>&nbsp;</p>
+</section>
+
+
+<section  data-transition="convex" data-background-color="teal">
+    <ul>
+      <li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare had asked him.</li>
+				<blockquote class="fraggment">
+					Is there a homogeneous, (conjugacy invariant) length function on the free group on two generators?
+				</blockquote>
+			<li class="fraggment">Six days later, this was answered in a collaboration involving several mathematicians (and a computer).</li>
+			<li class="fraggment">This the story of the answer and its discovery.</li>
+    </ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h3>Length functions</h3>
+	<ul>
+	  <li class="fraggment">Fix a group $G$, i.e. a set with an associative product with inverses.</li>
+		<li class="fraggment">A <em>pseudo-length function</em> $l: G \to [0, \infty)$ is a function  such that:
+			<ul>
+				<li>$l(e) = 0$.</li>
+				<li>$l(g^{-1}) = l(g)$ , for all $g \in G$.</li>
+				<li> (Triangle inequality) $l(gh) \leq l(g) + l(h)$, for all $g,h\in G$.</li>
+			</ul>
+		</li>
+		<li class="fraggment">A <em>length function</em> is a pseudo-length function such that $l(g) > 0$ whenever $g\neq e$ (positivity condition).
+	</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+		<ul>
+		  <li>A pseudo-length function $l$ is said to be conjugacy invariant if $l(ghg^{-1})=l(h)$ for all $g, h \in G$.</li>
+			<li class="fraggment">$l$ is  said to be <em>homogeneous</em> if $l(g^n) = nl(g)$ for all $g \in G$. </li>
+			<li class="fraggment">On the group $\mathbb{Z}^2$ of pairs of integers, a (conjugacy invariant) homogeneous length function is given by $l_{\mathbb{Z}^2}((a,b)) = |a| + |b|$.</li>
+			<li class="fraggment">On the other hand, if $l$ is homogeneous and $g^n=e$ then $l(g)=0$ as $nl(g) = l(g^n) = 0$.</li>
+			<li class="fraggment">Thus, if $G$ has <em>torsion</em>, i.e., $\exists g\neq e\in G$, such that $g^n =0$ for some $n > 0$, then there is no homogeneous length function on $G$. </li>
+		</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h3>Free group $\mathbb{F}_2$ on $\alpha$, $\beta$</h3>
+	<ul>
+	  <li class="fraggment">Consider words in four letters $\alpha$, $\beta$, $\bar{\alpha}$ and $\bar{\beta}$.</li>
+		<li class="fraggment">We multiply words by concatenation, e.g. $\alpha\beta\cdot\bar{\alpha}\beta = \alpha\beta\bar{\alpha}\beta$.</li>
+		<li class="fraggment">Two words are regarded as equal if they can be related by cancelling adjacent letters that are inverses, e.g. $\alpha\beta\bar{\beta}\alpha\beta = \alpha\alpha\beta$.</li>
+		<li class="fraggment">This gives a group; <span class="fraggment"> e.g.
+			$(\alpha\bar{\beta}\alpha\beta\beta)^{-1} = \bar{\beta}\bar{\beta}\bar{\alpha}\beta\bar{\alpha}$. </span></li>
+		<li class="fraggment">The <em>word length</em> on $\mathbb{F_2}$ is the length of the shortest word representing an element.</li>
+	</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h3>Pullback pseudo-lengths</h3>
+	<ul>
+	  <li class="fraggment">We define $ab: \mathbb{F}_2 \to \mathbb{Z}^2$ by total exponents (ignoring order), e.g. $ab(\alpha\alpha\beta\bar{\alpha}\bar{\beta}\alpha\bar{\beta}) = (2, -1)$.
+		</li>
+		<li class="fraggment">We get a pullback pseudo-length $l$ on $\mathbb{F}_2$ by $l_{ab}(g) = l_{\mathbb{Z}^2}(ab(g))$.</li>
+		<li class="fraggment">As $l_{\mathbb{Z}^2}$ is homogeneous, so is $l_{ab}$.</li>
+		<li class="fraggment"> However, this is <em>not</em> a length function as $l_{ab}([\alpha, \beta])=0$, where $[g, h] = ghg^{-1}h^{-1}$ (violating positivity). </li>
+		<li class="fraggment">More generally, every group $G$ has an Abelianization $ab: G \to G/[G, G]$. </li>
+	</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h3>The Main results</h3>
+	<ul>
+		<li class="fraggment"> <strong>Question:</strong> Is there a homogeneous length function on the free group on two generators? </li>
+		<li class="fraggment"> <strong>Answer:</strong> No; <span class="fraggment">we in fact describe all homogeneous pseudo-lengths.</span> </li>
+		<li class="fraggment">
+			<strong>Theorem:</strong> Any homogeneous pseudo-length function on a group $G$ is the pullback of a pseudo-length on its Abelianization $G / [G, G]$.</h4>
+		</li>
+		<li class="fraggment"><strong>Corollary:</strong>  If $G$ is not abelian (e.g. $G = \mathbb{F}_2$) there is no homogeneous length function on $G$.</li>
+		<li class="fraggment">In fact, every homogeneous pseudo-length is the pullback of a <em>norm</em> on a vector space.</li>
+	</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h3>First reductions</h3>
+	<ul>
+	  <li class="fraggment">(Fritz): Homomogeneous implies Conjugacy invariant.</li>
+		<li class="fraggment">(Tao, Khare): $l(g^2) = 2l(g) \forall g\in G$ implies Homogeneity.</li>
+	</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h4>Finding bounds: contradict positivity?</h4>
+	<ul>
+	  <li class="fraggment">Fix $l$ homomogeneous pseudo-length function.
+			<li class="fraggment">The triangle inequality gives bounds on $l(gh)$ in terms of $l(g)$ and $l(h)$.</li>
+			<li class="fraggment">Homogeneity gives a bound on $l(g)$ in terms of a bound on $l(g^n)$; also use conjugacy invariance.</li>
+			<li class="fraggment">Deducing bounds from others, especially
+				<ul>
+				<li class="fraggment highlight-current-blue">$l([x, y])$ in terms of $l(x)$ and $l(y)$</li>
+				<li class="fraggment highlight-current-blue">$l(g)$ for fixed $g$ in terms of bounds on generators.</li>
+			</ul>
+			</li>
+			<li class="fraggment">Combine bounds, including by interpreting in terms of convexity.</li>
+		</li>
+
+	</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h4>Seeking a homogeneous length function</h4>
+	<ul>
+		<li class="fraggment">We can attempt to construct pseudo-lengths that are positive, or at least such that $l([\alpha, \beta])> 0$.</li>
+	  <li class="fraggment">Can consider quotients larger than $\mathbb{Z}^2$: negative results by Sawin, Silberman, Tao. </li>
+		<li class="fraggment">Given a candidate $l: G \to [0, \infty)$, try to fix this to ensure homogeneity and the triangle inequality.
+		</li>
+		<li class="fraggment">There were also attempted constructions based on functional analysis.</li>
+	</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h3>Repairing lengths</h3>
+	<ul>
+		<li class="fraggment">We start with a candidate function $l: G \to \mathbb{R}$, say the word length.</li>
+		<li class="fraggment">
+			<strong>Homogenize:</strong> $\bar{l}(g) = lim_{n\to \infty} \frac{l(g^n)}{n}$.</li>
+		<li class="fraggment"> The limit exists by <em>sub-addivity</em> of $l(g^n)$ (for fixed $g$) by Fekete's lemma.</li>
+		<li class="fraggment"><strong>Kobayashi construction:</strong> Fix triangle inequality by
+			 $\bar{l}(g) = \inf\{\sum_{i=1}^nl(g_i) : g=\prod_{i=1}^n g_i \}$. </li>
+		<li class="fraggment">I hoped to combine these with an approach based on <em>non-crossing matchings</em>.</li>
+	</ul>
+</section>
+
+<section id="non-cross"  data-transition="convex" data-background-color="teal">
+	<h3>Non-crossing matchings</h3>
+
+	 <img src="aabab.png" scale="20%" style="border:none; background-color: white;">
+	 <ul>
+		 <li class="fraggment">Given a word in $\mathbb{F}_2$, we consider <em>matchings</em> such that
+		 <ul>
+		 	<li class="fraggment highlight-current-blue">letters are paired with their inverses,</li>
+			<li class="fraggment highlight-current-blue">there are no <em>crossings</em></li>
+		 </ul>
+	 	</li>
+		<li class="fraggment"> The norm is the number of unmatched letters.</li>
+	</ul>
+</section>
+<section  data-transition="convex" data-background-color="teal">
+	<ul>
+		<li>For $g\in \mathbb{F}_2$, define the <span class="fraggment highlight-current-blue">Watson-Crick length</span> $l^{}_{WC}(g)$
+			 to be the minimum number of unmatched letters over all non-crossing matchings.</li>
+		<li class="fraggment">$l^{}_{WC}$ is
+			<span class="fraggment highlight-current-blue"> unchanged under cancellation (hence well-defined on $\mathbb{F}_2$)</span> and
+			<span class="fraggment highlight-current-blue">conjugacy invariant.</span></li>
+		<li class="fraggment">However, if $g=\alpha[\alpha, \beta]$, then
+			<span class="fraggment highlight-current-blue">$l^{}_{WC}(g^2)= 4$, but</span>
+			<span class="fraggment highlight-current-blue">$l^{}_{WC}(g) = 3$,</span> violating homogeneity.
+		 </li>
+		 <li class="fraggment"  id ="conj">One can show that the length $l_{WC}$ is maximal among normalized conjugacy-invariant
+			 length functions.
+		 </li>
+	</ul>
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<h3>The great bound chase</h3>
+	<ul>
+	  <li class="fraggment">By Tuesday morning, most people were convinced that there are no homogeneous length functions on the free group.</li>
+		<li class="fraggment">There was a steady improvements in the combinatorial/analytic bounds on $l([\alpha, \beta])$.</li>
+		<li class="fraggment">These seemed to be stuck above 1 (as observed by Khare) - but eventually broke this barrier (work of Fritz, Khare, Nielsen, Silberman, Tao).</li>
+		<li class="fraggment">At this stage, my approach diverged.</li>
+	</ul>
+</section>
+
+
+<section  data-transition="convex" data-background-color="teal">
+	<ul>
+		<h4>Computer Assisted proofs</h4>
+		<li class="fraggment"> We can recursively compute the matching length $l^{}_{WC}(g)$ for a word $g$.</li>
+		<li class="fraggment"> This gives an upper bound on all conjugacy-invariant normalized lengths.</li>
+		<li class="fraggment"> This can be combined with using homogenity.</li>
+		<li class="fraggment"> Using this, I obtained an upper bound of about $0.85$ on $l(\alpha, \beta)$.</li>
+		<li class="fraggment"> This was upgraded to a (computer) checkable proof.</li>
+		<li class="fraggment"> On Thursday morning, I <a href="gross-proof.html">posted</a> an in principle human readable proof of a bound. </li>
+	</ul>
+</section>
+<section id="gross"  data-transition="convex" data-background-color="teal">
+	<embed src="gross-proof.html" width="1000" height="600">
+</section>
+
+<section  data-transition="convex" data-background-color="teal">
+	<ul>
+		<li>The computer-generated proof was studied by Pace Nielsen, who extracted the <em>internal repetition</em> trick. </li>
+		<li class="fraggment">This was extended by Nielsen and Fritz and generalized by Tao; from this Fritz obtained the key lemma:
+		</li>
+		<li class="fraggment">Let $f(m, k) = l(x^m[x, y]^k)$. Then $f(m, k) \leq\frac{f(m-1, k) + f(m+1, k-1)}{2}$.</li>
+		<li class="fraggment">A probabilistic argument of Tao finished the proof.</li>
+	</ul>
+</section>
+
+<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
+	<p><strong class="larger">Algorithmic bounds for</strong></p>
+	<p><strong class="larger">Length functions</strong></p>
+</section>
+
+<section data-background="#b5533c">
+	
+	<ul>
+		<li>Let $l$ be a normalized, conjugacy-invariant length function.</li>
+		<li><strong>Lemma 1:</strong> $l(xg) \leq l(g) + 1$ for $x \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, $g \in \mathbb{F}$. </li>
+		<li><strong>Lemma 2:</strong> $l(xh_1x^{-1}h_2) \leq l(h_1) + l(h_2)$ for $x \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, $h_1, h_2 \in \mathbb{F}$. 
+			<ul>
+				<li>$l(xh_1x^{-1}h_2) \leq l(xh_1x^{-1}) + l(h_2)$ by the triangle inequality.</li>
+				<li>$l(xh_1x^{-1}) = l(x)$ by conjugacy invariance.</li>
+			</ul>
+		</li>
+		<li>Based on these we define a function $L$ on finite words in $\{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$ giving an upper bound on $l$.</li>
+	</ul>
+</section>
+
+<section data-background="#b5533c">
+	<ul>
+		<li>We define a function $L$ on finite words in $\{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$ recursively as follows.</li>
+		<li>We define $L(e) = 0$ for the empty word $e$.</li>
+		<li>For a word $g = xh$, $x \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, recursively: 
+			<ul>
+				<li>let $L_0 = L(h) + 1$;</li>
+				<li>let $\mathcal{L} = \{l(h_1) + l(h_2) : h = h_1x^{-1}h_2\}$;</li>
+			</ul>
+			and define $L(g) = \min(\{L_0\}\cup \mathcal{L}) $.
+		</li>
+		<li> <strong>Theorem:</strong> If $l$ is a normalized, conjugacy-invariant length function, then $l(g)\leq L(g)$ for all $g$.</li>
+		<li>In practice, we must <em>memoize/cache</em>.</li>
+	</ul>
+</section>
+
+<section data-background="#b5533c">
+	<ul>
+		<li>
+			The function $L$ is fully algorithmic, and is a sharp upper bound on normalized, conjugacy-invariant length functions.
+		</li>
+		<li>
+			However, for obtaining bounds also using homogeneity, we make auxiliary choices and define algorithms based on these.
+		</li>
+		<li>
+			To formulate these it is convenient to observe that, by general consideration, there is a <em>maximal</em> normalized, 
+			conjugacy-invariant, homogeneous pseudo-length function which we call $l_{max}$.
+		</li>
+		<li>We seek bounds on $l_{max}$.</li>
+	</ul>
+</section>
+
+<section data-background="#b5533c">
+	<ul>
+		<li>Suppose we are given a finite sequence of pairs $\{(g_i, \lambda_i)\}_{1\leq i\leq n}$ so that $l_{max}(g_i)\leq \lambda_i$.</li>
+		<li>We define a function $\widehat L_{\{(g_i, \lambda_i)\}}$ on finite words in $\{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$ recursively as follows.</li>
+		<li>If $g= g_i$ for some $i$, define $\widehat L_{\{(g_i, \lambda_i)\}} = \lambda_i$.</li>
+		<li>We define $\widehat L(e) = 0$ for the empty word $e$.</li>
+		<li>For a word $g = xh$, $x \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, recursively: 
+			<ul>
+				<li>let $L_0 = \widehat L_{\{(g_i, \lambda_i)\}}(h) + 1$;</li>
+				<li>$\mathcal{L} = \{\widehat L_{\{(g_i, \lambda_i)\}}(h_1) + \widehat L_{\{(g_i, \lambda_i)\}}(h_2) : h = h_1x^{-1}h_2\}$;</li>
+			</ul>
+			and define $\widehat L_{\{(g_i, \lambda_i)\}}(g) = \min(\{L_0\}\cup \mathcal{L}) $.
+		</li>
+		<li>By induction, $l_{max}(g)\leq \widehat L_{\{(g_i, \lambda_i)\}}(g)$ for all $g$.</li>
+	</ul>
+</section>
+
+<section data-background="#b5533c">
+	<ul>
+		<li>Next suppose we are given a finite auxiliary sequence $\{(g_i, n_i)\}_{i=1}^k$ with $g_i$ words and $n_i\in \mathbb{N}$.</li>
+		<li>Let $\lambda_1 = \frac{L(g_1)^ {n_1}}{n_1}$. By homogeneity $l_{max}(g_1)\leq\lambda_1$.</li>
+		<li>Define $L_{(x_1, n_1)} = \widehat L_{\{(x_1, \lambda_1)\}}$; $\lambda_2 = \frac{L_{\{(x_1, \lambda_1)\}}(g_1)^ {n_1}}{n_1}$.</li>
+		<li>Observe $l_{max}(g_2)\leq\lambda_2$<\li>
+		<li>Define $L_{(x_1, n_1), (x_2, n_2)} = \widehat L_{\{(x_1, \lambda_1), (x_2, \lambda_2)\}}$.</li>
+		<li>Inductively, define $\lambda_i$ and $L_{(x_1, n_1), \cdots, (x_i, n_i)}$.</li>
+		<li>An upper bound for $l_{max}(g)$ is then given by $l_{max}(g) \leq L_{(x_1, n_1), \cdots, (x_k, n_k)}.$</li>
+		<li>In practice, we used words of the form $\alpha(\alpha\beta\bar\alpha\bar\beta)^k$ with $k=1, 2, 6$ and $n_i$'s from $1$ to $20$.</li>
+	</ul>
+</section>
+
+<section data-transition="zoom-in slide-out" data-background-image="code.png">
+	<h1>Computer generated proofs</h1>
+</section>
+
+<section data-transition="concave" data-background-color="#002b36">
+	<ul>
+		<li>In foundations of mathematics based on <strong>Dependent Type Theory</strong>, theorems, proofs, algorithms are all (first-class) mathematical objects;
+		they can be arguments and results of functions and elements of collections.</li>
+		<li>
+			I upgraded the algorithms to 
+			return <em>bounds with proofs</em> in <em>domain-specific foundations</em>. 
+		</li>
+		<li>
+			Here we will illustrate using <em>Lean 4</em>.
+		</li>
+		<li>
+			First we address two issues: was the finding of the proof a fluke; rounding-off errors. 			 
+		</li>
+		<li>
+			We do so by replicating the search in a script.
+		</li>
+	</ul>
+</section>
+		
+<section data-transition="zoom" data-background="sea.jpg">
+	<h1>Demo time</h1>
+</section>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+
+				math: {
+					mathjax: '../MathJax/MathJax.js',
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true}
+				]
+			});
+
+//			Reveal.addEventListener( 'slidechanged', function( event ) {
+//				MathJax.Hub.Rerender();
+//			} );
+
+		</script>
+
+	</body>
+</html>
