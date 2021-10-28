@@ -181,7 +181,7 @@
 						</ul>
 					</li>
 					<li>
-						Increasingly sharp upper bounds were found
+						For attempting to contradicting positivity, increasingly sharp upper bounds were found
 						<ul>
 							<li>using conjugacy invariance and homogeneity,</li>
 							<li>e.g. for $l([x, y])$ in terms of $l(x)$ and $l(y)$.</li>
@@ -296,7 +296,7 @@
 						\bar{\alpha}, \bar{\beta}\}$, $h_1, h_2 \in \mathbb{F}$.
 						<ul>
 							<li>$l(xh_1x^{-1}h_2) \leq l(xh_1x^{-1}) + l(h_2)$ by the triangle inequality.</li>
-							<li>$l(xh_1x^{-1}) = l(x)$ by conjugacy invariance.</li>
+							<li>$l(xh_1x^{-1}) = l(h_1)$ by conjugacy invariance.</li>
 						</ul>
 					</li>
 					<li>Based on these we define a function $L$ on finite words in $\{\alpha, \beta, \bar{\alpha},
@@ -312,7 +312,7 @@
 					<li>For a word $g = xh$, $x \in \{\alpha, \beta, \bar{\alpha}, \bar{\beta}\}$, recursively:
 						<ul>
 							<li>let $L_0 = L(h) + 1$;</li>
-							<li>let $\mathcal{L} = \{l(h_1) + l(h_2) : h = h_1x^{-1}h_2\}$;</li>
+							<li>let $\mathcal{L} = \{L(h_1) + L(h_2) : h = h_1x^{-1}h_2\}$;</li>
 						</ul>
 						and define $L(g) = \min(\{L_0\}\cup \mathcal{L}) $.
 					</li>
@@ -330,7 +330,7 @@
 						$n_i$.
 					</li>
 					<li>
-						By homogeneity we get $l(g_1)\leq \frac{L(g_1^{n_1})}{n}$, which is often an improved bound over
+						By homogeneity we get $l(g_1)\leq \frac{L(g_1^{n_1})}{n_1}$, which is often an improved bound over
 						$L(g_1)$.
 					</li>
 					<li>
@@ -368,14 +368,14 @@
 				<ul>
 					<li>Next suppose we are given an auxiliary finite sequence $\{(g_i, n_i)\}, 1\leq i\leq k$, with $n_i\in
 						\mathbb{N}$.</li>
-					<li>Let $\lambda_1 = \frac{L(g_1)^ {n_1}}{n_1}$. By homogeneity $l_{max}(g_1)\leq\lambda_1$.</li>
-					<li>Define $L_{(x_1, n_1)} = \hat L_{\{(x_1, \lambda_1)\}}$; $\lambda_2 = \frac{L_{\{(x_1,
-						\lambda_1)\}}(g_2)^ {n_2}}{n_2}$.</li>
+					<li>Let $\lambda_1 = \frac{L(g_1^ {n_1})}{n_1}$. By homogeneity $l_{max}(g_1)\leq\lambda_1$.</li>
+					<li>Define $L_{(g_1, n_1)} = \hat L_{\{(g_1, \lambda_1)\}}$; $\lambda_2 = \frac{L_{(g_1,
+						n_1)}(g_2^ {n_2})}{n_2}$.</li>
 					<li>Observe $l_{max}(g_2)\leq\lambda_2$.</li>
-					<li>Define $L_{(x_1, n_1), (x_2, n_2)} = \hat L_{\{(x_1, \lambda_1), (x_2, \lambda_2)\}}$.</li>
-					<li>Inductively, define $\lambda_i$ and $L_{(x_1, n_1), \cdots, (x_i, n_i)}$.</li>
-					<li>An upper bound for $l_{max}(g)$ (given $n \geq 1$) is then given by $l_{max}(g) \leq L_{(x_1,
-						n_1), \cdots, (x_k, n_k)}(g^n)/n.$</li>
+					<li>Define $L_{(g_1, n_1), (g_2, n_2)} = \hat L_{\{(g_1, \lambda_1), (g_2, \lambda_2)\}}$.</li>
+					<li>Inductively, define $\lambda_i$ and $L_{(g_1, n_1), \cdots, (g_i, n_i)}$.</li>
+					<li>An upper bound for $l_{max}(g)$ (given $n \geq 1$) is then given by $l_{max}(g) \leq L_{(g_1,
+						n_1), \cdots, (g_k, n_k)}(g^n)/n.$</li>
 					<li>In practice, we used words of the form $\alpha(\alpha\beta\bar\alpha\bar\beta)^k$ with $k=1, 2,
 						6$ and $n_i$'s, $n$ from $1$ to $20$.</li>
 				</ul>
