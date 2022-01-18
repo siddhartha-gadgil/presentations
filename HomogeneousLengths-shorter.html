@@ -271,8 +271,11 @@
 			<section data-transition="convex" data-background-color="teal">
 				<ul>
 					<li>The computer-generated proof was studied by Pace Nielsen, who extracted the <em>internal
-							repetition</em> trick. </li>
-					<li class="fraggment">This was extended by Nielsen and Fritz and generalized by Tao; from this Fritz
+							repetition</em> trick.</li>
+					<li class="fraggment">This was extended by Nielsen and Fritz and abstracted by Tao to show:
+						if $x\sim wy\sim zw$ then $l(x)\leq \frac{l(y)+ l(z)}{2}.$
+					</li> 
+					<li>From this Fritz
 						obtained the key lemma:
 					</li>
 					<li class="fraggment">Let $f(m, k) = l(x^m[x, y]^k)$. Then $f(m, k) \leq\frac{f(m-1, k) + f(m+1,
@@ -325,9 +328,8 @@
 			<section data-background="#b5533c">
 				<ul>
 					<li>
-						For obtaining bounds also using homogeneity, we make auxiliary choices: we choose elements $g_i$
-						and associated powers
-						$n_i$.
+						For obtaining bounds also using homogeneity, we use <em>auxiliary</em> elements $g_i$
+						and powers $n_i$.
 					</li>
 					<li>
 						By homogeneity we get $l(g_1)\leq \frac{L(g_1^{n_1})}{n_1}$, which is often an improved bound over
@@ -339,6 +341,7 @@
 					</li>
 					<li>In practice, we used words of the form $\alpha(\alpha\beta\bar\alpha\bar\beta)^k$ with $k=1, 2,
 						6$ and $n_i$'s, $n$ from $1$ to $20$.</li>
+					<li>We bound $l([\alpha, \beta])$ by $\min_{1\leq n\leq 20} L([\alpha, \beta]^n)/n$.
 				</ul>
 			</section>
 
