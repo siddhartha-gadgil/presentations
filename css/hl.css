@@ -39,6 +39,10 @@ em, strong, blockquote {
     color: lightgoldenrodyellow;
 }
 
+.highlight {
+    color: lightgoldenrodyellow !important;
+}
+
 .larger {
     font-size: 60px;
 }
