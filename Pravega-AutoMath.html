@@ -431,6 +431,26 @@
 			</section>
 
 			<section data-transition="concave" data-background-color="#002b36">
+				<h4>Rigour and Proofs</h4>
+				<ul>
+					<li class="fragment">While in principle mathematical proofs are logical deductions, in practice they are semi-formal.</li>
+					<li class="fragment">The level of rigour is a compromise between being <strong>correct</strong> (or at least <em>fixable</em>) a large fraction of the time and advancing knowledge.</li>
+					<li class="fragment">Mathematics has various error-correcting mechanisms that keep the error rate fairly low, but this gets harder with growing complexity.</li>
+					<li class="fragment">And indeed, even at the highest level errors are not uncommon.</li>
+				</ul>
+			</section>
+			<section data-transition="concave" data-background-color="#002b36">
+			<ul>
+				<li class="fragment">Around 2002, a very interesting theorem was proved showing that $s^5$ had a certain structure.</li>
+				<li class="fragment">This was published in the <em>Annals of Mathematics</em>.</li>
+				<li class="fragment">In a sequel some years later, the authors constructed a family of such structures.</li>
+				<li class="fragment">The referee of the sequel observed that the space on which the structures were constructed, including the original one, was not $S^5$.</li>
+				<li class="fragment">This is not an isolated example &ndash; there are papers in the Annals contradicting each other.</li>
+			</ul>
+		</section>
+		
+
+			<section data-transition="concave" data-background-color="#002b36">
 				<h4>Interactive Theorem Provers</h4>
 				<ul>
 					<li class="fragment"><em>Interactive Theorem Provers</em> are software systems where proofs are
@@ -438,12 +458,8 @@
 						collaboration.</li>
 					<li class="fragment">The computer both finds (parts of) proofs and verifies
 						<strong>correctness</strong>.</li>
-					<li class="fragment">The ease of proving in such systems depends on how <strong>concise</strong>
-						and <strong>composable</strong> proofs are and
-						the strength of its <strong>elaborator</strong> and <strong>tactics</strong>.</li>
-					<li class="fragment">The former depends on <strong>foundations</strong> and the latter is essentially
-						<strong>automated
-							theorem proving</strong>.</li>
+					<li class="fragment">Using these one would obtain a super-human level of correctness.</li>
+					<li class="fragment">With advances in such systems and their libraries, especially <strong>Lean</strong> and <strong>Mathlib</strong>, one hopes this is without super-human effort.</li>
 				</ul>
 			</section>
 
@@ -466,16 +482,98 @@
 			</section>
 
 			<section data-transition="concave" data-background-color="#002b36">
+				<h4>The Liquid Tensor experiment</h4>
 				<ul>
-					<li class="fragment">The <strong>Feit-Thompson</strong> theorem has been formalized in the system
-						<strong>Coq</strong> by Georges Gonthier and others.</li>
-					<li class="fragment">The <strong>lean mathematical library</strong> has formalizations of a lot of undergraduate
-						mathematics and many advanced results.</li>
-					<li class="fragment">These not only show that formalization is feasible, but can form data for both <strong>machine
-							learning</strong> and advanced <strong>semantic searches</strong> and other tooling.</li>
+					<li class="fragment">In December 2020, Peter Scholze challenged the formalization community to computer verify a foundational result he had proved, part of Clausen-Scholze's <em>Condensed Mathematics</em>.</li>
+					<li class="fragment">This was taken up by the Lean community led by Johann Commelin, with active collaboration from Scholze.</li>
+					
 				</ul>
 			</section>
 
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— I want to make the strong claim that in the foundations of mathematics, one should replace topological spaces with condensed sets ... This claim is only tenable if condensed sets can also serve their purpose within real functional analysis.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— with this theorem, the hope that the condensed formalism can be fruitfully applied to real functional analysis stands or falls. I think the theorem is of utmost foundational importance, so being 99.9% sure is not enough.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— if it stands, the theorem gives a powerful framework for real functional analysis, making it into an essentially algebraic theory... Generally, whenever one is trying to mix real functional analysis with the formalism of derived categories, this would be a powerful black box. As it will be used as a black box, a mistake in this proof could remain uncaught.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— I spent much of 2019 obsessed with the proof of this theorem, almost getting crazy over it. In the end, we were able to get an argument pinned down on paper, but I think nobody else has dared to look at the details of this, and so I still have some small lingering doubts.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— as I explain below, the proof of the theorem has some very unexpected features. In particular, it is very much of arithmetic nature. It is the kind of argument that needs to be closely inspected.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— while I was very happy to see many study groups on condensed mathematics throughout the world, to my knowledge all of them have stopped short of this proof. (Yes, this proof is not much fun…)
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— I have occasionally been able to be very persuasive even with wrong arguments. (Fun fact: In the selection exams for the international math olympiad, twice I got full points for a wrong solution. Later, I once had a full proof of the weight-monodromy conjecture that passed the judgment of some top mathematicians, but then it turned out to contain a fatal mistake.)
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— the Lean community has already showed some interest in formalizing parts of condensed mathematics, so the theorem seems like a good goalpost.
+				</blockquote>
+			</section>
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— I think this may be my most important theorem to date. (It does not really have any applications so far, but I’m sure this will change.) Better be sure it’s correct…
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<h4>Results of the Experiment</h4>
+				<ul>
+					<li class="fragment">
+						In about six months, a major step, <strong>Theorem 9.4</strong> of the notes was proved.
+					</li>
+					<li class="fragment">
+						Scholze said this was the part where he was worried about, and that he was now satisfied that the correctness of his result was checked.
+					</li>
+					<li class="fragment">
+						About an year later, the origin goal, <strong>Theorem 9.1</strong> was proved in Lean.
+					</li>
+				</ul>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<h4>Sums of reciprocals</h4>
+				<ul>
+					
+					<li class="fragment">
+						In December 2021, Thomas Bloom proved that any set of natural numbers of positive upper density contains a finite subset whose reciprocals add up to $1$, answering a question of Erdős and Graham.
+					</li>
+					<li class="fragment">
+						While his paper was still under review, Thomas Bloom 
+						learnt Lean, and,
+						along with Bhavik Mehta, formalized this theorem in Lean. 
+							 
+					</li>
+					
+				</ul>
+			</section>
 
 			<section data-transition="zoom-in convex-out" data-background-image="hills.png">
 				<h1>&nbsp;</h1>
