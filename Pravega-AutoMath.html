@@ -477,6 +477,9 @@
 						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in three
 						languages.
 					</li>
+					<li class="fragment">
+						In a specific case, one only has to check that the <strong>definitions</strong> and the <strong>statement</strong> are correct, which is typically not hard especially if they use a library.
+					</li>
 				</ul>
 
 			</section>
@@ -574,6 +577,27 @@
 					
 				</ul>
 			</section>
+
+			<section  data-background-color="#002b36">
+				<h4>Kaplansky's Unit Conjecture</h4>
+				<ul>
+					
+					<li class="fragment">
+						About an year ago, Giles Gardam disproved the long-standing <strong>Kaplansky's Unit Conjecture</strong>, which asserted that group rings of torsion-free groups over fields do not have non-trivial units.
+					</li>
+					<li class="fragment">
+						Gardam used a SAT solver to find such non-trivial units for a specific group and the field $\mathbb{F}_2$.
+					</li>
+					<li class="fragment">
+						Anand and I formalized the proof in Lean 4 using its integration of programs and proofs.
+					</li>
+					<li class="fragment">
+						We proved some results that were not formally needed, such as the ring properties of the group ring, as an extra check on our definitions.
+					</li>
+					
+				</ul>
+			</section>
+
 
 			<section data-transition="zoom-in convex-out" data-background-image="hills.png">
 				<h1>&nbsp;</h1>
