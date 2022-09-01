@@ -46,13 +46,13 @@
 		<section class="slides">
 			<section data-transition="slide">
 				<h2> Automating Mathematics? </h2>
-				<h3>Siddhartha Gadgil</h3>
+				<h4>Siddhartha Gadgil</h4>
 				<p>Department of Mathematics</p>
 				<p>Indian Institute of Science</p>
 				<p>Bangalore</p>
 				<p><a href="http://math.iisc.ac.in/~gadgil/">http://math.iisc.ac.in/~gadgil/</a></p>
-				<p><a href="https://github.com/siddhartha-gadgil/ProvingGround"
-						target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
+				<p><a href="https://siddhartha-gadgil.github.io/automating-mathematics/"
+						target="_blank">https://siddhartha-gadgil.github.io/automating-mathematics/</a></p>
 
 
 			</section>
@@ -64,16 +64,101 @@
 						mathematics community in the <strong>discovery</strong> and <strong>proof</strong> of
 						mathematical results and concepts?
 					</li>
-					<li>When? <strong>How?</strong></li>
-					<li>Computers are already used in several ways.</li>
-					<li>Capabilities in other cognitive domains that suggests they can do much more.</li>
-					<li>Automated theorem proving is closely related to <strong>computer verification of
+					<li class="fragment">When? <strong>How?</strong></li>
+					<li class="fragment">Computers are already used in several ways.</li>
+					<li class="fragment">Capabilities in other cognitive domains that suggests they can do much more.</li>
+					<li class="fragment">Automated theorem proving is closely related to <strong>computer verification of
 							proofs</strong>.</li>
 				</ul>
 			</section>
 
+			<section data-transition="fade-out">
+				<h4>A concrete prediction</h4>
+				<ul>
+					<li class="fragment">
+						Open bet by Christian Szegedy, Google Research.
+					</li>
+					<li class="fragment">
+						By the year 2029:
+					</li>
+				</ul>
+				<blockquote class="fragment">
+					"A diverse set of 100 graduate text books are automatically formalized/verified in a popular proof assistant (eg Lean). 10% of problems from a preselected 100 open human conjectures is proved completely autonomously."
+				</blockquote>
+			</section>
+
+			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
+				<h1>Ingredients for  Automation</h1>
+			</section>
+
+			<section data-transition="convex" data-background-color="#002b36">
+				<h4> Universal deducer? </h4>
+				<ul>
+					<li class="fragment"> A <strong>universal deducer</strong> is a program which, given a
+						mathematical statement, either proves it is true or proves it is false.</li>
+					<li class="fragment"> By results of Church, G&ouml;del, Turing, such a program is impossible. </li>
+					<li class="fragment"> We can seek to build ever more powerful systems that (help in) finding (and verifying) ever more powerful proofs. </li>
+					<li class="fragment">This will involve advances of many different kinds in combination.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#002b36">
+				<h4>Algorithms</h4>
+				<ul>
+					<li class="fragment">Numerical computation.</li>
+					<li class="fragment"><strong>Enumeration:</strong> a large number of problems of the same form.</li>
+					<li class="fragment">Symbolic and computational algebra.</li>
+					<li class="fragment"><strong>Compact</strong> enumeration.</li>
+					<li class="fragment"><strong>Exact</strong> real number arithmetic.</li>
+					<li class="fragment">Linear programming.</li>
+					<li class="fragment">Decidability of <strong>real semi-algebraic geometry</strong>.</li>
+					<li class="fragment">Many algorithms for specific mathematical questions based on mathematical theorems.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#002b36">
+				<h4>Deduction Engines</h4>
+				<ul>
+					<li class="fragment"><strong>SAT solvers</strong> can solve logical problems with finitely many Boolean variables.</li>
+					<li class="fragment">Many finite problems can be reduced to <strong>SAT</strong>.</li>
+					<li class="fragment"><strong>SMT solvers</strong> extend SAT solvers with various algorithms.</li>
+					<li class="fragment"><strong>Resolution Theorem Provers</strong> can in principle solve any problem in first-order logic, which encodes all of mathematics.</li>
+					<li class="fragment">In practice, all these have difficulty handling mathematics <em>in the large</em>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#002b36">
+				<h4>Interactive Theorem Provers</h4>
+				<ul>
+					<li class="fragment">In <em>Interactive Theorem Provers</em>, proofs are
+						obtained by human-machine
+						collaboration.</li>
+					<li class="fragment">The computer both finds (parts of) proofs and verifies
+						<strong>correctness</strong>.</li>
+					<li class="fragment">The ease of proving in such systems depends on how <strong>concise</strong>
+						and <strong>composable</strong> proofs are and
+						the strength of its <strong>automation</strong>.</li>
+					<li class="fragment">The power and ease of use also depends on the <strong>library</strong> &ndash; the results that are already in the system.</li>
+					<li class="fragment">The system thus accumulates <strong>knowledge</strong> and ways to use it effectively.</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="#002b36">
+				<h4>Artificial Intelligence</h4>
+				<ul>
+					<li class="fragment">Manage tasks for which we depend on experience, tacit knowledge.</li>
+					<li class="fragment">Work with limited or unstructured data.</li>
+					<li class="fragment">Learn and use a composable representation of words, images etc.</li>
+					<li class="fragment">Share learning between tasks.</li>
+					<li class="fragment">Handle long range dependencies.</li>
+					<li class="fragment">Work with a small number of task-specific examples.</li>
+					<li class="fragment"><strong>But:</strong> will give some nonsensical answers.</li>
+				</ul>
+			</section>
+
+
+
 			<section data-transition="zoom-in convex-out" data-background="Closepacking.svg"
-				data-background-color="teal" data-state="dimbg">
+				data-background-color="#b5533c" data-state="dimbg">
 				<h1>Computer Proofs</h1>
 				<h2>in</h2>
 				<h1>Mathematics</h1>
@@ -84,116 +169,432 @@
 					Wikimedia Commons</span>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
-				<h3> Universal deducer? </h3>
-				<ul>
-					<li class="frag-ment"> A <strong>universal deducer</strong> is a program which, given a
-						mathematical statement, either proves it is true or proves it is false.</li>
-					<li class="frag-ment"> By results of Church, G&ouml;del, Turing, such a program is impossible. </li>
-					<li class="frag-ment"> Practically, we can conclude that there is no best deducer,
-						as any given proof can be found by some deducer but no deducer can find all proofs. </li>
-				</ul>
-			</section>
 
-			<section data-transition="convex" data-background-color="teal">
-				<h3>Some computer-assisted proofs</h3>
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Some computer-assisted proofs</h4>
 				<ul>
-					<li class="frag-ment"><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$
+					<li class="fragment"><strong>Four-colour problem:</strong> Any map can be coloured with at most $4$
 						colours.</li>
-					<li class="frag-ment"><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
+					<li class="fragment"><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres is
 						the hexagonal close packing.</li>
-					<li class="frag-ment"><strong>Boolean Pythagorean triples problem:</strong> Is it possible to colour
+					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Is it possible to colour
 						the
 						positive integers either red or blue, so that if three integers $a$, $b$, $c$,
 						satisfy $a^{2}+b^{2}=c^{2}$, they are not all the same colour?</li>
-					<li><strong>Smale conjecture</strong> for hyperbolic $3$-manifolds.</li>
+					<li class="fragment"><strong>Smale conjecture</strong> for hyperbolic $3$-manifolds.</li>
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
-				<h3>Some ways computers are used</h3>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4> Robbins conjecture </h4>
 				<ul>
-					<li>Numerical computation.</li>
-					<li>Enumeration.</li>
-					<li>Symbolic and computational algebra.</li>
-					<li><strong>Compact</strong> enumeration.</li>
-					<li><strong>Exact</strong> real number arithmetic.</li>
-					<li>Linear programming.</li>
-					<li>Decidability of <strong>real semi-algebraic geometry</strong>.</li>
-					<li><strong>SAT</strong> solvers and SMT solvers.</li>
-				</ul>
-			</section>
-
-			<section data-background="Sudoku.png" data-background-size="50%">
-
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
-				<h3> Robbins conjecture </h3>
-				<ul>
-					<li class="frag-ment"> <strong>Robbins conjecture</strong> was a conjectural characterization of
+					<li class="fragment"> <strong>Robbins conjecture</strong> was a conjectural characterization of
 						<em>Boolean algebras</em> in
 						terms of
 						associativity and commutativity of $\vee$ and the Robbins equation
 						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
-					<li class="frag-ment"> This was conjectured in the 1930s, and finally proved in 1996 using the
+					<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
 						automated theorem prover <strong>EQP</strong>.</li>
-					<li class="frag-ment"> So far, this seems to be the only major success of <strong>fully
+					<li class="fragment"> So far, this seems to be the only major success of <strong>fully
 							autonomous</strong> deductive theorem provers.
 					</li>
 			</section>
 
+			<section data-transition="zoom" data-background="code.png">
+				<h1>SAT Solvers</h1>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>The $N-$Queens problem</h4>
+				<ul>
+					<li class="fragment">
+						The $N-$queens puzzle is the problem of placing $N$ chess queens on an $N\times N$ chessboard
+						so that no two queens threaten each other.
+					</li>
+					<li class="fragment">
+						Thus, a solution requires that no two queens share the same row, column, or diagonal.
+					</li>
+					<li class="fragment"> We formulate this as a so called <strong>Boolean satisfiability (SAT) problem.</strong>
+					</li>
+					<li class="fragment"> A <strong>SAT solver</strong> solves SAT problems.</li>
+					<li class="fragment">A very large class of problems can be formulated as SAT problems.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>$N$-Queens as SAT</h4>
+				<ul>
+					<li class="fragment">We associate to each square a <em>boolean</em> variable $Q_{i,j}$ which is <em>true</em> iff the
+						square is occupied.</li>
+					<li class="fragment">We construct logical formulas for the constraints of the $N-$queens puzzle from the
+						$Q_{i,j}$'s using operators $\neg$ (<em>not</em>), $\vee$(<em>or</em>) and $\wedge$(<em>and</em>).</li>
+					<li class="fragment">For example, the $i$th row has a queen is the formula $Q_{i,1}\vee Q_{i,2}\vee\dots\vee Q_{i,n}$
+					</li>
+					<li class="fragment">Similarly, pairs of queens not threatening each other gives formulas such as $\neg Q_{1, 1}\vee
+						\neg Q_{2, 2}$.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT Problems</h4>
+				<ul>
+					<li class="fragment">We are given finitely many <em>boolean</em> variables $P$, $Q$, ... and finitely many
+						<em>constraints</em> on them.
+					</li>
+					<li class="fragment">
+						Constraints are logical statements built from the variables using logical operators such as
+						$\neg$ (<em>not</em>), $\vee$(<em>or</em>), $\wedge$(<em>and</em>),
+						$\Rightarrow$(<em>implies</em>) and $\Leftrightarrow$ (<em>equivalent</em>).
+					</li>
+					<li class="fragment">
+						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can assign
+						truth values to these (i.e., declare each of $P$, $Q$ , ... to be $true$ or $false$) so that all
+						the constraints are satisfied.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT and $P\overset{?}=NP$</h4>
+				<ul>
+					<li class="fragment">
+						Given a solution to a SAT problem, it is easy to see that it satisfies all the constraints.
+					</li>
+					<li class="fragment">
+						However, <em>finding</em> a solution may be hard.
+					</li>
+					<li class="fragment">
+						Algorithmic problems that can be <strong>solved</strong> in polynomial time form the class
+						<strong>$P$</strong> (polynomial).
+					</li>
+					<li class="fragment">
+						Algorithmic problems whose solution, if it exists, can be <strong>checked</strong> in polynomial
+						time form the class <strong>$NP$</strong> (non-deterministic polynomial).
+					</li>
+					<li class="fragment">A fundamental question is whether $P = NP$.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>Cook-Levine theorem</h4>
+				<ul>
+					<li class="fragment">The <em>Cook-Levine theorem</em> from the early 1970s showed that if SAT can be solved in
+						polynomial time
+						then so can every problem in $NP$.</li>
+					<li class="fragment">
+						There are a large class of problems that are known to be $NP$, making $P=NP$ a very important
+						question.
+					</li>
+					<li class="fragment">
+						In practice, computer scientists have focussed efforts on making practically fast SAT solvers,
+						which are
+						used to solve (components of) many different problems by mapping them to SAT.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h4>Resolution and the DPLL algorithm</h4>
+				<ul>
+					<li class="fragment">
+						The formulation of $N$-Queens above was as a collection of <em>clauses</em>, i.e., in <em>CNF</em>.
+					</li>
+					<li class="fragment">Any SAT problem can be formulated in CNF.</li>
+					<li class="fragment">Davis and Putnam showed that a deduction rule called <em>Resolution</em> is <em>refutation complete</em> for SAT, and indeed for First-Order Logic.
+					</li>
+					<li class="fragment">
+						The DPLL algorithm refines the algorithm of Davis-Putnam for SAT.
+					</li>
+					<li class="fragment">
+						Together with Robinson's <em>unification</em>, the Davis-Putnam work gives <em>Resolution Theorem Provers</em>, which can deduce any provable theorem.
+					</li>
+					
+				</ul>
+			</section>
+			<section data-background-iframe="Q8.html" data-background-color="teal"></section>
+			<section data-background-iframe="Q3.html" data-background-color="white"></section>
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT Solver-Prover in Lean 4</h4>
+				<ul>
+					<li class="fragment">
+						In <strong>Lean 4</strong>, 
+						we can have a program with output one of
+						<ul>
+							<li class="fragment">
+								a solution together with a proof that this is a solution, or
+							</li>
+							<li class="fragment">
+								a proof that there is no solution.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">
+						Furthermore, the compiler verifies that the program terminates for any valid input, and has
+						correct output of one of the above two forms.
+					</li>
+					<li class="fragment">I implemented this in a program <strong>SATurn</strong>.</li>
+					<li class="fragment">This was the first time in my experience that such a complex program ran correctly straight away. </li>
+				</ul>
+			</section>
+			<section data-background="lean4-saturn.png" data-background-color="white"></section>
+
+			<section>
+				<h1>SMT Solvers</h1>
+			</section>
+			<section>
+				<h4>Z3 Demo: Sudoku</h4>
+				<img src="sudoku.png" alt="Sudoku puzzle" height="500">
+			</section>
+
+			<section>
+				<h4>Euclidean Geometry via SMT?</h4>
+				<ul>
+					<li class="fragment">
+						In the 1950s, Tarski proved that whether a collection of polynomial equations and inequations has solutions that are real numbers is decidable. 
+					</li>
+					<li class="fragment">Statements in Euclidean geometry can be translated to such problems.</li>
+					<li class="fragment"> Tarski’s algorithm has been greatly improved, and algorithms of a more algebraic nature have also been developed, improved and implemented. 
+					</li>
+					<li class="fragment">
+						However, I could not find any examples of using SMT solvers for such problems.
+					</li>
+					
+				</ul>
+			</section>
+
+			<section>
+				<h4>Pappus hexagon theorem</h4>
+				<p><strong>Theorem:</strong> $P$, $Q$ and $R$ are collinear.</p>
+				<img src="Pappus.png" alt="Pappus configuration" height="370">
+				
+			</section>
+
+			<section>
+				<ul>
+					<li>
+						Points with coordinates $(x_1, y_1)$, $(x_2, y_2)$ and $(x_3, y_3)$, which we assume to be distinct, are <em>collinear</em> if and only if $(y_2 - y_1)(x_3 - x_1) = (y_3 - y_1)(x_2 - x_1).$
+					</li>
+					<li class="fragment">As a warm up, we show that for $P= (x, y)$, $P$, $O=(0, 0)$ and $-P$ are collinear.</li>
+					<li class="fragment"> To do this, we seek $x$ and $y$ so that $P$, $O$ and $-P$ are <em>not</em> collinear, and check for solutions.
+					</li>
+					<li class="fragment">
+						Indeed Z3 and CVC4 concluded instantly that there is no solution, i.e., the points are collinear.
+					</li>					
+					
+				</ul>
+			</section>
+
+			<section>
+				<ul>
+					<img src="Pappus.png" alt="Pappus configuration" height="200">
+					<li class="fragment">We scale and rotate to obtain nice coordinates</li>
+					<li class="fragment">
+						We can take $a=(1, 0)$, $b= (1 + u, 0)$, $c = (1 + u + v, 0)$ with $u, v > 0$. 
+					</li>
+					<li class="fragment">Let $A = (x_A, y_A)$, then $B = (x_A(1+ U), y_A(1 + U))$ and $C = (x_A(1+ U + V), y_A(1 + U + V))$ with $U, V, y_A > 0$.</li>
+				</ul>
+			</section>
+
+			<section>
+				<ul>
+					<img src="Pappus.png" alt="Pappus configuration" height="200">
+					<li class="fragment">We let $P=(P_x, P_y)$, $Q=(Q_x, Q_y)$ and $R= (R_x, R_y)$, giving $12$ variables in all. </li>
+					<li class="fragment">We get $6$ equations for collinearity, e.g. of $A$, $P$ and $b$. </li>
+					<li class="fragment">
+						We also have various positivity inequations.
+					</li>
+					<li class="fragment">We negate the equation for $P$, $Q$ and $R$ being collinear and ask if there is a solution.</li>
+				</ul>
+			</section>
+
+
+			<section>
+				<ul>
+					<li>
+						Unfortunately when I ran Z3 with this system it did not give a result.
+					</li>
+					<li class="fragment">I blogged about this formulation and result.</li>
+					<li class="fragment"> A couple of days later Anand Rao Tadipatri emailed me that he had got Z3 to prove Menelaus’s Theorem along similar lines.
+					</li>
+					<li class="fragment">
+						Strangely, I could not replicate his result.
+					</li>					
+					<li class="fragment">
+						It turns out that Z3 <strong>can solver both theorems</strong> if only asked for an answer, but neither if asked for a <strong>proof</strong>.
+					</li>
+				</ul>
+			</section>
+
+
+
 			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
-				<h1>Interactive Theorem Provers</h1>
+				<h1 style="color:#fffdd0">Computer Verification for Mathematics</h1>
 			</section>
 
 			<section data-transition="concave" data-background-color="#002b36">
-				<h3>Interactive Theorem Provers</h3>
+				<h4>Rigour and Proofs</h4>
 				<ul>
-					<li class="frag-ment"><em>Interactive Theorem Provers</em> are software systems where proofs are
+					<li class="fragment">While in principle mathematical proofs are logical deductions, in practice they are semi-formal.</li>
+					<li class="fragment">The level of rigour is a compromise between being <strong>correct</strong> (or at least <em>fixable</em>) a large fraction of the time and advancing knowledge.</li>
+					<li class="fragment">Mathematics has various error-correcting mechanisms that keep the error rate fairly low, but this gets harder with growing complexity.</li>
+					<li class="fragment">And indeed, even at the highest level errors are not uncommon.</li>
+				</ul>
+			</section>
+			<section data-transition="concave" data-background-color="#002b36">
+			<ul>
+				<li class="fragment">Around 2002, a very interesting theorem was proved showing that $s^5$ had a certain structure.</li>
+				<li class="fragment">This was published in the <em>Annals of Mathematics</em>.</li>
+				<li class="fragment">In a sequel some years later, the authors constructed a family of such structures.</li>
+				<li class="fragment">The referee of the sequel observed that the space on which the structures were constructed, including the original one, was not $S^5$.</li>
+				<li class="fragment">This is not an isolated example &ndash; there are papers in the Annals contradicting each other.</li>
+			</ul>
+		</section>
+		
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<h4>Interactive Theorem Provers</h4>
+				<ul>
+					<li class="fragment"><em>Interactive Theorem Provers</em> are software systems where proofs are
 						obtained by human-machine
 						collaboration.</li>
-					<li class="frag-ment">The computer both finds (parts of) proofs and verifies
+					<li class="fragment">The computer both finds (parts of) proofs and verifies
 						<strong>correctness</strong>.</li>
-					<li class="frag-ment">The ease of proving in such systems depends on how <strong>concise</strong>
-						and <strong>composable</strong> proofs are and
-						the strength of its <strong>elaborator</strong> and <strong>tactics</strong>.</li>
-					<li>The former depends on <strong>foundations</strong> and the latter is essentially
-						<strong>automated
-							theorem proving</strong>.</li>
+					<li class="fragment">Using these one would obtain a super-human level of correctness.</li>
+					<li class="fragment">With advances in such systems and their libraries, especially <strong>Lean</strong> and <strong>Mathlib</strong>, one hopes this is without super-human effort.</li>
 				</ul>
 			</section>
 
 			<section data-transition="concave" data-background-color="#002b36">
-				<h3>Who guards the guards?</h3>
+				<h4>Who guards the guards?</h4>
 				<ul>
-					<li class="frag-ment">
+					<li class="fragment">
 						A computer verified proof is only as trustworthy as the system that verified the proof.
 					</li>
-					<li class="frag-ment">
+					<li class="fragment">
 						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small <em>trusted
 							kernel</em>, which can be thoroughly checked.
 					</li>
-					<li class="frag-ment">
+					<li class="fragment">
 						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in three
 						languages.
+					</li>
+					<li class="fragment">
+						In a specific case, one only has to check that the <strong>definitions</strong> and the <strong>statement</strong> are correct, which is typically not hard especially if they use a library.
 					</li>
 				</ul>
 
 			</section>
 
-			<section
-				data-background-iframe="https://www.newyorker.com/cartoon/a24624?utm_source=onsite-share&utm_medium=email&utm_campaign=onsite-share&utm_brand=the-new-yorker">
+			<section data-transition="concave" data-background-color="#002b36">
+				<h4>The Liquid Tensor experiment</h4>
+				<ul>
+					<li class="fragment">In December 2020, Peter Scholze challenged the formalization community to computer verify a foundational result he had proved, part of Clausen-Scholze's <em>Condensed Mathematics</em>.</li>
+					<li class="fragment">This was taken up by the Lean community led by Johann Commelin, with active collaboration from Scholze.</li>
+					
+				</ul>
 			</section>
 
-			<section data-transition="concave" data-background-color="#002b36">
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— I want to make the strong claim that in the foundations of mathematics, one should replace topological spaces with condensed sets ... This claim is only tenable if condensed sets can also serve their purpose within real functional analysis.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— with this theorem, the hope that the condensed formalism can be fruitfully applied to real functional analysis stands or falls. I think the theorem is of utmost foundational importance, so being 99.9% sure is not enough.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— if it stands, the theorem gives a powerful framework for real functional analysis, making it into an essentially algebraic theory... Generally, whenever one is trying to mix real functional analysis with the formalism of derived categories, this would be a powerful black box. As it will be used as a black box, a mistake in this proof could remain uncaught.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— I spent much of 2019 obsessed with the proof of this theorem, almost getting crazy over it. In the end, we were able to get an argument pinned down on paper, but I think nobody else has dared to look at the details of this, and so I still have some small lingering doubts.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— as I explain below, the proof of the theorem has some very unexpected features. In particular, it is very much of arithmetic nature. It is the kind of argument that needs to be closely inspected.
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— while I was very happy to see many study groups on condensed mathematics throughout the world, to my knowledge all of them have stopped short of this proof. (Yes, this proof is not much fun…)
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— I have occasionally been able to be very persuasive even with wrong arguments. (Fun fact: In the selection exams for the international math olympiad, twice I got full points for a wrong solution. Later, I once had a full proof of the weight-monodromy conjecture that passed the judgment of some top mathematicians, but then it turned out to contain a fatal mistake.)
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— the Lean community has already showed some interest in formalizing parts of condensed mathematics, so the theorem seems like a good goalpost.
+				</blockquote>
+			</section>
+			<section  data-background-color="#002b36">
+				<blockquote>
+					— I think this may be my most important theorem to date. (It does not really have any applications so far, but I’m sure this will change.) Better be sure it’s correct…
+				</blockquote>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<h4>Results of the Experiment</h4>
 				<ul>
-					<li>The <strong>Feit-Thompson</strong> theorem has been formalized in the system
-						<strong>Coq</strong> by Georges Gonthier and others.</li>
-					<li>The <strong>lean mathematical library</strong> has formalizations of a lot of undergraduate
-						mathematics and many advanced results.</li>
-					<li>These not only show that formalization is feasible, but can form data for both <strong>machine
-							learning</strong> and advanced <strong>semantic searches</strong> and other tooling.</li>
+					<li class="fragment">
+						In about six months, a major step, <strong>Theorem 9.4</strong> of the notes was proved.
+					</li>
+					<li class="fragment">
+						Scholze said this was the part where he was worried about, and that he was now satisfied that the correctness of his result was checked.
+					</li>
+					<li class="fragment">
+						About an year later, the origin goal, <strong>Theorem 9.1</strong> was proved in Lean.
+					</li>
+				</ul>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<h4>Sums of reciprocals</h4>
+				<ul>
+					
+					<li class="fragment">
+						In December 2021, Thomas Bloom proved that any set of natural numbers of positive upper density contains a finite subset whose reciprocals add up to $1$, answering a question of Erdős and Graham.
+					</li>
+					<li class="fragment">
+						While his paper was still under review, Thomas Bloom 
+						learnt Lean, and,
+						along with Bhavik Mehta, formalized this theorem in Lean. 
+							 
+					</li>
+					
+				</ul>
+			</section>
+
+			<section  data-background-color="#002b36">
+				<h4>Kaplansky's Unit Conjecture</h4>
+				<ul>
+					
+					<li class="fragment">
+						About an year ago, Giles Gardam disproved the long-standing <strong>Kaplansky's Unit Conjecture</strong>, which asserted that group rings of torsion-free groups over fields do not have non-trivial units.
+					</li>
+					<li class="fragment">
+						Gardam used a SAT solver to find such non-trivial units for a specific group and the field $\mathbb{F}_2$.
+					</li>
+					<li class="fragment">
+						Anand and I formalized the proof in Lean 4 using its integration of programs and proofs.
+					</li>
+					<li class="fragment">
+						We proved some results that were not formally needed, such as the ring properties of the group ring, as an extra check on our definitions.
+					</li>
+					
 				</ul>
 			</section>
 
@@ -206,18 +607,18 @@
 			</section>
 
 			<section data-transition="convex" data-background="#b5533c">
-				<h3>Formal methods</h3>
+				<h4>Formal methods</h4>
 				<ul>
 
-					<li class="frag-ment">We <strong>specify</strong> (describe) software, hardware etc. in precise
+					<li class="fragment">We <strong>specify</strong> (describe) software, hardware etc. in precise
 						mathematical terms.
 					</li>
-					<li class="frag-ment">We give <strong>mathematical proofs</strong> of correct behavior, which are
+					<li class="fragment">We give <strong>mathematical proofs</strong> of correct behavior, which are
 						<strong>computer
 							verified</strong>.</li>
-					<li class="frag-ment">This gives a much greater certainty of correctness.</li>
-					<li class="frag-ment">However, proofs are much harder than tests.</li>
-					<li class="frag-ment">Formal proofs use interactive theorem provers; with better provers we can
+					<li class="fragment">This gives a much greater certainty of correctness.</li>
+					<li class="fragment">However, proofs are much harder than tests.</li>
+					<li class="fragment">Formal proofs use interactive theorem provers; with better provers we can
 						prove more often.</li>
 				</ul>
 			</section>
@@ -226,20 +627,20 @@
 				<h4>Do we need <em>completely correct always</em>?</h4>
 
 				<table class="box">
-					<tr class="frag-ment">
+					<tr class="fragment">
 						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
 						<td>Pentium FDIV Bug</td>
-						<td> <span class="frag-ment"> Fixing an error is very costly </span c></td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
 					</tr>
-					<tr class="frag-ment">
+					<tr class="fragment">
 						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
 						<td>Therac 25 radiation machine</td>
-						<td> <span class="frag-ment"> Safety critical</span> </td>
+						<td> <span class="fragment"> Safety critical</span> </td>
 					</tr>
-					<tr class="frag-ment">
+					<tr class="fragment">
 						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
 						<td>WhatsApp Pegasus attack</td>
-						<td> <span class="frag-ment"> A bug is a <em>vulnerability</em></span> </td>
+						<td> <span class="fragment"> A bug is a <em>vulnerability</em></span> </td>
 					</tr>
 				</table>
 
@@ -249,20 +650,20 @@
 				<h4>Some users of formal methods</h4>
 
 				<table class="box">
-					<tr class="frag-ment">
+					<tr class="fragment">
 						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
 						<td>Intel Chips</td>
-						<td> <span class="frag-ment"> Fixing an error is very costly </span c></td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
 					</tr>
-					<tr class="frag-ment">
+					<tr class="fragment">
 						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
 						<td>Paris driverless metro</td>
-						<td> <span class="frag-ment"> Safety critical</span> </td>
+						<td> <span class="fragment"> Safety critical</span> </td>
 					</tr>
-					<tr class="frag-ment">
+					<tr class="fragment">
 						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
 						<td>Scala dotty compiler</td>
-						<td> <span class="frag-ment"> A bug is a vulnerability</span> </td>
+						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
 					</tr>
 				</table>
 
@@ -277,110 +678,84 @@
 			<section data-background-color="#002b36" data-transition="concave">
 				<h4><q>Programming a Computer for Playing Chess</q></h4>
 				<ul>
-					<li class="frag-ment"> Playing Chess can be based on
+					<li class="fragment"> Playing Chess can be based on
 						<ul>
-							<li class="frag-ment">judging the <strong>value</strong> of a fixed players position.</li>
-							<li class="frag-ment">a <strong>policy</strong>: sequences of moves to consider.
+							<li class="fragment">judging the <strong>value</strong> of a fixed players position.</li>
+							<li class="fragment">a <strong>policy</strong>: sequences of moves to consider.
 							</li>
 						</ul>
 					</li>
-					<li class="frag-ment"> We compute (and use) the value at the end of sequences moves we consider.
+					<li class="fragment"> We compute (and use) the value at the end of sequences moves we consider.
 					</li>
-					<li class="frag-ment"> We recursively decide the best moves
+					<li class="fragment"> We recursively decide the best moves
 						by <strong>minimax</strong> &mdash; alternately maximizing and minimizing.
 					</li>
-					<li class="frag-ment">We refine using various heuristics, such as <strong>quiescence search</strong>
+					<li class="fragment">We refine using various heuristics, such as <strong>quiescence search</strong>
 						and
 						<strong>$\alpha-\beta$ pruning</strong>.
 					</li>
-					<li class="frag-ment"><em>Openings</em> give a <strong>policy</strong>, as do
+					<li class="fragment"><em>Openings</em> give a <strong>policy</strong>, as do
 						<em>endgame tables</em>.</li>
 				</ul>
 			</section>
 			<section data-background-color="#002b36" data-transition="concave">
-				<h3>Kasparov vs Deep Blue</h3>
+				<h4>Kasparov vs Deep Blue</h4>
 				<ul>
-					<li>In 1997, a computer <strong>Deep Blue</strong> defeated the Chess world champion Gary Kasparov.
+					<li class="fragment">In 1997, a computer <strong>Deep Blue</strong> defeated the Chess world champion Gary Kasparov.
 					</li>
-					<li class="frag-ment"> Deep Blue was based on extending the above methods to elaborate <strong>(rule
+					<li class="fragment"> Deep Blue was based on extending the above methods to elaborate <strong>(rule
 						based)</strong> values and policies (chess theory), and improved <strong>heuristics</strong>.</li>
-					<li>However, Deep Blues was very limited in certain <strong>capabilities</strong>.</li>
-					<li class="frag-ment"> The value and policy functions of Kasparov were far better, but compensated
+					<li class="fragment">However, Deep Blues was very limited in certain <strong>capabilities</strong>.</li>
+					<li class="fragment"> The value and policy functions of Kasparov were far better, but compensated
 						for by Deep Blue being able to consider far more move sequences.</li>
 				</ul>
 
 			</section>
 			<section data-background-color="#002b36" data-transition="concave">
-				<h3>AlphaGo vs Lee Sedol</h3>
+				<h4>AlphaGo vs Lee Sedol</h4>
 				<ul>
-					<li class="frag-ment"> In the chinese game Go, the number of legal moves is much larger, so
+					<li class="fragment"> In the chinese game Go, the number of legal moves is much larger, so
 						<em>trying everything</em> means we cannot look many moves ahead.</li>
-					<li class="frag-ment"> More importantly, it is very hard to describe a good value function (we use
+					<li class="fragment"> More importantly, it is very hard to describe a good value function (we use
 						<strong>tacit knowledge</strong>).</li>
-					<li class="frag-ment"> This makes it far harder for computers.</li>
-					<li class="frag-ment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
+					<li class="fragment"> This makes it far harder for computers.</li>
+					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
 						champion Lee Sedol.</li>
-					<li class="frag-ment"> In January 2017, AlphaGo defeated the world number one Ke Jie
+					<li class="fragment"> In January 2017, AlphaGo defeated the world number one Ke Jie
 						comprehensively.
 					</li>
 				</ul>
 			</section>
 			<section data-background-color="#002b36" data-transition="concave">
-				<h3>AlphaGo and Learning</h3>
+				<h4>AlphaGo and Learning</h4>
 				<ul>
-					<li class="frag-ment"> The policy and value functions of AlphaGo are <em>deep neural networks</em>
+					<li class="fragment"> The policy and value functions of AlphaGo are <em>deep neural networks</em>
 						that were
 						<em>trained</em>.</li>
-					<li class="frag-ment"> The policy network was initially trained by learning to predict the next move
+					<li class="fragment"> The policy network was initially trained by learning to predict the next move
 						from
 						games
 						of expert players (<strong>behaviour cloning</strong>).</li>
-					<li class="frag-ment"> The value network was trained by AlphaGo playing against versions of itself.
+					<li class="fragment"> The value network was trained by AlphaGo playing against versions of itself.
 					</li>
-					<li class="frag-ment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
-					<li class="frag-ment"> AlphaGo came up with unexpected moves.</li>
+					<li class="fragment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
+					<li class="fragment"> AlphaGo came up with unexpected moves.</li>
 				</ul>
 			</section>
 
-			<section data-transition="zoom">
-				<h3>Deep learning (policy).</h3>
-				<ul>
-					<li>We <em>search</em> for an optimal policy in a space of functions smoothly parametrized by
-						$\mathbb{R}^N$ with respect to an appropriate smooth
-						<strong>loss</strong>.</li>
-					<li>The space of functions we consider are compositions of the form $$\Phi = \Psi_k\circ \Psi_{k
-						-1}\circ \dots \circ \Psi_1,$$ where the functions $\Psi_j$ are <em>layers</em>, and are
-						smoothly parametrized by $\mathbb{R}^{n_j}$, with $N = n_1 + n_2 + \dots + n_j$.</li>
-				</ul>
-			</section>
-			<section data-transition="zoom-in concave-out">
-				<ul>
-					<li>A <em>dense layer</em> is a function of the form $y = \sigma(Ax + b)$, where $A= (a_{ij})$ is a
-						linear function, $b$ a vector,
-						and $\sigma$ is $x\mapsto e^x/(1 + e^x)$ applied component-wise.</li>
-					<li>This is parametrized by entries of $A$ and $b$.</li>
-					<li>In a <em>convolutional layer</em>, the linear function $A$ is a <strong>convolution</strong>, e.g.,
-						$y_j = \sum_{k} a _k x_{j - k}$.</li>
-					<li>To get a probability distribution, we use as the last layer <em>softmax:</em> $y_j =
-						\frac{e^{x_j}}{\sum_i
-						e^{x_i}}$.</li>
-					<li>Optimization is by variations of <strong>gradient flow</strong>.</li>
-					<li>By chain rule, this can be computed layer-by-layer (<strong>backward propagation</strong>).</li>
-				</ul>
-			</section>
 
 			<section data-background-color="#002b36" data-transition="concave">
-				<h3>AlphaGo Zero and Alpha Zero</h3>
+				<h4>AlphaGo Zero and Alpha Zero</h4>
 				<ul>
-					<li class="frag-ment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt
+					<li class="fragment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt
 						purely by
 						self play.</li>
-					<li class="frag-ment">Its successor, <em>AlphaZero</em>, could master a variety of similar games
+					<li class="fragment">Its successor, <em>AlphaZero</em>, could master a variety of similar games
 						starting with
 						just the rules.</li>
-					<li class="frag-ment">AlphaZero took just 4 hours to become the strongest chess player on the planet
+					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the planet
 						(beating a traditional chess program, Stockfish).</li>
-					<li class="frag-ment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes
+					<li class="fragment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes
 						piece
 						activity over material, preferring positions that looked risky and aggressive.&rdquo;</li>
 				</ul>
@@ -391,211 +766,87 @@
 			</section>
 
 			<section data-transition="concave" data-background-color="#b5533c">
-				<h3>Word Embeddings</h3>
+				<h4>Word Embeddings</h4>
 				<ul>
-					<li>
+					<li class="fragment">
 						To give words a <em>structure</em> and capture relations, words are <em>embedded</em> as points
 						in space.</li>
-					<li>To do this, (in <strong>Word2Vec</strong>) we set up the problem of predicting a word given its
+					<li class="fragment">To do this, (in <strong>Word2Vec</strong>) we set up the problem of predicting a word given its
 						neighbours.</li>
-					<li>We look for solutions of this problem that involve mapping words into space, and predicting from
+					<li class="fragment">We look for solutions of this problem that involve mapping words into space, and predicting from
 						neighbours using the points.
 					</li>
-					<li> Analogies such as <em>Paris</em> is to <em>France</em> as <em>Madrid</em> is to
+					<li class="fragment"> Analogies such as <em>Paris</em> is to <em>France</em> as <em>Madrid</em> is to
 						<em>Spain</em> are captured by <em>vector operations</em>.</li>
 				</ul>
 			</section>
 
-			<section data-transition="concave" data-background-color="#b5533c">
-				<h3>Generative Query network</h3>
-				<ul>
-					<li class="frag-ment">In an artificial 3D environment, the network observes 2D images from a few
-						positions.</li>
-					<li class="frag-ment">It has to predict the observed image from a new position.</li>
-					<li class="frag-ment">To do this, the 2D image was mapped to a <em>concise representation</em> by a
-						network, which was
-						then used to predict the image from a different viewpoint.</li>
-					<li class="frag-ment">The concise representation factorized by colour, shape and size (among other
-						things).</li>
-				</ul>
-			</section>
-
 			<section data-transition="concave" data-background-color="#b5533c" S>
-				<h3>Generative Adversarial Network</h3>
+				<h4>Generative Adversarial Network</h4>
 				<ul>
-					<li class="frag-ment">These consist of a pair of networks, contesting with
+					<li class="fragment">These consist of a pair of networks, contesting with
 						each other.</li>
-					<li class="frag-ment"> One network generates candidates (generative) and
+					<li class="fragment"> One network generates candidates (generative) and
 						the other evaluates them (discriminative).</li>
-					<li class="frag-ment">For example the discriminative network tries to
+					<li class="fragment">For example the discriminative network tries to
 						distinguish between real images and synthetic ones
 						generated by the generative network.</li>
 				</ul>
 			</section>
 
-			<section data-transition="concave" data-background-color="#b5533c">
-				<h3>Distributional reinforcement learning</h3>
-				<ul>
-					<li class="frag-ment">In <em>temporal reinforcement learning</em>, a network tries to predict
-						(average) future rewards.</li>
-					<li class="frag-ment">However, sometimes the reward is either very big or very small, so the average
-						reward is misleading.</li>
-					<li class="frag-ment"> In <em>distributional reinforcement learning</em> we have several predictors,
-						which react differently to <em>positive</em> and <em>negative</em> errors.</li>
-					<li class="frag-ment">Recently, similar distributions of <em>dopamine</em> cells was found in the
-						brains of
-						mice.</li>
-				</ul>
-			</section>
 
 			<section data-transition="concave" data-background-color="#b5533c">
-				<h3><q>Attention is all you need</q></h3>
+				<h4><q>Attention is all you need</q></h4>
 				<ul>
-					<li>The meaning of a word depends on the context, i.e., other words surrounding it.</li>
-					<li>In the <em>transformer architecture</em>, this is captured by <strong>learning</strong>
+					<li class="fragment">The meaning of a word depends on the context, i.e., other words surrounding it.</li>
+					<li class="fragment">In the <em>transformer architecture</em>, this is captured by <strong>learning</strong>
 						to which other words to pay attention for determining the next representation.
 					</li>
-					<li>The encoding of words includes position vectors, defined by using harmonics.</li>
-					<li>This has lead to revolutionary improvements, including forming the basis for <strong>GPT
+					<li class="fragment">The encoding of words includes position vectors, defined by using harmonics.</li>
+					<li class="fragment">This has lead to revolutionary improvements, including forming the basis for <strong>GPT
 							3</strong>.</li>
-					<li>Attention networks are used in <strong>AlphaFold 2</strong>.</li>
+					<li class="fragment">Attention networks are used in <strong>AlphaFold 2</strong>.</li>
 				</ul>
 			</section>
 
-			<section data-transition="concave">
-				<h3>Emergent Semantics?</h3>
-				<ul>
-					<li>In image processing, successive layers capture features at increasing levels of
-						<strong>abstraction</strong>.</li>
-					<li>Often (parts of) networks are <em>shared</em>, to better capture structure and meaning. For
-						example,
-						AlphaGo Zero learnt better in part by having a single neural network for policy and value.</li>
-					<li>In <em>zero-shot translation</em>, a network translated between new pairs of languages;
-						apparently based on an internal language.</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave">
-				<h4>Capabilities of Artificial Intelligence</h4>
-				<ul>
-					<li class="frag-ment">Make moves that we can appreciate.</li>
-					<li class="frag-ment">Judge value based on future rewards.</li>
-					<li class="frag-ment"> Show originality.</li>
-					<li class="frag-ment"> Acquire tacit (to us) knowledge. </li>
-					<li class="frag-ment"> Work with limited and/or unstructured data, by
-						<strong>self-play</strong>,
-						using <strong>synthetic tasks</strong> and by <strong>self-supervised learning</strong>.
-					</li>
-					<li class="frag-ment"> Organize objects naturally and efficiently, capturing
-						<strong>composition</strong>, <strong>abstraction</strong> etc.
-					</li>
-					<li>Discover <em>concepts</em> by solving problems?</li>
-				</ul>
-
-
-			</section>
 
 			<section data-transition="zoom" data-background="code.png">
 				<h1>Artificial Intelligence</h1>
-				<h3>for</h3>
+				<h4>for</h4>
 				<h1> Mathematical Proofs?</h1>
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
 				<ul>
-					<li>
-						We can iteratively do and improve at doing:
-						<ul>
-							<li>accumulate knowledge.</li>
-							<li>digest the knowledge.</li>
-							<li>solve (& pose) problems, prove theorems:
-								<ul>
-									<li>whose answer we want,</li>
-									<li>to accumulate knowledge,</li>
-									<li>as exercises to digest knowledge.</li>
-								</ul>
-							</li>
-							<li>develop judgements: truth, importance, difficulty.</li>
-						</ul>
+					<li class="fragment">
+						First-order logic theorem provers (based on Resolution, SAT solvers) are very powerful at deducing consequences of a small set of premises.
 					</li>
-					<li>Results may stagnate or be confined to some types and/or some areas.</li>
-				</ul>
-			</section>
-			<section data-transition="convex" data-background-color="teal">
-				<ul>
-					<li>We need good constructions and choices for:
-						<ul>
-							<li>outcomes,</li>
-							<li>composite moves, hence parameters for policy,</li>
-							<li>integration with experimentation,</li>
-							<li>integration with domain specific solvers and other software,</li>
-							<li>integration with (human) mathematics,</li>
-							<li>strategies: e.g., how long to keep trying.</li>
-						</ul>
-					</li>
+					<li class="fragment">The main limitation is <em>premise selection</em> &ndash; choosing the already proved results from which to deduce.</li>
+					<li class="fragment">In <strong>DeepMath</strong>, deep learning is used effectively for this task.</li>
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
-				<ul>
-					<li>Machine learning is being used in Automated and Interactive theorem proving for <strong>premise
-							selection</strong> as well as choosing tactics and parameters.</li>
-					<li>I have been working on a system which I call <a
-							href="https://github.com/siddhartha-gadgil/ProvingGround">ProvingGround</a> along the lines
-						sketched here.</li>
-					<li>It is also valuable to be able to learn from existing mathematics, which could use
-						<em>formalized libraries</em> and <em>natural language processing</em>.</li>
-					<li>However, for computer proofs to be useful, <strong>we</strong> would like to
-						<strong>learn</strong> from computer proofs.</li>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
-				<ul>
-					<li>
-						A question on a blog of Terence Tao, asked to him by Apoorva Khare, was answered in PolyMath 14.
-					</li>
-					<li class="frag-ment">
-						A crucial step in the discovery was a computer generated but human readable proof I posted.
-					</li>
-					<p></p>
-					<iframe src="kwk-gross-proof.html" frameborder="0" width="800px" height="400px"
-						class="frag-ment"></iframe>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
-
-				<ul>
-					<li>
-						The computer proof was studied by Pace Nielsen, who extracted the <em>internal repetition</em>
-						trick.
-					</li>
-					<li>
-						This was extended by Pace Nielsen and Tobias Fritz and abstracted by Terence Tao.
-					</li>
-					<li>
-						From this Fritz obtained a key lemma, which was used by Terrence Tao to answer the question in
-						the negative, and give a more general result.
-					</li>
-					<li>This was published as PolyMath 14 with 6 authors (including Lior Silberman).</li>
-					<li>A natural question is the <strong>replicability</strong> of the computer proof, which was
-						originally produced in an interactive session.</li>
-				</ul>
-			</section>
+			<section data-background-image="minerva.png"></section>
+			
 			<section>
-
-				<p>Indeed, a <a href="http://math.iisc.ac.in/~gadgil/PolyProof.html"
-						target="_blank">script</a> gives a similar proof.</p>
-
-				<iframe width="853" height="505" src="https://www.youtube.com/embed/u-BLziR9FRk" frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen></iframe>
+				<img src="HyperTree.png" alt="" height="100%">
 			</section>
+
+			<section data-transition="concave" data-background-color="#b5533c" S>
+				<h4>LLMs/Foundation models</h4>
+				<ul>
+					<li class="fragment">These are based on the <em>Transformer</em> architecture.</li>
+					<li class="fragment"> They are pre-trained on a huge dataset and may be fine-tuned on a more specific one.</li>
+					<li class="fragment"> For a specific task, often a small prompt (typically some examples) is enough.</li>
+					<img src="imagen.png" alt="" class="fragment"></img>
+				</ul>
+			</section>
+
 	</div>
 	</div>
 
 	<script src="js/reveal.js"></script>
+	
 
 	<script>
 
