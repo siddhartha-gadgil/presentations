@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Automating Mathematics?</title>
+
+	<meta name="description" content="Kaapi with Kuriosity lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="kwk.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<h2> Solving SAT </h2>
+				<h3>Siddhartha Gadgil</h3>
+				<p>Department of Mathematics</p>
+				<p>Indian Institute of Science</p>
+				<p>Bangalore</p>
+				<p><a href="http://math.iisc.ac.in/~gadgil/">http://math.iisc.ac.in/~gadgil/</a></p>
+				<p><a href="https://github.com/siddhartha-gadgil/ProvingGround"
+						target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
+
+
+			</section>
+
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>The $N-$Queens problem</h3>
+				<ul>
+					<li>
+						The $N-$queens puzzle is the problem of placing $N$ chess queens on an $N\times N$ chessboard
+						so that no two queens threaten each other.
+					</li>
+					<li>
+						Thus, a solution requires that no two queens share the same row, column, or diagonal.
+					</li>
+					<li> We formulate this as a so called <strong>Boolean satisfiability (SAT) problem.</strong>
+					</li>
+					<li> A <strong>SAT solver</strong> solves SAT problems.</li>
+					<li>A very large class of problems can be formulated as SAT problems.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>$N$-Queens as SAT</h3>
+				<ul>
+					<li>We associate to each square a <em>boolean</em> variable $Q_{i,j}$ which is <em>true</em> iff the
+						square is occupied.</li>
+					<li>We construct logical formulas for the constraints of the $N-$queens puzzle from the
+						$Q_{i,j}$'s using operators $\neg$ (<em>not</em>), $\vee$(<em>or</em>) and $\wedge$(<em>and</em>).</li>
+					<li>For example, the $i$th row has a queen is the formula $Q_{i,1}\vee Q_{i,2}\vee\dots\vee Q_{i,n}$
+					</li>
+					<li>Similarly, pairs of queens not threatening each other gives formulas such as $\neg Q_{1, 1}\vee
+						\neg Q_{2, 2}$.</li>
+				</ul>
+			</section>
+
+			<section data-background-iframe="Q8.html" data-background-color="teal"></section>
+			<section data-background-iframe="Q3.html" data-background-color="white"></section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>SAT Problems</h3>
+				<ul>
+					<li>We are given finitely many <em>boolean</em> variables $P$, $Q$, ... and finitely many
+						<em>constraints</em> on them.
+					</li>
+					<li>
+						Constraints are logical statements built from the variables using logical operators such as
+						$\neg$ (<em>not</em>), $\vee$(<em>or</em>), $\wedge$(<em>and</em>),
+						$\Rightarrow$(<em>implies</em>) and $\Leftrightarrow$ (<em>equivalent</em>).
+					</li>
+					<li>
+						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can assign
+						truth values to these (i.e., declare each of $P$, $Q$ , ... to be $true$ or $false$) so that all
+						the constraints are satisfied.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>SAT and $P\overset{?}=NP$</h3>
+				<ul>
+					<li>
+						Given a solution to a SAT problem, it is easy to see that it satisfies all the constraints.
+					</li>
+					<li>
+						However, <em>finding</em> a solution may be hard.
+					</li>
+					<li>
+						Algorithmic problems that can be <strong>solved</strong> in polynomial time form the class
+						<strong>$P$</strong> (polynomial).
+					</li>
+					<li>
+						Algorithmic problems whose solution, if it exists, can be <strong>checked</strong> in polynomial
+						time form the class <strong>$NP$</strong> (non-deterministic polynomial).
+					</li>
+					<li>A fundamental question is whether $P = NP$.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Cook-Levine theorem</h3>
+				<ul>
+					<li>The <em>Cook-Levine theorem</em> from the early 1970s showed that if SAT can be solved in
+						polynomial time
+						then so can every problem in $NP$.</li>
+					<li>
+						There are a large class of problems that are known to be $NP$, making $P=NP$ a very important
+						question.
+					</li>
+					<li>
+						In practice, computer scientists have focussed efforts on making practically fast SAT solvers,
+						which are
+						used to solve (components of) many different problems by mapping them to SAT.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>CNF</h3>
+				<ul>
+					<li>
+						A <em>valuation</em> is <span class="copilot">an assignment of truth values to the variables of a problem</span>.
+					</li>
+					<li>If $P$ is a (boolean) variable, the formulas $P$ and $\neg P$ are called <em>literals</em>.
+					</li>
+					<li>
+						A <em>clause</em> is a disjunction $l_1\vee l_2\vee\dots\vee l_k$ of literals.
+					</li>
+					<li>
+						A clause is <em>satisfied</em> by a valuation if and only if it contains a literal that is
+						<strong>true</strong>.
+					</li>
+					<li>
+						A <em>CNF</em> is a conjunction of clauses, i.e., a set of clauses which must all be true.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Rewriting as CNF</h3>
+				<ul>
+					<li>Any formula can be rewritten as a CNF formula to which it is equivalent.</li>
+					<li>
+						We first rewrite $A\Rightarrow B$ as $\neg B\vee A$ and
+						$A\Leftrightarrow B$ as $(\neg A\wedge \neg B)\vee (A\wedge B)$ to eliminate operators other
+						than $\vee$, $\wedge$ and $\neg$.
+					</li>
+					<li>
+						Next we use $\neg(A \vee B) = \neg A \wedge \neg B$ and $\neg(A \wedge B) = \neg A \vee \neg
+						B$ recursively to get a combination of literals using $\vee$ and $\wedge$
+						only.
+					</li>
+					<li>
+						Finally, using the distributivity property $A \vee (B\wedge C)= (A\vee B)\wedge (A \vee C)$
+						recursively we get a formula in CNF.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Tautologies and Contradictions.</h3>
+				<ul>
+					<li>
+						Since $l\vee l = l$, we can assume that no literal appears more than once in a clause.
+					</li>
+					<li>
+						If a clause contains both $P$ and $\neg P$ for some variable $P$, then this
+						clause is always true, i.e., is a <em>tautology</em>.
+					</li>
+					<li>
+						We assume that there are no tautologies or repeated literals.
+					</li>
+					<li>
+						An empty clause <span class="copilot">is a contradiction, i.e., it is always false.</span>
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>Resolution</h3>
+				<ul>
+					<li>
+						Given clauses $C = P\vee l_1\vee l_2\vee \dots\vee l_n$ and $C' =
+						\neg P\vee l'_1\vee l'_2\vee \dots\vee l'_{n'}$ we
+						deduce <em>$l_1\vee l_2\vee \dots\vee l_n\vee l'_1\vee l'_2\vee \dots\vee l'_{n'}$;</em>
+						<ul>
+							<li>If $P$ is false, $C \implies l_1\vee l_2\vee \dots\vee l_n$
+							</li>
+							<li>
+								If $P$ is true, as $C'\implies l'_1\vee l'_2\vee \dots\vee l'_{n'}$
+							</li>
+							<li>
+								In both cases, we have $l_1\vee l_2\vee \dots\vee l_n\vee l'_1\vee l'_2\vee \dots\vee
+								l'_{n'}$.
+							</li>
+						</ul>
+					</li>
+					<li>
+						This deduction is called <em>Resolution</em>.
+					</li>
+					<li>Resolution is <em>refutation complete</em> (for predicate calculus)
+						by a theorem of Davis-Putnam.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>
+					The Davis-Putnam algorithm
+				</h3>
+				<ul>
+					<li>
+						Pick a variable $P$ and assign to it, say, $true$.
+					</li>
+					<li>
+						We recursively seek solutions with $P$ true, by considering a problem with fewer variables.
+						<ol>
+							<li>
+								Any clause containing $P$ is true, so can be dropped.
+							</li>
+							<li>
+								Any clause of the form $\neg P\vee l_1\vee\dots\vee l_n$ (up to reordering) is true if
+								and only the clause $C =l_1\vee\dots\vee l_n$ is true.
+							</li>
+							<li>
+								Any clause containing neither $P$ nor $\neg P$ is unchanged.
+							</li>
+						</ol>
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
+					<li>The base case for the recursion is where we have no variables.
+						<ul>
+							<li>the set of clauses is either empty or just the empty clause.</li>
+							<li>this gives a solution or a contradiction.</li>
+						</ul>
+					</li>
+					<li>Suppose we (recursively) have a solution with $P$ being $true$ we get a solution.</li>
+					<li>Otherwise we consider the associated problem with $P$ false.</li>
+					<li>If the second associated problem has a solution, we get a solution, otherwise a contradiction.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>The DPLL algorithm</h3>
+				<ul>
+					<li>This improves on the DP algorithm by often considering only one branch.</li>
+					<li>If some clause is a <em>unit</em>, i.e., either $P$ or $\neg P$ for a variable $P$, we assign
+						the appropriate value to $P$.</li>
+					<li>This can lead to a cascade.</li>
+					<li>If a variable $P$ is <em>pure</em>, i.e., only one of $P$ and $\neg P$ appears in all clauses,
+						we can assign $P$ the value that
+						appears.
+					</li>
+					<li>In both algorithms, if there is no solution, we can deduce the empty clause by <em>resolution</em>.
+					</li>
+				</ul>
+			</section>
+			<section data-background-iframe="Q8.html" data-background-color="teal"></section>
+			<section data-background-iframe="Q3.html" data-background-color="white"></section>
+			<section data-transition="convex" data-background-color="teal">
+				<h3>SAT Solver-Prover in Lean 4</h3>
+				<ul>
+					<li>
+						A dependently typed language like <em>Lean 4</em> or <em>Idris</em>
+						makes possible,
+						as I implemented with <strong>SATurn</strong>, a program that outputs one of
+						<ul>
+							<li>
+								a solution together with a proof that this is a solution, or
+							</li>
+							<li>
+								a proof that there is no solution.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Furthermore, the compiler verifies that the program terminates for any valid input, and has
+						correct output of one of the above two forms.
+					</li>
+					<li>This was the first time in my experience that such a complex program ran correctly straight away. </li>
+				</ul>
+			</section>
+			<section data-background="lean4-saturn.png" data-background-color="white"></section>
+	</div>
+	</div>
+
+	<section>
+		<h1>SMT Solvers</h1>
+	</section>
+	<section>
+		<h4>Z3 Demo: Sudoku</h4>
+		<img src="sudoku.png" alt="Sudoku puzzle" height="500">
+	</section>
+
+	<section>
+		<h4>Euclidean Geometry via SMT?</h4>
+		<ul>
+			<li class="fragment">
+				In the 1950s, Tarski proved that whether a collection of polynomial equations and inequations has solutions that are real numbers is decidable. 
+			</li>
+			<li class="fragment">Statements in Euclidean geometry can be translated to such problems.</li>
+			<li class="fragment"> Tarski’s algorithm has been greatly improved, and algorithms of a more algebraic nature have also been developed, improved and implemented. 
+			</li>
+			<li class="fragment">
+				However, I could not find any examples of using SMT solvers for such problems.
+			</li>
+			
+		</ul>
+	</section>
+
+	<section>
+		<h4>Pappus hexagon theorem</h4>
+		<p><strong>Theorem:</strong> $P$, $Q$ and $R$ are collinear.</p>
+		<img src="Pappus.png" alt="Pappus configuration" height="370">
+		
+	</section>
+
+	<section>
+		<ul>
+			<li>
+				Points with coordinates $(x_1, y_1)$, $(x_2, y_2)$ and $(x_3, y_3)$, which we assume to be distinct, are <em>collinear</em> if and only if $(y_2 - y_1)(x_3 - x_1) = (y_3 - y_1)(x_2 - x_1).$
+			</li>
+			<li class="fragment">As a warm up, we show that for $P= (x, y)$, $P$, $O=(0, 0)$ and $-P$ are collinear.</li>
+			<li class="fragment"> To do this, we seek $x$ and $y$ so that $P$, $O$ and $-P$ are <em>not</em> collinear, and check for solutions.
+			</li>
+			<li class="fragment">
+				Indeed Z3 and CVC4 concluded instantly that there is no solution, i.e., the points are collinear.
+			</li>					
+			
+		</ul>
+	</section>
+
+	<section>
+		<ul>
+			<img src="Pappus.png" alt="Pappus configuration" height="200">
+			<li class="fragment">We scale and rotate to obtain nice coordinates</li>
+			<li class="fragment">
+				We can take $a=(1, 0)$, $b= (1 + u, 0)$, $c = (1 + u + v, 0)$ with $u, v > 0$. 
+			</li>
+			<li class="fragment">Let $A = (x_A, y_A)$, then $B = (x_A(1+ U), y_A(1 + U))$ and $C = (x_A(1+ U + V), y_A(1 + U + V))$ with $U, V, y_A > 0$.</li>
+		</ul>
+	</section>
+
+	<section>
+		<ul>
+			<img src="Pappus.png" alt="Pappus configuration" height="200">
+			<li class="fragment">We let $P=(P_x, P_y)$, $Q=(Q_x, Q_y)$ and $R= (R_x, R_y)$, giving $12$ variables in all. </li>
+			<li class="fragment">We get $6$ equations for collinearity, e.g. of $A$, $P$ and $b$. </li>
+			<li class="fragment">
+				We also have various positivity inequations.
+			</li>
+			<li class="fragment">We negate the equation for $P$, $Q$ and $R$ being collinear and ask if there is a solution.</li>
+		</ul>
+	</section>
+
+
+	<section>
+		<ul>
+			<li>
+				Unfortunately when I ran Z3 with this system it did not give a result.
+			</li>
+			<li class="fragment">I blogged about this formulation and result.</li>
+			<li class="fragment"> A couple of days later Anand Rao Tadipatri emailed me that he had got Z3 to prove Menelaus’s Theorem along similar lines.
+			</li>
+			<li class="fragment">
+				Strangely, I could not replicate his result.
+			</li>					
+			<li class="fragment">
+				It turns out that Z3 <strong>can solve both theorems</strong> if only asked for an answer, but neither if asked for a <strong>proof</strong>.
+			</li>
+		</ul>
+	</section>
+
+
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				//				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+//			Reveal.addEventListener( 'slidechanged', function( event ) {
+//				MathJax.Hub.Rerender();
+//			} );
+
+	</script>
+
+</body>
+
+</html>
