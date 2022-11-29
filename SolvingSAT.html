@@ -262,7 +262,7 @@
 			</section>
 			<section data-transition="convex" data-background-color="teal">
 				<ul>
-					<li class="fragment">The base case for the recursion is where we have no variables.
+					<li>The base case for the recursion is where we have no variables.
 						<ul>
 							<li class="fragment">the set of clauses is either empty or just the empty clause.</li>
 							<li class="fragment">this gives a solution or a contradiction.</li>
@@ -369,7 +369,7 @@
 
 			<section data-background="#b5533c">
 				<ul>
-					<li class="fragment">
+					<li>
 						Points with coordinates $(x_1, y_1)$, $(x_2, y_2)$ and $(x_3, y_3)$, which we assume to be
 						distinct, are <em>collinear</em> if and only if $(y_2 - y_1)(x_3 - x_1) = (y_3 - y_1)(x_2 -
 						x_1).$
@@ -390,7 +390,7 @@
 			<section data-background="#b5533c">
 				<ul>
 					<img src="Pappus.png" alt="Pappus configuration" height="200">
-					<li class="fragment">We scale and rotate to obtain nice coordinates</li>
+					<li>We scale and rotate to obtain nice coordinates</li>
 					<li class="fragment">
 						We can take $a=(1, 0)$, $b= (1 + u, 0)$, $c = (1 + u + v, 0)$ with $u, v > 0$.
 					</li>
@@ -402,7 +402,7 @@
 			<section data-background="#b5533c">
 				<ul>
 					<img src="Pappus.png" alt="Pappus configuration" height="200">
-					<li class="fragment">We let $P=(P_x, P_y)$, $Q=(Q_x, Q_y)$ and $R= (R_x, R_y)$, giving $12$
+					<li>We let $P=(P_x, P_y)$, $Q=(Q_x, Q_y)$ and $R= (R_x, R_y)$, giving $12$
 						variables in all. </li>
 					<li class="fragment">We get $6$ equations for collinearity, e.g. of $A$, $P$ and $b$. </li>
 					<li class="fragment">
@@ -416,7 +416,7 @@
 
 			<section data-background="#b5533c">
 				<ul>
-					<li class="fragment">
+					<li>
 						Unfortunately when I ran Z3 with this system it did not give a result.
 					</li>
 					<li class="fragment">I blogged about this formulation and result.</li>
