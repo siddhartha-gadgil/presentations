@@ -71,4 +71,15 @@ Our thinking is based on two systems:
 * The NVIDIA A100 GPU delivers 312 Teraflops of performance.
 * Renting a machine on Google cloud with this (and high CPU, RAM) for an year for 40 hours a week costs comparable to the salary of a mathematician in India.
 * On the other hand, the RAM on such a GPU is 40 GB, though we can scale this by having parallel GPU.
-* The "accumulated knowledge" in the largest AI system is about 500 billion weights, far short of our brain.
+* The "accumulated knowledge" in the largest AI system (Google's PaLM) is about 540 billion weights, far short of our brain.
+
+---
+# Ingredients for doing mathematics
+
+* Accumulation of knowledge
+   - precise definitions, theorems (System 2)
+   - associations, "digested knowledge" (System 1)
+* Computations and Deductions (System 2)
+* Recognition of relevance (System 1)
+* Constructions, definitions etc based on __Analogy__ (System 1)
+* Originality: going beyond the known (Sytem 1/System 2)
