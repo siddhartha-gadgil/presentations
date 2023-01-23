@@ -1,7 +1,7 @@
 ---
 title: "Quest for Automating Mathematics"
 marp: true
-math: katex
+math: mathjax
 theme: gaia
 ---
 
@@ -25,7 +25,7 @@ theme: gaia
 
 * For any $n$, we show that there exists a prime $p$ such that $p > n$.
 * Consider the number $n!+1$ and let $p$ be the smallest prime factor of $n!+1$.
-* If $p \leq n$ then $p | n!$ so $p \not| n!+1$.
+* If $p \leq n$ then $p | n!$ so $p \nmid n!+1$.
 * Hence $p$ is a prime greater than $n$.
 
 ---
@@ -67,11 +67,11 @@ Our thinking is based on two systems:
 
 ---
 
-## Why is our brain not a supercomputer?
+# Why aren't we supercomputers?
 
-* A neuron completes between 1 and 200 operations in a second.
-* The 100 trillion operations per second are performed by massively parallel computation.
-* Logical/Algorithmic reasoning often cannot be parallelized.
+* A neuron completes between 1 and 200 operations in a second while a laptop completes about 3 billion.
+* The 100 trillion operations per second the brain performs are achieved by massively parallel computation.
+* Logic/Algorithms often cannot be parallelized, e.g. long division.
 * With computers, the number of operations per second grew rapidly till about 15 years ago, but then have stopped growing.
 * Instead the power has grown through more parallel computation.
 * This is especially so with the use of _Graphics Processing Units_ (GPUs), which are used in machine learning.
@@ -83,18 +83,19 @@ Our thinking is based on two systems:
 * The NVIDIA A100 GPU delivers 312 Teraflops of performance.
 * Renting a machine on Google cloud with this (and high CPU, RAM) for an year for 40 hours a week costs comparable to the salary of a mathematician in India.
 * On the other hand, the RAM on such a GPU is 40 GB; though we can scale this by having parallel GPUs.
-* The "accumulated knowledge" in the largest AI system (Google's PaLM) is about 540 billion weights, far short of our brain.
+* The "accumulated knowledge" in the largest AI system (Google's PaLM) is about 540 billion weights, much less than our brain.
 
 ---
 # Ingredients for doing mathematics
 
 * Accumulation of knowledge
-   - precise definitions, theorems (System 2)
-   - associations, "digested knowledge" (System 1)
-* Computations and Deductions (System 2)
-* Recognition of relevance (System 1)
-* Constructions, definitions etc based on __Analogy__ (System 1)
-* Originality: going beyond the known (System 1/System 2)
+   - precise definitions, theorems (System 2).
+   - associations, relevance (System 1).
+* Learning to learn (System 1/System 2).
+* Computations and Deductions (System 2).
+* Recognition of relevance (System 1).
+* Constructions based on __Analogy__ (System 1).
+* Originality: going beyond the known (System 1/System 2).
 
 ---
 
@@ -106,22 +107,23 @@ Our thinking is based on two systems:
 
 ---
 
-# Artificial Intelligence: Barriers and Advances
+# Artificial Intelligence: Limitations and Advances
 
 ---
 
-# Commonsense barrier
+# Common sense 
 
-* We know a lot of things, which we call _commonsense_.
+* We know a lot of things, which we call _common sense_.
 * Further, these pieces of knowledge are organized in a way that they can be combined.
-* __Expert Systems__ consist of such accumulated knowledge, together with fast algorithms for computation.
-
+* __Expert Systems__ consist of:
+  - a lot of knowledge encoded as structured data, functions, algorithms.
+  - fast algorithms for reasoning.
 ---
 # DeepBlue vs Kasparov
 
 ---
 
-# Tacit knowledge barrier
+# Tacit knowledge
 
 * Tacit knowledge is the kind of knowledge that is difficult to transfer to another person by means of writing it down or verbalizing it.
 * Examples: riding a bicycle, speaking a language.
@@ -134,7 +136,7 @@ Our thinking is based on two systems:
 
 * In a deep neural network the input is transformed into the output by passing through a series of layers.
 * Each layer is typically a linear transformation, depending on weights, followed by a simple non-linear function.
-* The weights of the layers can be learnt.
+* The weights of the layers can be learnt efficiently.
 
 ![](DeepNeuralNet.png)
 
@@ -153,8 +155,7 @@ Our thinking is based on two systems:
 * Needed labelled data for training.
 * Narrow: training specific to the task.
 * Had difficulty with long range dependencies, in particular language.
-* Hard to scale up.
-* The above two limitations were due to the use of _Convolutional Neural Networks_, which took advantage of symmetries of space.
+* Hard to scale up, parallelize.
 * Could not go beyond training data.
 
 
@@ -168,7 +169,7 @@ Our thinking is based on two systems:
 
 * We then retain only the mapping of words into space, so _geometry_ captures _associations_.
 
-* We see it is useful to solve synthetic problems:  play, solving exercises.
+* Another lesson is that it is useful to solve synthetic problems:  play, solving exercises.
 
 ---
 

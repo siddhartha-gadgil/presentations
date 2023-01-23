@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Quest for Automating Mathematics</title>
+
+	<meta name="description" content="Kaapi with Kuriosity lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="kwk.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<h2> Quest for</h2>
+				<h2> Automating Mathematics </h2>
+				<h4>Siddhartha Gadgil</h4>
+				<p>Department of Mathematics</p>
+				<p>Indian Institute of Science</p>
+				<p>Bangalore</p>
+				<p><a href="http://math.iisc.ac.in/~gadgil/">http://math.iisc.ac.in/~gadgil/</a></p>
+				<p><a href="https://siddhartha-gadgil.github.io/automating-mathematics/"
+						target="_blank">https://siddhartha-gadgil.github.io/automating-mathematics/</a></p>
+
+
+			</section>
+
+			<section data-transition="slide-in fade-out">
+				<table>
+					<tr>
+						<td><img src="kasparov.jpeg" /></td>
+						<td><img src="deep-blue.jpg" width="200" /></td>
+						<td>1997</td>
+					</tr>
+					<tr class="frag-ment">
+						<td><img src="lee-sedol.jpeg" width="200" /> </td>
+						<td><img src="alphago.webp" width="200" /> </td>
+						<td>2017</td>
+					</tr>
+					<tr>
+						<td class="frag-ment">
+							<img src="Terence_Tao.jpg" height="200" />
+						</td>
+						<td align="center" class="frag-ment"><span class="huge"> ? </span> </td>
+						<td class="frag-ment">
+							Whether?<br>When?<br>How?
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<ul>
+					<li class="fragment"> There is no world champion for mathematics - it is a collaborative endevaour. </li>
+					<li class="fragment"> As is the quest to automate mathematics.</li>
+					<li class="fragment"> Indeed, much of the progress is a by-product of people working towards other goals.</li>
+					<li class="fragment"> Converely, progress towards automating mathematics should lead to other benefits. </li>
+					<li class="fragment"> Especially helping mathematicians, students of mathematics and users of mathematics.</li>
+					<li class="fragment"> And making trains safer.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in slide-out" data-background-color="teal">
+				<h1>(Mathematical) Reasoning</h1>
+			</section>
+
+			<section data-background-color="teal">
+				<h4> A proof: Sum of Angles in a Triangle</h4>
+				<ul>
+					<li class="fragment"> Consider a triangle $ABC$.</li>
+					<img class="fragment" src="angle_sum.png" height="250" />
+					<li class="fragment"> Draw a line through $A$ parallel to $BC$.</li>
+					<li class="fragment"> Use equality of interior opposite angles.</li>
+					<li class="fragment"> Use angles on a line add up to 180 degrees.</li>
+
+				</ul>
+			</section>
+			<section data-background-color="teal">
+				<h4>Another proof: infinitude of primes</h4>
+				<ul>
+					<li class="fragment"> For any $n$, we show that there exists a prime $p$ such that $p > n$.</li>
+					<li class="fragment"> Consider the number $n!+1$</li>
+					<li class="fragment"> Let $p$ be the smallest prime factor of $n!+1$.
+					</li>
+					<li class="fragment"> If $p \leq n$ then $p | n!$ so $p \nmid n!+1$.</li>
+					<li class="fragment"> Hence $p$ is a prime greater than $n$.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4 id="what-went-into-proofs">What went into the proofs</h4>
+				<ul>
+					<li class="fragment">
+						<p>Auxiliary Constructions:</p>
+						<ul>
+							<li class="fragment">the parallel line</li>
+							<li class="fragment">the term $n! + 1$.</li>
+						</ul>
+					</li>
+					<li class="fragment">
+						<p>Theorems/Definitions to use.</p>
+					</li>
+					<li class="fragment">
+						<p>Deductions and Computations.</p>
+					</li>
+					<li class="fragment">
+						<p>The theorems and definitions needed both knowledge of the <strong>precise statement</strong>
+							and the ability to <strong>recognize relevance</strong>.</p>
+					</li>
+				</ul>
+
+			</section>
+
+			<section data-background-color="teal">
+				<h4 id="two-systems-for-thinking">Two systems for Thinking</h4>
+				<p>Our thinking is based on two systems:</p>
+				<ul>
+					<li class="fragment">System 1: Intuitive, Associative, Automatic.
+						<ul>
+							<li class="fragment">handles language, vision, other sensorimotor tasks.</li>
+							<li class="fragment">fast, but error prone.</li>
+						</ul>
+					</li>
+					<li class="fragment">System 2: Analytical, Logical, Controlled.
+						<ul>
+							<li class="fragment">handles reasoning, planning, problem solving.</li>
+							<li class="fragment">slow, but accurate.</li>
+						</ul>
+					</li>
+				</ul>
+
+			</section>
+			<section data-background-color="teal">
+				<h4 id="moravec-paradox">Moravec Paradox</h4>
+				<ul>
+					<li class="fragment">System 1 needs far more raw computational power than System 2.</li>
+					<li class="fragment">Our brain can perform about 100 trillion operations per second (about 100
+						Teraflops) according
+						to Moravec.</li>
+					<li class="fragment">Moravec predicted (in 1997) that computers will reach parity with this in 2040.
+					</li>
+					<li class="fragment">Further, our brain's storage is about 100 terabytes.</li>
+					<li class="fragment">Another way to view this is that our accumulated knowledge, memory, experience,
+						learning etc is
+						stored in 100 trillion weights.</li>
+				</ul>
+			</section>
+			<section data-background-color="teal">
+				<h4 id="why-arent-we-supercomputers">Why aren’t we supercomputers?</h4>
+				<ul>
+					<li class="fragment">A neuron completes between 1 and 200 operations in a second (laptop ≈ 3
+						billion).</li>
+					<li class="fragment">The 100 trillion operations per second the brain performs are massively
+						parallel.</li>
+					<li class="fragment">Logic/Algorithms often cannot be parallelized, e.g. long division.</li>
+					<li class="fragment"> The clock speeds of computers have not increased much in the last 15 years,
+						speedups are by
+						parallelization,
+						especially with <em>Graphics Processing Units</em> (GPUs).</li>
+				</ul>
+			</section>
+			<section data-background-color="teal">
+				<h4 id="computers-today">Computers today</h4>
+				<ul>
+					<li class="fragment">The NVIDIA A100 GPU delivers 312 Teraflops of performance.</li>
+					<li class="fragment">Renting this on Google cloud with this for an year (40 hours a week)
+						costs about the salary of a mathematician in India.</li>
+					<li class="fragment">On the other hand, the RAM on such a GPU is 40 GB; though we can scale this by
+						parallelization.
+					</li>
+					<li class="fragment">The “accumulated knowledge” in the largest AI system (Google’s PaLM) is about
+						540 billion
+						weights, much less than our brain.</li>
+				</ul>
+			</section>
+			<section data-background-color="teal">
+				<h4>Ingredients for doing mathematics</h4>
+				<ul>
+					<li class="fragment"> Accumulation of knowledge:
+						precise (System 2);
+						associations (System 1).
+					<li class="fragment"> Learning to learn (System 1/System 2).
+					<li class="fragment"> Computations and Deductions (System 2).
+					<li class="fragment"> Recognition of relevance (System 1).
+					<li class="fragment"> Constructions based on <strong>Analogy</strong> (System 1).
+					<li class="fragment"> Originality: going beyond the known (System 1/System 2).
+
+				</ul>
+			</section>
+
+			<section data-transition="fade-out">
+				<h4>A concrete prediction</h4>
+				<ul>
+					<li class="fragment">
+						Open bet by Christian Szegedy, Google Research.
+					</li>
+					<li class="fragment">
+						By the year 2029:
+					</li>
+				</ul>
+				<blockquote class="fragment">
+					"A diverse set of 100 graduate text books are automatically formalized/verified in a popular
+					proof
+					assistant (eg Lean). 10% of problems from a preselected 100 open human conjectures is proved
+					completely autonomously."
+				</blockquote>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background="Closepacking.svg"
+				data-background-color="#b5533c" data-state="dimbg">
+				<h1>Computer Proofs</h1>
+				<h2>in the small in</h2>
+				<h1>Mathematics</h1>
+				<h1>&nbsp;</h1>
+				<span class="attribution">
+					<a href="https://commons.wikimedia.org/wiki/File:Closepacking.svg">Cdang Derivative work:
+						Muskid</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via
+					Wikimedia Commons</span>
+			</section>
+
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Some computer-assisted proofs</h4>
+				<ul>
+					<li class="fragment"><strong>Four-colour problem:</strong> Any map can be coloured with at most
+						$4$
+						colours.</li>
+					<li class="fragment"><strong>Kepler Conjecture:</strong> The most efficient way to pack spheres
+						is
+						the hexagonal close packing.</li>
+
+					<li class="fragment"><strong>Smale conjecture</strong> for hyperbolic $3$-manifolds.</li>
+					<li class="fragment">These proofs involved essentially a huge number of calculations of a single
+						type.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4> Robbins conjecture </h4>
+				<ul>
+					<li class="fragment"> <strong>Robbins conjecture</strong> was a conjectural characterization of
+						<em>Boolean algebras</em> in
+						terms of
+						associativity and commutativity of $\vee$ and the Robbins equation
+						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.
+					</li>
+					<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
+						automated theorem prover <strong>EQP</strong>.</li>
+					<li class="fragment"> This was a non-trivial proof by deduction, but where we knew the axioms with
+						which we start.
+					</li>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Boolean Pythagorean triples problem:</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Is it possible to
+						colour
+						the
+						positive integers either red or blue, so that if three integers $a$, $b$, $c$,
+						satisfy $a^{2}+b^{2}=c^{2}$, they are not all the same colour?</li>
+					<li class="fragment">This was asked in the 1980s by Ronald Graham who offered a $100 prize.</li>
+					<li class="fragment">This was solved by Marijn Heule, Oliver Kullmann and Victor W. Marek in May
+						2016 using a <strong>SAT Solver</strong>,
+						a powerful deduction engine for finite problems.</li>
+				</ul>
+			</section>
+
+
+
+
+
+			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
+				<h1 style="color:#fffdd0">Interactive Theorem Provers</h1>
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<ul>
+					<li class="fragment"><em>Interactive Theorem Provers</em> are software systems where proofs are
+						obtained by human-machine
+						collaboration.</li>
+					<li class="fragment">The computer both finds (parts of) proofs and verifies
+						<strong>correctness</strong>.
+					</li>
+					<li class="fragment">These can be used to ensure a super-human level of correctness for mathematics.
+					</li>
+					<li class="fragment">With advances in such systems and their libraries, especially
+						<strong>Lean</strong> and <strong>Mathlib</strong>, one hopes this is without super-human
+						effort.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<h4>Who guards the guards?</h4>
+				<ul>
+					<li class="fragment">
+						A computer verified proof is only as trustworthy as the system that verified the proof.
+					</li>
+					<li class="fragment">
+						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small
+						<em>trusted
+							kernel</em>, which can be thoroughly checked.
+					</li>
+					<li class="fragment">
+						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in
+						three
+						languages.
+					</li>
+					<li class="fragment">
+						In a specific case, one only has to check that the <strong>definitions</strong> and the
+						<strong>statement</strong> are correct, which is typically not hard especially if they use a
+						library.
+					</li>
+				</ul>
+
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<h4>The Liquid Tensor experiment</h4>
+				<ul>
+					<li class="fragment">In December 2020, Peter Scholze challenged the formalization community to
+						computer verify a foundational result he had proved, part of Clausen-Scholze's <em>Condensed
+							Mathematics</em>.</li>
+					<li class="fragment">This was taken up by the Lean community led by Johann Commelin, with active
+						collaboration from Scholze.</li>
+
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<h4>Results of the Experiment</h4>
+				<ul>
+					<li class="fragment">
+						In about six months, a major step, <strong>Theorem 9.4</strong> of the notes was proved.
+					</li>
+					<li class="fragment">
+						Scholze said this was the part where he was worried about, and that he was now satisfied
+						that
+						the correctness of his result was checked.
+					</li>
+					<li class="fragment">
+						About an year later, the origin goal, <strong>Theorem 9.1</strong> was proved in Lean.
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Sums of reciprocals</h4>
+				<ul>
+
+					<li class="fragment">
+						In December 2021, Thomas Bloom proved that any set of natural numbers of positive upper
+						density
+						contains a finite subset whose reciprocals add up to $1$, answering a question of Erdős and
+						Graham.
+					</li>
+					<li class="fragment">
+						While his paper was still under review, Thomas Bloom
+						learnt Lean, and,
+						along with Bhavik Mehta, formalized this theorem in Lean.
+
+					</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Kaplansky's Unit Conjecture</h4>
+				<ul>
+
+					<li class="fragment">
+						About an year ago, Giles Gardam disproved the long-standing <strong>Kaplansky's Unit
+							Conjecture</strong>, which asserted that group rings of torsion-free groups over fields
+						do
+						not have non-trivial units.
+					</li>
+					<li class="fragment">
+						Gardam used a SAT solver to find such non-trivial units for a specific group and the field
+						$\mathbb{F}_2$.
+					</li>
+					<li class="fragment">
+						Anand Rao Tadipatri and I formalized the proof in Lean 4 using its integration of programs and
+						proofs.
+					</li>
+					<li class="fragment">
+						We proved some results that were not formally needed as an extra check on our definitions.
+					</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<ul>
+					<li class="fragment">As these examples show, the effort for formalization of mathematics is rapidly decreasing.</li>
+					<li class="fragment">Beyond checking correctness, mathematics in Lean is much more modular.</li>
+					<li class="fragment">Lean also has powerful automation, which helps formalization.</li>
+					<li class="fragment">All this paves the way (on hopes) for facilitating mathematical discovery.</li>
+
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
+				<h1>&nbsp;</h1>
+				<h1 style="color:#fffdd0">Formal methods</h1>
+				<h2>Mathematical proofs elsewhere</h2>
+				<p>&nbsp;</p>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Formal methods</h4>
+				<ul>
+
+					<li class="fragment">We <strong>specify</strong> (describe) software, hardware etc. in precise
+						mathematical terms.
+					</li>
+					<li class="fragment">We give <strong>mathematical proofs</strong> of correct behavior, which are
+						<strong>computer
+							verified</strong>.
+					</li>
+					<li class="fragment">This gives a much greater certainty of correctness.</li>
+					<li class="fragment">However, proofs are much harder than tests.</li>
+					<li class="fragment">Formal proofs use interactive theorem provers; with better provers we can
+						prove more often.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Do we need <em>completely correct always</em>?</h4>
+
+				<table class="box">
+					<tr class="fragment">
+						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
+						<td>Pentium FDIV Bug</td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
+						<td>Therac 25 radiation machine</td>
+						<td> <span class="fragment"> Safety critical</span> </td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
+						<td>WhatsApp Pegasus attack</td>
+						<td> <span class="fragment"> A bug is a <em>vulnerability</em></span> </td>
+					</tr>
+				</table>
+
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>Some users of formal methods</h4>
+
+				<table class="box">
+					<tr class="fragment">
+						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
+						<td>Intel Chips</td>
+						<td> <span class="fragment"> Fixing an error is very costly </span c></td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
+						<td>Paris driverless metro</td>
+						<td> <span class="fragment"> Safety critical</span> </td>
+					</tr>
+					<tr class="fragment">
+						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
+						<td>Scala dotty compiler</td>
+						<td> <span class="fragment"> A bug is a vulnerability</span> </td>
+					</tr>
+				</table>
+
+			</section>
+
+			<section data-transition="zoom-in concave-out" data-background="alpha-zero.jpg">
+				<h1>&nbsp;</h1>
+				<h2 style="color:#fffdd0">Steps towards</h2>
+				<h1 style="color:#fffdd0">Artificial Intelligence</h1>
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4 id="common-sense">The common sense barrier</h4>
+				<ul>
+					<li class="fragment">We know a lot of things, which we call <em>common sense</em>.</li>
+					<li class="fragment">Further, these pieces of knowledge are organized in a way that they can be combined.</li>
+					<li class="fragment"><strong>Expert Systems</strong> have a lot of knowledge encoded as structured data, functions,
+						algorithms.</li>
+					<li class="fragment">These are purely System 2, i.e., logical/algorithmic/rule-based systems.</li>
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4>Kasparov vs Deep Blue</h4>
+				<ul>
+					<li class="fragment">In 1997, a computer <strong>Deep Blue</strong> defeated the Chess world
+						champion Gary Kasparov.
+					</li>
+					<li class="fragment"> Deep Blue was an <em>Expert system</em>, based on elaborate rules for judging
+						strengths of positions.
+					</li>
+					<li class="fragment">However, Deep Blues was very limited in certain
+						<strong>capabilities</strong>.
+					</li>
+					<li class="fragment"> Kasparov was far better at evaluating strengths of positions than Deep Blue,
+						and in knowing what moves are worth considering (System 1). </li>
+					<li class="fragment"> Deep Blue compensated for this by being able to consider far more move
+						sequences.</li>
+				</ul>
+
+			</section>
+
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4 id="tacit-knowledge">The tacit knowledge barrier</h4>
+				<ul>
+					<li class="fragment">Tacit knowledge is the kind of knowledge that is difficult to transfer to another person by
+						means of writing it down or verbalizing it.</li>
+					<li class="fragment">Examples: riding a bicycle, speaking a language; evaluating positions in chess</li>
+					<li class="fragment">Tacit knowledge is even more important in the chinese game Go.</li>
+					<li class="fragment">Further, in Go the number of legal moves is much larger so brute force is less effective.</li>
+					<li class="fragment">As a result, DeepBlue style expert systems are hopeless at Go.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4>Deep learning</h4>
+				<ul>
+					<li class="fragment">Computers can try to acquire tacit knowledge by
+						<em>learning</em>.
+					</li>
+					<li class="fragment">The idea of computers learning goes back at least to Turing, or even regression in statistics.
+						What was needed was hardware and a system that could learn efficiently: <em>Deep neural
+							networks.</em>
+					</li>
+					<li class="fragment">In a deep neural network the input is transformed into the output through a series of
+						layers.</li>
+					<li class="fragment">Each layer is typically a linear transformation, depending on weights, followed by a simple
+						non-linear function.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<img height="250" src="DeepNeuralNet.png" />
+				<ul>
+					<li class="fragment">Starting about 2012, deep neural networks performed very well in image processing tasks, far
+						above rule-based systems.</li>
+					<li class="fragment">
+
+						It turns out that as the image is processed by successive layers, the raw data gets modified
+						to capture abstraction/meaning.
+					</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4 id="limitations-as-of-about-ten-years-ago">Limitations (≈ 10 years ago)</h4>
+				<ul>
+					<li class="fragment">Needed labelled data for training.</li>
+					<li class="fragment">Narrow: training specific to the task.</li>
+					<li class="fragment">Had difficulty with long range dependencies, in particular language.</li>
+					<li class="fragment">Hard to scale up, parallelize.</li>
+					<li class="fragment">Could not go beyond training data.</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4 id="representation-learning">Representation Learning</h4>
+				<ul>
+					<li class="fragment">
+						<p>In <strong>Word2Vec</strong> we set up the problem of predicting a word given its neighbours.
+						</p>
+					</li>
+					<li class="fragment">
+						<p>We look for solutions of this problem that involve mapping words into space, and predicting
+							from neighbours using the points.</p>
+					</li>
+					<li class="fragment">
+						<p>We then retain only the mapping of words into space, so <em>geometry</em> captures
+							<em>associations</em>.
+						</p>
+					</li>
+					<li class="fragment">
+						<p>Another lesson is that it is useful to solve synthetic problems: play, solving exercises.</p>
+					</li>
+				</ul>
+
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4 id="transfer-learning">Transfer learning</h4>
+				<ul>
+					<li class="fragment">A set of common layers was used for many tasks.</li>
+					<li class="fragment">Some of them could be synthetic.</li>
+					<li class="fragment">This resulted in networks trained for one task needing much less training for a related task.
+					</li>
+				</ul>
+
+			</section>
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4>AlphaGo vs Lee Sedol</h4>
+				<ul>
+					<li class="fragment"> In the chinese game Go, the number of legal moves is large, so
+						<em>trying everything</em> means we cannot look many moves ahead.
+					</li>
+					<li class="fragment"> More importantly, it is very hard to describe a good function giving strength
+						of a position (called a <em>value</em> function).
+					</li>
+					<li class="fragment"> Yet, in March 2016, a Go playing system AlphaGo defeated 18-time world
+						champion Lee Sedol.</li>
+					<li class="fragment"> In January 2017, AlphaGo defeated the world number one Ke Jie
+						comprehensively.
+					</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4>AlphaGo and Learning</h4>
+				<ul>
+					<li class="fragment"> The <em>policy function</em> - which moves to consider - and the value
+						function of AlphaGo are deep neural
+						networks
+						that were
+						trained.
+					</li>
+					<li class="fragment"> The policy network was initially trained by learning to predict the next
+						move
+						from
+						games
+						of expert players (<strong>behaviour cloning</strong>).</li>
+					<li class="fragment"> The value network was trained by AlphaGo playing against versions of
+						itself.
+					</li>
+					<li class="fragment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
+					<li class="fragment"> AlphaGo came up with unexpected moves.</li>
+				</ul>
+			</section>
+
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4>AlphaGo Zero and Alpha Zero</h4>
+				<ul>
+					<li class="fragment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt
+						purely by
+						self play.</li>
+					<li class="fragment">Its successor, <em>AlphaZero</em>, could master a variety of similar games
+						starting with
+						just the rules.</li>
+					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the
+						planet
+						(beating a traditional chess program, Stockfish).</li>
+					<li class="fragment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes
+						piece
+						activity over material, preferring positions that looked risky and aggressive.&rdquo;</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<h4 id="attention-is-all-you-need">“Attention is all you need”</h4>
+				<ul>
+					<li class="fragment">The meaning of a word depends on the context, i.e., other words surrounding it.</li>
+					<li class="fragment">In the <strong>transformer architecture</strong>, this is captured by learning to which other
+						words to pay attention.</li>
+					<li class="fragment">The encoding of words includes position vectors, defined by using harmonics.</li>
+					<li class="fragment">This allowed parallelization and captured long-range dependencies.</li>
+					<li class="fragment">Transformers are used in <strong>AlphaFold 2</strong>, which predicts protein structures on par
+						with experiments.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom" data-background="hills.png">
+				<h1>The Road ahead?</h1>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
+					<li>
+						We have computer systems highly capable in:
+						<table class="fragment">
+							<thead>
+								<tr>
+									<td></td>
+									<th>Intution</th>
+									<th>Deduction</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>Large Scale</th>
+									<td>ChatGPT</td>
+									<td>Lean Prover</td>
+								</tr>
+								<tr>
+									<th>Original</th>
+									<td>AlphaZero</td>
+									<td>SAT Solvers</td>
+								</tr>
+						</table>
+					</li>
+					<li class="fragment">Yet they can get much better.</li>
+					<li class="fragment">
+						More importantly, must make them work together,
+						<ul>
+							<li class="fragment">while doing mathematics and while learning,</li>
+							<li class="fragment">with each other and <strong>with us</strong>.</li>
+						</ul>
+					</li>
+				</ul>
+
+			</section>
+
+
+	</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				//				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+//			Reveal.addEventListener( 'slidechanged', function( event ) {
+//				MathJax.Hub.Rerender();
+//			} );
+
+	</script>
+
+</body>
+
+</html>

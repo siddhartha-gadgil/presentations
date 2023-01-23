@@ -1,0 +1,165 @@
+<h1 id="quest-for-automating-mathematics">Quest for Automating Mathematics</h1>
+<hr />
+<h1 id="a-proof-sum-of-angles-in-a-triangle">A proof: Sum of Angles in a Triangle</h1>
+<ul>
+<li>Consider a triangle <span class="math inline"><em>A</em><em>B</em><em>C</em></span>.</li>
+<li>Draw a line through <span class="math inline"><em>A</em></span> parallel to <span class="math inline"><em>B</em><em>C</em></span>.</li>
+<li>Use equality of interior opposite angles for parallel lines.</li>
+<li>Use the result that angles on a line add up to 180 degrees.</li>
+</ul>
+<p><img src="angle_sum.png" /></p>
+<hr />
+<h1 id="another-proof-infinitude-of-primes">Another proof: infinitude of primes</h1>
+<ul>
+<li>For any <span class="math inline"><em>n</em></span>, we show that there exists a prime <span class="math inline"><em>p</em></span> such that <span class="math inline"><em>p</em> &gt; <em>n</em></span>.</li>
+<li>Consider the number <span class="math inline"><em>n</em>! + 1</span> and let <span class="math inline"><em>p</em></span> be the smallest prime factor of <span class="math inline"><em>n</em>! + 1</span>.</li>
+<li>If <span class="math inline"><em>p</em> ≤ <em>n</em></span> then <span class="math inline"><em>p</em>|<em>n</em>!</span> so <span class="math inline"><em>p</em> ∤ <em>n</em>! + 1</span>.</li>
+<li>Hence <span class="math inline"><em>p</em></span> is a prime greater than <span class="math inline"><em>n</em></span>.</li>
+</ul>
+<hr />
+<h1 id="what-went-into-proofs">What went into proofs</h1>
+<ul>
+<li><p>Auxiliary Constructions:</p>
+<ul>
+<li>the parallel line</li>
+<li>the term <span class="math inline"><em>n</em>! + 1</span></li>
+</ul></li>
+<li><p>Theorems/Definitions to use.</p></li>
+<li><p>Deductions and Computations.</p></li>
+<li><p>The theorems and definitions needed both knowledge of the <strong>precise statement</strong> and the ability to <strong>recognize relevance</strong>.</p></li>
+</ul>
+<hr />
+<h1 id="two-systems-for-thinking">Two systems for Thinking</h1>
+<p>Our thinking is based on two systems:</p>
+<ul>
+<li>System 1: Intuitive, Associative, Automatic.
+<ul>
+<li>handles language, vision, other sensorimotor tasks.</li>
+<li>fast, but error prone.</li>
+</ul></li>
+<li>System 2: Analytical, Logical, Controlled.
+<ul>
+<li>handles reasoning, planning, problem solving.</li>
+<li>slow, but accurate.</li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="moravec-paradox">Moravec Paradox</h1>
+<ul>
+<li>System 1 needs far more raw computational power than System 2.</li>
+<li>Our brain can perform about 100 trillion operations per second (about 100 Teraflops) according to Moravec.</li>
+<li>Moravec predicted (in 1997) that computers will reach parity with this in 2040.</li>
+<li>Further, our brain has storage of about 100 terabytes.</li>
+<li>Another way to view this is that our accumulated knowledge, memory, experience, learning etc is stored in 100 trillion weights.</li>
+</ul>
+<hr />
+<h1 id="why-arent-we-supercomputers">Why aren’t we supercomputers?</h1>
+<ul>
+<li>A neuron completes between 1 and 200 operations in a second while a laptop completes about 3 billion.</li>
+<li>The 100 trillion operations per second the brain performs are achieved by massively parallel computation.</li>
+<li>Logic/Algorithms often cannot be parallelized, e.g. long division.</li>
+<li>With computers, the number of operations per second grew rapidly till about 15 years ago, but then have stopped growing.</li>
+<li>Instead the power has grown through more parallel computation.</li>
+<li>This is especially so with the use of <em>Graphics Processing Units</em> (GPUs), which are used in machine learning.</li>
+</ul>
+<hr />
+<h1 id="computers-today">Computers today</h1>
+<ul>
+<li>The NVIDIA A100 GPU delivers 312 Teraflops of performance.</li>
+<li>Renting a machine on Google cloud with this (and high CPU, RAM) for an year for 40 hours a week costs comparable to the salary of a mathematician in India.</li>
+<li>On the other hand, the RAM on such a GPU is 40 GB; though we can scale this by having parallel GPUs.</li>
+<li>The “accumulated knowledge” in the largest AI system (Google’s PaLM) is about 540 billion weights, much less than our brain.</li>
+</ul>
+<h1 id="sections-from-talks">Sections from Talks</h1>
+<ul>
+<li>Computer proofs in Mathematics</li>
+<li>Interactive Theorem Provers</li>
+<li>Formal Methods</li>
+</ul>
+<hr />
+<h1 id="artificial-intelligence-limitations-and-advances">Artificial Intelligence: Limitations and Advances</h1>
+<hr />
+<h1 id="common-sense">The common sense barrier</h1>
+<ul>
+<li>We know a lot of things, which we call <em>common sense</em>.</li>
+<li>Further, these pieces of knowledge are organized in a way that they can be combined.</li>
+<li><strong>Expert Systems</strong> consist of:
+<ul>
+<li>a lot of knowledge encoded as structured data, functions, algorithms.</li>
+<li><h2 id="fast-algorithms-for-reasoning.">fast algorithms for reasoning.</h2>
+<h1 id="deepblue-vs-kasparov">DeepBlue vs Kasparov</h1></li>
+</ul></li>
+</ul>
+<hr />
+<h1 id="tacit-knowledge">The tacit knowledge barrier</h1>
+<ul>
+<li>Tacit knowledge is the kind of knowledge that is difficult to transfer to another person by means of writing it down or verbalizing it.</li>
+<li>Examples: riding a bicycle, speaking a language.</li>
+<li>Such knowledge cannot be communicated as programs or to expert systems, but computers can try to <em>learn</em>.</li>
+<li>The idea of computers learning goes back at least to Turing, or even regression in statistics.</li>
+<li><h2 id="what-was-needed-was-hardware-and-a-system-that-could-learn-efficiently.">What was needed was hardware and a system that could learn efficiently.</h2></li>
+</ul>
+<h1 id="deep-learning-systems">Deep Learning systems</h1>
+<ul>
+<li>In a deep neural network the input is transformed into the output by passing through a series of layers.</li>
+<li>Each layer is typically a linear transformation, depending on weights, followed by a simple non-linear function.</li>
+<li>The weights of the layers can be learnt efficiently.</li>
+</ul>
+<p><img src="DeepNeuralNet.png" /></p>
+<hr />
+<ul>
+<li>Starting about 2012, deep neural networks performed very well in image processing tasks, far above rule-based systems.</li>
+</ul>
+<p><img src="DeepNeuralNet.png" /></p>
+<ul>
+<li><h2 id="it-turns-out-that-as-the-image-is-processed-by-successive-layers-the-raw-data-gets-modified-to-capture-abstractionmeaning.">It turns out that as the image is processed by successive layers, the raw data gets modified to capture abstraction/meaning.</h2></li>
+</ul>
+<h1 id="limitations-as-of-about-ten-years-ago">Limitations as of about ten years ago</h1>
+<ul>
+<li>Needed labelled data for training.</li>
+<li>Narrow: training specific to the task.</li>
+<li>Had difficulty with long range dependencies, in particular language.</li>
+<li>Hard to scale up, parallelize.</li>
+<li>Could not go beyond training data.</li>
+</ul>
+<hr />
+<h1 id="representation-learning">Representation Learning</h1>
+<ul>
+<li><p>In <strong>Word2Vec</strong> we set up the problem of predicting a word given its neighbours.</p></li>
+<li><p>We look for solutions of this problem that involve mapping words into space, and predicting from neighbours using the points.</p></li>
+<li><p>We then retain only the mapping of words into space, so <em>geometry</em> captures <em>associations</em>.</p></li>
+<li><p>Another lesson is that it is useful to solve synthetic problems: play, solving exercises.</p></li>
+</ul>
+<hr />
+<h1 id="transfer-learning">Transfer learning</h1>
+<ul>
+<li>A set of common layers was used for many tasks.</li>
+<li>Some of them could be synthetic.</li>
+<li>This resulted in networks trained for one task needing much less training for a related task.</li>
+</ul>
+<hr />
+<h1 id="alphazero">AlphaZero</h1>
+<hr />
+<h1 id="attention-is-all-you-need">“Attention is all you need”</h1>
+<ul>
+<li>The meaning of a word depends on the context, i.e., other words surrounding it.</li>
+<li>In the <strong>transformer architecture</strong>, this is captured by learning to which other words to pay attention.</li>
+<li>The encoding of words includes position vectors, defined by using harmonics.</li>
+<li>This allowed parallelization and captured long-range dependencies.</li>
+<li>Transformers are used in AlphaFold 2 which predicts protein structures on par with experiments.</li>
+</ul>
+<h1 id="the-way-ahead">The way ahead</h1>
+<ul>
+<li><p>We have systems that are</p>
+<ul>
+<li>System I and System II</li>
+<li>Original and Scalable</li>
+</ul>
+<p>but not with the same system.</p></li>
+<li><p>We must make them work together</p>
+<ul>
+<li>while doing mathematics</li>
+<li>while learning</li>
+<li>with each other <strong>and with us.</strong></li>
+</ul></li>
+</ul>
