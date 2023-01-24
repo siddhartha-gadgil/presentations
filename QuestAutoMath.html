@@ -84,7 +84,7 @@
 
 			<section>
 				<ul>
-					<li class="fragment"> There is no world champion for mathematics - it is a collaborative endevaour. </li>
+					<li> There is no world champion for mathematics - it is a collaborative endevaour. </li>
 					<li class="fragment"> As is the quest to automate mathematics.</li>
 					<li class="fragment"> Indeed, much of the progress is a by-product of people working towards other goals.</li>
 					<li class="fragment"> Converely, progress towards automating mathematics should lead to other benefits. </li>
@@ -109,10 +109,10 @@
 				</ul>
 			</section>
 			<section data-background-color="teal">
-				<h4>Another proof: infinitude of primes</h4>
+				<h4>Another proof: infinitely many primes</h4>
 				<ul>
 					<li class="fragment"> For any $n$, we show that there exists a prime $p$ such that $p > n$.</li>
-					<li class="fragment"> Consider the number $n!+1$</li>
+					<li class="fragment"> Consider the number $n!+1$, where $n! = 1 \times 2 \times \dots \times n$.</li>
 					<li class="fragment"> Let $p$ be the smallest prime factor of $n!+1$.
 					</li>
 					<li class="fragment"> If $p \leq n$ then $p | n!$ so $p \nmid n!+1$.</li>
@@ -147,7 +147,7 @@
 
 			<section data-background-color="teal">
 				<h4 id="two-systems-for-thinking">Two systems for Thinking</h4>
-				<p>Our thinking is based on two systems:</p>
+				<p class="fragment">Our thinking is based on two systems:</p>
 				<ul>
 					<li class="fragment">System 1: Intuitive, Associative, Automatic.
 						<ul>
@@ -287,7 +287,7 @@
 			</section>
 
 			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>Boolean Pythagorean triples problem:</h4>
+				<h4>Boolean Pythagorean triples problem</h4>
 				<ul>
 					<li class="fragment"><strong>Problem:</strong> Is it possible to
 						colour
@@ -311,16 +311,28 @@
 
 			<section data-transition="concave" data-background-color="#002b36">
 				<ul>
-					<li class="fragment"><em>Interactive Theorem Provers</em> are software systems where proofs are
+					<li><em>Interactive Theorem Provers</em> are software systems where proofs are
 						obtained by human-machine
 						collaboration.</li>
 					<li class="fragment">The computer both finds (parts of) proofs and verifies
 						<strong>correctness</strong>.
 					</li>
-					<li class="fragment">These can be used to ensure a super-human level of correctness for mathematics.
+					<li class="fragment">With interactive theorem provers, mathematics on a large scale can be digitied (<em>formalized</em>) in a modular fashion, with the automation greatly facilitating this.
 					</li>
-					<li class="fragment">With advances in such systems and their libraries, especially
-						<strong>Lean</strong> and <strong>Mathlib</strong>, one hopes this is without super-human
+					<li class="fragment">Indeed the <em>Lean Mathematical Library</em> has most undergraduate mathematics in it, and some advanced topics.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<ul>
+					<li>As more mathematics is in such libraries, it becomes easier and more enjoyable to formalize even more.</li>
+					<li class="fragment">This should open the way for automation of mathematics on large scale.
+					</li>
+					<li class="fragment">Lean 4 is a programming language seamlessly integrated with an interactive theorem prover.</li>
+					<li class="fragment">For now, the main application of Lean and friends is to ensure a super-human level of correctness for mathematics.
+					</li>
+					<li class="fragment"> One hopes this is without super-human
 						effort.
 					</li>
 				</ul>
@@ -338,9 +350,8 @@
 							kernel</em>, which can be thoroughly checked.
 					</li>
 					<li class="fragment">
-						For example, the <em>lean theorem prover</em> has three (small) proof checkers written in
-						three
-						languages.
+						For example, the <em>lean theorem prover</em> has four (small) proof checkers written in
+						four languages.
 					</li>
 					<li class="fragment">
 						In a specific case, one only has to check that the <strong>definitions</strong> and the
@@ -426,8 +437,8 @@
 
 			<section data-background-color="#002b36">
 				<ul>
-					<li class="fragment">As these examples show, the effort for formalization of mathematics is rapidly decreasing.</li>
-					<li class="fragment">Beyond checking correctness, mathematics in Lean is much more modular.</li>
+					<li>As these examples show, the effort for formalization of mathematics is rapidly decreasing.</li>
+					<li class="fragment">Mathematics in Lean is much better organized than the human literature.</li>
 					<li class="fragment">Lean also has powerful automation, which helps formalization.</li>
 					<li class="fragment">All this paves the way (on hopes) for facilitating mathematical discovery.</li>
 
@@ -548,7 +559,7 @@
 				<ul>
 					<li class="fragment">Tacit knowledge is the kind of knowledge that is difficult to transfer to another person by
 						means of writing it down or verbalizing it.</li>
-					<li class="fragment">Examples: riding a bicycle, speaking a language; evaluating positions in chess</li>
+					<li class="fragment">Examples: riding a bicycle, speaking a language; evaluating positions in chess.</li>
 					<li class="fragment">Tacit knowledge is even more important in the chinese game Go.</li>
 					<li class="fragment">Further, in Go the number of legal moves is much larger so brute force is less effective.</li>
 					<li class="fragment">As a result, DeepBlue style expert systems are hopeless at Go.</li>
@@ -621,7 +632,7 @@
 				<h4 id="transfer-learning">Transfer learning</h4>
 				<ul>
 					<li class="fragment">A set of common layers was used for many tasks.</li>
-					<li class="fragment">Some of them could be synthetic.</li>
+					<li class="fragment">Some of the tasks could be synthetic (exercises).</li>
 					<li class="fragment">This resulted in networks trained for one task needing much less training for a related task.
 					</li>
 				</ul>
@@ -690,10 +701,11 @@
 					<li class="fragment">The meaning of a word depends on the context, i.e., other words surrounding it.</li>
 					<li class="fragment">In the <strong>transformer architecture</strong>, this is captured by learning to which other
 						words to pay attention.</li>
-					<li class="fragment">The encoding of words includes position vectors, defined by using harmonics.</li>
 					<li class="fragment">This allowed parallelization and captured long-range dependencies.</li>
-					<li class="fragment">Transformers are used in <strong>AlphaFold 2</strong>, which predicts protein structures on par
-						with experiments.</li>
+					<li class="fragment">Transformers are used in <strong>AlphaFold 2</strong>.</li>
+					<li class="fragment">It turned out that one could do massive training with transformers, and the models kept getting better; 
+						<span class="fragment">giving GPT-3, Dall-E , Imagen, chatGPT, ...</span>
+					</li>
 				</ul>
 			</section>
 
@@ -710,17 +722,17 @@
 								<tr>
 									<td></td>
 									<th>Intution</th>
-									<th>Deduction</th>
+									<th>Precise Reasoning</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<th>Large Scale</th>
+									<th>Scalability</th>
 									<td>ChatGPT</td>
 									<td>Lean Prover</td>
 								</tr>
 								<tr>
-									<th>Original</th>
+									<th> Originality</th>
 									<td>AlphaZero</td>
 									<td>SAT Solvers</td>
 								</tr>
