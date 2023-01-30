@@ -52,7 +52,7 @@
 				<h3> Kaplansky's Unit Conjecture </h3>
 				<h5 class="highlight">Siddhartha Gadgil</h5>
 				<p>Indian Institute of Science</p>
-				<h5 class="highlight">  Anand Rao Tadipatri </h5>
+				<h5 class="highlight"> Anand Rao Tadipatri </h5>
 				<p>IISER, Pune</p>
 
 			</section>
@@ -62,14 +62,15 @@
 				<h2> Group Rings </h2>
 				<h4>and</h4>
 				<h2>The Unit Conjecture</h2>
-				
+
 			</section>
 
 
 			<section data-transition="convex" data-background-color="teal">
 				<ul>
-					<li>Group rings are analogues of polynomials, or better still <em>Laurent polynomials</em>, i.e., finite sums 
-					$$\sum_{i=1}^n a_i x^{n_i}$$</li>
+					<li>Group rings are analogues of polynomials, or better still <em>Laurent polynomials</em>, i.e.,
+						finite sums
+						$$\sum_{i=1}^n a_i x^{n_i}$$</li>
 					<li>We take $a_i$ to be elements of a <em>field</em>.</li>
 					<li>Observe that, by considering degrees, for two Laurent polynomials $p(x)$ and $q(x)$:
 						<ul>
@@ -85,10 +86,11 @@
 				<ul>
 					<li>Fix a group $G$ and a ring $R$.</li>
 					<li>The group ring $R[G]$ is the set of formal sums $$\sum_{i=1}^n a_i g_i$$
-						
+
 					</li>
-					<li>We multiply bilinearly extending $G$: 
-						$$(\sum_{i=1}^k a_i g_i)\cdot (\sum_{j=1}^l b_j h_j) = \sum_{i=1}^k\sum_{j=1}^l (a_ib_j)(g_ih_j)$$
+					<li>We multiply bilinearly extending $G$:
+						$$(\sum_{i=1}^k a_i g_i)\cdot (\sum_{j=1}^l b_j h_j) = \sum_{i=1}^k\sum_{j=1}^l
+						(a_ib_j)(g_ih_j)$$
 					</li>
 				</ul>
 			</section>
@@ -96,8 +98,11 @@
 			<section data-transition="convex" data-background-color="teal">
 				<h4>Why Group Rings</h4>
 				<ul>
-					<li>Any vector space $V$ over $k$ with a linear group of symmetries $G$ forms a <strong> $k[G]$-module</strong>.</li>
-					<li>Linear transformations respecting symmetries are given by matrices with entries in the group ring $k[G]$.</li>
+					<li>Any vector space $V$ over $k$ with a linear group of symmetries $G$ forms a <strong>
+							$k[G]$-module</strong>.</li>
+					<li>Linear transformations respecting symmetries are given by matrices with entries in the group
+						ring $k[G]$.</li>
+					<li>For example, chain groups of Galois covers of topological spaces give $k[G]$-modules. </li>
 					<li>Many fundamental topological invariants, for example, are derived from these matrices.</li>
 				</ul>
 			</section>
@@ -105,20 +110,23 @@
 			<section data-transition="convex" data-background-color="teal">
 				<ul>
 					<li>We consider group rings over fields $k$.</li>
-					<li>If an element $g\in G$ is torsion, i.e., $g^n=e$ for some $n>1$, then we have $0$-divisors in $k[G]$ as 
-							$$(1-g)(1 + g + \dots + g^{n-1}) = 1 - g^n = 0.$$
+					<li>If an element $g\in G$ is torsion, i.e., $g^n=e$ for some $n>1$, then we have $0$-divisors in
+						$k[G]$ as
+						$$(1-g)(1 + g + \dots + g^{n-1}) = 1 - g^n = 0.$$
 					</li>
 					<li>
-						Similarly, for many groups with torsion, $k[G]$ has <em>non-trivial</em> units, i.e., units not of the form $a\cdot g$.
+						Similarly, for many groups with torsion, $k[G]$ has <em>non-trivial</em> units, i.e., units not
+						of the form $a\cdot g$.
 					</li>
-					<li>Kaplansky conjectures: if $G$ is <strong>torsion-free</strong>, $k[G]$ has <strong>no zero divisors</strong> and <strong>no non-trivial units</strong>.</li>
+					<li>Kaplansky conjectures: if $G$ is <strong>torsion-free</strong>, $k[G]$ has <strong>no zero
+							divisors</strong> and <strong>no non-trivial units</strong>.</li>
 					<li>These are also related to fundamental questions in topology, K-theory etc.</li>
 				</ul>
 			</section>
 
 			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
 				<h2 class="highlight">Gardam's Theorem</h2>
-				
+
 			</section>
 
 			<section data-background="#b5533c">
@@ -127,7 +135,8 @@
 					<li>Thus,
 						<ul>
 							<li>For the field $k=\mathbb{F}_2$ with $2$ elements.</li>
-							<li>For a certain group $P$, called the <em>Promislow</em> or <em>Hantzsche–Wendt</em> group.</li>
+							<li>For a certain group $P$, called the <em>Promislow</em> or <em>Hantzsche–Wendt</em>
+								group.</li>
 							<li>We have elements $\alpha, \alpha'\in \mathbb{F}_2[P]$ with $\alpha\cdot\alpha'=1$. </li>
 							<li>$\alpha$ is not of the form $a\cdot g$.</li>
 							<li>$P$ is <strong>torsion free.</strong></li>
@@ -138,100 +147,191 @@
 
 			<section data-background="#b5533c">
 				<ul>
-					<li>The group $P$ is a <em>Metabelian Group</em>, i.e., a group $G$ with an <em>abelian normal subgroup</em> $K$ so that the quotient $Q=G/K$ is also abelian.</li>
-					<li>As a set the Metabelian group $G$ is $G = K \times Q$.</li>
-					<li>As a group $G$ is determined by 
+					<li>
+						There are many descriptions of the group $P$ -- indeed Gardam gave several.
+					</li>
+					<li>
+						One description is as the fundamental group of a $3$-manifold obtained by gluing two copies of
+						the orientable twisted $I$-bundle over the Klein bottle.
+					</li>
+					<li>
+						The above gives a description as a \emph{Cystallographic group}.
+					</li>
+					<li>
+						For our formalization, the most convenient was an explicit description as a <em>Metabelian
+							group</em>.
+					</li>
+				</ul>
+			</section>
+
+			<section data-background="#b5533c">
+				<h4>Metabelian Groups</h4>
+				<ul>
+					<li>A <em>Metabelian group</em> is a group $G$ with
 						<ul>
-							<li>The abelian groups $K$ and $Q$.</li>
-							<li>A <em>group action</em> of $Q$ on $K$, induced by conjugation in $G$.</li>
-							<li>A <em>co-cycle</em> $c: Q \times Q \to K$.</li>
+							<li>An abelian normal subgroup $K$,</li>
+							<li>so that the quotient $Q$ is also abelian.</li>
 						</ul>
+					</li>
+					<li>The simplest examples of such groups are the products $K \times Q$.</li>
+					<li>The permutation group $S_3$ is metabelian with $K\cong\mathbb{Z}/3$ and $Q \cong \mathbb{Z}/2$.
+					</li>
+					<li>The group $\mathbb{Z}$ has such a description with $K=2\mathbb{Z}$ and $Q\cong \mathbb{Z}/2$.
 					</li>
 				</ul>
 			</section>
 
 			<section data-background="#b5533c">
 				<ul>
-					<li>
-						Torsion-freeness of $P$ follows from:
-						<ul>
-							<li>If $g\in P$ is a torsion element then so is $g^2$.</li>
-							<li>For all $g\in P$, $g^2=e$ implies $g=e$.</li>
-							<li>For all $g\in P$, $g^2 \in K$.</li>
-							<li>$K$ is torsion free.</li>
-						</ul>
+					<li>Let $G$ be a metabelian group with abelian normal subgroup $K$ and quotient $\varphi: G \to Q$.
 					</li>
-					<li>
-						As $\alpha$ and $\alpha'$ were given explicitly by Gardam, $\alpha\cdot\alpha'=1$ can be checked by a computation; provided the group ring is constructed in a manner that equality is <strong>Decidable</strong>.
+					<li>By choosing coset representatives, we have a function $\sigma: Q \to G$ (called a
+						<em>section</em>) so that $\varphi\circ\sigma$ is the identity on $Q$.</li>
+					<li>Each element in $G$ is uniquely of the form $k\cdot\sigma(q)$, giving an identification $G = K
+						\times Q$ with $(k, q)\equiv k\cdot \sigma(q)$.</li>
+					<li>Choosing the section with $\sigma(0)$ the identity, we have $(k, 0)\cdot (k', 0) = (k + k', 0)$.
 					</li>
-					
 				</ul>
 			</section>
-
-			<section data-transition="zoom-in slide-out" data-background-image="sea.jpg">
-				<h2 class="highlight">Decidability:</h2>
-				<h2 class="highlight">Free modules, Enumeration, Bases</h2>
-			</section>
-
-			<section data-transition="concave" data-background-color="#002b36">
+			<section data-background="#b5533c">
 				<ul>
 					<li>
-						We construct free modules $R[X]$ so that
-						<ul>
-							<li>If equality is <em>decidable</em> for $R$ and $X$, it is for $R[X]$ &ndash; even when $X$ is infinite.</li>
-							<li>
-								$R$-module homomorphisms on $R[X]$ are induced by functions on $X$.
-							</li>
-						</ul>
+						In cases like $S_3$, the section $\sigma$ can be chosen to be a
+						<em>homomorphism</em>(<em>split</em> extensions).
 					</li>
 					<li>
-						We also use <em>type-classes</em> to automatically create decision procedures:
-						<ul>
-							<li>for properties on finite sets;</li>
-							<li>for equality of homomorphisms on finitely generated free abelian groups.</li>
-						</ul> 
+						In this case, we also have (identifying $\sigma(q)\equiv q$) $(0, q)\cdot (0, q') = (0, q +
+						q')$.
+					</li>
+					<li>By our identification $(k, 0)\cdot (0, q) = (k, q)$;
+						however, we do not have $(0, q)\cdot (k, 0) = (k , q)$; .
+					</li>
+					<li>
+						Instead we get a <em>group action</em> of $Q$ on $K$ given by $q\cdot k = (0, q)\cdot (k, 0)
+						\cdot (0, q)^{-1}$.
+					</li>
+					<li>
+						Conversely, given a group action we get a group $G = K \times Q$ with product
+						$(k, q)\cdot (k', q') = (k + q\cdot k', q + q')$.
 					</li>
 				</ul>
 			</section>
 
-			<script src="js/reveal.js"></script>
+			<section data-background="#b5533c">
+				<ul>
+					<li>In general $\sigma$ is not a homomorphism.</li>
+					<li>We can measure the failure $\sigma$ is not a homomorphism by considering $c(q, q') := \sigma(q +
+						q')\cdot(\sigma(q)\sigma(q'))^{-1}$.</li>
+					<li>As $\sigma$ is a section, we deduce $c(q, q')\in K\subset G$, so $c: Q \times Q \to K$.</li>
+					<li>Associativity implies that $c$ is a <em>cocyle</em>.</li>
+					<li>Given a group action and a cocyle, we get a <strong>group structure</strong> on $K\times Q$ with
+						product $(k, q)\cdot (k', q') = (k + q\cdot k' + c(q, q'), q+ q').$ </li>
+					<li>Changing the section changes the cocycle by a <em>couboundary</em>. </li>
+				</ul>
+			</section>
+			<section data-background="#b5533c">
+				<h4>The group $P$</h4>
+				<ul>
+					<li>The group $P$ is metabelian with $K\cong \mathbb{Z}^3$ and $Q\cong \mathbb{Z}/2\oplus\mathbb{Z}/2$.</li>
+					<li>Gardam gives an explicit description of the group action and the cocyle.</li>
+					<li>Thus, we need to formalize:
+						<ul>
+							<li>A general result that given $K$, $Q$, a group action and a cocycle we get a group.</li>
+							<li>In the case of $P$, the result that the given formulas give a group action and a cocycle.</li>
+						</ul>
+					</li>
+					<li>
+						Concrete descriptions are also used to prove torsion-freeness.
+					</li>
+				</ul>
+			</section>
 
-			<script>
-
-				// Full list of configuration options available at:
-				// https://github.com/hakimel/reveal.js#configuration
-				Reveal.initialize({
-					controls: true,
-					progress: true,
-					history: true,
-					center: true,
-
-					transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 
-					math: {
-						mathjax: '../MathJax/MathJax.js',
-						// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-						config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
-					},
+				<section data-background="#b5533c">
+					<ul>
+						<li>
+							Torsion-freeness of $P$ follows from:
+							<ul>
+								<li>If $g\in P$ is a torsion element then so is $g^2$.</li>
+								<li>For all $g\in P$, $g^2 \in K \cong \mathbb{Z}^3$; which is torsion free.</li>
+								<li>For all $g\in P$, $g^2=e$ implies $g=e$; using explicit formulas for $g^2=(k, q)^2$ for the four values of $q\in Q\cong \mathbb{Z}/2\oplus\mathbb{Z}/2$.</li>
+							</ul>
+						</li>
+						<li>
+							As $\alpha$ and $\alpha'$ were given explicitly by Gardam, $\alpha\cdot\alpha'=1$ can be
+							checked by a computation; provided the group ring is constructed in a manner that equality
+							is <strong>Decidable</strong>.
+						</li>
 
-					// Optional reveal.js plugins
-					dependencies: [
-						{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
-						{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-						{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-						{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
-						{ src: 'plugin/zoom-js/zoom.js', async: true },
-						{ src: 'plugin/notes/notes.js', async: true },
-						{ src: 'plugin/math/math.js', async: true }
-					]
-				});
+					</ul>
+				</section>
+
+				<section data-transition="zoom-in slide-out" data-background-image="sea.jpg">
+					<h2 class="highlight">Decidability:</h2>
+					<h2 class="highlight">Free modules, Enumeration, Bases</h2>
+				</section>
+
+				<section data-transition="concave" data-background-color="#002b36">
+					<ul>
+						<li>
+							We construct free modules $R[X]$ so that
+							<ul>
+								<li>If equality is <em>decidable</em> for $R$ and $X$, it is for $R[X]$ &ndash; even
+									when $X$ is infinite.</li>
+								<li>
+									$R$-module homomorphisms on $R[X]$ are induced by functions on $X$.
+								</li>
+							</ul>
+						</li>
+						<li>
+							We also use <em>type-classes</em> to automatically create decision procedures:
+							<ul>
+								<li>for properties on finite sets;</li>
+								<li>for equality of homomorphisms on finitely generated free abelian groups.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<script src="js/reveal.js"></script>
+
+				<script>
+
+					// Full list of configuration options available at:
+					// https://github.com/hakimel/reveal.js#configuration
+					Reveal.initialize({
+						controls: true,
+						progress: true,
+						history: true,
+						center: true,
+
+						transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+
+						math: {
+							mathjax: '../MathJax/MathJax.js',
+							// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+							config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+						},
+
+						// Optional reveal.js plugins
+						dependencies: [
+							{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+							{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+							{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+							{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+							{ src: 'plugin/zoom-js/zoom.js', async: true },
+							{ src: 'plugin/notes/notes.js', async: true },
+							{ src: 'plugin/math/math.js', async: true }
+						]
+					});
 
 //			Reveal.addEventListener( 'slidechanged', function( event ) {
 //				MathJax.Hub.Rerender();
 //			} );
 
-			</script>
+				</script>
 
 </body>
 
