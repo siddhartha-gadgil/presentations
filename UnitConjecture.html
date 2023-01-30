@@ -186,7 +186,8 @@
 					<li>Let $G$ be a metabelian group with abelian normal subgroup $K$ and quotient $\varphi: G \to Q$.
 					</li>
 					<li>By choosing coset representatives, we have a function $\sigma: Q \to G$ (called a
-						<em>section</em>) so that $\varphi\circ\sigma$ is the identity on $Q$.</li>
+						<em>section</em>) so that $\varphi\circ\sigma$ is the identity on $Q$.
+					</li>
 					<li>Each element in $G$ is uniquely of the form $k\cdot\sigma(q)$, giving an identification $G = K
 						\times Q$ with $(k, q)\equiv k\cdot \sigma(q)$.</li>
 					<li>Choosing the section with $\sigma(0)$ the identity, we have $(k, 0)\cdot (k', 0) = (k + k', 0)$.
@@ -232,12 +233,14 @@
 			<section data-background="#b5533c">
 				<h4>The group $P$</h4>
 				<ul>
-					<li>The group $P$ is metabelian with $K\cong \mathbb{Z}^3$ and $Q\cong \mathbb{Z}/2\oplus\mathbb{Z}/2$.</li>
+					<li>The group $P$ is metabelian with $K\cong \mathbb{Z}^3$ and $Q\cong
+						\mathbb{Z}/2\oplus\mathbb{Z}/2$.</li>
 					<li>Gardam gives an explicit description of the group action and the cocyle.</li>
 					<li>Thus, we need to formalize:
 						<ul>
 							<li>A general result that given $K$, $Q$, a group action and a cocycle we get a group.</li>
-							<li>In the case of $P$, the result that the given formulas give a group action and a cocycle.</li>
+							<li>In the case of $P$, the result that the given formulas give a group action and a
+								cocycle.</li>
 						</ul>
 					</li>
 					<li>
@@ -248,90 +251,93 @@
 
 
 
-				<section data-background="#b5533c">
-					<ul>
-						<li>
-							Torsion-freeness of $P$ follows from:
-							<ul>
-								<li>If $g\in P$ is a torsion element then so is $g^2$.</li>
-								<li>For all $g\in P$, $g^2 \in K \cong \mathbb{Z}^3$; which is torsion free.</li>
-								<li>For all $g\in P$, $g^2=e$ implies $g=e$; using explicit formulas for $g^2=(k, q)^2$ for the four values of $q\in Q\cong \mathbb{Z}/2\oplus\mathbb{Z}/2$.</li>
-							</ul>
-						</li>
-						<li>
-							As $\alpha$ and $\alpha'$ were given explicitly by Gardam, $\alpha\cdot\alpha'=1$ can be
-							checked by a computation; provided the group ring is constructed in a manner that equality
-							is <strong>Decidable</strong>.
-						</li>
+			<section data-background="#b5533c">
+				<ul>
+					<li>
+						Torsion-freeness of $P$ follows from:
+						<ul>
+							<li>If $g\in P$ is a torsion element then so is $g^2$.</li>
+							<li>For all $g\in P$, $g^2 \in K \cong \mathbb{Z}^3$; which is torsion free.</li>
+							<li>For all $g\in P$, $g^2=e$ implies $g=e$; using explicit formulas for $g^2=(k, q)^2$ for
+								the four values of $q\in Q\cong \mathbb{Z}/2\oplus\mathbb{Z}/2$.</li>
+						</ul>
+					</li>
+					<li>
+						As $\alpha$ and $\alpha'$ were given explicitly by Gardam, $\alpha\cdot\alpha'=1$ can be
+						checked by a computation; provided the group ring is constructed in a manner that equality
+						is <strong>Decidable</strong>.
+					</li>
 
-					</ul>
-				</section>
+				</ul>
+			</section>
 
-				<section data-transition="zoom-in slide-out" data-background-image="sea.jpg">
-					<h2 class="highlight">Decidability:</h2>
-					<h2 class="highlight">Free modules, Enumeration, Bases</h2>
-				</section>
+			<section data-transition="zoom-in slide-out" data-background-image="sea.jpg">
+				<h2 class="highlight">Decidability:</h2>
+				<h2 class="highlight">Free modules, Enumeration, Bases</h2>
+			</section>
 
-				<section data-transition="concave" data-background-color="#002b36">
-					<ul>
-						<li>
-							We construct free modules $R[X]$ so that
-							<ul>
-								<li>If equality is <em>decidable</em> for $R$ and $X$, it is for $R[X]$ &ndash; even
-									when $X$ is infinite.</li>
-								<li>
-									$R$-module homomorphisms on $R[X]$ are induced by functions on $X$.
-								</li>
-							</ul>
-						</li>
-						<li>
-							We also use <em>type-classes</em> to automatically create decision procedures:
-							<ul>
-								<li>for properties on finite sets;</li>
-								<li>for equality of homomorphisms on finitely generated free abelian groups.</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
+			<section data-transition="concave" data-background-color="#002b36">
+				<ul>
+					<li>
+						We construct free modules $R[X]$ so that
+						<ul>
+							<li>If equality is <em>decidable</em> for $R$ and $X$, it is for $R[X]$ &ndash; even
+								when $X$ is infinite.</li>
+							<li>
+								$R$-module homomorphisms on $R[X]$ are induced by functions on $X$.
+							</li>
+						</ul>
+					</li>
+					<li>
+						We also use <em>type-classes</em> to automatically create decision procedures:
+						<ul>
+							<li>for properties on finite sets;</li>
+							<li>for equality of homomorphisms on finitely generated free abelian groups.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
 
-				<script src="js/reveal.js"></script>
+		</div>
+	</div>
+	<script src="js/reveal.js"></script>
 
-				<script>
+	<script>
 
-					// Full list of configuration options available at:
-					// https://github.com/hakimel/reveal.js#configuration
-					Reveal.initialize({
-						controls: true,
-						progress: true,
-						history: true,
-						center: true,
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
 
-						transition: 'slide', // none/fade/slide/convex/concave/zoom
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 
-						math: {
-							mathjax: '../MathJax/MathJax.js',
-							// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-							config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
-						},
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
 
-						// Optional reveal.js plugins
-						dependencies: [
-							{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
-							{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-							{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-							{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
-							{ src: 'plugin/zoom-js/zoom.js', async: true },
-							{ src: 'plugin/notes/notes.js', async: true },
-							{ src: 'plugin/math/math.js', async: true }
-						]
-					});
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
 
 //			Reveal.addEventListener( 'slidechanged', function( event ) {
 //				MathJax.Hub.Rerender();
 //			} );
 
-				</script>
+	</script>
 
 </body>
 
