@@ -100,8 +100,7 @@
 				<ul>
 					<li>Any vector space $V$ over $k$ with a linear group of symmetries $G$ forms a <strong>
 							$k[G]$-module</strong>.</li>
-					<li>Linear transformations respecting symmetries are given by matrices with entries in the group
-						ring $k[G]$.</li>
+					<li>Linear transformations respecting symmetries are given by matrices with entries in  $k[G]$.</li>
 					<li>For example, chain groups of Galois covers of topological spaces give $k[G]$-modules. </li>
 					<li>Many fundamental topological invariants, for example, are derived from these matrices.</li>
 				</ul>
@@ -132,7 +131,7 @@
 			<section data-background="#b5533c">
 				<ul>
 					<li><strong>Theorem (Gardam)</strong> Kaplansky's unit conjecture is false.</li>
-					<li>Thus,
+					<li>More concretely:
 						<ul>
 							<li>For the field $k=\mathbb{F}_2$ with $2$ elements.</li>
 							<li>For a certain group $P$, called the <em>Promislow</em> or <em>Hantzsche–Wendt</em>
@@ -148,17 +147,17 @@
 			<section data-background="#b5533c">
 				<ul>
 					<li>
-						There are many descriptions of the group $P$ -- indeed Gardam gave several.
+						There are many descriptions of the group $P$ &mdash; indeed Gardam gave several.
 					</li>
 					<li>
 						One description is as the fundamental group of a $3$-manifold obtained by gluing two copies of
 						the orientable twisted $I$-bundle over the Klein bottle.
 					</li>
 					<li>
-						The above gives a description as a \emph{Cystallographic group}.
+						The above gives a description as a <em>Cystallographic group</em>.
 					</li>
 					<li>
-						For our formalization, the most convenient was an explicit description as a <em>Metabelian
+						For our formalization, the most convenient is an explicit description as a <em>Metabelian
 							group</em>.
 					</li>
 				</ul>
@@ -189,7 +188,7 @@
 						<em>section</em>) so that $\varphi\circ\sigma$ is the identity on $Q$.
 					</li>
 					<li>Each element in $G$ is uniquely of the form $k\cdot\sigma(q)$, giving an identification $G = K
-						\times Q$ with $(k, q)\equiv k\cdot \sigma(q)$.</li>
+						\times Q$ with $(k, q)\leftrightarrow k\cdot \sigma(q)$.</li>
 					<li>Choosing the section with $\sigma(0)$ the identity, we have $(k, 0)\cdot (k', 0) = (k + k', 0)$.
 					</li>
 				</ul>
@@ -221,13 +220,13 @@
 			<section data-background="#b5533c">
 				<ul>
 					<li>In general $\sigma$ is not a homomorphism.</li>
-					<li>We can measure the failure $\sigma$ is not a homomorphism by considering $c(q, q') := \sigma(q +
+					<li>We can measure the failure of $\sigma$ to be a homomorphism by considering $c(q, q') := \sigma(q +
 						q')\cdot(\sigma(q)\sigma(q'))^{-1}$.</li>
 					<li>As $\sigma$ is a section, we deduce $c(q, q')\in K\subset G$, so $c: Q \times Q \to K$.</li>
 					<li>Associativity implies that $c$ is a <em>cocyle</em>.</li>
+					<li>As $K$ is abelian, we get a group action $q\cdot k = \sigma(q)\cdot k\cdot\sigma(q)^{-1}$  independent of $\sigma$.</li>
 					<li>Given a group action and a cocyle, we get a <strong>group structure</strong> on $K\times Q$ with
 						product $(k, q)\cdot (k', q') = (k + q\cdot k' + c(q, q'), q+ q').$ </li>
-					<li>Changing the section changes the cocycle by a <em>couboundary</em>. </li>
 				</ul>
 			</section>
 			<section data-background="#b5533c">
@@ -297,7 +296,9 @@
 					</li>
 				</ul>
 			</section>
+			<section data-background-image="depgraph.dot.png" data-background-size="contain">
 
+			</section>
 		</div>
 	</div>
 	<script src="js/reveal.js"></script>
