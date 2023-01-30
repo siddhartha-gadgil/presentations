@@ -204,14 +204,14 @@
 						q')$.
 					</li>
 					<li>By our identification $(k, 0)\cdot (0, q) = (k, q)$;
-						however, we do not have $(0, q)\cdot (k, 0) = (k , q)$; .
+						however, we do not have $(0, q)\cdot (k, 0) = (k , q)$.
 					</li>
 					<li>
 						Instead we get a <em>group action</em> of $Q$ on $K$ given by $q\cdot k = (0, q)\cdot (k, 0)
 						\cdot (0, q)^{-1}$.
 					</li>
 					<li>
-						Conversely, given a group action we get a group $G = K \times Q$ with product
+						Conversely, given a group action we get a <strong>group</strong> $G = K \times Q$ with product
 						$(k, q)\cdot (k', q') = (k + q\cdot k', q + q')$.
 					</li>
 				</ul>
@@ -219,12 +219,12 @@
 
 			<section data-background="#b5533c">
 				<ul>
+					<li>As $K$ is abelian, we always get a group action $q\cdot k = \sigma(q)\cdot k\cdot\sigma(q)^{-1}$  independent of $\sigma$.</li>
 					<li>In general $\sigma$ is not a homomorphism.</li>
 					<li>We can measure the failure of $\sigma$ to be a homomorphism by considering $c(q, q') := \sigma(q +
 						q')\cdot(\sigma(q)\sigma(q'))^{-1}$.</li>
 					<li>As $\sigma$ is a section, we deduce $c(q, q')\in K\subset G$, so $c: Q \times Q \to K$.</li>
 					<li>Associativity implies that $c$ is a <em>cocyle</em>.</li>
-					<li>As $K$ is abelian, we get a group action $q\cdot k = \sigma(q)\cdot k\cdot\sigma(q)^{-1}$  independent of $\sigma$.</li>
 					<li>Given a group action and a cocyle, we get a <strong>group structure</strong> on $K\times Q$ with
 						product $(k, q)\cdot (k', q') = (k + q\cdot k' + c(q, q'), q+ q').$ </li>
 				</ul>
