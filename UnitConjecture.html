@@ -70,7 +70,7 @@
 				<ul>
 					<li>Group rings are analogues of polynomials, or better still <em>Laurent polynomials</em>, i.e.,
 						finite sums
-						$$\sum_{i=1}^n a_i x^{n_i}$$</li>
+						$$\sum_{i=1}^n a_i x^{n_i}, n_i\in\mathbb{Z}.$$</li>
 					<li>We take $a_i$ to be elements of a <em>field</em>.</li>
 					<li>Observe that, by considering degrees, for two Laurent polynomials $p(x)$ and $q(x)$:
 						<ul>
@@ -85,7 +85,7 @@
 				<h4>Group Rings</h4>
 				<ul>
 					<li>Fix a group $G$ and a ring $R$.</li>
-					<li>The group ring $R[G]$ is the set of formal sums $$\sum_{i=1}^n a_i g_i$$
+					<li>The group ring $R[G]$ is the set of formal sums $$\sum_{i=1}^n a_i g_i, a_i\in R, g_i\in G.$$
 
 					</li>
 					<li>We multiply bilinearly extending $G$:
@@ -147,14 +147,14 @@
 			<section data-background="#b5533c">
 				<ul>
 					<li>
-						There are many descriptions of the group $P$ &mdash; indeed Gardam gave several.
+						There are many descriptions of the group $P$ &ndash; indeed Gardam gave several.
 					</li>
 					<li>
 						One description is as the fundamental group of a $3$-manifold obtained by gluing two copies of
 						the orientable twisted $I$-bundle over the Klein bottle.
 					</li>
 					<li>
-						The above gives a description as a <em>Cystallographic group</em>.
+						This also gives a description as a <em>Cystallographic group</em>.
 					</li>
 					<li>
 						For our formalization, the most convenient is an explicit description as a <em>Metabelian
@@ -188,7 +188,7 @@
 						<em>section</em>) so that $\varphi\circ\sigma$ is the identity on $Q$.
 					</li>
 					<li>Each element in $G$ is uniquely of the form $k\cdot\sigma(q)$, giving an identification $G = K
-						\times Q$ with $(k, q)\leftrightarrow k\cdot \sigma(q)$.</li>
+						\times Q$ with $k\cdot \sigma(q)\leftrightarrow (k, q)$.</li>
 					<li>Choosing the section with $\sigma(0)$ the identity, we have $(k, 0)\cdot (k', 0) = (k + k', 0)$.
 					</li>
 				</ul>
@@ -197,18 +197,18 @@
 				<ul>
 					<li>
 						In cases like $S_3$, the section $\sigma$ can be chosen to be a
-						<em>homomorphism</em>(<em>split</em> extensions).
+						<em>homomorphism</em>(so called <em>split</em> extensions).
 					</li>
 					<li>
-						In this case, we also have (identifying $\sigma(q)\equiv q$) $(0, q)\cdot (0, q') = (0, q +
+						In this case, we also have (identifying $\sigma(q)\leftrightarrow q$) $(0, q)\cdot (0, q') = (0, q +
 						q')$.
 					</li>
 					<li>By our identification $(k, 0)\cdot (0, q) = (k, q)$;
-						however, we do not have $(0, q)\cdot (k, 0) = (k , q)$.
+						however, in general $(0, q)\cdot (k, 0) \neq (k , q)$.
 					</li>
 					<li>
-						Instead we get a <em>group action</em> of $Q$ on $K$ given by $q\cdot k = (0, q)\cdot (k, 0)
-						\cdot (0, q)^{-1}$.
+						Instead we get a <em>group action</em> of $Q$ on $K$ given by $q\cdot k := (0, q)\cdot (k, 0)
+						\cdot (0, q)^{-1}\in K$.
 					</li>
 					<li>
 						Conversely, given a group action we get a <strong>group</strong> $G = K \times Q$ with product
@@ -219,8 +219,8 @@
 
 			<section data-background="#b5533c">
 				<ul>
-					<li>As $K$ is abelian, we always get a group action $q\cdot k = \sigma(q)\cdot k\cdot\sigma(q)^{-1}$  independent of $\sigma$.</li>
-					<li>In general $\sigma$ is not a homomorphism.</li>
+					<li>As $K$ is abelian, we always get a group action $q\cdot k := \sigma(q)\cdot k\cdot\sigma(q)^{-1}$  independent of $\sigma$.</li>
+					<li>But, in general $\sigma$ is not a homomorphism.</li>
 					<li>We can measure the failure of $\sigma$ to be a homomorphism by considering $c(q, q') := \sigma(q +
 						q')\cdot(\sigma(q)\sigma(q'))^{-1}$.</li>
 					<li>As $\sigma$ is a section, we deduce $c(q, q')\in K\subset G$, so $c: Q \times Q \to K$.</li>
