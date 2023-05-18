@@ -47,7 +47,7 @@
 			<section data-transition="slide">
 				<p style="text-align: left;"><strong>o9</strong> Involve2023</p>
 				<p>&nbsp;</p>
-				<h3> Computer Proofs and</h3> 
+				<h3> Computer Proofs and</h3>
 				<h3>Artificial Intelligence</h3>
 				<h4>Siddhartha Gadgil</h4>
 				<p>Department of Mathematics</p>
@@ -56,46 +56,23 @@
 
 			</section>
 
-			<section data-transition="slide-in fade-out">
-				<table>
-					<tr>
-						<td><img src="kasparov.jpeg" /></td>
-						<td><img src="deep-blue.jpg" width="200" /></td>
-						<td>1997</td>
-					</tr>
-					<tr class="frag-ment">
-						<td><img src="lee-sedol.jpeg" width="200" /> </td>
-						<td><img src="alphago.webp" width="200" /> </td>
-						<td>2017</td>
-					</tr>
-					<tr>
-						<td class="frag-ment">
-							<img src="Terence_Tao.jpg" height="200" />
-						</td>
-						<td align="center" class="frag-ment"><span class="huge"> ? </td>
-						<td class="frag-ment">
-							Whether?<br>When?<br>How?
-						</td>
-					</tr>
-				</table>
-			</section>
 
 			<section>
 				<ul>
-					<li> There is no world champion for mathematics - it is a collaborative endevaour. </li>
-					<li class="fragment"> As is the quest to automate mathematics.</li>
-					<li class="fragment"> Indeed, much of the progress is a by-product of people working towards other
-						goals.</li>
-					<li class="fragment"> Converely, progress towards automating mathematics should lead to other
-						benefits. </li>
-					<li class="fragment"> Especially helping mathematicians, students of mathematics and users of
-						mathematics.</li>
-					<li class="fragment"> And making trains safer.</li>
+					<li> Generative AI has become a popular sensation. </li>
+					<li class="fragment"> In particular language models can generate code, database queries etc. </li>
+					<li class="fragment">Much less well known are the major advances in computer proofs, both within
+						mathematics and in industry.</li>
+					<li class="fragment"> Computer proofs complement very well generative AI. </li>
+					<li class="fragment"> I will describe computer proofs, generative AI and how they work together.
+					</li>
+					<li class="fragment"> I hope many lessons from this are useful for beyond users of computer proofs.
+					</li>
 				</ul>
 			</section>
 
-			<section data-transition="zoom-in slide-out" data-background-color="teal">
-				<h1>(Mathematical) Reasoning</h1>
+			<section data-transition="zoom-in slide-out" data-background-image="campus.jpg">
+				<h1>(Mathematical) Proofs</h1>
 			</section>
 
 			<section data-background-color="teal">
@@ -124,182 +101,164 @@
 			</section>
 
 			<section data-background-color="teal">
-				<h4 id="what-went-into-proofs">What went into the proofs</h4>
+				<h4 id="what-went-into-proofs">What is needed for proving</h4>
 				<ul>
-					<li class="fragment">
-						<p>Auxiliary Constructions:</p>
+					<li class="fragment"><strong>Intuition, Creativity:</strong> Analogies, Associations etc.
 						<ul>
-							<li class="fragment">the parallel line</li>
-							<li class="fragment">the term $n! + 1$.</li>
+							<li class="fragment">
+								<p>Auxiliary Constructions:</p>
+								<ul>
+									<li class="fragment">the parallel line</li>
+									<li class="fragment">the term $n! + 1$.</li>
+								</ul>
+							</li>
+							<li class="fragment">
+								<p>Theorems/Definitions to use.</p>
+							</li>
 						</ul>
 					</li>
 					<li class="fragment">
-						<p>Theorems/Definitions to use.</p>
+						<p><strong>Technical Work:</strong> Deductions and Computations.</p>
 					</li>
 					<li class="fragment">
-						<p>Deductions and Computations.</p>
-					</li>
-					<li class="fragment">
-						<p>The theorems and definitions needed both knowledge of the <strong>precise statement</strong>
-							and the ability to <strong>recognize relevance</strong>.</p>
+						<p><strong>Judgement of correctness</strong>.</p>
 					</li>
 				</ul>
 
 			</section>
 
 			<section data-background-color="teal">
-				<h4 id="two-systems-for-thinking">Two systems for Thinking</h4>
-				<p class="fragment">Our thinking is based on two systems:</p>
+				<h4>Generative AI and Proofs</h4>
 				<ul>
-					<li class="fragment">System 1: Intuitive, Associative, Automatic.
+					<li> A model such as GPT-4 is:
 						<ul>
-							<li class="fragment">handles language, vision, other sensorimotor tasks.</li>
-							<li class="fragment">fast, but error prone.</li>
-						</ul>
-					</li>
-					<li class="fragment">System 2: Analytical, Logical, Controlled.
-						<ul>
-							<li class="fragment">handles reasoning, planning, problem solving.</li>
-							<li class="fragment">slow, but accurate.</li>
-						</ul>
-					</li>
-				</ul>
+							<li class="fragment"> <strong>Good</strong> at intuitive tasks.
+							</li>
+							<li class="fragment"> <strong>Weak</strong> at technical tasks: but can <em>delegate</em>.
+							</li>
+							<li class="fragment"> <strong>Terrible</strong> at judging whether reasoning is correct.
+							</li>
 
-			</section>
-			<section data-background-color="#002b36">
-				<h4 id="moravec-paradox">Moravec Paradox</h4>
-				<ul>
-					<li class="fragment">System 1 needs far more raw computational power than System 2.</li>
-					<li class="fragment">Our brain (mostly System 1) performs about 100 trillion operations per second (about 100
-						Teraflops) according
-						to Moravec.</li>
-					<li class="fragment">Moravec predicted (in 1997) that computers will reach parity with this in 2040.
+						</ul>
 					</li>
-					<li class="fragment">Further, our brain's storage is about 100 terabytes.</li>
-					<li class="fragment">Another way to view this is that our accumulated knowledge, memory, experience,
-						learning etc is
-						stored in 100 trillion weights.</li>
 				</ul>
 			</section>
-			<section data-background-color="#002b36">
-				<h4 id="why-arent-we-supercomputers">Why aren’t we supercomputers?</h4>
-				<ul>
-					<li class="fragment">A neuron completes between 1 and 200 operations in a second (laptop ≈ 3
-						billion).</li>
-					<li class="fragment">The 100 trillion operations per second the brain performs are massively
-						parallel.</li>
-					<li class="fragment">Logic/Algorithms often cannot be parallelized, e.g. long division.</li>
-					<li class="fragment"> The clock speeds of computers have not increased much in the last 15 years,
-						speedups are by
-						parallelization,
-						especially with <em>Graphics Processing Units</em> (GPUs).</li>
-				</ul>
-			</section>
-			<section data-background-color="#002b36">
-				<h4 id="computers-today">Computers today</h4>
-				<ul>
-					<li class="fragment">The NVIDIA A100 GPU delivers 312 Teraflops of performance.</li>
-					<li class="fragment">Renting this on Google cloud with this for an year (40 hours a week)
-						costs about the salary of a mathematician in India.</li>
-					<li class="fragment">On the other hand, the RAM on such a GPU is 40 GB; though we can scale this by
-						parallelization.
-					</li>
-					<li class="fragment">The “accumulated knowledge” in the largest AI system (Google’s PaLM) is about
-						540 billion
-						weights, much less than our brain.</li>
-				</ul>
-			</section>
+
 			<section data-background-color="teal">
-				<h4>Ingredients for doing mathematics</h4>
+				<h4>Proofs: Formal and Informal</h4>
 				<ul>
-					<li class="fragment"> Accumulation of knowledge:
-						precise (System 2);
-						associations (System 1).</li>
-					<li class="fragment"> Learning to learn (System 1/System 2).</li>
-					<li class="fragment"> Computations and Deductions (System 2).</li>
-					<li class="fragment"> Recognition of relevance (System 1).</li>
-					<li class="fragment"> Constructions based on <strong>Analogy</strong> (System 1).</li>
-					<li class="fragment"> Originality: going beyond the known (can be from System 1/System 2).</li>
+					<li class="fragment"> A <strong>formal proof</strong> is a sequence of deductions following a small
+						number of
+						precise rules.
+					</li>
+					<li class="fragment">A formal proof can be easily checked by a computer or a human.</li>
+					</li>
+					<li class="fragment"> In practice mathematical proofs are <em>informal</em>; consisting of a
+						sequence of assertions and hints as to why they are true.</li>
+					<li class="fragment">A reader has to judge whether the proof is correct.</li>
+					<li class="fragment">In practice there are many proofs, including those published in top journals,
+						that are <strong>wrong.</strong></li>
 				</ul>
 			</section>
 
-			<section data-transition="fade-out">
-				<h4>A concrete prediction</h4>
+			<section data-background-color="teal">
+				<h4>Towards formal proofs</h4>
 				<ul>
-					<li>
-						Open bet by Christian Szegedy, Google Research.
+					<li class="fragment"> Writing (and checking) a fully formal proof is difficult and tedious except in
+						the simplest cases.</li>
+
+					<li class="fragment">With advances in Logic/Programming Languages, specifically with <em>Dependent
+							Type Theory</em>, formal proofs can be shorted, more modular and more transparent.</li>
 					</li>
-					<li>
-						By the year 2029:
-					</li>
+					<li class="fragment"> Computers can assist in both verification and finding formal proofs.</li>
+					<li class="fragment">This has led to fairly substantial progress in formalization.</li>
 				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
+				<h1>&nbsp;</h1>
+				<h1 style="color:#fffdd0">Formal methods</h1>
+				<h2>Proofs elsewhere</h2>
+				<p>&nbsp;</p>
+			</section>
+
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Formal methods</h4>
+				<ul>
+
+					<li class="fragment">We <strong>specify</strong> (describe) software, hardware etc. in precise
+						mathematical terms.
+					</li>
+					<li class="fragment">We give <strong>mathematical proofs</strong> of correct behaviour, which are
+						<strong>computer
+							verified</strong>.
+					</li>
+					<li class="fragment">This gives a much greater certainty of correctness.</li>
+					<li class="fragment">However, proofs are much harder than tests.</li>
+					<li class="fragment">Formal proofs use interactive theorem provers; with better provers we can
+						prove more often.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>TimSort</h4>
+				<ul>
+
+					<li class="fragment">Tim Peters developed the Timsort hybrid sorting algorithm in 2002 &ndash; a
+						clever combination of ideas from merge sort and insertion sort designed to perform well on real
+						world data..
+					</li>
+					<li class="fragment">This was initially developed for Python, but was ported to Java and was used as
+						the default sorting algorithm for Android SDK, Sun’s JDK and OpenJDK.
+					</li>
+					<li class="fragment">This means that the number of computers, cloud services and mobile phones that
+						use TimSort for sorting is well into the billions.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Formal methods</h4>
+				<ul>
+
+					<li class="fragment">Having successfully computer verified Counting and Radix sort implementations
+						in Java, the European <em>envisage</em> group turned to verifying TimSort.
+					</li>
+					<li class="fragment">They were not able to verify correctness.</strong>.
+					</li>
+					<li class="fragment">A closer analysis showed that this was because the algorithm was wrong.</li>
+					<li class="fragment">The researchers could find, and suggest a fix for, the bug.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<p>Byron Cook (AWS): </p>
 				<blockquote class="fragment">
-					"A diverse set of 100 graduate text books are automatically formalized/verified in a popular
-					proof
-					assistant (eg Lean). 10% of problems from a preselected 100 open human conjectures is proved
-					completely autonomously."
+					The storage team, for example, is able to be much more agile and be much more aggressive in the
+					programs that they write because of the formal methods. They're able to write code that otherwise
+					they might not want to deploy because they wouldn't be as confident about it, and they're deploying
+					four times as fast.
 				</blockquote>
 			</section>
 
-			<section data-transition="zoom-in convex-out" data-background="Closepacking.svg"
-				data-background-color="#b5533c" data-state="dimbg">
-				<h1>Computer Proofs</h1>
-				<h2>in the small in</h2>
-				<h1>Mathematics</h1>
-				<h1>&nbsp;</h1>
-				<span class="attribution">
-					<a href="https://commons.wikimedia.org/wiki/File:Closepacking.svg">Cdang Derivative work:
-						Muskid</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via
-					Wikimedia Commons</span>
-			</section>
+
+
 
 
 			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>Some computer-assisted proofs</h4>
+				<h4>When do we need <em>completely correct always</em>?</h4>
 				<ul>
-					<li class="fragment"><strong>Four-colour problem:</strong> Any map can be coloured with at most
-						$4$
-						colours.</li>
-					<li class="fragment"><strong>Kepler conjecture:</strong> The most efficient way to pack spheres
-						is
-						the hexagonal close packing.</li>
 
-					<li class="fragment"><strong>Smale conjecture</strong> for hyperbolic $3$-manifolds.</li>
-					<li class="fragment">These proofs involved essentially a huge number of calculations of a single
-						type.</li>
-				</ul>
-			</section>
-
-
-			<section data-transition="convex" data-background-color="#b5533c">
-				<h4> Robbins conjecture </h4>
-				<ul>
-					<li class="fragment"> <strong>Robbins conjecture</strong> was a conjectural characterization of
-						<em>Boolean algebras</em> in
-						terms of
-						associativity and commutativity of $\vee$ and the Robbins equation
-						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.
+					<li class="fragment"><strong>Safety critical systems:</strong> e.g., Paris driverless metro.
 					</li>
-					<li class="fragment"> This was conjectured in the 1930s, and finally proved in 1996 using the
-						automated theorem prover <strong>EQP</strong>.</li>
-					<li class="fragment"> This was a non-trivial proof by deduction, but where we knew the axioms with
-						which we start.
+					<li class="fragment"><strong>Costly to fix:</strong> e.g., Intel chips.
 					</li>
-			</section>
-
-			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>Boolean Pythagorean triples problem</h4>
-				<ul>
-					<li class="fragment"><strong>Problem:</strong> Is it possible to
-						colour
-						the
-						positive integers either red or blue, so that if three integers $a$, $b$, $c$,
-						satisfy $a^{2}+b^{2}=c^{2}$, they are not all the same colour?</li>
-					<li class="fragment">This was asked in the 1980s by Ronald Graham who offered a $100 prize.</li>
-					<li class="fragment">This was solved by Marijn Heule, Oliver Kullmann and Victor W. Marek in May
-						2016 using a <strong>SAT Solver</strong>,
-						a powerful deduction engine for finite problems.</li>
+					<li class="fragment"><strong>Core system functon:</strong> e.g., TimSort.</li>
+					<li class="fragment"><strong>System level:</strong> a bug is a <em>vulnerability</em> e.g., AWS.
+					</li>
 				</ul>
+
 			</section>
 
 
@@ -334,7 +293,8 @@
 					<li class="fragment">Automation is also improving, which also facilitates formalization.
 					</li>
 					<li class="fragment">Lean 4 is a programming language seamlessly integrated with an interactive
-						theorem prover, which (as we will see) helps with formalization and makes it useful in new ways.</li>
+						theorem prover, which (as we will see) helps with formalization and makes it useful in new ways.
+					</li>
 					<li class="fragment">The main current application of Lean is to ensure a super-human
 						level of correctness.
 					</li>
@@ -450,341 +410,103 @@
 					<li>As these examples show, the effort for formalization of mathematics is rapidly decreasing.</li>
 					<li class="fragment">Mathematics in Lean is much better structured than the human literature.</li>
 					<li class="fragment">Lean also has powerful automation, which helps formalization.</li>
-					<li class="fragment">All this paves the way (one hopes) for facilitating mathematical discovery.</li>
-
-				</ul>
-			</section>
-
-
-			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
-				<h1>&nbsp;</h1>
-				<h1 style="color:#fffdd0">Formal methods</h1>
-				<h2>Mathematical proofs elsewhere</h2>
-				<p>&nbsp;</p>
-			</section>
-
-			<section data-transition="convex" data-background="#b5533c">
-				<h4>Formal methods</h4>
-				<ul>
-
-					<li class="fragment">We <strong>specify</strong> (describe) software, hardware etc. in precise
-						mathematical terms.
+					<li class="fragment">All this paves the way (one hopes) for facilitating mathematical discovery.
 					</li>
-					<li class="fragment">We give <strong>mathematical proofs</strong> of correct behavior, which are
-						<strong>computer
-							verified</strong>.
-					</li>
-					<li class="fragment">This gives a much greater certainty of correctness.</li>
-					<li class="fragment">However, proofs are much harder than tests.</li>
-					<li class="fragment">Formal proofs use interactive theorem provers; with better provers we can
-						prove more often.</li>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>Do we need <em>completely correct always</em>?</h4>
-
-				<table class="box">
-					<tr>
-						<td> <img src="Intel_Pentium_A80501.jpg" alt="Intel_Pentium_A80501" height="100px" /> </td>
-						<td>Pentium FDIV Bug</td>
-						<td> Fixing an error is very costly </td>
-					</tr>
-					<tr>
-						<td> <img src="Therac25_Interface.png" alt="Therac25_Interface" /> </td>
-						<td>Therac 25 radiation machine</td>
-						<td> Safety critical </td>
-					</tr>
-					<tr>
-						<td> <img src="whatsapp.png" alt="WhatsApp" /> </td>
-						<td>WhatsApp Pegasus attack</td>
-						<td> A bug is a <em>vulnerability</em> </td>
-					</tr>
-				</table>
-
-			</section>
-
-			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>Some users of formal methods</h4>
-
-				<table class="box">
-					<tr>
-						<td> <img src="intel-core.jpeg" alt="intel-core" height="100px" /> </td>
-						<td>Intel Chips</td>
-						<td> Fixing an error is very costly </span c></td>
-					</tr>
-					<tr>
-						<td> <img src="paris-metro.jpg" alt="Paris Metro" /> </td>
-						<td>Paris driverless metro</td>
-						<td> Safety critical </td>
-					</tr>
-					<tr>
-						<td> <img src="dotty.png" alt="scala dotty" height="100px" /> </td>
-						<td>Scala dotty compiler</td>
-						<td> A bug is a vulnerability </td>
-					</tr>
-				</table>
-
-			</section>
-
-			<section data-transition="zoom-in concave-out" data-background="alpha-zero.jpg">
-				<h1>&nbsp;</h1>
-				<h2 style="color:#fffdd0">Steps towards</h2>
-				<h1 style="color:#fffdd0">Artificial Intelligence</h1>
-			</section>
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4 id="common-sense">The common sense barrier</h4>
-				<ul>
-					<li class="fragment">We know a lot of things, on which we base <em>common sense</em> (according to
-						Marvin Minsky).</li>
-					<li class="fragment">Further, these pieces of knowledge are organized in a way that they can be
-						combined.</li>
-					<li class="fragment"><strong>Expert Systems</strong> have a lot of knowledge encoded as structured
-						data, functions,
-						algorithms.</li>
-					<li class="fragment">These are purely System 2, i.e., logical/algorithmic/rule-based systems.</li>
-					<li class="fragment">Besides knowledge and fast algorithms, we also need enough raw power.</li>
-			</section>
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4>Kasparov vs Deep Blue</h4>
-				<ul>
-					<li class="fragment">In 1997, a computer <strong>Deep Blue</strong> defeated the Chess world
-						champion Gary Kasparov.
-					</li>
-					<li class="fragment"> Deep Blue was an <em>Expert system</em>, based on elaborate rules for judging
-						strengths of positions.
-					</li>
-					<li class="fragment">However, Deep Blue was very limited in certain
-						<strong>capabilities</strong>.
-					</li>
-					<li class="fragment"> Kasparov was far better at evaluating strengths of positions than Deep Blue,
-						and in knowing what moves are worth considering (System 1). </li>
-					<li class="fragment"> Deep Blue compensated for this by being able to consider far more move
-						sequences.</li>
-				</ul>
-
-			</section>
-
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4 id="tacit-knowledge">The tacit knowledge barrier</h4>
-				<ul>
-					<li class="fragment"><strong>Tacit knowledge</strong> is the kind of knowledge that is difficult to
-						transfer to another person by
-						means of writing it down or verbalizing it.</li>
-					<li class="fragment">Examples: riding a bicycle, speaking a language; evaluating positions in chess.
-					</li>
-					<li class="fragment">Tacit knowledge is much more important in the chinese game Go compared to Chess.</li>
-					<li class="fragment">Further, in Go the number of legal moves is much larger so brute force is less
-						effective.</li>
-					<li class="fragment">As a result, DeepBlue style expert systems are hopeless at Go.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4>Deep learning</h4>
-				<ul>
-					<li class="fragment">Computers can acquire knowledge by
-						<em>learning</em>.
-					</li>
-					<li class="fragment">The idea of computers learning goes back at least to Turing, or even regression
-						in statistics.
-					</li>
-					<li class="fragment">
-						What was needed was hardware and a system that could learn efficiently: <em>Deep neural
-							networks.</em>
-					</li>
-					<li class="fragment">In a deep neural network the input is transformed into the output through a
-						series of
-						layers.</li>
-					<li class="fragment">Each layer is typically a linear transformation, depending on weights, followed
-						by a simple
-						non-linear function.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<img height="250" src="DeepNeuralNet.png" />
-				<ul>
-					<li class="fragment">Starting about 2012, deep neural networks performed very well in image
-						processing tasks, far
-						above rule-based systems.</li>
-					<li class="fragment">
-
-						It turns out that as the image is processed by successive layers, the raw data gets modified
-						to capture abstraction/meaning.
-					</li>
-				</ul>
-			</section>
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4 id="limitations-as-of-about-ten-years-ago">Limitations (≈ 10 years ago)</h4>
-				<ul>
-					<li class="fragment">Needed labelled data for training.</li>
-					<li class="fragment">Narrow: training specific to the task.</li>
-					<li class="fragment">Had difficulty with long range dependencies, in particular language.</li>
-					<li class="fragment">Hard to scale up, parallelize.</li>
-					<li class="fragment">Could not go beyond training data.</li>
-				</ul>
-			</section>
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4 id="representation-learning">Representation Learning</h4>
-				<ul>
-					<li class="fragment">
-						<p><strong>Word2Vec</strong> considered the problem of predicting a word given its neighbours.
-						</p>
-					</li>
-					<li class="fragment">
-						<p>This was trained on solutions of this problem that involve mapping words into space, and predicting
-							from neighbours using the points.</p>
-					</li>
-					<li class="fragment">
-						<p>Only the mapping of words into space was retained, so <em>geometry</em> captures
-							<em>associations</em>.
-						</p>
-					</li>
-					<li class="fragment">
-						<p>Another lesson is that it is useful to solve synthetic problems: play, solving exercises.</p>
-					</li>
-				</ul>
-
-			</section>
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4 id="transfer-learning">Transfer learning</h4>
-				<ul>
-					<li class="fragment">A set of common layers was used for many tasks.</li>
-					<li class="fragment">Some of the tasks could be synthetic (exercises).</li>
-					<li class="fragment">This resulted in networks trained for one task needing much less training for a
-						related task.
-					</li>
-				</ul>
-
-			</section>
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4>AlphaGo vs Lee Sedol</h4>
-				<ul>
-					<li class="fragment"> In March 2016, a Go playing system AlphaGo defeated 18-time world
-						champion Lee Sedol.</li>
-					<li class="fragment"> In January 2017, AlphaGo defeated the world number one Ke Jie
-						comprehensively.
-					</li>
-					<li class="fragment"> The strategy of AlphaGo was based on
-						<ul>
-							<li> A <em>policy</em> function - what moves to consider. </li>
-							<li> A <em>value</em> function - how good a position is. </li>
-						</ul>
-					</li>
-					<li class="fragment"> Given these, Go was played using a search through possible moves suggested by
-						policy.
-					</li>
-				</ul>
-			</section>
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4>AlphaGo and Learning</h4>
-				<ul>
-					<li class="fragment"> The policy and value
-						functions of AlphaGo are deep neural networks
-						that were trained.
-					</li>
-					<li class="fragment"> The policy network was initially trained by learning to predict the next
-						move from games of expert players (<em>behaviour cloning</em>).</li>
-					<li class="fragment"> The value network was trained by AlphaGo playing against
-						itself: <strong>Reinforcement Learning</strong>.
-					</li>
-					<li class="fragment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
-					<li class="fragment"> AlphaGo came up with unexpected moves.</li>
-				</ul>
-			</section>
-
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4>AlphaGo Zero and Alpha Zero</h4>
-				<ul>
-					<li class="fragment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt
-						purely by
-						self play.</li>
-					<li class="fragment">Its successor, <em>AlphaZero</em>, could master a variety of similar games
-						starting with
-						just the rules.</li>
-					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the
-						planet
-						(beating a traditional chess program, Stockfish).</li>
-					<li class="fragment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes
-						piece
-						activity over material, preferring positions that looked risky and aggressive.&rdquo;</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4 id="attention-is-all-you-need">“Attention is all you need”</h4>
-				<ul>
-					<li class="fragment">The meaning of a word depends on the context, i.e., other words surrounding it.
-					</li>
-					<li class="fragment">In the <strong>transformer architecture</strong>, this is captured by learning
-						to which other
-						words to pay attention.</li>
-					<li class="fragment">This allowed parallelization and captured long-range dependencies.</li>
-					<li class="fragment">Transformers are used in <strong>AlphaFold 2</strong> which predicts protein
-						structures on par with experiments.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#002b36" data-transition="concave">
-				<h4>Foundation Models</h4>
-				<ul>
-					<li class="fragment"> With the transformer architecture training could be scaled up enormously.</li>
-					<li class="fragment"> It was found that models kept improving as the number of parameters grew (when trained on huge datasets).</li>
-					<li class="fragment"> Huge models such as GPT-3 and PaLM have been trained on essentially all of the
-						internet, either by trying to predict the next word or by trying to fill in masked out parts.
-					</li>
-					<li class="fragment"> Applications: Dall-E 2, ChatGPT etc., have become sensations.</li>
 
 				</ul>
 			</section>
 
 			<section data-transition="zoom" data-background="hills.png">
-				<h1>The Road ahead?</h1>
+				<h1>Generative AI</h1>
+				<h1>(and Proofs)</h1>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
+			<section data-background-color="teal">
 				<ul>
-					<li>
-						We have computer systems highly capable in:
-						<table class="fragment">
-							<thead>
-								<tr>
-									<td></td>
-									<th>Intuition</th>
-									<th>Precise Reasoning</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th>Scalability</th>
-									<td>ChatGPT</td>
-									<td>Lean Prover</td>
-								</tr>
-								<tr>
-									<th> Originality</th>
-									<td>AlphaZero</td>
-									<td>SAT Solvers</td>
-								</tr>
-						</table>
-					</li>
-					<li class="fragment">Yet they can get much better.</li>
-					<li class="fragment">
-						More importantly, must make them work together,
+					<li>Large Language Models have remarkable abilities, roughly corresponding to our
+						<em>intuition</em>.
 						<ul>
-							<li class="fragment">while doing mathematics and while learning,</li>
-							<li class="fragment">with each other and <strong>with us</strong>.</li>
+							<li class="fragment">They can reason by analogy.</li>
+							<li class="fragment">This includes mixing and matching concepts from different domains.</li>
+							<li class="fragment">They are excellent at Natural Language.</li>
+							<li class="fragment">They are familiar with a huge amount of stuff.</li>
+							<li class="fragment">They can transfer knowledge from one domain to another.</li>
 						</ul>
 					</li>
 				</ul>
-
 			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>Langauge models (generative AI) are weak at technical work such as calculations.</li>
+					<li class="fragment">But other software is good at calculations: so one can get a language model to output a Python program that computes the answer.</li>
+					<li class="fragment">They are hopeless at judging whether their output is correct.</li>
+					<li class="fragment">But they can correct errors based on error messages.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Minerva</h4>
+				<ul>
+					<li class="fragment">Minerva is a Large Language Model (LLM) capable of solving mathematical and scientific questions using step-by-step reasoning.</li>
+					<li class="fragment">It can answer reasonably complex problems, including some JEE Mains questions.</li>
+					<li class="fragment">Minerva uses various techniques such as:
+						<ul>
+							<li>few-shot prompting,</li>
+							<li>chain of thought or scratchpad prompting,</li>
+							<li>majority voting.</li>
+						</ul>
+					</li>
+					<li class="fragment">However there is no automatic way to check correctness, hence train.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>PACT, HTPS</h4>
+				<ul>
+					<li class="fragment">Proofs can be given in a system such as the Lean Theorem Prover as a sequence of <em>tactics</em>.</li>
+					<li class="fragment">Language Language Models are used to predict useful tactics.</li>
+					<li class="fragment">The system searches for a proof using these tactics.</li>
+					<li class="fragment">These systems have managed to solve some IMO problems</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Draft, Sketch and Prove</h4>
+				<ul>
+					<li class="fragment">A Large Language Model is used to generate an informal sketch of a proof.</li>
+					<li class="fragment">This is translated into a series of steps into which the problem is broken.</li>
+					<li class="fragment">Automation is then used to complete proofs.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Baldung</h4>
+				<ul>
+					<li class="fragment">This system is based on two Large Language Models.</li>
+					<li class="fragment">The first model generates a candidate proof.</li>
+					<li class="fragment">The candidate proof is run through the interactive theorem prover. The second model suggests repairs based on these errors.</li>
+				</ul>
+			</section>
+			
+
+			<section>
+				<h4>Conclusions</h4>
+				<ul>
+					<li class="fragment">Generative AI has the promise of hugely increasing the productivity of many people.</li>
+					<li class="fragment">It is however subject to making errors, both coarse and subtle ones.</li>
+					<li class="fragment">The ways in which large Language Language Models are used in Computer Proofs offers lessons in their effective uses. </li>
+					<li class="fragment">Indeed, there is a case to be made for wider adoption of formal methods, for instance by using a language like Lean 4, across industry.</li>
+				</ul>
+			</section>
+
+
 			<section data-background-image="leanaide-mathlib4.gif">
+				
 			</section>
 
 
