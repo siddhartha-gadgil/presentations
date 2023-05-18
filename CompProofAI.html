@@ -60,7 +60,7 @@
 			<section>
 				<ul>
 					<li> Generative AI has become a popular sensation. </li>
-					<li class="fragment"> In particular language models can generate code, database queries etc. </li>
+					<li class="fragment"> In particular Large Language Models can generate code, database queries etc. </li>
 					<li class="fragment">Much less well known are the major advances in computer proofs, both within
 						mathematics and in industry.</li>
 					<li class="fragment"> Computer proofs complement very well generative AI. </li>
@@ -171,7 +171,7 @@
 							Type Theory</em>, formal proofs can be shorted, more modular and more transparent.</li>
 					</li>
 					<li class="fragment"> Computers can assist in both verification and finding formal proofs.</li>
-					<li class="fragment">This has led to fairly substantial progress in formalization.</li>
+					<li class="fragment">This has led to substantial progress in formalization.</li>
 				</ul>
 			</section>
 
@@ -188,8 +188,7 @@
 				<h4>Formal methods</h4>
 				<ul>
 
-					<li class="fragment">We <strong>specify</strong> (describe) software, hardware etc. in precise
-						mathematical terms.
+					<li class="fragment">We <strong>specify</strong> (describe) software, hardware, networking protocols, cryptographic protocols, even tax codes in precise mathematical terms.
 					</li>
 					<li class="fragment">We give <strong>mathematical proofs</strong> of correct behaviour, which are
 						<strong>computer
@@ -197,6 +196,7 @@
 					</li>
 					<li class="fragment">This gives a much greater certainty of correctness.</li>
 					<li class="fragment">However, proofs are much harder than tests.</li>
+					<li class="fragment">As technology for formal proving becomes better, the much greater assurance of correctness will encouraging proving over testing in more situations.</li>
 				</ul>
 			</section>
 
@@ -206,7 +206,7 @@
 
 					<li class="fragment">Tim Peters developed the Timsort hybrid sorting algorithm in 2002 &ndash; a
 						clever combination of ideas from merge sort and insertion sort designed to perform well on real
-						world data..
+						world data.
 					</li>
 					<li class="fragment">This was initially developed for Python, but was ported to Java and was used as
 						the default sorting algorithm for Android SDK, Sun’s JDK and OpenJDK.
@@ -223,7 +223,7 @@
 					<li class="fragment">Having successfully computer verified Counting and Radix sort implementations
 						in Java, the European <em>envisage</em> group turned to verifying TimSort.
 					</li>
-					<li class="fragment">They were not able to verify correctness.</strong>.
+					<li class="fragment">They were not able to verify correctness.
 					</li>
 					<li class="fragment">A closer analysis showed that this was because the algorithm was wrong.</li>
 					<li class="fragment">The researchers could find, and suggest a fix for, the bug.</li>
@@ -290,8 +290,8 @@
 						more.</li>
 					<li class="fragment">Automation is also improving, which also facilitates formalization.
 					</li>
-					<li class="fragment">Lean 4 is a programming language seamlessly integrated with an interactive
-						theorem prover, which (as we will see) helps with formalization and makes it useful in new ways.
+					<li class="fragment"><strong>Lean 4</strong> is a <em>programming language</em> seamlessly integrated with an <em>interactive
+						theorem prover</em>, which helps with formalization and makes it useful in new ways.
 					</li>
 					<li class="fragment">The main current application of Lean is to ensure a super-human
 						level of correctness.
@@ -436,7 +436,7 @@
 
 			<section data-background-color="teal">
 				<ul>
-					<li>Langauge models (generative AI) are weak at technical work such as calculations.</li>
+					<li>Large Language Models (generative AI) are weak at technical work such as calculations.</li>
 					<li class="fragment">But other software is good at calculations: so one can get a language model to output a Python program that computes the answer.</li>
 					<li class="fragment">They are hopeless at judging whether their output is correct.</li>
 					<li class="fragment">But they can correct errors based on error messages.</li>
@@ -456,18 +456,18 @@
 							<li>majority voting.</li>
 						</ul>
 					</li>
-					<li class="fragment">However there is no automatic way to check correctness, hence train.</li>
+					<li class="fragment">However there is no automatic way to check correctness, hence to further train.</li>
 
 				</ul>
 			</section>
 
 			<section data-background-color="teal">
-				<h4>PACT, HTPS</h4>
+				<h4>GPT-f, PACT, HTPS</h4>
 				<ul>
 					<li class="fragment">Proofs can be given in a system such as the Lean Theorem Prover as a sequence of <em>tactics</em>.</li>
 					<li class="fragment">Language Language Models are used to predict useful tactics.</li>
 					<li class="fragment">The system searches for a proof using these tactics.</li>
-					<li class="fragment">These systems have managed to solve some IMO problems</li>
+					<li class="fragment">These systems have managed to solve some IMO problems.</li>
 
 				</ul>
 			</section>
@@ -476,7 +476,7 @@
 				<h4>Draft, Sketch and Prove</h4>
 				<ul>
 					<li class="fragment">A Large Language Model is used to generate an informal sketch of a proof.</li>
-					<li class="fragment">This is translated into a series of steps into which the problem is broken.</li>
+					<li class="fragment">This is translated into a series of steps so the problem is broken into sub-problems.</li>
 					<li class="fragment">Automation is then used to complete proofs.</li>
 
 				</ul>
