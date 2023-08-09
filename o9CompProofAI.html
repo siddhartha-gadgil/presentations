@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Computer Proofs and Artificial Intelligence</title>
+
+	<meta name="description" content="Kaapi with Kuriosity lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="kwk.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<p style="text-align: left;"><strong>o9</strong> Involve2023</p>
+				<p>&nbsp;</p>
+				<h3> Computer Proofs and</h3>
+				<h3>Artificial Intelligence</h3>
+				<h4>Siddhartha Gadgil</h4>
+				<p>Department of Mathematics</p>
+				<p>Indian Institute of Science, Bangalore</p>
+
+
+			</section>
+
+
+			<section>
+				<ul>
+					<li> Generative AI has become a popular sensation. </li>
+					<li class="fragment"> In particular Large Language Models can generate code, database queries etc. </li>
+					<li class="fragment">Much less well known are the major advances in computer proofs, both within
+						mathematics and in industry.</li>
+					<li class="fragment"> Computer proofs complement very well generative AI. </li>
+					<li class="fragment"> I will describe computer proofs, generative AI and how they work together.
+					</li>
+					<li class="fragment"> I hope many lessons from this are useful for beyond users of computer proofs.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in slide-out" data-background-image="campus.jpg">
+				<h1>(Mathematical) Proofs</h1>
+			</section>
+
+			<section data-background-color="teal">
+				<h4> A proof: Sum of Angles in a Triangle</h4>
+				<ul>
+					<li class="fragment"> Consider a triangle $ABC$.</li>
+					<img class="fragment" src="angle_sum.png" height="250" />
+					<li class="fragment"> Draw a line through $A$ parallel to $BC$.</li>
+					<li class="fragment"> Use equality of interior opposite angles.</li>
+					<li class="fragment"> Use angles on a line add up to 180 degrees.</li>
+
+				</ul>
+			</section>
+			<section data-background-color="teal">
+				<h4>Another proof: infinitely many primes</h4>
+				<ul>
+					<li class="fragment"> For any $n$, we show that there exists a prime $p$ such that $p > n$.</li>
+					<li class="fragment"> Consider the number $n!+1$, where $n! = 1 \times 2 \times \dots \times n$.
+					</li>
+					<li class="fragment"> Let $p$ be the smallest prime factor of $n!+1$.
+					</li>
+					<li class="fragment"> If $p \leq n$ then $p | n!$ so $p \nmid n!+1$.</li>
+					<li class="fragment"> Hence $p$ is a prime greater than $n$.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4 id="what-went-into-proofs">What is needed for proving</h4>
+				<ul>
+					<li class="fragment"><strong>Intuition, Creativity:</strong> Analogies, Associations etc.
+						<ul>
+							<li class="fragment">
+								<p>Auxiliary Constructions:</p>
+								<ul>
+									<li class="fragment">the parallel line</li>
+									<li class="fragment">the term $n! + 1$.</li>
+								</ul>
+							</li>
+							<li class="fragment">
+								<p>Theorems/Definitions to use.</p>
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">
+						<p><strong>Technical Work:</strong> Deductions and Computations.</p>
+					</li>
+					<li class="fragment">
+						<p><strong>Judgement of correctness</strong>.</p>
+					</li>
+				</ul>
+
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Generative AI and Proofs</h4>
+				<ul>
+					<li> A model such as GPT-4 is:
+						<ul>
+							<li class="fragment"> <strong>Good</strong> at intuitive tasks.
+							</li>
+							<li class="fragment"> <strong>Weak</strong> at technical tasks: but can <em>delegate</em>.
+							</li>
+							<li class="fragment"> <strong>Terrible</strong> at judging whether reasoning is correct.
+							</li>
+
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Proofs: Formal and Informal</h4>
+				<ul>
+					<li class="fragment"> A <strong>formal proof</strong> is a sequence of deductions following a small
+						number of
+						precise rules.
+					</li>
+					<li class="fragment">A formal proof can be easily checked by a computer or a human.</li>
+					</li>
+					<li class="fragment"> In practice mathematical proofs are <em>informal</em>; consisting of a
+						sequence of assertions and hints as to why they are true.</li>
+					<li class="fragment">A reader has to judge whether the proof is correct.</li>
+					<li class="fragment">In practice there are many proofs, including those published in top journals,
+						that are <strong>wrong.</strong></li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Towards formal proofs</h4>
+				<ul>
+					<li class="fragment"> Writing (and checking) a fully formal proof is difficult and tedious except in
+						the simplest cases.</li>
+
+					<li class="fragment">With advances in Logic/Programming Languages, specifically with <em>Dependent
+							Type Theory</em>, formal proofs are shorter, more modular and more transparent.</li>
+					</li>
+					<li class="fragment"> Computers can assist in both verification and finding formal proofs.</li>
+					<li class="fragment">This has led to substantial progress in formalization.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
+				<h1>&nbsp;</h1>
+				<h1 style="color:#fffdd0">Formal methods</h1>
+				<h2>Proofs elsewhere</h2>
+				<p>&nbsp;</p>
+			</section>
+
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Formal methods</h4>
+				<ul>
+
+					<li class="fragment">We <strong>specify</strong> (describe) software, hardware, networking protocols, cryptographic protocols, even tax codes in precise mathematical terms.
+					</li>
+					<li class="fragment">We give <strong>mathematical proofs</strong> of correct behaviour, which are
+						<strong>computer
+							verified</strong>.
+					</li>
+					<li class="fragment">This gives a much greater certainty of correctness.</li>
+					<li class="fragment">However, proofs are much harder than tests.</li>
+					<li class="fragment">As technology for formal proving becomes better, the much greater assurance of correctness will encouraging proving over testing in more situations.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>TimSort</h4>
+				<ul>
+
+					<li class="fragment">Tim Peters developed the Timsort hybrid sorting algorithm in 2002 &ndash; a
+						clever combination of ideas from merge sort and insertion sort designed to perform well on real
+						world data.
+					</li>
+					<li class="fragment">This was initially developed for Python, but was ported to Java and was used as
+						the default sorting algorithm for Android SDK, Sun’s JDK and OpenJDK.
+					</li>
+					<li class="fragment">This means that the number of computers, cloud services and mobile phones that
+						use TimSort for sorting is well into the billions.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Proving TimSort?</h4>
+				<ul>
+
+					<li class="fragment">Having successfully computer verified Counting and Radix sort implementations
+						in Java, the European <em>envisage</em> group turned to verifying TimSort.
+					</li>
+					<li class="fragment">They were not able to verify correctness.
+					</li>
+					<li class="fragment">A closer analysis showed that this was because the algorithm was wrong.</li>
+					<li class="fragment">The researchers could find, and suggest a fix for, the bug.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<p>Byron Cook (AWS): </p>
+				<blockquote class="fragment">
+					The storage team, for example, is able to be much more agile and be much more aggressive in the
+					programs that they write because of the formal methods. They're able to write code that otherwise
+					they might not want to deploy because they wouldn't be as confident about it, and they're deploying
+					four times as fast.
+				</blockquote>
+			</section>
+
+
+
+
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>When do we need <em>completely correct always</em>?</h4>
+				<ul>
+
+					<li class="fragment"><strong>Safety critical systems:</strong> e.g., Paris driverless metro.
+					</li>
+					<li class="fragment"><strong>Costly to fix:</strong> e.g., Intel chips.
+					</li>
+					<li class="fragment"><strong>Core system functon:</strong> e.g., TimSort.</li>
+					<li class="fragment"><strong>System level:</strong> a bug is a <em>vulnerability</em> e.g., AWS.
+					</li>
+				</ul>
+
+			</section>
+
+
+
+
+
+			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
+				<h1 style="color:#fffdd0">Interactive Theorem Provers</h1>
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<ul>
+					<li><em>Interactive Theorem Provers</em> are software systems where proofs are
+						obtained by human-machine
+						collaboration.</li>
+					<li class="fragment">The computer both finds (parts of) proofs and verifies
+						<strong>correctness</strong>.
+					</li>
+					<li class="fragment">With interactive theorem provers, mathematics on a large scale can be digitied
+						(<em>formalized</em>) in a modular fashion, with the automation greatly facilitating this.
+					</li>
+					<li class="fragment">Indeed the <em>Lean Mathematical Library</em> has most undergraduate
+						mathematics in it, and some advanced topics.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<ul>
+					<li>As more mathematics is in such libraries, it becomes easier and more enjoyable to formalize even
+						more.</li>
+					<li class="fragment">Automation is also improving, which also facilitates formalization.
+					</li>
+					<li class="fragment"><strong>Lean 4</strong> is a <em>programming language</em> seamlessly integrated with an <em>interactive
+						theorem prover</em>, which helps with formalization and makes it useful in new ways.
+					</li>
+					<li class="fragment">The main current application of Lean is to ensure a super-human
+						level of correctness.
+					</li>
+					<li class="fragment"> One hopes this is without super-human
+						effort.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<h4>Who guards the guards?</h4>
+				<ul>
+					<li class="fragment">
+						A computer verified proof is only as trustworthy as the system that verified the proof.
+					</li>
+					<li class="fragment">
+						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small
+						<em>trusted
+							kernel</em>, which can be thoroughly checked.
+					</li>
+					<li class="fragment">
+						For example, the Lean theorem prover has four (small) proof checkers written in
+						four languages.
+					</li>
+					<li class="fragment">
+						In a specific case, one only has to check that the <strong>definitions</strong> and the
+						<strong>statement</strong> are correct, which is typically not hard especially if they use a
+						library.
+					</li>
+				</ul>
+
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<h4>The Liquid Tensor experiment</h4>
+				<ul>
+					<li class="fragment">In December 2020, Peter Scholze challenged the formalization community to
+						computer verify a foundational theorem of <em>Condensed
+							Mathematics</em>.</li>
+					<blockquote class="fragment">
+						— with this theorem, the hope that the condensed formalism can be fruitfully applied to real
+						functional analysis stands or falls. I think the theorem is of utmost foundational importance,
+						so being 99.9% sure is not enough.
+					</blockquote>
+
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<ul>
+					<li>This was taken up by the Lean community led by Johann Commelin, with active
+						collaboration from Scholze.</li>
+
+					<li class="fragment">
+						In about six months a major step, <strong>Theorem 9.4</strong> of Scholze's notes, was proved.
+					</li>
+					<li class="fragment">
+						Scholze said this was the part where he was worried about, and that he was now satisfied
+						that
+						the correctness of his result was checked.
+					</li>
+					<li class="fragment">
+						About an year later, the origin goal, <strong>Theorem 9.1</strong> was proved in Lean.
+					</li>
+					<li class="fragment">Scholze said he understood aspects of his proof after the formalization which
+						he hadn't earlier.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Sums of reciprocals</h4>
+				<ul>
+
+					<li class="fragment">
+						In December 2021, Thomas Bloom proved that any set of natural numbers of positive upper
+						density
+						contains a finite subset whose reciprocals add up to $1$, answering a question of Erdős and
+						Graham.
+					</li>
+					<li class="fragment">
+						While his paper was still under review, Thomas Bloom
+						learnt Lean, and,
+						along with Bhavik Mehta, formalized this theorem in Lean.
+
+					</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Kaplansky's Unit Conjecture</h4>
+				<ul>
+
+					<li class="fragment">
+						About an year ago, Giles Gardam disproved the long-standing <strong>Kaplansky's Unit
+							Conjecture</strong>, which asserted that group rings of torsion-free groups over fields
+						do
+						not have non-trivial units.
+					</li>
+					<li class="fragment">
+						Gardam used a SAT solver to find such non-trivial units for a specific group and the field
+						$\mathbb{F}_2$.
+					</li>
+					<li class="fragment">
+						Anand Rao Tadipatri and I formalized the proof in Lean 4 using its integration of programs and
+						proofs.
+					</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<ul>
+					<li>As these examples show, the effort for formalization of mathematics is rapidly decreasing.</li>
+					<li class="fragment">Mathematics in Lean is much better structured than the human literature.</li>
+					<li class="fragment">Lean also has powerful automation, which helps formalization.</li>
+					<li class="fragment">All this paves the way (one hopes) for facilitating mathematical discovery.
+					</li>
+
+				</ul>
+			</section>
+
+			<section data-transition="zoom" data-background="hills.png">
+				<h1>Generative AI</h1>
+				<h1>(and Proofs)</h1>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>Large Language Models have remarkable abilities, roughly corresponding to our
+						<em>intuition</em>.
+						<ul>
+							<li class="fragment">They can reason by analogy.</li>
+							<li class="fragment">This includes mixing and matching concepts from different domains.</li>
+							<li class="fragment">They are excellent at Natural Language.</li>
+							<li class="fragment">They are familiar with a huge amount of stuff.</li>
+							<li class="fragment">They can transfer knowledge from one domain to another.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>Large Language Models (generative AI) are weak at technical work such as calculations.</li>
+					<li class="fragment">But other software is good at calculations: so one can get a language model to output a Python program that computes the answer.</li>
+					<li class="fragment">They are hopeless at judging whether their output is correct.</li>
+					<li class="fragment">But they can correct errors based on error messages.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Minerva</h4>
+				<ul>
+					<li class="fragment">Minerva is a Large Language Model (LLM) capable of solving mathematical and scientific questions using step-by-step reasoning.</li>
+					<li class="fragment">It can answer reasonably complex problems, including some JEE Mains questions.</li>
+					<li class="fragment">Minerva uses various techniques such as:
+						<ul>
+							<li>few-shot prompting,</li>
+							<li>chain of thought or scratchpad prompting,</li>
+							<li>majority voting.</li>
+						</ul>
+					</li>
+					<li class="fragment">However there is no automatic way to check correctness, hence to further train.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>GPT-f, PACT, HTPS</h4>
+				<ul>
+					<li class="fragment">Proofs can be given in a system such as the Lean Theorem Prover as a sequence of <em>tactics</em>.</li>
+					<li class="fragment">Language Language Models are used to predict useful tactics.</li>
+					<li class="fragment">The system searches for a proof using these tactics.</li>
+					<li class="fragment">These systems have managed to solve some IMO problems.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Draft, Sketch and Prove</h4>
+				<ul>
+					<li class="fragment">A Large Language Model is used to generate an informal sketch of a proof.</li>
+					<li class="fragment">This is translated into a series of steps so the problem is broken into sub-problems.</li>
+					<li class="fragment">Automation is then used to complete proofs.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Baldung</h4>
+				<ul>
+					<li class="fragment">This system is based on two Large Language Models.</li>
+					<li class="fragment">The first model generates a candidate proof.</li>
+					<li class="fragment">The candidate proof is run through the interactive theorem prover. The second model suggests repairs based on these errors.</li>
+				</ul>
+			</section>
+			
+
+			<section>
+				<h4>Conclusions</h4>
+				<ul>
+					<li class="fragment">Generative AI has the promise of hugely increasing the productivity of many people.</li>
+					<li class="fragment">It is however subject to making errors, both coarse and subtle ones.</li>
+					<li class="fragment">The ways in which large Language Language Models are used in Computer Proofs offers lessons in their effective uses. </li>
+					<li class="fragment">Indeed, there is a case to be made for wider adoption of formal methods, for instance by using a language like Lean 4, across industry.</li>
+				</ul>
+			</section>
+
+
+			<section data-background-image="leanaide-mathlib4.gif">
+				
+			</section>
+
+
+	</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				//				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+//			Reveal.addEventListener( 'slidechanged', function( event ) {
+//				MathJax.Hub.Rerender();
+//			} );
+
+	</script>
+
+</body>
+
+</html>
