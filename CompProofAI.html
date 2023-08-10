@@ -168,7 +168,7 @@
 					<li class="fragment"> In practice mathematical proofs are <em>informal</em>; consisting of a
 						sequence of assertions and hints as to why they are true.</li>
 					<li class="fragment">A reader has to judge whether the proof is correct.</li>
-					<li class="fragment">A correct proof must: be <strong>precise</strong>; have n <strong>false statements</strong>; 
+					<li class="fragment">A correct proof must: be <strong>precise</strong>; have no <strong>false statements</strong>; 
 						use <strong>hypothesis</strong> without which the result is false; etc.</li>  
 					</li>
 					<li class="fragment">In practice there are many proofs, including those published in top journals,
@@ -302,8 +302,7 @@
 					<li class="fragment">The main current application of Lean is to ensure a super-human
 						level of correctness.
 					</li>
-					<li class="fragment"> One hopes this is without super-human
-						effort.
+					<li class="fragment"> One hopes this is <strong>without super-human effort</strong>.
 					</li>
 				</ul>
 			</section>
@@ -436,8 +435,8 @@
 					<li class="fragment"><strong>Expert Systems</strong> have a lot of knowledge encoded as structured
 						data, functions,
 						algorithms.</li>
-					<li class="fragment">These are purely System 2, i.e., logical/algorithmic/rule-based systems.</li>
-					<li class="fragment">Besides knowledge and fast algorithms, we also need enough raw power.</li>
+					<li class="fragment">These are purely rule-based systems.</li>
+					<li class="fragment">Besides knowledge and fast algorithms, for success we also need enough raw power.</li>
 			</section>
 
 			<section data-background-color="teal" data-transition="concave">
@@ -453,7 +452,7 @@
 						<strong>capabilities</strong>.
 					</li>
 					<li class="fragment"> Kasparov was far better at evaluating strengths of positions than Deep Blue,
-						and in knowing what moves are worth considering (System 1). </li>
+						and in knowing what moves are worth considering (intuition). </li>
 					<li class="fragment"> Deep Blue compensated for this by being able to consider far more move
 						sequences.</li>
 				</ul>
@@ -632,7 +631,7 @@
 					<li class="fragment"> With the transformer architecture training could be scaled up enormously.</li>
 					<li class="fragment"> It was found that models kept improving as the number of parameters grew (when
 						trained on huge datasets).</li>
-					<li class="fragment"> Huge models such as GPT-3 and PaLM have been trained on essentially all of the
+					<li class="fragment"> Huge models such as GPT-4 and PaLM-2 have been trained on essentially all of the
 						internet, either by trying to predict the next word or by trying to fill in masked out parts.
 					</li>
 					<li class="fragment"> Applications: Dall-E 2, ChatGPT etc., have become sensations.</li>
@@ -662,6 +661,7 @@
 						output a Python program that computes the answer.</li>
 					<li class="fragment">They are hopeless at judging whether their output is correct.</li>
 					<li class="fragment">But they can correct errors based on error messages.</li>
+					<li class="fragment">Interactive theorem provers and LLMs are thus perfect complements.</li>
 
 				</ul>
 			</section>
@@ -721,34 +721,28 @@
 
 
 			<section>
-				<h3>Mathematical discovery</h3>
 				<p>Mathematics advances in a series of steps, each of which can come from (among other things):
 				<ul>
-					<li>By analogy from previous mathematics.</li>
-					<li>Combining ideas from different places.</li>
-					<li>By learning from examples: for instance deeply understanding an example of a construction of
-						Jorgensen (of a hyperbolic structure) was a key part of Thurston's geometrrization.</li>
-					<li>Abstraction and generalization.</li>
-					<li>Cleverness (a la Olympiad problems).</li>
+					<li class="fragment">By analogy from previous mathematics.</li>
+					<li class="fragment">Combining ideas from different places.</li>
+					<li class="fragment">By learning from examples.</li>
+					<li class="fragment">Abstraction and generalization.</li>
+					<li class="fragment">Cleverness (a la Olympiad problems).</li>
+					<li class="fragment">Various heuristics such as "epsilon of room".</li>
+					<li class="fragment">Refactoring clever ideas to understand.</li>
+					<li class="fragment">Trying a lot of stuff and retaining what works.</li>
+					<li class="fragment"> Understanding why something fails after
+						making progress and modifying the approach.</li>
 
 				</ul>
 				</p>
 			</section>
 			<section>
 				<ul>
-					<li>Various heuristics such as "epsilon of room".</li>
-					<li>Refactoring clever ideas to understand (to quote Dennis Sullivan: "why be clever when we can be
-						intelligent").</li>
-					<li>Trying a lot of stuff and retaining what works. Also understanding why something fails after
-						making progress and modifying.</li>
-				</ul>
-			</section>
-			<section>
-				<ul>
 					<li>A great piece of mathematics involves a lot of such steps, building on different pieces of
 						mathematics and using different strengths in different parts.</li>
-					<li>If each step can be accomplished by AI then putting them together may just be engineering. Till
-						recently the missing capability was reasoning by analogy (including generalization - which is
+					<li class="fragment">If each step can be accomplished by AI then putting them together may just be engineering.</li> 
+					<li class="fragment">Till recently the missing capability was reasoning by analogy (including generalization - which is
 						analogy with an example/special case).</li>
 				</ul>
 			</section>
@@ -756,10 +750,10 @@
 				<ul>
 				<li>While aesthetic appeal has a role in mathematics it is not necessary for guiding mathematics (at
 					least in areas I know).</li>
-				<li> At any time there are clear ultimate goals, specific test cases which are beyond the limits of
+				<li class="fragment"> At any time there are clear ultimate goals, specific test cases which are beyond the limits of
 					present techniques, explicit open problems, newly developed techniques that can be extended, and
 					various other guides to what is desirable worthwhile progress.</li>
-				<li> We can work towards making AI systems capable of these, at the least making them very useful collaborators.</li>
+				<li class="fragment"> We can work towards making AI systems capable of these, at the least making them very useful collaborators.</li>
 				</ul>
 			</section>
 
