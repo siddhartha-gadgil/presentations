@@ -65,10 +65,9 @@
 					<li class="fragment">Much less well known are the major advances in computer proofs, both within
 						mathematics and in industry.</li>
 					<li class="fragment"> Computer proofs complement very well generative AI. </li>
-					<li class="fragment"> I will describe computer proofs, generative AI and how they work together.
+					<li class="fragment"> Our goal is to understand whether and how these systems can discover mathematics, or be very useful collaborators.
 					</li>
-					<li class="fragment"> I hope many lessons from this are useful for beyond users of computer proofs.
-					</li>
+					
 				</ul>
 			</section>
 
@@ -435,8 +434,9 @@
 					<li class="fragment"><strong>Expert Systems</strong> have a lot of knowledge encoded as structured
 						data, functions,
 						algorithms.</li>
-					<li class="fragment">These are purely rule-based systems.</li>
-					<li class="fragment">Besides knowledge and fast algorithms, for success we also need enough raw power.</li>
+					<li class="fragment">These are purely <strong>rule-based</strong> systems.</li>
+					<li class="fragment">Besides knowledge and fast algorithms, for success we also need enough 
+						<strong>raw power</strong>.</li>
 			</section>
 
 			<section data-background-color="teal" data-transition="concave">
@@ -557,12 +557,11 @@
 
 			</section>
 			<section data-background-color="teal" data-transition="concave">
-				<h4>AlphaGo vs Lee Sedol</h4>
+				<h4>AlphaGo, AlphaZero</h4>
 				<ul>
 					<li class="fragment"> In March 2016, a Go playing system AlphaGo defeated 18-time world
-						champion Lee Sedol.</li>
-					<li class="fragment"> In January 2017, AlphaGo defeated the world number one Ke Jie
-						comprehensively.
+						champion Lee Sedol;
+					 in January 2017 defeated the world #1 Ke Jie.
 					</li>
 					<li class="fragment"> The strategy of AlphaGo was based on
 						<ul>
@@ -570,38 +569,17 @@
 							<li> A <em>value</em> function - how good a position is. </li>
 						</ul>
 					</li>
-					<li class="fragment"> Given these, Go was played using a search through possible moves suggested by
-						policy.
-					</li>
-				</ul>
-			</section>
-			<section data-background-color="teal" data-transition="concave">
-				<h4>AlphaGo and Learning</h4>
-				<ul>
-					<li class="fragment"> The policy and value
-						functions of AlphaGo are deep neural networks
-						that were trained.
-					</li>
+					<li class="fragment"> Both these were learned by deep neural networks.</li>
 					<li class="fragment"> The policy network was initially trained by learning to predict the next
 						move from games of expert players (<em>behaviour cloning</em>).</li>
-					<li class="fragment"> The value network was trained by AlphaGo playing against
-						itself: <strong>Reinforcement Learning</strong>.
-					</li>
-					<li class="fragment"> AlphaGo considered fewer sequences of moves than Deep Blue.</li>
-					<li class="fragment"> AlphaGo came up with unexpected moves.</li>
 				</ul>
 			</section>
-
-
 			<section data-background-color="teal" data-transition="concave">
-				<h4>AlphaGo Zero and Alpha Zero</h4>
 				<ul>
-					<li class="fragment">AlphaGo was succeeded (and defeated) by <em>AlphaGo Zero</em>, which learnt
-						purely by
-						self play.</li>
-					<li class="fragment">Its successor, <em>AlphaZero</em>, could master a variety of similar games
-						starting with
-						just the rules.</li>
+					<li> The value network was trained by AlphaGo playing against
+						itself: <strong>Reinforcement Learning</strong>.
+					</li>
+					<li class="fragment"> Successors AlphaGoZero and AlphaZero learnt purely by self-play, and the latter played Chess.</li>
 					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the
 						planet
 						(beating a traditional chess program, Stockfish).</li>
@@ -610,6 +588,7 @@
 						activity over material, preferring positions that looked risky and aggressive.&rdquo;</li>
 				</ul>
 			</section>
+
 
 			<section data-background-color="teal" data-transition="concave">
 				<h4 id="attention-is-all-you-need">“Attention is all you need”</h4>
@@ -657,10 +636,12 @@
 			<section data-background-color="teal">
 				<ul>
 					<li>Large Language Models (generative AI) are weak at technical work such as calculations.</li>
-					<li class="fragment">But other software is good at calculations: so one can get a language model to
-						output a Python program that computes the answer.</li>
-					<li class="fragment">They are hopeless at judging whether their output is correct.</li>
-					<li class="fragment">But they can correct errors based on error messages.</li>
+					<li class="fragment">But other software is good at calculations: so a language model can
+						output a Python program to computes the answer.</li>
+					<li class="fragment">There are powerful rule-based deduction engines such as SAT Solvers and  Resolution Theorem Provers 
+						which can prove theorems <em>in the small</em>.</li>
+					<li class="fragment">They are hopeless at judging correctness.</li>
+					<li class="fragment">But they can correct errors given error messages.</li>
 					<li class="fragment">Interactive theorem provers and LLMs are thus perfect complements.</li>
 
 				</ul>
@@ -717,6 +698,21 @@
 					<li class="fragment">The candidate proof is run through the interactive theorem prover. The second
 						model suggests repairs based on these errors.</li>
 				</ul>
+			</section>
+			<section data-background-color="teal">
+				<h4>Magnus Hammer</h4>
+				<ul>
+					<li class="fragment">A language model suggests <strong>premises</strong> - theorems that are likely to be useful (with redundancy).</li>
+					<li class="fragment">Rule-based automation in Isabelle completes proofs.</li>
+					<li class="fragment">This is a fairly powerful system.</li>
+				    <li class="fragment">The language model used has less than 100 million weights.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom" data-background="hills.png">
+				<h1 style="color:#fffdd0">AI/ML + ITP</h1> 
+				<h3 >for</h3> 
+				<h1 style="color:#fffdd0"> Mathematics?</h1>
 			</section>
 
 
