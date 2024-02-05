@@ -557,7 +557,7 @@
 				</ul>
 			</section>
 
-			<section>
+			<section data-background-color="teal">
 				<ul>
 					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
 						<pre><code data-trim data-noescape class="language-json">
@@ -578,10 +578,10 @@ K V → FiniteDimensional K V"},
 					
 				</ul>
 			</section>
-			<section>
+			<section data-background-color="teal" class="language-lean">
 				<ul>
 					<li>Translation to Lean:</li>
-					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
+					If a vector space is $2$-dimensional, then it is finite dimensional.
 						<pre><code data-trim data-noescape>
 							theorem: ∀ {K : Type u} {V : Type v} 
 							[inst : DivisionRing K] [inst_1 : AddCommGroup V] 
@@ -589,6 +589,8 @@ K V → FiniteDimensional K V"},
 								Module.rank K V = 2 → FiniteDimensional K V
 							  </code></pre>
 					</li>
+					<li class="fragment">This was one of our $40$ test <em>silly statements</em>  (to avoid contamination).</li>
+					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements. </li>
 					
 				</ul>
 				</ul>
@@ -612,49 +614,66 @@ K V → FiniteDimensional K V"},
 			<section data-background-color="teal">
 				<h4>Improving LeanAide?</h4>
 				<ul>
-					<li class="fragment">We tested on set of 120 example problems, including <em>silly</em> and <em>false</em> statements to avoid contamination.</li>
-					<li class="fragment">We had a success rate of about 85%.</li>
-					<li class="fragment">Finally, we group responses with two theorems $P$ and
-						$Q$ equivalent if the tactic <code>aesop</code>  can prove $P\iff Q$, and pick the
-						first response in some largest group.</li>
-					<li class="fragment">Such prompting gives both examples of syntax and
-						the terminology used in mathlib.</li>
+					<li class="fragment">On our test set of 120 example problems, we had a success rate of about 85%.</li>
+					<li class="fragment">However, the success rate was below 50% for the standard <em>ProofNet</em> dataset.</li>
+					<li class="fragment">One cause was the choice of terminology not matching mathlib, e.g. <em>condensation points</em>
+					versus <em>limit points</em>.</li>
+					<li class="fragment">We also need to translate statements whose target is a <em>block</em>, for which we need prompts.</li>
+					<li class="fragment">We can attempt to address all these issues using GPT-4.</li>
 				</ul>
-			</section>
-
-
-			<section data-transition="convex" data-background-color="teal">
-				<h4>LeanAide</h4>
-				<video controls muted autoplay src="leanaide-jan24.webm"></video>
 			</section>
 
 
 
 
 			<section data-transition="zoom" data-background="hills.png">
-				<h1 style="color:#fffdd0">AI/ML + ITP</h1> 
-				<h3 >for</h3> 
-				<h1 style="color:#fffdd0"> Mathematics?</h1>
+				<h1 style="color:#fffdd0">GPT-4 Examples</h1> 
 			</section>
 
 
-			<section>
-				<p>Mathematics advances in a series of steps, each of which can come from (among other things):
+			<section data-background-color="#002b36">
 				<ul>
-					<li class="fragment">By analogy from previous mathematics.</li>
-					<li class="fragment">Combining ideas from different places.</li>
-					<li class="fragment">By learning from examples.</li>
-					<li class="fragment">Abstraction and generalization.</li>
-					<li class="fragment">Cleverness (a la Olympiad problems).</li>
-					<li class="fragment">Various heuristics such as "epsilon of room".</li>
-					<li class="fragment">Refactoring clever ideas to understand.</li>
-					<li class="fragment">Trying a lot of stuff and retaining what works.</li>
-					<li class="fragment"> Understanding why something fails after
-						making progress and modifying the approach.</li>
-
-				</ul>
-				</p>
+				<li>Mathematical terms and synonyms: “Suppose E ⊂ Rk is uncountable, and let P be the
+					set of condensation points of E . Then P is perfect.”</li></ul>
+					<pre><code data-trim data-noescape class="language-json">
+						[{"term": "subset",
+							"synonyms": [ "subgroup", "part", "included in", "component" ]},
+							{"term": "uncountable",
+							"synonyms": [ "non-countable", "uncountably infinite", "non-denumerable", "unlisted" ]},
+							{"term": "set",
+							"synonyms": [ "collection", "aggregate", "ensemble", "grouping" ]},
+							{"term": "condensation points",
+							"synonyms": [ "limit points", "accumulation points", "cluster points",
+							"point of accumulation" ]},
+							{"term": "perfect",
+							"synonyms": [ "complete", "whole", "intact", "unblemished" ]}]
+						  </code></pre>
+				</li>
 			</section>
+			<section data-background-color="#002b36">
+				<ul>
+				<li>Describe the following Lean code.</li></ul>
+					<pre><code data-trim data-noescape>
+						variable {α : Type}[LinearOrder α]
+
+						def smallest (l: List α)(_: l ̸= []): α :=
+						match l with
+						| h::t =>
+						if c:(t = []) then
+						h else min h (smallest t c)
+
+						theorem smallest_mem (l : List α) (hyp : l ̸= []) :
+						smallest l hyp ∈ l := by
+						sorry
+
+						theorem smallest_le (l : List α) (hyp : l ̸= []) :
+						∀ a : α, a ∈ l → smallest l hyp ≤ a :=
+						sorry
+						  </code></pre>
+				</li>
+			</section>
+
+
 			<section>
 				<ul>
 					<li>A great piece of mathematics involves a lot of such steps, building on different pieces of
