@@ -220,11 +220,9 @@
 				<h4>Deep learning</h4>
 				<ul>
 					<li class="fragment">Computers can acquire knowledge by
-						<em>learning</em>.
-					</li>
-					<li class="fragment">The idea of computers learning goes back at least to Turing, or even regression
+						<em>learning</em>; this goes back at least to Turing, or even regression
 						in statistics.
-					</li>
+					</li>	
 					<li class="fragment">
 						What was needed was hardware and a system that could learn efficiently: <em>Deep neural
 							networks.</em>
@@ -232,9 +230,10 @@
 					<li class="fragment">In a deep neural network the input is transformed into the output through a
 						series of
 						layers.</li>
-					<li class="fragment">Each layer is typically a linear transformation, depending on weights, followed
-						by a simple
-						non-linear function.</li>
+					<li class="fragment">Each layer is of the form $\sigma\circ (Ax + b)$, with $\sigma$ 
+						fixed and non-linear and $A$ linear; the weights to be learned
+						are the entries of $A$ and $b$.</li>
+					<li class="fragment">Learning is efficient due to the <em>chain rule</em>.</li>
 				</ul>
 			</section>
 
@@ -315,11 +314,11 @@
 				<h4>Foundation Models</h4>
 				<ul>
 					<li class="fragment"> It was found that models kept improving as the number of parameters and data size grew.</li>
-					<li class="fragment"> Models such as GPT-4 and the Gemini models have been <strong>pretrained</strong> on "the
+					<li class="fragment"> Foundation Models such as GPT-4 and the Gemini models have been <strong>pretrained</strong> on "the
 						internet": by next word prediction or filling in masked words.
 					</li>
-					<li class="fragment"> Models, especially open-source medium-sized ones (with 7B, 13B, 30B parameters) like Llama and Mistral families, can be <strong>fine-tuned</strong> 
-						for specific tasks.</li>
+					<li class="fragment"> Models can be <strong>fine-tuned</strong> for specific tasks.</li>
+					<li class="fragment">This is most practical for open-source medium-sized (eg 7B, 13B, 30B parameters) models like Llama and Mistral families. </li>
 
 				</ul>
 			</section>
@@ -343,6 +342,7 @@
 
 			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
 				<h1>&nbsp;</h1>
+				<h1>More Examples</h1>
 				<p>&nbsp;</p>
 			</section>
 
@@ -447,13 +447,13 @@
 			<section data-transition="convex" data-background-color="teal">
 				<h4>SAT Solvers</h4>
 				<ul>
-					<li class="fragment">Many finite problems can be reduced to SAT problems; by the Cook-Levine theorem, this
-						includes all problems in NP.
+					<li class="fragment">Many finite problems can be reduced to SAT problems; by the Cook-Levine theorem, these
+						are the problems in NP (can be verified fast).
 					</li>
 					<li class="fragment">
 						SAT solvers are powerful programs that can solve SAT problems, hence problems mapped to SAT.
 					</li>
-					<li class="fragment">SAT solvers have solved many mathematical problems, for example:</li>
+					<li class="fragment">SAT solvers have been used to solve many mathematical problems, for example:</li>
 					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Can we colour
 						each
 						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
@@ -479,145 +479,21 @@
 			</section>
 
 
-			<section data-transition="convex" data-background-color="teal">
-				<h4>LeanAide</h4>
-				<video controls muted src="leanaide-jan24.webm"></video>
-			</section>
-
-
-			<section data-transition="concave" data-background-color="#002b36">
+			<section data-transition="concave" data-background-color="teal">
 				<ul>
-					<li><em>Interactive Theorem Provers</em> are software systems where proofs are
+					<li>In practice, first-order logic is not suitable for representing a large body of mathematics.</li>
+					<li class="fragment">We use <em>interactive Theorem Provers</em> &ndash; software systems where proofs are
 						obtained by human-machine
 						collaboration.</li>
 					<li class="fragment">The computer both finds (parts of) proofs and verifies
 						<strong>correctness</strong>.
 					</li>
 					<li class="fragment">With interactive theorem provers, mathematics on a large scale can be digitied
-						(<em>formalized</em>) in a modular fashion, with the automation greatly facilitating this.
+						(<em>formalized</em>) in a modular fashion, facilitated by automation.
 					</li>
-					<li class="fragment">Indeed the <em>Lean Mathematical Library</em> has most undergraduate
-						mathematics in it, and some advanced topics.
+					<li class="fragment">The <em>Lean Mathematical Library</em> has most undergraduate
+						maths and some advanced topics.
 					</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave" data-background-color="#002b36">
-				<ul>
-					<li>As more mathematics is in such libraries, it becomes easier and more enjoyable to formalize even
-						more.</li>
-					<li class="fragment">Automation is also improving, which also facilitates formalization.
-					</li>
-					<li class="fragment"><strong>Lean 4</strong> is a <em>programming language</em> seamlessly
-						integrated with an <em>interactive
-							theorem prover</em>, which helps with formalization and makes it useful in new ways.
-					</li>
-					<li class="fragment">The main current application of Lean is to ensure a super-human
-						level of correctness.
-					</li>
-					<li class="fragment"> One hopes this is <strong>without super-human effort</strong>.
-					</li>
-				</ul>
-			</section>
-
-			<section data-transition="concave" data-background-color="#002b36">
-				<h4>Who guards the guards?</h4>
-				<ul>
-					<li class="fragment">
-						A computer verified proof is only as trustworthy as the system that verified the proof.
-					</li>
-					<li class="fragment">
-						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small
-						<em>trusted
-							kernel</em>, which can be thoroughly checked.
-					</li>
-					<li class="fragment">
-						For example, the Lean theorem prover has four (small) proof checkers written in
-						four languages.
-					</li>
-					<li class="fragment">
-						In a specific case, one only has to check that the <strong>definitions</strong> and the
-						<strong>statement</strong> are correct, which is typically not hard especially if they use a
-						library.
-					</li>
-				</ul>
-
-			</section>
-
-			<section data-transition="concave" data-background-color="#002b36">
-				<h4>The Liquid Tensor experiment</h4>
-				<ul>
-					<li class="fragment">In December 2020, Peter Scholze challenged the formalization community to
-						computer verify a foundational theorem of <em>Condensed
-							Mathematics</em>.</li>
-					<blockquote class="fragment">
-						— with this theorem, the hope that the condensed formalism can be fruitfully applied to real
-						functional analysis stands or falls. I think the theorem is of utmost foundational importance,
-						so being 99.9% sure is not enough.
-					</blockquote>
-
-				</ul>
-			</section>
-			<section data-background-color="#002b36">
-				<ul>
-					<li>This was taken up by the Lean community led by Johann Commelin, with active
-						collaboration from Scholze.</li>
-
-					<li class="fragment">
-						In about six months a major step, <strong>Theorem 9.4</strong> of Scholze's notes, was proved.
-					</li>
-					<li class="fragment">
-						Scholze said this was the part where he was worried about, and that he was now satisfied
-						that
-						the correctness of his result was checked.
-					</li>
-					<li class="fragment">
-						About an year later, the origin goal, <strong>Theorem 9.1</strong> was proved in Lean.
-					</li>
-					<li class="fragment">Scholze said he understood aspects of his proof after the formalization which
-						he hadn't earlier.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="#002b36">
-				<h4>Sums of reciprocals</h4>
-				<ul>
-
-					<li class="fragment">
-						In December 2021, Thomas Bloom proved that any set of natural numbers of positive upper
-						density
-						contains a finite subset whose reciprocals add up to $1$, answering a question of Erdős and
-						Graham.
-					</li>
-					<li class="fragment">
-						While his paper was still under review, Thomas Bloom
-						learnt Lean, and,
-						along with Bhavik Mehta, formalized this theorem in Lean.
-
-					</li>
-
-				</ul>
-			</section>
-
-			<section data-background-color="#002b36">
-				<h4>Kaplansky's Unit Conjecture</h4>
-				<ul>
-
-					<li class="fragment">
-						About an year ago, Giles Gardam disproved the long-standing <strong>Kaplansky's Unit
-							Conjecture</strong>, which asserted that group rings of torsion-free groups over fields
-						do
-						not have non-trivial units.
-					</li>
-					<li class="fragment">
-						Gardam used a SAT solver to find such non-trivial units for a specific group and the field
-						$\mathbb{F}_2$.
-					</li>
-					<li class="fragment">
-						Anand Rao Tadipatri and I formalized the proof in Lean 4 using its integration of programs and
-						proofs.
-					</li>
-
 				</ul>
 			</section>
 
@@ -627,22 +503,132 @@
 					<li class="fragment">A Large Language Model is used to generate an informal sketch of a proof.</li>
 					<li class="fragment">This is translated into a series of steps so the problem is broken into
 						sub-problems.</li>
-					<li class="fragment">Automation is then used to complete proofs.</li>
-
-				</ul>
-			</section>
-
-
-			<section data-background-color="#002b36">
-				<ul>
-					<li>As these examples show, the effort for formalization of mathematics is rapidly decreasing.</li>
-					<li class="fragment">Mathematics in Lean is much better structured than the human literature.</li>
-					<li class="fragment">Lean also has powerful automation, which helps formalization.</li>
-					<li class="fragment">All this paves the way (one hopes) for facilitating mathematical discovery.
+					<li class="fragment">Concretely, the proof is written as a series of statements to be proved,
+						which are translated into Isabelle.
 					</li>
+					<li class="fragment">Automation, specifically Isabelle's <code>auto</code> tactic, is then used to complete proofs.</li>
+					<li class="fragment">DSP has a good success rate with high-school mathematics problems.</li>
 
 				</ul>
 			</section>
+
+			<section data-background-color="teal">
+				<h4>Larger scale proofs?</h4>
+				<ul>
+					<li class="fragment">We should translate iteratively, backtracking when the translation fails or the result cannot be proved.</li>
+					<li class="fragment">This is facilitated by translation to <em>structured proofs</em> and adding <em>details</em> to the proof.</li>
+					<li class="fragment">Knowledge should be added into the prompt to help in proving.</li>
+					<li class="fragment">The proof can be guided with heuristics such as splitting into cases.
+					</li>
+					<li class="fragment">The translation of statements to formal ones (in Lean/Isabelle/...) should have high accuracy.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Autoformalization of statements</h4>
+				<ul>
+					<li class="fragment">Our tool <strong>LeanAide</strong> uses GPT-4 to translate
+						statements (similar to docstrings) into Lean 4 code.</li>
+					<li class="fragment">We do prompt engineering and post-processing.</li>
+					<li class="fragment">Lean 4 is written (mostly) in Lean 4, and has convenient functions 
+						for using its interpreter, greatly facilitating our post-processing.</li>
+					<li class="fragment">LeanAide is integrated with the user-interface of Lean 4 via code actions.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>LeanAide</h4>
+				<video controls muted autoplay src="leanaide-jan24.webm"></video>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: In context learning</h4>
+				<ul>
+					<li class="fragment">Suppose we are given the statement of a theorem,
+						which we assume is similar to a documentation string.</li>
+					<li class="fragment">We find (say) 20 documentation strings in mathlib
+						that are closest to the statement and include them in the prompt.</li>
+					<li class="fragment">Here, closeness is measured by the distance between
+						the OpenAI embeddings of the strings.</li>
+					<li class="fragment">Such prompting gives both examples of syntax and
+						the terminology used in mathlib.</li>
+				</ul>
+			</section>
+
+			<section>
+				<ul>
+					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape class="language-json">
+							[{"role": "system",
+"content": "You are a coding assistant who translates from natural language to Lean
+Theorem Prover code following examples. Follow EXACTLY the examples given."},
+{"role": "user",
+"content": "If a vector space has a finite basis, then it is finite-dimensional. "},
+{"role": "assistant",
+"content": "∀ {K : Type u} {V : Type v} [inst : DivisionRing K] [inst_1 :
+AddCommGroup V] [inst_2 : Module K V] {ι : Type w}\n [inst_3 : Finite ι], Basis ι
+K V → FiniteDimensional K V"},
+...
+{"role": "user",
+"content": "If a vector space has dimension ‘2‘ then it is finite dimensional."}]
+							  </code></pre>
+					</li>
+					
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>Translation to Lean:</li>
+					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape>
+							theorem: ∀ {K : Type u} {V : Type v} 
+							[inst : DivisionRing K] [inst_1 : AddCommGroup V] 
+							[inst_2 : Module K V],
+								Module.rank K V = 2 → FiniteDimensional K V
+							  </code></pre>
+					</li>
+					
+				</ul>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Post-processing</h4>
+				<ul>
+					<li class="fragment">We query GPT-4 with the prompt for (say) 10
+						responses.</li>
+					<li class="fragment">We discard responses that are not valid (do not parse or do not
+						elaborate).</li>
+					<li class="fragment">Finally, we group responses with two theorems $P$ and
+						$Q$ equivalent if the tactic <code>aesop</code>  can prove $P\iff Q$, and pick the
+						first response in some largest group.</li>
+					<li class="fragment">Such prompting gives both examples of syntax and
+						the terminology used in mathlib.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Improving LeanAide?</h4>
+				<ul>
+					<li class="fragment">We tested on set of 120 example problems, including <em>silly</em> and <em>false</em> statements to avoid contamination.</li>
+					<li class="fragment">We had a success rate of about 85%.</li>
+					<li class="fragment">Finally, we group responses with two theorems $P$ and
+						$Q$ equivalent if the tactic <code>aesop</code>  can prove $P\iff Q$, and pick the
+						first response in some largest group.</li>
+					<li class="fragment">Such prompting gives both examples of syntax and
+						the terminology used in mathlib.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>LeanAide</h4>
+				<video controls muted autoplay src="leanaide-jan24.webm"></video>
+			</section>
+
+
 
 
 			<section data-transition="zoom" data-background="hills.png">
