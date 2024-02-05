@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Computer Proofs and Artificial Intelligence</title>
+	<title>AlphaGeometry: AI for Maths</title>
 
 	<meta name="description" content="Samasya Debug lecture">
 	<meta name="author" content="Siddhartha Gadgil">
@@ -89,7 +89,7 @@
 			<section data-background-color="teal">
 				<h4 id="what-went-into-proofs">Components of Proving (Thinking)</h4>
 				<ul>
-					<li class="fragment"><strong>Intuition, Creativity:</strong> Analogies, Associations etc.
+					<li class="fragment"><strong>Intuition:</strong> Analogies, Associations etc.
 						<ul>
 							<li class="fragment">
 								Auxiliary Constructions.
@@ -139,55 +139,279 @@
 				<h4>Components of AlphaGeometry</h4>
 				<ul>
 
-					<li class="fragment"><strong>Deductive Database + Algebraic Reasoning (DD+AR):</strong> a powerful and efficient complete deductive system for reasoning about geometry problems (extending earlier work).
+					<li class="fragment"><strong>Deductive Database + Algebraic Reasoning (DD+AR):</strong> a powerful and efficient deductive system for reasoning about geometry problems (extending earlier work).
 					</li>
-					<li class="fragment">A <strong>language model</strong> that suggests <em>auxiliary constructions.</em>
+					<li class="fragment">A <strong>Language Model</strong> that suggests <em>auxiliary constructions.</em>
 					</li>
 					<li class="fragment">Generation of <strong>synthetic data</strong> to train the language model.</li>
 				</ul>
 			</section>
 
 			<section data-transition="convex" data-background="#b5533c">
-				<h4>Proving TimSort?</h4>
+				<h4>Deductive Database (+ Algebraic Reasoning)</h4>
 				<ul>
 
-					<li class="fragment">Having successfully computer verified Counting and Radix sort implementations
-						in Java, the European <em>envisage</em> group turned to verifying TimSort.
+					<li class="fragment">In a <strong>Deductive Database</strong>, we have (efficiently represented):
+						<ul>
+							<li>A finite collection of points.</li>
+							<li>Relations between points, lines through them etc.; for example <code>perp A B C D</code></li>
+						</ul>
 					</li>
-					<li class="fragment">They were not able to verify correctness.
+					<li class="fragment">Rules of deduction let us deduce consequences.
 					</li>
-					<li class="fragment">A closer analysis showed that this was because the algorithm was wrong.</li>
-					<li class="fragment">The researchers could find, and suggest a fix for, the bug.</li>
+					<li class="fragment">For instance if <code>AB</code> and <code>CD</code>
+						are both perpendicular to <code>BC</code> then they are parallel.</li>
+					<li class="fragment">Iterating deduction with all applicable rules till we have a <em>fixed point</em>
+					gives all consequences that <strong>do not require</strong> adding a point.</li>
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="#b5533c">
-				<p>Byron Cook (AWS): </p>
-				<blockquote class="fragment">
-					The storage team, for example, is able to be much more agile and be much more aggressive in the
-					programs that they write because of the formal methods. They're able to write code that otherwise
-					they might not want to deploy because they wouldn't be as confident about it, and they're deploying
-					four times as fast.
-				</blockquote>
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>(Deductive Database +) Algebraic Reasoning</h4>
+				<ul>
+
+					<li class="fragment">In addition to deducing relations from other relations, AlphaGeometry deduces from algebraic relations for angles, lengths and ratios.</li>
+					<li class="fragment">All the relations obtained in the setup are of the form $a + b = c + d$.
+					</li>
+					<li class="fragment">Hence, they can be represented by a matrix and all consequences efficiently derived using <strong>Gaussian Elimination.</strong></li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Synthetic data</h4>
+				<ul>
+
+					<li class="fragment">Millions of random configurations were generated, and all theorems were deduced.</li>
+					</li>
+					<li class="fragment">100 million theorems were found, for which minimal proofs were generated.</li>
+					</li>
+					<li class="fragment">Whenever the statement of a theorem did not involve a point but the proof did, the proof involved an <em>auxiliary construction</em> (10 million).</li>
+					<li class="fragment">A language model ($\approx 150M$ params) was <em>pretrained</em> on all proofs and <em>fine-tuned</em> to predict auxiliary constructions.
+					</li>
+					<li class="fragment">No IMO problem was in the synthetic data.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>AlphaGeometry: Solving Problems</h4>
+				<ul>
+
+					<li class="fragment">Given a geometry problem represented symbolically, all deductions are made using DD+AR.</li>
+					<li class="fragment">If the deductions do not include the final conclusion, then the language model is used to generate candidate auxiliary constructions.</li>
+					</li>
+					<li class="fragment">For (some of) the auxiliary constructions, all deductions are made after the construction.</li>
+					<li class="fragment">This process is repeated in a <strong>beam search</strong>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-image="AlphaGeomPfs.jpg" data-background-size="contain">
 			</section>
 
 
 
+			<section data-transition="zoom-in concave-out" data-background="alpha-zero.jpg">
+				<h1>&nbsp;</h1>
+				<h2 style="color:#fffdd0">Deep Learning</h2>
+				<h4>and</h4>
+				<h2 style="color:#fffdd0">Language Models</h2>
+			</section>
 
-
-			<section data-transition="convex" data-background-color="#b5533c">
-				<h4>When do we need <em>completely correct always</em>?</h4>
+			<section data-background-color="teal" data-transition="concave">
+				<h4>Deep learning</h4>
 				<ul>
+					<li class="fragment">Computers can acquire knowledge by
+						<em>learning</em>.
+					</li>
+					<li class="fragment">The idea of computers learning goes back at least to Turing, or even regression
+						in statistics.
+					</li>
+					<li class="fragment">
+						What was needed was hardware and a system that could learn efficiently: <em>Deep neural
+							networks.</em>
+					</li>
+					<li class="fragment">In a deep neural network the input is transformed into the output through a
+						series of
+						layers.</li>
+					<li class="fragment">Each layer is typically a linear transformation, depending on weights, followed
+						by a simple
+						non-linear function.</li>
+				</ul>
+			</section>
 
-					<li class="fragment"><strong>Safety critical systems:</strong> e.g., Paris driverless metro.
+			<section data-background-color="teal" data-transition="concave">
+				<img height="250" src="DeepNeuralNet.png" />
+				<ul>
+					<li class="fragment">Starting about 2012, deep neural networks performed very well in image
+						processing tasks, far
+						above rule-based systems.</li>
+					<li class="fragment">
+
+						It turns out that as the image is processed by successive layers, the raw data gets modified
+						to capture abstraction/meaning.
 					</li>
-					<li class="fragment"><strong>Costly to fix:</strong> e.g., Intel chips.
+				</ul>
+			</section>
+			<section data-background-color="teal" data-transition="concave">
+				<h4 id="limitations-as-of-about-ten-years-ago">Limitations (≈ 10 years ago)</h4>
+				<ul>
+					<li class="fragment">Needed labelled data for training.</li>
+					<li class="fragment">Narrow: training specific to the task.</li>
+					<li class="fragment">Had difficulty with long range dependencies, in particular language.</li>
+					<li class="fragment">Hard to scale up, parallelize.</li>
+					<li class="fragment">Could not go beyond training data.</li>
+				</ul>
+			</section>
+			<section data-background-color="teal" data-transition="concave">
+				<h4 id="representation-learning">Representation Learning</h4>
+				<ul>
+					<li class="fragment">
+						<p><strong>Word2Vec</strong> considered the <em>synthetic</em> problem of predicting a word given its neighbours.
+						</p>
 					</li>
-					<li class="fragment"><strong>Core system functon:</strong> e.g., TimSort.</li>
-					<li class="fragment"><strong>System level:</strong> a bug is a <em>vulnerability</em> e.g., AWS.
+					<li class="fragment">
+						<p>This was trained on solutions of this problem that involve mapping words into space, and
+							predicting
+							from neighbours using the points.</p>
+					</li>
+					<li class="fragment">
+						<p>Only the mapping of words into space was retained, so <em>geometry</em> captures
+							<em>associations</em>.
+						</p>
+					</li>
+					<li class="fragment">
+						<p>Another lesson is that it is useful to solve synthetic problems: play, solving exercises.</p>
 					</li>
 				</ul>
 
+			</section>
+
+			<section data-background-color="teal" data-transition="concave">
+				<h4 id="transfer-learning">Transfer learning</h4>
+				<ul>
+					<li class="fragment">A set of common layers was used for many tasks.</li>
+					<li class="fragment">Some of the tasks could be synthetic (exercises).</li>
+					<li class="fragment">This resulted in networks trained for one task needing much less training for a
+						related task.
+					</li>
+				</ul>
+
+			</section>
+
+			<section data-background-color="teal" data-transition="concave">
+				<h4 id="attention-is-all-you-need">“Attention is all you need”</h4>
+				<ul>
+					<li class="fragment">The meaning of a word depends on the context, i.e., other words surrounding it.
+					</li>
+					<li class="fragment">In the <strong>transformer architecture</strong>, this is captured by learning
+						to which other
+						words to pay attention.</li>
+					<li class="fragment">This allowed parallelization and captured long-range dependencies.</li>
+					<li class="fragment"> With the transformer architecture training could be scaled up enormously.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal" data-transition="concave">
+				<h4>Foundation Models</h4>
+				<ul>
+					<li class="fragment"> It was found that models kept improving as the number of parameters and data size grew.</li>
+					<li class="fragment"> Models such as GPT-4 and the Gemini models have been <strong>pretrained</strong> on "the
+						internet": by next word prediction or filling in masked words.
+					</li>
+					<li class="fragment"> Models, especially open-source medium-sized ones (with 7B, 13B, 30B parameters) like Llama and Mistral families, can be <strong>fine-tuned</strong> 
+						for specific tasks.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>Large Language Models have remarkable abilities, roughly corresponding to our
+						<em>intuition</em>.
+						<ul>
+							<li class="fragment">They can reason by analogy.</li>
+							<li class="fragment">This includes mixing and matching concepts from different domains.</li>
+							<li class="fragment">They are excellent at Natural Language.</li>
+							<li class="fragment">They are familiar with a huge amount of stuff.</li>
+							<li class="fragment">They can transfer knowledge from one domain to another.</li>
+						</ul>
+					</li>
+					<li class="fragment">They are, however, <strong>terrible</strong> at at avoiding logical fallacies and judging
+						correctness.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
+				<h1>&nbsp;</h1>
+				<p>&nbsp;</p>
+			</section>
+
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Cap Set problem and FunSearch</h4>
+				<ul>
+
+					<li class="fragment">The cap set problem is to find the largest possible set of vectors in $(\mathbb{Z}/3)^n$ 
+						(known as a cap set) such that no three vectors sum to zero. Geometrically, no three points of a cap set are in a line.
+					</li>
+					<li class="fragment">Exact results are known only up to $n=6$, and brute force search is infeasible for larger $n$.
+					</li>
+					<li class="fragment">The system <strong>FunSearch</strong> found a construction for $n=8$ which was a significant improvement. </li>
+					<li class="fragment">FunSearch did not find the cap set directly, but found a <strong>program</strong> that computed this set.</li> 
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>FunSearch: Evolutionary search</h4>
+				<ul>
+
+					<li class="fragment">Most of the program for generating cap sets is fixed; only the function <code>priority</code> is learned.
+					</li>
+					<li class="fragment">The function is learned by an evolution:
+						<ul>
+							<li>At each time we have a population of functions, starting with a single one.</li>
+							<li>We evaluate and select the best functions.</li>
+							<li>These are <em>combined</em> to generate new functions.</li>
+						</ul>
+					</li>
+					<li class="fragment">Functions are combined using a Language model (Codey from the PaLM-2 family),
+						 which is given instructions and the programs in its prompt. </li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Symbolic Integration</h4>
+				<ul>
+
+					<li class="fragment">(Lample & Charton): A language model was trained to symbolically integrate a given function.
+					</li>
+					<li class="fragment">Three forms of data were generated and used:
+						<ul>
+							<li><strong>Forward Generation:</strong> Generate random functions and calculate their integrals using a computer algebra system.</li>
+							<li><strong>Backward generation:</strong>Generate a random function $F$, compute its derivate $f$ and note that $\int f = F$. </li>
+							<li><strong>Backward generation with integration by parts (IBP)</strong>.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Backward generation with IBP</h4>
+				<ul>
+
+					<li class="fragment">We pick random functions $F$ and $G$ and compute the derivatives $f$ and $g$.
+					</li>
+					<li class="fragment">If $fG$ is already in the training data, we know its integral.
+					</li>
+					<li class="fragment">We can compute its integral as $\int Fg = FG - \int fG$.
+					</li>
+					<li class="fragment">This often gives short functions with longer integrals</strong>.
+					</li>
+					<li class="fragment">Similar approaches have been used for solving ODEs, recurrences etc.</li>
+				</ul>
 			</section>
 
 
@@ -195,8 +419,54 @@
 
 
 			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
-				<h1 style="color:#fffdd0">Interactive Theorem Provers</h1>
+				<h2 style="color:#fffdd0">Automated Theorem Provers</h2>
+				<h4 style="color:#fffdd0">and</h4>
+
+				<h2 style="color:#fffdd0">Interactive Theorem Provers</h2>
 			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT Problems</h4>
+				<ul>
+					<li class="fragment">We are given finitely many <em>boolean</em> variables $P$, $Q$, ... and finitely many
+						<em>constraints</em> on them.
+					</li>
+					<li class="fragment">
+						Constraints are logical statements built from the variables using logical operators such as
+						$\neg$ (<em>not</em>), $\vee$(<em>or</em>), $\wedge$(<em>and</em>),
+						$\Rightarrow$(<em>implies</em>) and $\Leftrightarrow$ (<em>equivalent</em>).
+					</li>
+					<li class="fragment">
+						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can assign
+						truth values to these (i.e., declare each of $P$, $Q$ , ... to be $true$ or $false$) so that all
+						the constraints are satisfied.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT Solvers</h4>
+				<ul>
+					<li class="fragment">Many finite problems can be reduced to SAT problems; by the Cook-Levine theorem, this
+						includes all problems in NP.
+					</li>
+					<li class="fragment">
+						SAT solvers are powerful programs that can solve SAT problems, hence problems mapped to SAT.
+					</li>
+					<li class="fragment">SAT solvers have solved many mathematical problems, for example:</li>
+					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Can we colour
+						each
+						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
+						satisfying $a^{2}+b^{2}=c^{2}$ is monochromatic?</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>LeanAide</h4>
+				<video controls src="leanaide-jan24.webm"></video>
+			</section>
+
 
 			<section data-transition="concave" data-background-color="#002b36">
 				<ul>
@@ -334,278 +604,6 @@
 				</ul>
 			</section>
 
-			<section data-background-color="#002b36">
-				<ul>
-					<li>As these examples show, the effort for formalization of mathematics is rapidly decreasing.</li>
-					<li class="fragment">Mathematics in Lean is much better structured than the human literature.</li>
-					<li class="fragment">Lean also has powerful automation, which helps formalization.</li>
-					<li class="fragment">All this paves the way (one hopes) for facilitating mathematical discovery.
-					</li>
-
-				</ul>
-			</section>
-
-			<section data-transition="zoom-in concave-out" data-background="alpha-zero.jpg">
-				<h1>&nbsp;</h1>
-				<h2 style="color:#fffdd0">Stages of</h2>
-				<h1 style="color:#fffdd0">Artificial Intelligence</h1>
-			</section>
-
-			<section data-background-color="teal" data-transition="concave">
-				<h4 id="common-sense">The common sense barrier</h4>
-				<ul>
-					<li class="fragment">We know a lot of things, on which we base <em>common sense</em> (according to
-						Marvin Minsky).</li>
-					<li class="fragment">Further, these pieces of knowledge are organized in a way that they can be
-						combined.</li>
-					<li class="fragment"><strong>Expert Systems</strong> have a lot of knowledge encoded as structured
-						data, functions,
-						algorithms.</li>
-					<li class="fragment">These are purely <strong>rule-based</strong> systems.</li>
-					<li class="fragment">Besides knowledge and fast algorithms, for success we also need enough 
-						<strong>raw power</strong>.</li>
-			</section>
-
-			<section data-background-color="teal" data-transition="concave">
-				<h4>Kasparov vs Deep Blue</h4>
-				<ul>
-					<li class="fragment">In 1997, a computer <strong>Deep Blue</strong> defeated the Chess world
-						champion Gary Kasparov.
-					</li>
-					<li class="fragment"> Deep Blue was an <em>Expert system</em>, based on elaborate rules for judging
-						strengths of positions.
-					</li>
-					<li class="fragment">However, Deep Blue was very limited in certain
-						<strong>capabilities</strong>.
-					</li>
-					<li class="fragment"> Kasparov was far better at evaluating strengths of positions than Deep Blue,
-						and in knowing what moves are worth considering (intuition). </li>
-					<li class="fragment"> Deep Blue compensated for this by being able to consider far more move
-						sequences.</li>
-				</ul>
-
-			</section>
-
-
-			<section data-background-color="teal" data-transition="concave">
-				<h4 id="tacit-knowledge">The tacit knowledge barrier</h4>
-				<ul>
-					<li class="fragment"><strong>Tacit knowledge</strong> is the kind of knowledge that is difficult to
-						transfer to another person by
-						means of writing it down or verbalizing it.</li>
-					<li class="fragment">Examples: riding a bicycle, speaking a language; evaluating positions in chess.
-					</li>
-					<li class="fragment">Tacit knowledge is much more important in the chinese game Go compared to
-						Chess.</li>
-					<li class="fragment">Further, in Go the number of legal moves is much larger so brute force is less
-						effective.</li>
-					<li class="fragment">As a result, DeepBlue style expert systems are hopeless at Go.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="teal" data-transition="concave">
-				<h4>Deep learning</h4>
-				<ul>
-					<li class="fragment">Computers can acquire knowledge by
-						<em>learning</em>.
-					</li>
-					<li class="fragment">The idea of computers learning goes back at least to Turing, or even regression
-						in statistics.
-					</li>
-					<li class="fragment">
-						What was needed was hardware and a system that could learn efficiently: <em>Deep neural
-							networks.</em>
-					</li>
-					<li class="fragment">In a deep neural network the input is transformed into the output through a
-						series of
-						layers.</li>
-					<li class="fragment">Each layer is typically a linear transformation, depending on weights, followed
-						by a simple
-						non-linear function.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="teal" data-transition="concave">
-				<img height="250" src="DeepNeuralNet.png" />
-				<ul>
-					<li class="fragment">Starting about 2012, deep neural networks performed very well in image
-						processing tasks, far
-						above rule-based systems.</li>
-					<li class="fragment">
-
-						It turns out that as the image is processed by successive layers, the raw data gets modified
-						to capture abstraction/meaning.
-					</li>
-				</ul>
-			</section>
-			<section data-background-color="teal" data-transition="concave">
-				<h4 id="limitations-as-of-about-ten-years-ago">Limitations (≈ 10 years ago)</h4>
-				<ul>
-					<li class="fragment">Needed labelled data for training.</li>
-					<li class="fragment">Narrow: training specific to the task.</li>
-					<li class="fragment">Had difficulty with long range dependencies, in particular language.</li>
-					<li class="fragment">Hard to scale up, parallelize.</li>
-					<li class="fragment">Could not go beyond training data.</li>
-				</ul>
-			</section>
-			<section data-background-color="teal" data-transition="concave">
-				<h4 id="representation-learning">Representation Learning</h4>
-				<ul>
-					<li class="fragment">
-						<p><strong>Word2Vec</strong> considered the problem of predicting a word given its neighbours.
-						</p>
-					</li>
-					<li class="fragment">
-						<p>This was trained on solutions of this problem that involve mapping words into space, and
-							predicting
-							from neighbours using the points.</p>
-					</li>
-					<li class="fragment">
-						<p>Only the mapping of words into space was retained, so <em>geometry</em> captures
-							<em>associations</em>.
-						</p>
-					</li>
-					<li class="fragment">
-						<p>Another lesson is that it is useful to solve synthetic problems: play, solving exercises.</p>
-					</li>
-				</ul>
-
-			</section>
-
-			<section data-background-color="teal" data-transition="concave">
-				<h4 id="transfer-learning">Transfer learning</h4>
-				<ul>
-					<li class="fragment">A set of common layers was used for many tasks.</li>
-					<li class="fragment">Some of the tasks could be synthetic (exercises).</li>
-					<li class="fragment">This resulted in networks trained for one task needing much less training for a
-						related task.
-					</li>
-				</ul>
-
-			</section>
-			<section data-background-color="teal" data-transition="concave">
-				<h4>AlphaGo, AlphaZero</h4>
-				<ul>
-					<li class="fragment"> In March 2016, a Go playing system AlphaGo defeated 18-time world
-						champion Lee Sedol;
-					 in January 2017 defeated the world #1 Ke Jie.
-					</li>
-					<li class="fragment"> The strategy of AlphaGo was based on
-						<ul>
-							<li> A <em>policy</em> function - what moves to consider. </li>
-							<li> A <em>value</em> function - how good a position is. </li>
-						</ul>
-					</li>
-					<li class="fragment"> Both these were learned by deep neural networks.</li>
-					<li class="fragment"> The policy network was initially trained by learning to predict the next
-						move from games of expert players (<em>behaviour cloning</em>).</li>
-				</ul>
-			</section>
-			<section data-background-color="teal" data-transition="concave">
-				<ul>
-					<li> The value network was trained by AlphaGo playing against
-						itself: <strong>Reinforcement Learning</strong>.
-					</li>
-					<li class="fragment"> Successors AlphaGoZero and AlphaZero learnt purely by self-play, and the latter played Chess.</li>
-					<li class="fragment">AlphaZero took just 4 hours to become the strongest chess player on the
-						planet
-						(beating a traditional chess program, Stockfish).</li>
-					<li class="fragment">AlphaZero &ldquo;had a dynamic, open style&rdquo;, and &ldquo;prioritizes
-						piece
-						activity over material, preferring positions that looked risky and aggressive.&rdquo;</li>
-				</ul>
-			</section>
-
-
-			<section data-background-color="teal" data-transition="concave">
-				<h4 id="attention-is-all-you-need">“Attention is all you need”</h4>
-				<ul>
-					<li class="fragment">The meaning of a word depends on the context, i.e., other words surrounding it.
-					</li>
-					<li class="fragment">In the <strong>transformer architecture</strong>, this is captured by learning
-						to which other
-						words to pay attention.</li>
-					<li class="fragment">This allowed parallelization and captured long-range dependencies.</li>
-					<li class="fragment">Transformers are used in <strong>AlphaFold 2</strong> which predicts protein
-						structures on par with experiments.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="teal" data-transition="concave">
-				<h4>Foundation Models</h4>
-				<ul>
-					<li class="fragment"> With the transformer architecture training could be scaled up enormously.</li>
-					<li class="fragment"> It was found that models kept improving as the number of parameters grew (when
-						trained on huge datasets).</li>
-					<li class="fragment"> Huge models such as GPT-4 and PaLM-2 have been trained on essentially all of the
-						internet, either by trying to predict the next word or by trying to fill in masked out parts.
-					</li>
-					<li class="fragment"> Applications: Dall-E 2, ChatGPT etc., have become sensations.</li>
-
-				</ul>
-			</section>
-
-			<section data-background-color="teal">
-				<ul>
-					<li>Large Language Models have remarkable abilities, roughly corresponding to our
-						<em>intuition</em>.
-						<ul>
-							<li class="fragment">They can reason by analogy.</li>
-							<li class="fragment">This includes mixing and matching concepts from different domains.</li>
-							<li class="fragment">They are excellent at Natural Language.</li>
-							<li class="fragment">They are familiar with a huge amount of stuff.</li>
-							<li class="fragment">They can transfer knowledge from one domain to another.</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-
-			<section data-background-color="teal">
-				<ul>
-					<li>Large Language Models (generative AI) are weak at technical work such as calculations.</li>
-					<li class="fragment">But other software is good at calculations: so a language model can
-						output a Python program to computes the answer.</li>
-					<li class="fragment">There are powerful rule-based deduction engines such as SAT Solvers and  Resolution Theorem Provers 
-						which can prove theorems <em>in the small</em>.</li>
-					<li class="fragment">They are hopeless at judging correctness.</li>
-					<li class="fragment">But they can correct errors given error messages.</li>
-					<li class="fragment">Interactive theorem provers and LLMs are thus perfect complements.</li>
-
-				</ul>
-			</section>
-
-			<section data-background-color="teal">
-				<h4>Minerva</h4>
-				<ul>
-					<li class="fragment">Minerva is a Large Language Model (LLM) capable of solving mathematical and
-						scientific questions using step-by-step reasoning.</li>
-					<li class="fragment">It can answer reasonably complex problems, including some JEE Mains questions.
-					</li>
-					<li class="fragment">Minerva uses various techniques such as:
-						<ul>
-							<li>few-shot prompting,</li>
-							<li>chain of thought or scratchpad prompting,</li>
-							<li>majority voting.</li>
-						</ul>
-					</li>
-					<li class="fragment">However there is no automatic way to check correctness, hence to further train.
-					</li>
-
-				</ul>
-			</section>
-
-			<section data-background-color="teal">
-				<h4>GPT-f, PACT, HTPS</h4>
-				<ul>
-					<li class="fragment">Proofs can be given in a system such as the Lean Theorem Prover as a sequence
-						of <em>tactics</em>.</li>
-					<li class="fragment">Language Language Models are used to predict useful tactics.</li>
-					<li class="fragment">The system searches for a proof using these tactics.</li>
-					<li class="fragment">These systems have managed to solve some IMO problems.</li>
-
-				</ul>
-			</section>
-
 			<section data-background-color="teal">
 				<h4>Draft, Sketch and Prove</h4>
 				<ul>
@@ -617,24 +615,18 @@
 				</ul>
 			</section>
 
-			<section data-background-color="teal">
-				<h4>Baldung</h4>
+
+			<section data-background-color="#002b36">
 				<ul>
-					<li class="fragment">This system is based on two Large Language Models.</li>
-					<li class="fragment">The first model generates a candidate proof.</li>
-					<li class="fragment">The candidate proof is run through the interactive theorem prover. The second
-						model suggests repairs based on these errors.</li>
+					<li>As these examples show, the effort for formalization of mathematics is rapidly decreasing.</li>
+					<li class="fragment">Mathematics in Lean is much better structured than the human literature.</li>
+					<li class="fragment">Lean also has powerful automation, which helps formalization.</li>
+					<li class="fragment">All this paves the way (one hopes) for facilitating mathematical discovery.
+					</li>
+
 				</ul>
 			</section>
-			<section data-background-color="teal">
-				<h4>Magnus Hammer</h4>
-				<ul>
-					<li class="fragment">A language model suggests <strong>premises</strong> - theorems that are likely to be useful (with redundancy).</li>
-					<li class="fragment">Rule-based automation in Isabelle completes proofs.</li>
-					<li class="fragment">This is a fairly powerful system.</li>
-				    <li class="fragment">The language model used has less than 100 million weights.</li>
-				</ul>
-			</section>
+
 
 			<section data-transition="zoom" data-background="hills.png">
 				<h1 style="color:#fffdd0">AI/ML + ITP</h1> 
