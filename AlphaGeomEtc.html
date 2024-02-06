@@ -1,0 +1,1055 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>AlphaGeometry: AI for Maths</title>
+
+	<meta name="description" content="Samasya Debug lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="kwk.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<h3> AlphaGeometry and friends</h3>
+				<h3>Artificial Intelligence</h3>
+				<h4>for</h4>
+				<h3>Mathematics</h3>
+				<h4>Siddhartha Gadgil</h4>
+				<p>Department of Mathematics</p>
+				<p>Indian Institute of Science, Bangalore</p>
+
+
+			</section>
+
+
+			<section data-transition="zoom-in slide-out" data-background-image="campus.jpg">
+				<h1>Mathematical Proofs</h1>
+			</section>
+
+			<section data-background-color="teal">
+				<h4> A proof: Sum of Angles in a Triangle</h4>
+				<ul>
+					<li class="fragment"> Consider a triangle $ABC$.</li>
+					<img class="fragment" src="angle_sum.png" height="250" />
+					<li class="fragment"> Draw a line through $A$ parallel to $BC$.</li>
+					<li class="fragment"> Use equality of interior opposite angles.</li>
+					<li class="fragment"> Use angles on a line add up to 180 degrees.</li>
+
+				</ul>
+			</section>
+			<section data-background-color="teal">
+				<h4>Another proof: infinitely many primes</h4>
+				<ul>
+					<li class="fragment"> For any $n$, we show that there exists a prime $p$ such that $p > n$.</li>
+					<li class="fragment"> Consider the number $n!+1$, where $n! = 1 \times 2 \times \dots \times n$.
+					</li>
+					<li class="fragment"> Let $p$ be the smallest prime factor of $n!+1$.
+					</li>
+					<li class="fragment"> If $p \leq n$ then $p | n!$ so $p \nmid n!+1$.</li>
+					<li class="fragment"> Hence $p$ is a prime greater than $n$.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4 id="what-went-into-proofs">Components of Proving (Thinking)</h4>
+				<ul>
+					<li class="fragment"><strong>Intuition:</strong> Analogies, Associations etc.
+						<ul>
+							<li class="fragment">
+								Auxiliary Constructions.
+							</li>
+							<li class="fragment">
+								<p>Theorems/Definitions to use.</p>
+							</li>
+							<li class="fragment">
+								Intermediate Lemmas and statements.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">
+						<p><strong>Logical/Algorithmic:</strong> Deductions, Computations.</p>
+					</li>
+					<li class="fragment">
+						Intuition is based on <strong>tacit knowledge</strong>, which is acquired by learning.
+					</li>
+					<li class="fragment"><strong>Moravec paradox:</strong> Intuition needs far more computation. </li>
+				</ul>
+
+			</section>
+
+
+			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
+				<h1>&nbsp;</h1>
+				<h1 style="color:#fffdd0">AlphaGeometry</h1>
+				<p>&nbsp;</p>
+			</section>
+
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>AlphaGeometry</h4>
+				<ul>
+
+					<li class="fragment">AlphaGeometry is an AI system that can solve geometry problems.
+					</li>
+					<li class="fragment">More precisely, it can attempt to solve geometry problems which can be
+						represented in a certain symbolic way,
+						which includes most IMO geometry problems.
+					</li>
+					<li class="fragment">The score of AlphaGeometry on these problems was between the average score of
+						the <strong>Silver medallists</strong> and the average score of the <strong>Gold
+							medallists</strong> on those problems.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Components of AlphaGeometry</h4>
+				<ul>
+
+					<li class="fragment"><strong>Deductive Database + Algebraic Reasoning (DD+AR):</strong> a powerful
+						and efficient deductive system for reasoning about geometry problems (extending earlier work).
+					</li>
+					<li class="fragment">A <strong>Language Model</strong> that suggests <em>auxiliary
+							constructions.</em>
+					</li>
+					<li class="fragment">Generation of <strong>synthetic data</strong> to train the language model.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Deductive Database (+ Algebraic Reasoning)</h4>
+				<ul>
+
+					<li class="fragment">In a <strong>Deductive Database</strong>, we have (efficiently represented):
+						<ul>
+							<li>A finite collection of points.</li>
+							<li>Relations between points, lines through them etc.; for example <code>perp A B C D</code>
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">Rules of deduction let us deduce consequences.
+					</li>
+					<li class="fragment">For instance if <code>AB</code> and <code>CD</code>
+						are both perpendicular to <code>BC</code> then they are parallel.</li>
+					<li class="fragment">Iterating deduction with all applicable rules till we have a <em>fixed
+							point</em>
+						gives all consequences that <strong>do not require</strong> adding a point.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>(Deductive Database +) Algebraic Reasoning</h4>
+				<ul>
+
+					<li class="fragment">In addition to deducing relations from other relations, AlphaGeometry deduces
+						from algebraic relations for angles, lengths and ratios.</li>
+					<li class="fragment">All the relations obtained in the setup are of the form $a + b = c + d$.
+					</li>
+					<li class="fragment">Hence, they can be represented by a matrix and all consequences efficiently
+						derived using <strong>Gaussian Elimination.</strong></li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Synthetic data</h4>
+				<ul>
+
+					<li class="fragment">Millions of random configurations were generated, and all theorems were
+						deduced.</li>
+					</li>
+					<li class="fragment">100 million theorems were found, for which minimal proofs were generated.</li>
+					</li>
+					<li class="fragment">Whenever the statement of a theorem did not involve a point but the proof did,
+						the proof involved an <em>auxiliary construction</em> (10 million).</li>
+					<li class="fragment">A language model ($\approx 150M$ params) was <em>pretrained</em> on all proofs
+						and <em>fine-tuned</em> to predict auxiliary constructions.
+					</li>
+					<li class="fragment">No IMO problem was in the synthetic data.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>AlphaGeometry: Solving Problems</h4>
+				<ul>
+
+					<li class="fragment">Given a geometry problem represented symbolically, all deductions are made
+						using DD+AR.</li>
+					<li class="fragment">If the deductions do not include the final conclusion, then the language model
+						is used to generate candidate auxiliary constructions.</li>
+					</li>
+					<li class="fragment">For (some of) the auxiliary constructions, all deductions are made after the
+						construction.</li>
+					<li class="fragment">This process is repeated in a <strong>beam search</strong>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-image="AlphaGeomPfs.jpg"
+				data-background-size="contain">
+			</section>
+
+
+
+			<section data-transition="zoom-in concave-out" data-background="alpha-zero.jpg">
+				<h1>&nbsp;</h1>
+				<h2 style="color:#fffdd0">Deep Learning</h2>
+				<h4>and</h4>
+				<h2 style="color:#fffdd0">Language Models</h2>
+			</section>
+
+			<section data-background-color="teal" data-transition="concave">
+				<h4>Deep learning</h4>
+				<ul>
+					<li class="fragment">Computers can acquire knowledge by
+						<em>learning</em>; this goes back at least to Turing, or even regression
+						in statistics.
+					</li>
+					<li class="fragment">
+						What was needed was hardware and a system that could learn efficiently: <em>Deep neural
+							networks.</em>
+					</li>
+					<li class="fragment">In a deep neural network the input gives the output by applying a
+						<strong>composition</strong> of
+						<em>layers</em>.</li>
+					<li class="fragment">Each layer is of the form $\sigma\circ (Ax + b)$, with $\sigma$
+						fixed and non-linear and $A$ linear; the weights to be learned
+						are the entries of $A$ and $b$.</li>
+					<li class="fragment">Learning uses <em>chain rule</em> (backward propagation).</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal" data-transition="concave">
+				<img height="250" src="DeepNeuralNet.png" />
+				<ul>
+					<li class="fragment">Starting about 2012, deep neural networks performed very well in image
+						processing tasks, far
+						above rule-based systems.</li>
+					<li class="fragment">
+
+						It turns out that as the image is processed by successive layers, the raw data gets modified
+						to capture abstraction/meaning.
+					</li>
+				</ul>
+			</section>
+			<section data-background-color="teal" data-transition="concave">
+				<h4 id="limitations-as-of-about-ten-years-ago">Limitations (≈ 10 years ago)</h4>
+				<ul>
+					<li class="fragment">Needed labelled data for training.</li>
+					<li class="fragment">Narrow: training specific to the task.</li>
+					<li class="fragment">Had difficulty with long range dependencies, in particular language.</li>
+					<li class="fragment">Hard to scale up, parallelize.</li>
+					<li class="fragment">Could not go beyond training data.</li>
+				</ul>
+			</section>
+			<section data-background-color="teal" data-transition="concave">
+				<h4 id="representation-learning">Representation Learning</h4>
+				<ul>
+					<li class="fragment">
+						<p><strong>Word2Vec</strong> considered the <em>synthetic</em> problem of predicting a word
+							given its neighbours.
+						</p>
+					</li>
+					<li class="fragment">
+						<p>A function was trained on solutions of this problem, built from mapping words into space, and
+							predicting
+							from neighbours using the points.</p>
+					</li>
+					<li class="fragment">
+						<p>Only the mapping of words into space was retained, so <em>geometry</em> captures
+							<em>associations</em>.
+						</p>
+					</li>
+					<li class="fragment">
+						<p>Another lesson is that it is useful to solve synthetic problems: play, solving exercises.</p>
+					</li>
+				</ul>
+
+			</section>
+
+			<section data-background-color="teal" data-transition="concave">
+				<h4 id="transfer-learning">Transfer learning</h4>
+				<ul>
+					<li class="fragment">A set of common layers was used for many tasks.</li>
+					<li class="fragment">Some of the tasks could be synthetic (exercises).</li>
+					<li class="fragment">This resulted in networks trained for one task needing much less training for a
+						related task.
+					</li>
+					<li class="fragment">A group of tasks could be combined and trained as a single task, 
+						with a label or description as part of the input; eg translation to different languages.
+					</li>
+					<li class="fragment"><strong>Foundation models</strong> can be considered extreme cases of this: 
+					trained on synthetic tasks to perform a single task: <em>answer according to the instructions</em>.</li>
+				</ul>
+
+			</section>
+
+			<section data-background-color="teal" data-transition="concave">
+				<h4 id="attention-is-all-you-need">“Attention is all you need”</h4>
+				<ul>
+					<li class="fragment">The meaning of a word depends on the context, i.e., other words surrounding it.
+					</li>
+					<li class="fragment">In the <strong>transformer architecture</strong>, this is captured by learning
+						to which other
+						words to pay attention.</li>
+					<li class="fragment">This allowed parallelization and captured long-range dependencies.</li>
+					<li class="fragment"> With the transformer architecture training could be scaled up enormously.</li>
+					<li class="fragment"> It was found that models kept improving as the number of parameters and data
+						size grew.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal" data-transition="concave">
+				<h4>Foundation Models</h4>
+				<ul>
+					<li class="fragment"> Language models (i.e., with transformer architecture) are trained in two phases:
+						<ul>
+							<li><strong>Pretraining:</strong> On a huge data; build good representations and 
+							learn automatically.</li>
+							<li><strong>Fine-tuning:</strong> For a specific task.</li>
+						</ul>
+					</li>
+					<li class="fragment"> Foundation Models such as GPT-4 and the Gemini models have been
+						<strong>pretrained</strong>  by next word prediction or filling in masked words.
+					</li>
+					<li class="fragment">Fine-tuning is most practical for open-source medium-sized (eg 7B, 13B, 30B
+						parameters) models like Llama and Mistral families. </li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>Large Language Models have remarkable abilities, roughly corresponding to our
+						<em>intuition</em>.
+						<ul>
+							<li class="fragment">They can reason by analogy.</li>
+							<li class="fragment">This includes mixing and matching concepts from different domains.</li>
+							<li class="fragment">They are excellent at Natural Language.</li>
+							<li class="fragment">They are familiar with a huge amount of stuff.</li>
+							<li class="fragment">They can combine their broad knowledge with specific knowledge 
+								from their input.</li>
+						</ul>
+					</li>
+					<li class="fragment">They are, however, <strong>terrible</strong> at at avoiding logical fallacies
+						and judging
+						correctness.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
+				<h1>&nbsp;</h1>
+				<h1>More Examples</h1>
+				<p>&nbsp;</p>
+			</section>
+
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Cap Set problem and FunSearch</h4>
+				<ul>
+
+					<li class="fragment">The <em>cap set</em> problem is to find the largest possible set of vectors in
+						$(\mathbb{Z}/3)^n$
+						(known as a cap set) such that no three vectors sum to zero. Geometrically, no three points of a
+						cap set are in a line.
+					</li>
+					<li class="fragment">Exact results are known only up to $n=6$, and brute force search is infeasible
+						for larger $n$.
+					</li>
+					<li class="fragment">The system <strong>FunSearch</strong> found a construction for $n=8$ which was
+						a significant improvement. </li>
+					<li class="fragment">FunSearch did not find the cap set directly, but found a
+						<strong>program</strong> that computed this set.
+					</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>FunSearch: Evolutionary search</h4>
+				<ul>
+
+					<li class="fragment">Most of the program for generating cap sets is fixed; only the function
+						<code>priority</code> is learned.
+					</li>
+					<li class="fragment">The function is learned by an evolution:
+						<ul>
+							<li>At each time we have a population of functions, starting with a single one.</li>
+							<li>We evaluate and select the best functions.</li>
+							<li>These are <em>combined</em> to generate new functions.</li>
+						</ul>
+					</li>
+					<li class="fragment">Functions are combined using a Language Model (<em>Codey</em> from the PaLM-2 family),
+						which is given instructions and the programs in its prompt. </li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Symbolic Integration</h4>
+				<ul>
+
+					<li class="fragment">(Lample & Charton): A language model was trained to symbolically integrate a
+						given function.
+					</li>
+					<li class="fragment">Three forms of data were generated and used:
+						<ul>
+							<li><strong>Forward Generation:</strong> Generate random functions and calculate their
+								integrals using a computer algebra system.</li>
+							<li class="fragment"><strong>Backward generation:</strong>Generate a random function $F$, compute its
+								derivate $f$ and note that $\int f = F$. </li>
+							<li class="fragment"><strong>Backward generation with integration by parts (IBP)</strong>.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Backward generation with IBP</h4>
+				<ul>
+
+					<li class="fragment">We pick random functions $F$ and $G$ and compute the derivatives $f$ and $g$.
+					</li>
+					<li class="fragment">If $fG$ is already in the training data, we know its integral.
+					</li>
+					<li class="fragment">We can compute its integral as $\int Fg = FG - \int fG$.
+					</li>
+					<li class="fragment">This often gives short functions with longer integrals</strong>.
+					</li>
+					<li class="fragment">Similar approaches have been used for solving ODEs, recurrences etc.</li>
+				</ul>
+			</section>
+
+
+
+
+
+			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
+				<h2 style="color:#fffdd0">Automated Theorem Provers</h2>
+				<h4 style="color:#fffdd0">and</h4>
+
+				<h2 style="color:#fffdd0">Interactive Theorem Provers</h2>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT Problems</h4>
+				<ul>
+					<li class="fragment">We are given finitely many <em>boolean</em> variables $P$, $Q$, ... and
+						finitely many
+						<em>constraints</em> on them.
+					</li>
+					<li class="fragment">
+						Constraints are logical statements built from the variables using logical operators such as
+						$\neg$ (<em>not</em>), $\vee$(<em>or</em>), $\wedge$(<em>and</em>),
+						$\Rightarrow$(<em>implies</em>) and $\Leftrightarrow$ (<em>equivalent</em>).
+					</li>
+					<li class="fragment">
+						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can assign
+						truth values to these (i.e., declare each of $P$, $Q$ , ... to be $true$ or $false$) so that all
+						the constraints are satisfied.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT Solvers</h4>
+				<ul>
+					<li class="fragment">Many finite problems can be reduced to SAT problems; by the Cook-Levine
+						theorem, these
+						are the problems in NP (can be verified fast).
+					</li>
+					<li class="fragment">
+						SAT solvers are powerful programs that can solve SAT problems, hence problems mapped to SAT.
+					</li>
+					<li class="fragment">SAT solvers have been used to solve many mathematical problems, for example:
+					</li>
+					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Can we colour
+						each
+						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
+						satisfying $a^{2}+b^{2}=c^{2}$ is monochromatic?</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>Resolution Theorem Provers</h4>
+				<ul>
+					<li class="fragment"><strong>Resolution Theorem Provers</strong> with <strong>Unification</strong>
+						can solve problems in <em>first order logic</em>.
+					</li>
+					<li class="fragment">
+						In principle, first-order logic includes all of mathematics; but, in practice,
+						the proof must depend on a small number of axioms.
+					</li>
+					<li class="fragment"> Robbins conjecture was a conjectural characterization of Boolean algebras in
+						terms of
+						associativity and commutativity of $\vee$ and the Robbins equation
+						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
+					<li class="fragment"> This was conjectured in the 1930s, and proved in 1996 by the
+						automated theorem prover EQP.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="concave" data-background-color="teal">
+				<ul>
+					<li>In practice, first-order logic is not suitable for representing a large body of mathematics.
+					</li>
+					<li class="fragment">We use <em>Interactive Theorem Provers</em> &ndash; software systems where
+						proofs are
+						obtained by human-machine
+						collaboration.</li>
+					<li class="fragment">The computer both finds (parts of) proofs and verifies
+						<strong>correctness</strong>.
+					</li>
+					<li class="fragment">With Interactive Theorem Provers, mathematics on a large scale can be digitied
+						(<em>formalized</em>) in a modular fashion, facilitated by automation.
+					</li>
+					<li class="fragment">The <em>Lean Mathematical Library</em> has most undergraduate
+						maths and some advanced topics.
+					</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Draft, Sketch and Prove</h4>
+				<ul>
+					<li class="fragment">A Large Language Model is used to generate an informal sketch of a proof.</li>
+					<li class="fragment">This is translated into a series of steps so the problem is broken into
+						sub-problems.</li>
+					<li class="fragment">Concretely, the proof is written as a series of statements to be proved,
+						which are translated into Isabelle (an Interactive Theorem Prover).
+					</li>
+					<li class="fragment">Automation, specifically Isabelle's <code>auto</code> tactic, is then used to
+						complete proofs.</li>
+					<li class="fragment">DSP has a good success rate with high-school mathematics problems.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Larger scale proofs?</h4>
+				<ul>
+					<li class="fragment">We can try to translate iteratively, backtracking when translation or proving
+						fails.</li>
+					<li class="fragment">This is facilitated by translation to <em>structured proofs</em> and adding
+						<em>details</em> to the proof.
+					</li>
+					<li class="fragment">Knowledge should be added into the prompt.</li>
+					<li class="fragment">The proof can be guided with heuristics such as splitting into cases.
+					</li>
+					<li class="fragment">The translation of statements to formal ones (in Lean/Isabelle/...) should have
+						high accuracy.</li>
+					<li class="fragment">The proof generation by the language model has to be good enough.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Autoformalization of statements</h4>
+				<ul>
+					<li class="fragment">Our tool <strong>LeanAide</strong> uses GPT-4 to translate
+						statements (similar to docstrings) into Lean 4 code.</li>
+					<li class="fragment">We do prompt engineering and post-processing.</li>
+					<li class="fragment">Lean 4 is written (mostly) in Lean 4, and has convenient functions
+						for using its interpreter, greatly facilitating our post-processing.</li>
+					<li class="fragment">LeanAide is integrated with the user-interface of Lean 4 via code actions.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>LeanAide</h4>
+				<video controls muted autoplay src="leanaide-jan24.webm"></video>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: In context learning</h4>
+				<ul>
+					<li class="fragment">Suppose we are given the statement of a theorem,
+						which we assume is similar to a documentation string.</li>
+					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library <em>mathlib</em>
+						that are closest to the statement and include them in the prompt.</li>
+					<li class="fragment">Here, closeness is measured by the distance between
+						the OpenAI embeddings of the strings.</li>
+					<li class="fragment">Such prompting gives both examples of syntax and
+						the terminology used in mathlib.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape class="language-json">
+							[{"role": "system",
+"content": "You are a coding assistant who translates from natural language to Lean
+Theorem Prover code following examples. Follow EXACTLY the examples given."},
+{"role": "user",
+"content": "If a vector space has a finite basis, then it is finite-dimensional. "},
+{"role": "assistant",
+"content": "∀ {K : Type u} {V : Type v} [inst : DivisionRing K] [inst_1 :
+AddCommGroup V] [inst_2 : Module K V] {ι : Type w}\n [inst_3 : Finite ι], Basis ι
+K V → FiniteDimensional K V"},
+...
+{"role": "user",
+"content": "If a vector space has dimension ‘2‘ then it is finite dimensional."}]
+							  </code></pre>
+					</li>
+
+				</ul>
+			</section>
+			<section data-background-color="teal" class="language-lean">
+				<ul>
+					<li>Translation to Lean:
+					If a vector space is $2$-dimensional, then it is finite dimensional.
+					<pre><code data-trim data-noescape>
+							theorem: ∀ {K : Type u} {V : Type v} 
+							[inst : DivisionRing K] [inst_1 : AddCommGroup V] 
+							[inst_2 : Module K V],
+								Module.rank K V = 2 → FiniteDimensional K V
+							  </code></pre>
+					</li>
+					<li class="fragment">This was one of our $40$ test <em>silly statements</em> (to avoid
+						contamination).</li>
+					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements. </li>
+
+				</ul>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Post-processing</h4>
+				<ul>
+					<li class="fragment">We query GPT-4 with the prompt for (say) 10
+						responses.</li>
+					<li class="fragment">We discard responses that are not valid (do not parse or do not
+						elaborate).</li>
+					<li class="fragment">Finally, we group responses with two theorems $P$ and
+						$Q$ equivalent if the tactic <code>aesop</code> can prove $P\iff Q$, and pick the
+						first response in some largest group.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Improving LeanAide?</h4>
+				<ul>
+					<li class="fragment">On our test set of 120 example problems, we had a success rate of about 85%.
+					</li>
+					<li class="fragment">However, the success rate was below 50% for the standard <em>ProofNet</em>
+						dataset.</li>
+					<li class="fragment">One cause was the choice of terminology not matching mathlib, e.g.
+						<em>condensation points</em>
+						versus <em>accumulation points</em>.
+					</li>
+					<li class="fragment">We also need to translate statements whose target is a <em>block</em>, for
+						which we need prompts.</li>
+					<li class="fragment">We can attempt to address these issues using GPT-4 for auxiliary tasks.</li>
+				</ul>
+			</section>
+
+
+
+
+			<section data-transition="zoom" data-background="hills.png">
+				<h1 style="color:#fffdd0">GPT-4 Examples</h1>
+			</section>
+
+
+			<section data-background-color="#002b36">
+				<ul>
+					<li>Mathematical terms and synonyms: “Suppose $E\subset \mathbb{R}^k$ is uncountable, and let $P$ be the
+						set of condensation points of $E$. Then $P$ is perfect.”</li>
+				</ul>
+				<pre><code data-trim data-noescape class="language-json">
+						[{"term": "subset",
+							"synonyms": [ "subgroup", "part", "included in", "component" ]},
+							{"term": "uncountable",
+							"synonyms": [ "non-countable", "uncountably infinite", "non-denumerable", "unlisted" ]},
+							{"term": "set",
+							"synonyms": [ "collection", "aggregate", "ensemble", "grouping" ]},
+							{"term": "condensation points",
+							"synonyms": [ "limit points", "accumulation points", "cluster points",
+							"point of accumulation" ]},
+							{"term": "perfect",
+							"synonyms": [ "complete", "whole", "intact", "unblemished" ]}]
+						  </code></pre>
+				</li>
+			</section>
+			<section data-background-color="#002b36">
+				<ul>
+					<li>Describe the following Lean code.</li>
+				</ul>
+				<pre><code data-trim data-noescape>
+						variable {α : Type}[LinearOrder α]
+
+						def smallest (l: List α)(_: l ̸= []): α :=
+						match l with
+						| h::t =>
+						if c:(t = []) then
+						h else min h (smallest t c)
+
+						theorem smallest_mem (l : List α) (hyp : l ̸= []) :
+						smallest l hyp ∈ l := by
+						sorry
+
+						theorem smallest_le (l : List α) (hyp : l ̸= []) :
+						∀ a : α, a ∈ l → smallest l hyp ≤ a :=
+						sorry
+						  </code></pre>
+				</li>
+			</section>
+			<section data-background-color="#002b36">
+				<ul>
+					<li>The Lean code defines a function and two theorems
+						related to lists of elements of a type with a linear
+						order.
+					</li>
+					<li>
+						The function smallest takes a list l and a proof that
+						l is not empty. It then returns the smallest element in
+						the list. If the list contains only one element, that
+						element is returned. Otherwise, the smallest element
+						is the minimum of the first element and the smallest
+						element of the tail of the list.
+					</li>
+			</section>
+
+			<section data-background-color="#002b36">
+				<ul>
+					<li>The first theorem, smallest_mem, states that if a list l
+						is not empty, then the smallest element of l is an
+						element of l.
+					</li>
+					<li>
+						The second theorem, smallest_le, states that if a list
+						l is not empty, then for any element a of l, the
+						smallest element of l is less than or equal to a. In
+						other words, the smallest element is less than or equal
+						to every element in the list.
+					</li>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Linear Algebra by GPT-4</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Let $A$ be a square matrix. Prove that if $A^2$
+						is invertible then $A$ is invertible.</li>
+					<li class="fragment">3 solutions: all correct and different.</li>
+					<li class="fragment"><strong>Problem:</strong> Let $A$ be a square matrix. Prove that if $A^2$
+						is diagonalisable then $A$ is diagonalisable.</li>
+					<li class="fragment">Pointed out that this was <em>false</em> and gave a counterexample.</li>
+					<li class="fragment"><strong>Problem:</strong> Let $A$ be a square matrix. Prove that if $A^3=I$
+						then $A$ is diagonalisable.</li>
+					<li class="fragment">Answered correctly.</li>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>A harder problem</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Find all $2 \times 2$ matrices with rational entries
+						such that
+						$A^5 = I$.</li>
+					<span class="fragment">
+						<li><strong>Proof:</strong>
+							A $2 \times 2$ matrix $A$ over the rationals is of the form
+
+							\[
+							A = \begin{pmatrix}
+							a & b \\
+							c & d
+							\end{pmatrix},
+							\]
+
+							where $a, b, c, d \in \mathbb{Q}$. </li>
+						<li>
+							We want to find all such $A$ such that $A^5 = I$, where $I$ is the $2 \times 2$ identity
+							matrix.
+						</li>
+					</span>
+			</section>
+
+			<section data-background="#002b36">
+				<ul>
+					<li>We can start by noting that the minimal polynomial of such an $A$ must divide $x^5 - 1 = 0$.
+						Over the rationals, this polynomial factors into irreducible factors as
+
+						\[
+						x^5 - 1 = (x - 1)(x^4 + x^3 + x^2 + x + 1).
+						\]
+					</li>
+					<li>
+						So the minimal polynomial of $A$ must either be $x - 1$ or $x^4 + x^3 + x^2 + x + 1 = 0$.
+					</li>
+					<li>
+						However, the second polynomial has degree $4$ and the minimal polynomial of a $2 \times 2$
+						matrix can have degree at most $2$, so $A$ must satisfy $x - 1 = 0$. That is, $A = I$.
+					</li>
+					<li>
+						To verify our claim, we note that if $A = I$, then indeed $A^5 = I^5 = I$. So the only $2 \times
+						2$ matrix over the rationals such that $A^5 = I$ is $A = I$.
+					</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<ul>
+					<li>
+						To verify our claim, we note that if $A = I$, then indeed $A^5 = I^5 = I$. So the only $2 \times
+						2$ matrix over the rationals such that $A^5 = I$ is $A = I$.
+					</li>
+					<li>
+						<strong>Problem:</strong> Prove that the polynomial $x^4 + x^3 + x^2 + x + 1$ is irreducible
+						over the rationals.
+					</li>
+					<li>
+						To prove that the polynomial $x^4 + x^3 + x^2 + x + 1$ is irreducible over the rationals, one
+						approach is by using a substitution and then applying Eisenstein's Criterion, a well-known
+						theorem in number theory that provides a sufficient condition for a polynomial ...
+					</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Analysis questions</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$ is a continuous
+						function such that $f''(x) > 0$ for all $x \in \mathbb{R}$. Prove that $f$ is unbounded.</li>
+					<li class="fragment"><strong>Prove or disprove:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$ is a
+						continuous function such that $f'(x) > 0$ for all $x \in \mathbb{R}$. Then $f$ is unbounded.
+					</li>
+					<li class="fragment">Persistently wrong answers, even with guidance like split into cases.</li>
+					<li class="fragment">Proofs either used <em>every increasing sequence is unbounded</em> or assumed
+						that the maximum is attained for the functions.</li>
+			</section>
+
+			<section data-background-color="#002b36">
+				<ul>
+					<h4>Analysis questions (continued)</h4>
+					<li>When asked to prove or disprove <em>every increasing sequence is unbounded</em>, consistently
+						gave a counterexample.</li>
+					<li class="fragment">Another model, Mistral medium, was much better at such questions.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Homogeneous lengths</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Consider <em>length functions</em> $l: F \to
+						\mathbb{R}$ on the non-abelian free groups on 2 generators, i.e., functions satisfying the
+						triangle inequality and positivity conditions.
+						We say a length function $l$ is homogeneous if $l(g^n)= |n|l(g)$ for all elements $g$ in the
+						free group.
+
+						Prove that the word metric on the non-abelian free groups on 2 generators is not homogeneous.
+					</li>
+					<li class="fragment">... Then, if we take $n = 2$, we have $l_W((ab)^2) = 4$, <strong>but $2l_W(ab)
+							= 4$ not $|2|l_W(ab)= 2*2 = 4$</strong>. Therefore, ...</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Seeking details</h4>
+				<ul>
+					<li class="fragment"><strong>Original statement:</strong> Let $G$ be a group with an abelian normal
+						subgroup $K$ such that $Q=G/K$ is also abelian.
+						As $K$ is abelian, the conjugation action of $G$ on $K$ induces a group action of $Q$ on $K$.
+					</li>
+					<li class="fragment">Firstly, it's important to understand what the conjugation action is. In any
+						group $G$, we can define an action of $G$ on itself by conjugation: $g \cdot h = ghg^{-1}$ for
+						all $g, h \in G$.</li>
+
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<ul>
+					<li>Since $K$ is a normal subgroup of $G$, it is invariant under conjugation by elements of $G$.
+						This means that if $k \in K$ and $g \in G$, then $gkg^{-1} \in K$. </li>
+
+					<li>Hence, the conjugation action of $G$ on itself restricts to an action of $G$ on $K$.
+					</li>
+					<li>
+						The question is then how this action induces an action of the quotient group $Q=G/K$ on $K$.
+					</li>
+					<li>By the definition of a quotient group, the elements of $Q$ are the cosets $gK$ for $g \in G$.
+					</li>
+
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<ul>
+
+					<li>We can define the action of $Q$ on $K$ as follows: for $gK \in Q$ and $k \in K$, let $gK \cdot k
+						= gkg^{-1}$. </li>
+					<li>To show that this is well-defined, suppose that $gK = hK$ for some $g, h \in G$. Then $h^{-1}g
+						\in K$, so there exists $k' \in K$ such that $h^{-1}g = k'$.
+						Then for any $k \in K$, we have
+
+						$$hkh^{-1} = k'kk'^{-1}k^{-1}k' = k',$$
+
+						because $K$ is abelian. So the action of $Q$ on $K$ is well-defined. Next, we need to check that
+						this gives a group action. ...</li>
+				</ul>
+
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Structured proof</h4>
+				<small>
+					<ul>
+						<li> If $A$ is a square matrix with $A^3$ the identity, then $A$ is diagonalizable.</li>
+					</ul>
+					<pre class="fragment"><code data-trim data-noescape class="language-json">
+						[{"assumption": "$A$ is a square matrix and $A^3 = I$"},
+{"observation": "$x^3 - 1$ has three distinct roots: $1, e^{2\pi i/3}, e^{4\pi i/3}$"},
+{"theorem": "Cayley-Hamilton theorem: Every square matrix satisfies its characteristic polynomial"},
+{"assertion": {
+  "claim": "The minimal polynomial of $A$ divides $x^3 - 1$",
+  "justification": "The minimal polynomial of a matrix $A$ divides any polynomial that 
+  $A$ satisfies",
+  "using": ["Cayley-Hamilton theorem"]
+  }},
+{"observation": "The roots of $x^3 - 1$ are distinct"},
+{"assertion": {
+  "claim": "The minimal polynomial of $A$ is a product of distinct linear factors",
+  "justification": "The only way the minimal polynomial of $A$ can divide $x^3 - 1$ is if it is
+    a product of distinct linear factors",
+  "using": ["The minimal polynomial of $A$ divides $x^3 - 1", 
+  "The roots of $x^3 - 1$ are distinct"]
+}},
+{"theorem": "A matrix is diagonalizable if and only if its minimal polynomial is a 
+            product of distinct linear factors"},
+{"assertion": {
+  "claim": "$A$ is diagonalizable",
+  "justification": "By the previous theorem and the fact that the minimal polynomial of $A$ 
+  is a product of distinct linear factors",
+  "using": ["A matrix is diagonalizable if and only if its minimal polynomial is a product of 
+  distinct linear factors", "The minimal polynomial of $A$ is a product of distinct linear factors"]
+  }}]
+						  </code></pre>
+				</small>
+			</section>
+
+			<section>
+				<ul>
+					<li>A great piece of mathematics involves a lot of such steps, building on different pieces of
+						mathematics and using different strengths in different parts.</li>
+					<li class="fragment">If each step can be accomplished by AI then putting them together may just be
+						engineering.</li>
+					<li class="fragment">Till recently the missing capability was reasoning by analogy (including
+						generalization - which is
+						analogy with an example/special case).</li>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>While aesthetic appeal has a role in mathematics it is not necessary for guiding mathematics (at
+						least in areas I know).</li>
+					<li class="fragment"> At any time there are clear ultimate goals, specific test cases which are
+						beyond the limits of
+						present techniques, explicit open problems, newly developed techniques that can be extended, and
+						various other guides to what is desirable worthwhile progress.</li>
+					<li class="fragment"> We can work towards making AI systems capable of these, at the least making
+						them very useful collaborators.</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Collaborative uses of Deep learning</h4>
+				<ul>
+					<li class="fragment"> <strong>Symbolic regression:</strong> In particular the work of Francois
+						Charton. </li>
+					<li class="fragment"> <strong>Counterexamples:</strong> in graph theory due to Adam Wagner. </li>
+					<li class="fragment"> <strong>Conjectures by prediction:</strong> Geordie Williamson & co., Marc
+						Lackenby & co. </li>
+					<li class="fragment"> <strong>Autoformalization</strong>. </li>
+				</ul>
+			</section>
+
+
+			<section data-background-image="leanaide-mathlib4.gif">
+
+			</section>
+
+
+	</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				//				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+		//			Reveal.addEventListener( 'slidechanged', function( event ) {
+		//				MathJax.Hub.Rerender();
+		//			} );
+
+	</script>
+
+</body>
+
+</html>
