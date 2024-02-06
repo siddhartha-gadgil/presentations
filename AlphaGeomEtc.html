@@ -280,17 +280,17 @@
 				<h4 id="representation-learning">Representation Learning</h4>
 				<ul>
 					<li class="fragment">
-						<p><strong>Word2Vec</strong> considered the <em>synthetic</em> problem of predicting a word
+						<p><strong>Word2Vec</strong> considered the problem of predicting a word
 							given its neighbours.
 						</p>
 					</li>
 					<li class="fragment">
-						<p>A function was trained on solutions of this problem, built from mapping words into space, and
+						<p>A network consisting of embedding words into space and
 							predicting
-							from neighbours using the points.</p>
+							from neighbours using the points was trained for this task.</p>
 					</li>
 					<li class="fragment">
-						<p>Only the mapping of words into space was retained, so <em>geometry</em> captures
+						<p>Only the embeddings of words into space was retained, so <em>geometry</em> captures
 							<em>associations</em>.
 						</p>
 					</li>
@@ -344,8 +344,8 @@
 							<li><strong>Fine-tuning:</strong> For a specific task.</li>
 						</ul>
 					</li>
-					<li class="fragment"> Foundation Models such as GPT-4 and the Gemini models have been
-						<strong>pretrained</strong>  by next word prediction or filling in masked words.
+					<li class="fragment"> Foundation Models such as GPT-4 models have been
+						pretrained on a large scale  by next word prediction or filling in masked words.
 					</li>
 					<li class="fragment">Fine-tuning is most practical for open-source medium-sized (eg 7B, 13B, 30B
 						parameters) models like Llama and Mistral families. </li>
@@ -468,42 +468,21 @@
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
-				<h4>SAT Problems</h4>
-				<ul>
-					<li class="fragment">We are given finitely many <em>boolean</em> variables $P$, $Q$, ... and
-						finitely many
-						<em>constraints</em> on them.
-					</li>
-					<li class="fragment">
-						Constraints are logical statements built from the variables using logical operators such as
-						$\neg$ (<em>not</em>), $\vee$(<em>or</em>), $\wedge$(<em>and</em>),
-						$\Rightarrow$(<em>implies</em>) and $\Leftrightarrow$ (<em>equivalent</em>).
-					</li>
-					<li class="fragment">
-						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can assign
-						truth values to these (i.e., declare each of $P$, $Q$ , ... to be $true$ or $false$) so that all
-						the constraints are satisfied.
-					</li>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
 				<h4>SAT Solvers</h4>
 				<ul>
-					<li class="fragment">Many finite problems can be reduced to SAT problems; by the Cook-Levine
-						theorem, these
-						are the problems in NP (can be verified fast).
-					</li>
 					<li class="fragment">
-						SAT solvers are powerful programs that can solve SAT problems, hence problems mapped to SAT.
-					</li>
-					<li class="fragment">SAT solvers have been used to solve many mathematical problems, for example:
-					</li>
-					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Can we colour
-						each
-						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
-						satisfying $a^{2}+b^{2}=c^{2}$ is monochromatic?</li>
-				</ul>
+						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can solve 
+						finitely many logical equations involving boolean variables.
+						<li class="fragment">By the Cook-Levine
+							theorem, any finite problem in NP (easily verifiable) can be reduced to SAT.
+						</li>
+						<li class="fragment">SAT solvers, programs solving SAT, have been used to solve maths problems, for example:
+						</li>
+						<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Can we colour
+							each
+							positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
+							satisfying $a^{2}+b^{2}=c^{2}$ is monochromatic?</li>
+					</ul>
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
@@ -516,7 +495,7 @@
 						In principle, first-order logic includes all of mathematics; but, in practice,
 						the proof must depend on a small number of axioms.
 					</li>
-					<li class="fragment"> Robbins conjecture was a conjectural characterization of Boolean algebras in
+					<li class="fragment"> <strong>Robbins conjecture</strong> was a conjectural characterization of Boolean algebras in
 						terms of
 						associativity and commutativity of $\vee$ and the Robbins equation
 						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
@@ -527,6 +506,7 @@
 
 
 			<section data-transition="concave" data-background-color="teal">
+				<h4>Interactive Theorem Provers</h4>
 				<ul>
 					<li>In practice, first-order logic is not suitable for representing a large body of mathematics.
 					</li>
@@ -538,7 +518,7 @@
 						<strong>correctness</strong>.
 					</li>
 					<li class="fragment">With Interactive Theorem Provers, mathematics on a large scale can be digitied
-						(<em>formalized</em>) in a modular fashion, facilitated by automation.
+						(<em>formalized</em>).
 					</li>
 					<li class="fragment">The <em>Lean Mathematical Library</em> has most undergraduate
 						maths and some advanced topics.
@@ -599,17 +579,16 @@
 			</section>
 
 			<section data-background-color="teal">
-				<h4>LeanAide: In context learning</h4>
+				<h4>LeanAide: In context learning & Post-processing</h4>
 				<ul>
-					<li class="fragment">Suppose we are given the statement of a theorem,
-						which we assume is similar to a documentation string.</li>
+					<li class="fragment">Suppose we are given the statement of a theorem.</li>
 					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library <em>mathlib</em>
-						that are closest to the statement and include them in the prompt.</li>
-					<li class="fragment">Here, closeness is measured by the distance between
-						the OpenAI embeddings of the strings.</li>
-					<li class="fragment">Such prompting gives both examples of syntax and
-						the terminology used in mathlib.</li>
-				</ul>
+						that are closest to the statement (in OpenAI embeddings) and include them in the prompt.</li>
+						<li class="fragment">We query GPT-4 with the prompt for (say) 10
+							responses.</li>
+						<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
+							elaborate).</li>
+					</ul>
 			</section>
 
 			<section data-background-color="teal">
@@ -652,18 +631,6 @@ K V → FiniteDimensional K V"},
 				</ul>
 			</section>
 
-			<section data-background-color="teal">
-				<h4>LeanAide: Post-processing</h4>
-				<ul>
-					<li class="fragment">We query GPT-4 with the prompt for (say) 10
-						responses.</li>
-					<li class="fragment">We discard responses that are not valid (do not parse or do not
-						elaborate).</li>
-					<li class="fragment">Finally, we group responses with two theorems $P$ and
-						$Q$ equivalent if the tactic <code>aesop</code> can prove $P\iff Q$, and pick the
-						first response in some largest group.</li>
-				</ul>
-			</section>
 
 			<section data-background-color="teal">
 				<h4>Improving LeanAide?</h4>
@@ -677,7 +644,7 @@ K V → FiniteDimensional K V"},
 						versus <em>accumulation points</em>.
 					</li>
 					<li class="fragment">We also need to translate statements whose target is a <em>block</em>, for
-						which we need prompts.</li>
+						which we need examples.</li>
 					<li class="fragment">We can attempt to address these issues using GPT-4 for auxiliary tasks.</li>
 				</ul>
 			</section>
