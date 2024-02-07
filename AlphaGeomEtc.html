@@ -235,16 +235,17 @@
 			<section data-background-color="teal" data-transition="concave">
 				<h4>Deep learning</h4>
 				<ul>
-					<li class="fragment">In <strong>Deep Learning</strong>, we use data to learn a function of a
-						specific form: a composition of functions called <strong>layers</strong>.</li> 
+					<li class="fragment">In <strong>Deep Learning</strong>, we use data to <em>learn</em> a function of
+						a
+						specific form: a <strong>composition</strong> of functions called <strong>layers</strong>.</li>
 					</li>
 					<li class="fragment">Each layer is of the form $\sigma\circ (Ax + b)$, with $\sigma$
 						fixed and non-linear and $A$ linear.</li>
 					<li class="fragment">The <em>chain rule</em> gives a method <em>backward propagation</em>,
-						for computing gradients efficiently.</li>
-						<li class="fragment">The linear transformation $A$ may be of a special form,
-							such as a <em>convolution</em>.
-						</li>
+						for computing gradients flows efficiently.</li>
+					<li class="fragment">The linear transformation $A$ may be of a special form,
+						such as a <em>convolution</em>.
+					</li>
 				</ul>
 			</section>
 
@@ -253,10 +254,12 @@
 				<ul>
 					<li class="fragment">
 						We can learn functions of the form $\Psi\circ \Phi$, where $\Phi$ is a function that
-						embeds the input into a space capturing meaning and $\Psi$ is a function that uses this embedding.
+						embeds the input into a space capturing meaning and $\Psi$ is a function that uses this
+						embedding.
 					</li>
 					<li class="fragment">
-						The function $\Phi$ can be learned using a different (synthetic) task, given by a function $\Theta\circ \Phi$, for which we can obtain a lot of data.
+						The function $\Phi$ can be learned using a different (synthetic) task, given by a function
+						$\Theta\circ \Phi$, for which we can obtain a lot of data.
 					</li>
 					<li class="fragment">
 						<p>For instance, <strong>Word2Vec</strong> considered the problem of predicting a word
@@ -270,16 +273,17 @@
 			<section data-background-color="teal" data-transition="concave">
 				<h4 id="transfer-learning">Transfer learning</h4>
 				<ul>
-					<li class="fragment">A set of related tasks (some synthetic) could use common layers, i.e., 
-					we use functions $\Psi_i\circ \Phi$ for the tasks.</li>
+					<li class="fragment">A set of related tasks (some synthetic) could use common layers, i.e.,
+						we use functions $\Psi_i\circ \Phi$ for the tasks.</li>
 					<li class="fragment">This results in networks trained for one task needing much less training for a
 						related task.
 					</li>
-					<li class="fragment">A group of tasks could be combined and trained as a single task, 
-						with a label or description as part of the input; eg translation to different languages.
+					<li class="fragment">A group of tasks could be combined and trained as a single task,
+						with a label or description in the input; e.g. translation to different languages.
 					</li>
-					<li class="fragment"><strong>Foundation models</strong> can be considered extreme cases of this: 
-					trained on synthetic tasks to perform a single task: <em>answer according to the instructions</em>.</li>
+					<li class="fragment"><strong>Foundation models</strong> can be considered extreme cases of this:
+						trained on synthetic tasks to perform a single task: <em>answer according to the
+							instructions</em>.</li>
 				</ul>
 
 			</section>
@@ -287,10 +291,13 @@
 			<section data-background-color="teal" data-transition="concave">
 				<h4 id="attention-is-all-you-need">“Attention is all you need”</h4>
 				<ul>
-					<li class="fragment">The <strong>Transformer architecture</strong>, is based on an <strong>Attention layer</strong>.</li>
-					<li class="fragment">The Attention layer has matrices determining <em>query</em>, <em>key</em> and <em>value</em>,
-					with the output for a word being the sum of values weighted by inner-products between 
-					the query and keys.</li>
+					<li class="fragment">The <strong>Transformer architecture</strong>, is based on an <strong>Attention
+							layer</strong>.</li>
+					<li class="fragment">The Attention layer has matrices determining <em>query</em>, <em>key</em> and
+						<em>value</em>,
+						with the output for a word being the sum of values weighted by inner-products between
+						the query and keys.
+					</li>
 					<li class="fragment">This allowed parallelization and captured long-range dependencies.</li>
 					<li class="fragment"> With the transformer architecture training could be scaled up enormously;
 						and models kept improving with size; giving GPT-4 etc.</li>
@@ -317,7 +324,7 @@
 				</ul>
 			</section> -->
 
-			<section >
+			<section>
 				<ul>
 					<li>Large Language Models have remarkable abilities, roughly corresponding to our
 						<em>intuition</em>.
@@ -326,7 +333,7 @@
 							<li class="fragment">This includes mixing and matching concepts from different domains.</li>
 							<li class="fragment">They are excellent at Natural Language.</li>
 							<li class="fragment">They are familiar with a huge amount of stuff.</li>
-							<li class="fragment">They can combine their broad knowledge with specific knowledge 
+							<li class="fragment">They can combine their broad knowledge with specific knowledge
 								from their input.</li>
 						</ul>
 					</li>
@@ -379,7 +386,8 @@
 							<li>These are <em>combined</em> to generate new functions.</li>
 						</ul>
 					</li>
-					<li class="fragment">Functions are combined using a Language Model (<em>Codey</em> from the PaLM-2 family),
+					<li class="fragment">Functions are combined using a Language Model (<em>Codey</em> from the PaLM-2
+						family),
 						which is given instructions and the programs in its prompt. </li>
 				</ul>
 			</section>
@@ -395,9 +403,11 @@
 						<ul>
 							<li><strong>Forward Generation:</strong> Generate random functions and calculate their
 								integrals using a computer algebra system.</li>
-							<li class="fragment"><strong>Backward generation:</strong>Generate a random function $F$, compute its
+							<li class="fragment"><strong>Backward generation:</strong> Generate a random function $F$,
+								compute its
 								derivate $f$ and note that $\int f = F$. </li>
-							<li class="fragment"><strong>Backward generation with integration by parts (IBP)</strong>.</li>
+							<li class="fragment"><strong>Backward generation with integration by parts (IBP)</strong>.
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -412,7 +422,7 @@
 					</li>
 					<li class="fragment">If $fG$ is already in the training data, we know its integral.
 					</li>
-					<li class="fragment">We can compute its integral as $\int Fg = FG - \int fG$.
+					<li class="fragment">We can compute the integral of $Fg$ as $\int Fg = FG - \int fG$.
 					</li>
 					<li class="fragment">This often gives short functions with longer integrals</strong>.
 					</li>
@@ -435,18 +445,19 @@
 				<h4>SAT Solvers</h4>
 				<ul>
 					<li class="fragment">
-						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can solve 
+						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can solve
 						finitely many logical equations involving boolean variables.
-						<li class="fragment">By the Cook-Levine
-							theorem, any finite problem in NP (easily verifiable) can be reduced to SAT.
-						</li>
-						<li class="fragment">SAT solvers, programs solving SAT, have been used to solve maths problems, for example:
-						</li>
-						<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Can we colour
-							each
-							positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
-							satisfying $a^{2}+b^{2}=c^{2}$ is monochromatic?</li>
-					</ul>
+					<li class="fragment">By the Cook-Levine
+						theorem, any finite problem in NP (easily verifiable) can be reduced to SAT.
+					</li>
+					<li class="fragment">SAT solvers, programs solving SAT, have been used to solve maths problems, for
+						example:
+					</li>
+					<li class="fragment"><strong>Boolean Pythagorean triples problem:</strong> Can we colour
+						each
+						positive integers either red or blue, so that no Pythagorean triple of integers $a$, $b$, $c$,
+						satisfying $a^{2}+b^{2}=c^{2}$ is monochromatic?</li>
+				</ul>
 			</section>
 
 			<section data-transition="convex" data-background-color="teal">
@@ -459,7 +470,8 @@
 						In principle, first-order logic includes all of mathematics; but, in practice,
 						the proof must depend on a small number of axioms.
 					</li>
-					<li class="fragment"> <strong>Robbins conjecture</strong> was a characterization of Boolean algebras in
+					<li class="fragment"> <strong>Robbins conjecture</strong> was a characterization of Boolean algebras
+						in
 						terms of
 						associativity and commutativity of $\vee$ and the Robbins equation
 						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
@@ -490,18 +502,40 @@
 				</ul>
 			</section>
 
+			<section data-transition="convex" data-background-color="teal">
+				<ul>
+					<li>
+						Interactive Theorem Provers can give a superhuman level of correctness.
+						<ul>
+							<li>The proof is checked by a small part of the proof system
+								called the <strong>kernel</strong>.</li>
+							<li>
+								We can also write independent kernels and check the proof in multiple kernels.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">Collaboration using formal mathematics does not
+						require trust between collaborators.
+					</li>
+					<li class="fragment">We can even collaborate with knowledgeable, imaginative
+						experts whose proofs we cannot trust: <span class="fragment"> Large
+						Language Models such as GPT-4.</span></li>
+
+
+				</ul>
+			</section>
+
 			<section data-background-color="teal">
 				<h4>Draft, Sketch and Prove</h4>
 				<ul>
+					<li class="fragment">This work gives formal proofs of given statements.</li>
 					<li class="fragment">A Large Language Model is used to generate an informal sketch of a proof.</li>
 					<li class="fragment">This is translated into a series of steps so the problem is broken into
 						sub-problems.</li>
-					<li class="fragment">Concretely, the proof is written as a series of statements to be proved,
-						which are translated into Isabelle (an Interactive Theorem Prover).
+					<li class="fragment">Concretely, the proof was written as a series of statements in Isabelle (an ITP).
 					</li>
-					<li class="fragment">Automation, specifically Isabelle's <code>auto</code> tactic, is then used to
-						complete proofs.</li>
-					<li class="fragment">DSP has a good success rate with high-school mathematics problems.</li>
+					<li class="fragment">Automation is then used to complete proofs.</li>
+					<li class="fragment">The system had a good success rate with high-school mathematics problems.</li>
 
 				</ul>
 			</section>
@@ -514,7 +548,7 @@
 					<li class="fragment">This is facilitated by translation to <em>structured proofs</em> and adding
 						<em>details</em> to the proof.
 					</li>
-					<li class="fragment">Knowledge should be added into the prompt.</li>
+					<li class="fragment">Knowledge can be added into the prompt.</li>
 					<li class="fragment">The proof can be guided with heuristics such as splitting into cases.
 					</li>
 					<li class="fragment">The translation of statements to formal ones (in Lean/Isabelle/...) should have
@@ -546,13 +580,15 @@
 				<h4>LeanAide: Prompting & Post-processing</h4>
 				<ul>
 					<li class="fragment">Suppose we are given the statement of a theorem.</li>
-					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library <em>Mathlib</em>
-						that are closest to the statement (for OpenAI embeddings) and include them in the prompt.</li>
-						<li class="fragment">We query GPT-4 with the prompt for (say) 10
-							responses.</li>
-						<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
-							elaborate).</li>
-					</ul>
+					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library
+						<em>Mathlib</em>
+						that are closest to the statement (for OpenAI embeddings) and include them in the prompt.
+					</li>
+					<li class="fragment">We query GPT-4 with the prompt for (say) 10
+						responses.</li>
+					<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
+						elaborate).</li>
+				</ul>
 			</section>
 
 			<section data-background-color="teal">
@@ -579,8 +615,8 @@
 			<section data-background-color="teal" class="language-lean">
 				<ul>
 					<li>Translation to Lean:
-					If a vector space is $2$-dimensional, then it is finite dimensional.
-					<pre><code data-trim data-noescape>
+						If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape>
 							theorem: ∀ {K : Type u} {V : Type v} 
 							[inst : DivisionRing K] [inst_1 : AddCommGroup V] 
 							[inst_2 : Module K V],
@@ -589,7 +625,8 @@
 					</li>
 					<li class="fragment">This was one of our $40$ test <em>silly statements</em> (to avoid
 						contamination).</li>
-					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements in our test set. </li>
+					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements in our
+						test set. </li>
 					<li class="fragment">On the test set of 120 example problems, we had a success rate of about 85%.
 					</li>
 				</ul>
@@ -611,7 +648,8 @@
 								Choice of terminology not matching Mathlib, e.g. <em>condensation points</em>
 								versus <em>accumulation points</em>.
 							</li>
-						</ul>  </li>
+						</ul>
+					</li>
 					<li class="fragment">We also need to translate statements whose target is a <em>block</em>, for
 						which we need examples.</li>
 					<li class="fragment">We can attempt to address these issues using GPT-4 for auxiliary tasks.</li>
@@ -628,7 +666,8 @@
 
 			<section data-background-color="#002b36">
 				<ul>
-					<li>Mathematical terms and synonyms: “Suppose $E\subset \mathbb{R}^k$ is uncountable, and let $P$ be the
+					<li>Mathematical terms and synonyms: “Suppose $E\subset \mathbb{R}^k$ is uncountable, and let $P$ be
+						the
 						set of condensation points of $E$. Then $P$ is perfect.”</li>
 				</ul>
 				<pre><code data-trim data-noescape class="language-json">
@@ -783,10 +822,10 @@
 			<section data-background-color="#002b36">
 				<h4>Analysis questions</h4>
 				<ul>
-					<li class="fragment"><strong>Problem:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$ is a continuous
+					<li class="fragment"><strong>Problem:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$ is a smooth
 						function such that $f''(x) > 0$ for all $x \in \mathbb{R}$. Prove that $f$ is unbounded.</li>
 					<li class="fragment"><strong>Prove or disprove:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$ is a
-						continuous function such that $f'(x) > 0$ for all $x \in \mathbb{R}$. Then $f$ is unbounded.
+						smooth function such that $f'(x) > 0$ for all $x \in \mathbb{R}$. Then $f$ is unbounded.
 					</li>
 					<li class="fragment">Persistently wrong answers, even with guidance like split into cases.</li>
 					<li class="fragment">Proofs either used <em>every increasing sequence is unbounded</em> or assumed
@@ -799,6 +838,8 @@
 					<li>When asked to prove or disprove <em>every increasing sequence is unbounded</em>, consistently
 						gave a counterexample.</li>
 					<li class="fragment">Another model, Mistral medium, was much better at such questions.</li>
+					<li class="fragment">For the task of finding mathematical terms, Mistral 7B running locally on
+						the mathematics workstation was fine.</li>
 				</ul>
 			</section>
 
