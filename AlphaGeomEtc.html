@@ -546,7 +546,7 @@
 				<h4>LeanAide: Prompting & Post-processing</h4>
 				<ul>
 					<li class="fragment">Suppose we are given the statement of a theorem.</li>
-					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library <em>mathlib</em>
+					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library <em>Mathlib</em>
 						that are closest to the statement (for OpenAI embeddings) and include them in the prompt.</li>
 						<li class="fragment">We query GPT-4 with the prompt for (say) 10
 							responses.</li>
@@ -589,8 +589,9 @@
 					</li>
 					<li class="fragment">This was one of our $40$ test <em>silly statements</em> (to avoid
 						contamination).</li>
-					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements. </li>
-
+					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements in our test set. </li>
+					<li class="fragment">On the test set of 120 example problems, we had a success rate of about 85%.
+					</li>
 				</ul>
 				</ul>
 			</section>
@@ -599,14 +600,18 @@
 			<section data-background-color="teal">
 				<h4>Improving LeanAide?</h4>
 				<ul>
-					<li class="fragment">On our test set of 120 example problems, we had a success rate of about 85%.
-					</li>
 					<li class="fragment">However, the success rate was below 50% for the standard <em>ProofNet</em>
 						dataset.</li>
-					<li class="fragment">One cause was the choice of terminology not matching mathlib, e.g.
-						<em>condensation points</em>
-						versus <em>accumulation points</em>.
-					</li>
+					<li class="fragment">Causes of failure included:
+						<ul>
+							<li>
+								Lean/Mathlib notation for integrals etc.
+							</li>
+							<li>
+								Choice of terminology not matching Mathlib, e.g. <em>condensation points</em>
+								versus <em>accumulation points</em>.
+							</li>
+						</ul>  </li>
 					<li class="fragment">We also need to translate statements whose target is a <em>block</em>, for
 						which we need examples.</li>
 					<li class="fragment">We can attempt to address these issues using GPT-4 for auxiliary tasks.</li>
@@ -671,8 +676,8 @@
 						order.
 					</li>
 					<li>
-						The function smallest takes a list l and a proof that
-						l is not empty. It then returns the smallest element in
+						The function <code>smallest</code> takes a list <code>l</code> and a proof that
+						<code>l</code> is not empty. It then returns the smallest element in
 						the list. If the list contains only one element, that
 						element is returned. Otherwise, the smallest element
 						is the minimum of the first element and the smallest
@@ -682,14 +687,14 @@
 
 			<section data-background-color="#002b36">
 				<ul>
-					<li>The first theorem, smallest_mem, states that if a list l
-						is not empty, then the smallest element of l is an
-						element of l.
+					<li>The first theorem, <code>smallest_mem</code>, states that if a list <code>l</code>
+						is not empty, then the smallest element of <code>l</code> is an
+						element of <code>l</code>.
 					</li>
 					<li>
-						The second theorem, smallest_le, states that if a list
-						l is not empty, then for any element a of l, the
-						smallest element of l is less than or equal to a. In
+						The second theorem, <code>smallest_le</code>, states that if a list
+						<code>l</code> is not empty, then for any element <code>l</code> of <code>l</code>, the
+						smallest element of <code>l</code> is less than or equal to <code>l</code>. In
 						other words, the smallest element is less than or equal
 						to every element in the list.
 					</li>
