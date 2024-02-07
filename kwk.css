@@ -74,6 +74,10 @@ em, strong {
     color: lightgoldenrodyellow;
 }
 
+code {
+    color: lightgoldenrodyellow;
+}
+
 .copilot {
     color: cyan;
 }
