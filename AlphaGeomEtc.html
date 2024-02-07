@@ -235,67 +235,33 @@
 			<section data-background-color="teal" data-transition="concave">
 				<h4>Deep learning</h4>
 				<ul>
-					<li class="fragment">Computers can acquire knowledge by
-						<em>learning</em>; this goes back at least to Turing, or even regression
-						in statistics.
+					<li class="fragment">In <strong>Deep Learning</strong>, we use data to learn a function of a
+						specific form: a composition of functions called <strong>layers</strong>.</li> 
 					</li>
-					<li class="fragment">
-						What was needed was hardware and a system that could learn efficiently: <em>Deep neural
-							networks.</em>
-					</li>
-					<li class="fragment">In a deep neural network the input gives the output by applying a
-						<strong>composition</strong> of
-						<em>layers</em>.</li>
 					<li class="fragment">Each layer is of the form $\sigma\circ (Ax + b)$, with $\sigma$
-						fixed and non-linear and $A$ linear; the weights to be learned
-						are the entries of $A$ and $b$.</li>
-					<li class="fragment">Learning uses <em>chain rule</em> (backward propagation).</li>
+						fixed and non-linear and $A$ linear.</li>
+					<li class="fragment">The <em>chain rule</em> gives a method <em>backward propagation</em>,
+						for computing gradients efficiently.</li>
+						<li class="fragment">The linear transformation $A$ may be of a special form,
+							such as a <em>convolution</em>.
+						</li>
 				</ul>
 			</section>
 
-			<section data-background-color="teal" data-transition="concave">
-				<img height="250" src="DeepNeuralNet.png" />
-				<ul>
-					<li class="fragment">Starting about 2012, deep neural networks performed very well in image
-						processing tasks, far
-						above rule-based systems.</li>
-					<li class="fragment">
-
-						It turns out that as the image is processed by successive layers, the raw data gets modified
-						to capture abstraction/meaning.
-					</li>
-				</ul>
-			</section>
-			<section data-background-color="teal" data-transition="concave">
-				<h4 id="limitations-as-of-about-ten-years-ago">Limitations (≈ 10 years ago)</h4>
-				<ul>
-					<li class="fragment">Needed labelled data for training.</li>
-					<li class="fragment">Narrow: training specific to the task.</li>
-					<li class="fragment">Had difficulty with long range dependencies, in particular language.</li>
-					<li class="fragment">Hard to scale up, parallelize.</li>
-					<li class="fragment">Could not go beyond training data.</li>
-				</ul>
-			</section>
 			<section data-background-color="teal" data-transition="concave">
 				<h4 id="representation-learning">Representation Learning</h4>
 				<ul>
 					<li class="fragment">
-						<p><strong>Word2Vec</strong> considered the problem of predicting a word
-							given its neighbours.
+						We can learn functions of the form $\Psi\circ \Phi$, where $\Phi$ is a function that
+						embeds the input into a space capturing meaning and $\Psi$ is a function that uses this embedding.
+					</li>
+					<li class="fragment">
+						The function $\Phi$ can be learned using a different (synthetic) task, given by a function $\Theta\circ \Phi$, for which we can obtain a lot of data.
+					</li>
+					<li class="fragment">
+						<p>For instance, <strong>Word2Vec</strong> considered the problem of predicting a word
+							given its neighbours to learn embeddings of words into space.
 						</p>
-					</li>
-					<li class="fragment">
-						<p>A network consisting of embedding words into space and
-							predicting
-							from neighbours using the points was trained for this task.</p>
-					</li>
-					<li class="fragment">
-						<p>Only the embeddings of words into space was retained, so <em>geometry</em> captures
-							<em>associations</em>.
-						</p>
-					</li>
-					<li class="fragment">
-						<p>Another lesson is that it is useful to solve synthetic problems: play, solving exercises.</p>
 					</li>
 				</ul>
 
@@ -304,9 +270,9 @@
 			<section data-background-color="teal" data-transition="concave">
 				<h4 id="transfer-learning">Transfer learning</h4>
 				<ul>
-					<li class="fragment">A set of common layers was used for many tasks.</li>
-					<li class="fragment">Some of the tasks could be synthetic (exercises).</li>
-					<li class="fragment">This resulted in networks trained for one task needing much less training for a
+					<li class="fragment">A set of related tasks (some synthetic) could use common layers, i.e., 
+					we use functions $\Psi_i\circ Phi$ for the tasks..</li>
+					<li class="fragment">This results in networks trained for one task needing much less training for a
 						related task.
 					</li>
 					<li class="fragment">A group of tasks could be combined and trained as a single task, 
@@ -321,20 +287,18 @@
 			<section data-background-color="teal" data-transition="concave">
 				<h4 id="attention-is-all-you-need">“Attention is all you need”</h4>
 				<ul>
-					<li class="fragment">The meaning of a word depends on the context, i.e., other words surrounding it.
-					</li>
-					<li class="fragment">In the <strong>transformer architecture</strong>, this is captured by learning
-						to which other
-						words to pay attention.</li>
+					<li class="fragment">The <strong>Transformer architecture</strong>, is based on an <strong>Attention layer</strong>.</li>
+					<li class="fragment">The Attention layer has matrices determining <em>query</em>, <em>key</em> and <em>value</em>,
+					with the output for a word being the sum of values weighted by inner-products between 
+					the query and keys.</li>
 					<li class="fragment">This allowed parallelization and captured long-range dependencies.</li>
-					<li class="fragment"> With the transformer architecture training could be scaled up enormously.</li>
-					<li class="fragment"> It was found that models kept improving as the number of parameters and data
-						size grew.</li>
+					<li class="fragment"> With the transformer architecture training could be scaled up enormously;
+						and models kept improving with size.</li>
 
 				</ul>
 			</section>
 
-			<section data-background-color="teal" data-transition="concave">
+			<!-- <section data-background-color="teal" data-transition="concave">
 				<h4>Foundation Models</h4>
 				<ul>
 					<li class="fragment"> Language models (i.e., with transformer architecture) are trained in two phases:
@@ -351,9 +315,9 @@
 						parameters) models like Llama and Mistral families. </li>
 
 				</ul>
-			</section>
+			</section> -->
 
-			<section data-background-color="teal">
+			<section >
 				<ul>
 					<li>Large Language Models have remarkable abilities, roughly corresponding to our
 						<em>intuition</em>.
@@ -495,7 +459,7 @@
 						In principle, first-order logic includes all of mathematics; but, in practice,
 						the proof must depend on a small number of axioms.
 					</li>
-					<li class="fragment"> <strong>Robbins conjecture</strong> was a conjectural characterization of Boolean algebras in
+					<li class="fragment"> <strong>Robbins conjecture</strong> was a characterization of Boolean algebras in
 						terms of
 						associativity and commutativity of $\vee$ and the Robbins equation
 						$\neg(\neg(a\vee b)\vee \neg(a \vee \neg b)) = a$.</li>
@@ -579,11 +543,11 @@
 			</section>
 
 			<section data-background-color="teal">
-				<h4>LeanAide: In context learning & Post-processing</h4>
+				<h4>LeanAide: Prompting & Post-processing</h4>
 				<ul>
 					<li class="fragment">Suppose we are given the statement of a theorem.</li>
 					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library <em>mathlib</em>
-						that are closest to the statement (in OpenAI embeddings) and include them in the prompt.</li>
+						that are closest to the statement (for OpenAI embeddings) and include them in the prompt.</li>
 						<li class="fragment">We query GPT-4 with the prompt for (say) 10
 							responses.</li>
 						<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
@@ -595,18 +559,18 @@
 				<ul>
 					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
 						<pre><code data-trim data-noescape class="language-json">
-							[{"role": "system",
-"content": "You are a coding assistant who translates from natural language to Lean
-Theorem Prover code following examples. Follow EXACTLY the examples given."},
-{"role": "user",
-"content": "If a vector space has a finite basis, then it is finite-dimensional. "},
-{"role": "assistant",
-"content": "∀ {K : Type u} {V : Type v} [inst : DivisionRing K] [inst_1 :
-AddCommGroup V] [inst_2 : Module K V] {ι : Type w}\n [inst_3 : Finite ι], Basis ι
-K V → FiniteDimensional K V"},
-...
-{"role": "user",
-"content": "If a vector space has dimension ‘2‘ then it is finite dimensional."}]
+								[{"role": "system",
+								"content": "You are a coding assistant who translates from natural language to Lean
+								Theorem Prover code following examples. Follow EXACTLY the examples given."},
+								{"role": "user",
+								"content": "If a vector space has a finite basis, then it is finite-dimensional. "},
+								{"role": "assistant",
+								"content": "∀ {K : Type u} {V : Type v} [inst : DivisionRing K] [inst_1 :
+								AddCommGroup V] [inst_2 : Module K V] {ι : Type w}\n [inst_3 : Finite ι], Basis ι
+								K V → FiniteDimensional K V"},
+								...
+								{"role": "user",
+								"content": "If a vector space has dimension ‘2‘ then it is finite dimensional."}]
 							  </code></pre>
 					</li>
 
@@ -902,74 +866,40 @@ K V → FiniteDimensional K V"},
 					</ul>
 					<pre class="fragment"><code data-trim data-noescape class="language-json">
 						[{"assumption": "$A$ is a square matrix and $A^3 = I$"},
-{"observation": "$x^3 - 1$ has three distinct roots: $1, e^{2\pi i/3}, e^{4\pi i/3}$"},
-{"theorem": "Cayley-Hamilton theorem: Every square matrix satisfies its characteristic polynomial"},
-{"assertion": {
-  "claim": "The minimal polynomial of $A$ divides $x^3 - 1$",
-  "justification": "The minimal polynomial of a matrix $A$ divides any polynomial that 
-  $A$ satisfies",
-  "using": ["Cayley-Hamilton theorem"]
-  }},
-{"observation": "The roots of $x^3 - 1$ are distinct"},
-{"assertion": {
-  "claim": "The minimal polynomial of $A$ is a product of distinct linear factors",
-  "justification": "The only way the minimal polynomial of $A$ can divide $x^3 - 1$ is if it is
-    a product of distinct linear factors",
-  "using": ["The minimal polynomial of $A$ divides $x^3 - 1", 
-  "The roots of $x^3 - 1$ are distinct"]
-}},
-{"theorem": "A matrix is diagonalizable if and only if its minimal polynomial is a 
-            product of distinct linear factors"},
-{"assertion": {
-  "claim": "$A$ is diagonalizable",
-  "justification": "By the previous theorem and the fact that the minimal polynomial of $A$ 
-  is a product of distinct linear factors",
-  "using": ["A matrix is diagonalizable if and only if its minimal polynomial is a product of 
-  distinct linear factors", "The minimal polynomial of $A$ is a product of distinct linear factors"]
-  }}]
+						{"observation": "$x^3 - 1$ has three distinct roots: $1, e^{2\pi i/3}, e^{4\pi i/3}$"},
+						{"theorem": "Cayley-Hamilton theorem: Every square matrix satisfies its characteristic polynomial"},
+						{"assertion": {
+						"claim": "The minimal polynomial of $A$ divides $x^3 - 1$",
+						"justification": "The minimal polynomial of a matrix $A$ divides any polynomial that 
+						$A$ satisfies",
+						"using": ["Cayley-Hamilton theorem"]
+						}},
+						{"observation": "The roots of $x^3 - 1$ are distinct"},
+						{"assertion": {
+						"claim": "The minimal polynomial of $A$ is a product of distinct linear factors",
+						"justification": "The only way the minimal polynomial of $A$ can divide $x^3 - 1$ is if it is
+							a product of distinct linear factors",
+						"using": ["The minimal polynomial of $A$ divides $x^3 - 1", 
+						"The roots of $x^3 - 1$ are distinct"]
+						}},
+						{"theorem": "A matrix is diagonalizable if and only if its minimal polynomial is a 
+									product of distinct linear factors"},
+						{"assertion": {
+						"claim": "$A$ is diagonalizable",
+						"justification": "By the previous theorem and the fact that the minimal polynomial of $A$ 
+						is a product of distinct linear factors",
+						"using": ["A matrix is diagonalizable if and only if its minimal polynomial is a product of 
+						distinct linear factors", "The minimal polynomial of $A$ is a product of distinct linear factors"]
+						}}]
 						  </code></pre>
 				</small>
 			</section>
 
 			<section>
-				<ul>
-					<li>A great piece of mathematics involves a lot of such steps, building on different pieces of
-						mathematics and using different strengths in different parts.</li>
-					<li class="fragment">If each step can be accomplished by AI then putting them together may just be
-						engineering.</li>
-					<li class="fragment">Till recently the missing capability was reasoning by analogy (including
-						generalization - which is
-						analogy with an example/special case).</li>
-				</ul>
-			</section>
-			<section>
-				<ul>
-					<li>While aesthetic appeal has a role in mathematics it is not necessary for guiding mathematics (at
-						least in areas I know).</li>
-					<li class="fragment"> At any time there are clear ultimate goals, specific test cases which are
-						beyond the limits of
-						present techniques, explicit open problems, newly developed techniques that can be extended, and
-						various other guides to what is desirable worthwhile progress.</li>
-					<li class="fragment"> We can work towards making AI systems capable of these, at the least making
-						them very useful collaborators.</li>
-				</ul>
-			</section>
-			<section>
-				<h4>Collaborative uses of Deep learning</h4>
-				<ul>
-					<li class="fragment"> <strong>Symbolic regression:</strong> In particular the work of Francois
-						Charton. </li>
-					<li class="fragment"> <strong>Counterexamples:</strong> in graph theory due to Adam Wagner. </li>
-					<li class="fragment"> <strong>Conjectures by prediction:</strong> Geordie Williamson & co., Marc
-						Lackenby & co. </li>
-					<li class="fragment"> <strong>Autoformalization</strong>. </li>
-				</ul>
+				<h4>Summary</h4>
 			</section>
 
 
-			<section data-background-image="leanaide-mathlib4.gif">
-
-			</section>
 
 
 	</div>
