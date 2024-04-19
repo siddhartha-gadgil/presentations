@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>AlphaGeometry: AI for Maths</title>
+
+	<meta name="description" content="Samasya Debug lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="kwk.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<h3> Programs with Proof</h3>
+				<h4>and</h4>
+				<h3>Meta-programming</h3>
+				<h4>in</h4>
+				<h3>Lean 4</h3>
+				<h4>Siddhartha Gadgil</h4>
+				<p>Department of Mathematics</p>
+				<p>Indian Institute of Science, Bangalore</p>
+
+
+			</section>
+
+
+			<section>
+				<h4>Lean as a Programming Language</h4>
+				<ul>
+					<li class="fragment">Lean is a <em>dependently typed</em>, <em>functional</em> programming language:
+					</li>
+					<li class="fragment">Lean's type system is rich enough to express arbitrary mathematical theorems;
+					</li>
+					<li class="fragment">Lean has a fast runtime, allowing
+						<strong>self-hosting</strong>;
+					</li>
+					<li class="fragment">A powerful tactic system allows for <strong>interactive theorem
+							proving</strong>;</li>
+					<li class="fragment">The meta-programming system is powerful and convenient.</li>
+					<li class="fragment">Proving, programming and meta-programming are all seamlessly integrated.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h4>Lean as a functional language</h4>
+				<ul>
+					<li class="fragment">Functions in Lean are <strong>terms</strong>.</li>
+					<li class="fragment">Thus, they are <em>first-class citizens</em>: they can be passed as arguments,
+						returned from functions, and stored in data structures.</li>
+					<li class="fragment">A name can be used in only one definition, so <em>variables</em> are immutable
+						(in the core language).</li>
+					<li class="fragment">The only form of looping is <em>recursion</em>.</li>
+					<li class="fragment">No explicit flow control exists: commands are executed in order and modify the
+						environment.</li>
+					<li class="fragment">All these facilitate reasoning about programs.</li>
+					<li class="fragment">Various optimizations are applied to generate compiled code to avoid a
+						performance penalty.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h4>Lean as a dependently-typed language</h4>
+				<ul>
+					<li class="fragment">In Lean, types are <strong>terms</strong>.</li>
+					<li class="fragment">Thus, types are first-class citizens: they can be passed as arguments, returned
+						from functions, and stored in data structures.</li>
+					<li class="fragment">Lean's type constructors are rich enough to express arbitrary mathematical
+						theorems.</li>
+					<li class="fragment">Propositions are types, and proofs are terms of these types.</li>
+					<li class="fragment">Proofs are erased at runtime, so there is no performance penalty for proving
+						theorems.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom" data-background="sea.jpg">
+				<h2>SATurn:</h2>
+				<h2>SAT Solver-Prover</h2>
+				<h3>in</h3>
+				<h2>Lean</h2>
+			</section>
+
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>The $N-$Queens problem</h4>
+				<ul>
+					<li class="fragment">
+						The $N-$queens puzzle is the problem of placing $N$ chess queens on an $N\times N$
+						chessboard
+						so that no two queens threaten each other.
+					</li>
+					<li class="fragment">
+						Thus, a solution requires that no two queens share the same row, column, or diagonal.
+					</li>
+					<li class="fragment"> We formulate this as a so called <strong>Boolean satisfiability (SAT)
+							problem.</strong>
+					</li>
+					<li class="fragment"> A <strong>SAT solver</strong> solves SAT problems.</li>
+					<li class="fragment">A very large class of problems can be formulated as SAT problems.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>$N$-Queens as SAT</h4>
+				<ul>
+					<li class="fragment">We associate to each square a <em>boolean</em> variable $Q_{i,j}$ which
+						is <em>true</em> iff the
+						square is occupied.</li>
+					<li class="fragment">We construct logical formulas for the constraints of the $N-$queens
+						puzzle from the
+						$Q_{i,j}$'s using operators $\neg$ (<em>not</em>), $\vee$(<em>or</em>) and
+						$\wedge$(<em>and</em>).</li>
+					<li class="fragment">For example, the $i$th row has a queen is the formula $Q_{i,1}\vee
+						Q_{i,2}\vee\dots\vee Q_{i,n}$
+					</li>
+					<li class="fragment">Similarly, pairs of queens not threatening each other gives formulas
+						such as $\neg Q_{1, 1}\vee
+						\neg Q_{2, 2}$.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT Problems</h4>
+				<ul>
+					<li class="fragment">We are given finitely many <em>boolean</em> variables $P$, $Q$, ... and
+						finitely many
+						<em>constraints</em> on them.
+					</li>
+					<li class="fragment">
+						Constraints are logical statements built from the variables using logical operators such
+						as
+						$\neg$ (<em>not</em>), $\vee$(<em>or</em>), $\wedge$(<em>and</em>),
+						$\Rightarrow$(<em>implies</em>) and $\Leftrightarrow$ (<em>equivalent</em>).
+					</li>
+					<li class="fragment">
+						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can
+						assign
+						truth values to these (i.e., declare each of $P$, $Q$ , ... to be $true$ or $false$) so
+						that all
+						the constraints are satisfied.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="convex" data-background-color="teal">
+				<h4>SAT Solver-Prover in Lean 4</h4>
+				<ul>
+					<li class="fragment">
+						In <strong>Lean 4</strong>,
+						we can have a program with output one of
+						<ul>
+							<li class="fragment">
+								a solution together with a proof that this is a solution, or
+							</li>
+							<li class="fragment">
+								a proof that there is no solution.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">
+						Furthermore, the compiler verifies that the program terminates for any valid input, and
+						has
+						correct output of one of the above two forms.
+					</li>
+					<li class="fragment">I implemented this in a program <strong>SATurn</strong>.</li>
+					<li class="fragment">This was the first time in my experience that such a complex program
+						ran correctly straight away. </li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Kaplansky's Unit Conjecture</h4>
+				<ul>
+
+					<li class="fragment">
+						A couple of years ago, Giles Gardam disproved the long-standing <strong>Kaplansky's Unit
+							Conjecture</strong>, which asserted that group rings of torsion-free groups over fields
+						do
+						not have non-trivial units.
+					</li>
+					<li class="fragment">
+						Gardam used a SAT solver to find such non-trivial units for a specific group and the field
+						$\mathbb{F}_2$.
+					</li>
+					<li class="fragment">
+						Anand Rao Tadipatri and I formalized the proof in Lean 4 using its integration of programs and
+						proofs.
+					</li>
+
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
+				<h2 style="color:#fffdd0">LeanAide</h2>
+
+				<h2 style="color:#fffdd0">Autoformalization and beyond?</h2>
+			</section>
+
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Autoformalization of statements</h4>
+				<ul>
+					<li class="fragment">Our tool <strong>LeanAide</strong> uses GPT-4 to translate
+						statements (similar to docstrings) into Lean 4 code.</li>
+					<li class="fragment">We do prompt engineering and post-processing.</li>
+					<li class="fragment">Lean 4 is written (mostly) in Lean 4, and has convenient functions
+						for using its interpreter, greatly facilitating our post-processing.</li>
+					<li class="fragment">LeanAide is integrated with the user-interface of Lean 4 via code actions.</li>
+				</ul>
+			</section>
+
+			<section data-background-video="leanaide-jan24.webm" data-background-video-muted> </section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Prompting & Post-processing</h4>
+				<ul>
+					<li class="fragment">Suppose we are given the statement of a theorem.</li>
+					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library
+						<em>Mathlib</em>
+						that are closest to the statement (for OpenAI embeddings) and include them in the
+						prompt.
+					</li>
+					<li class="fragment">We query GPT-4 with the prompt for (say) 10
+						responses.</li>
+					<li class="fragment">We discard responses that are not valid Lean code (do not parse or do
+						not
+						elaborate).</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape class="language-json">
+								[{"role": "system",
+								"content": "You are a coding assistant who translates from natural language to Lean
+								Theorem Prover code following examples. Follow EXACTLY the examples given."},
+								{"role": "user",
+								"content": "If a vector space has a finite basis, then it is finite-dimensional. "},
+								{"role": "assistant",
+								"content": "∀ {K : Type u} {V : Type v} [inst : DivisionRing K] [inst_1 :
+								AddCommGroup V] [inst_2 : Module K V] {ι : Type w}\n [inst_3 : Finite ι], Basis ι
+								K V → FiniteDimensional K V"},
+								...
+								{"role": "user",
+								"content": "If a vector space has dimension ‘2‘ then it is finite dimensional."}]
+							  </code></pre>
+					</li>
+
+				</ul>
+			</section>
+			<section data-background-color="teal" class="language-lean">
+				<ul>
+					<li>Translation to Lean:
+						If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape>
+							theorem: ∀ {K : Type u} {V : Type v} 
+							[inst : DivisionRing K] [inst_1 : AddCommGroup V] 
+							[inst_2 : Module K V],
+								Module.rank K V = 2 → FiniteDimensional K V
+							  </code></pre>
+					</li>
+					<li class="fragment">This was one of our $40$ test <em>silly statements</em> (to avoid
+						contamination).</li>
+					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements
+						in our
+						test set. </li>
+					<li class="fragment">On the test set of 120 example problems, we had a success rate of about
+						85%.
+					</li>
+				</ul>
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h4>LeanAideTools:</h4>
+				<h4> Running tactics in the background</h4>
+				<ul>
+					<li class="fragment">Often tactics like <code>exact?</code>, <code>aesop</code>, <code>simp</code>,
+						<code>norm_num</code> can finish a goal.
+					</li>
+					<li class="fragment">It is a nuisance to repeatedly run these tactics manually.</li>
+					<li class="fragment">Using <strong>meta-programming</strong> and <strong>concurrency</strong> using
+						<code>Task</code> supported by Lean, we implement a tool that runs chosen tactics in the
+						background.
+					</li>
+					<li class="fragment">Here's a <strong>Demo</strong>.</li>
+				</ul>
+			</section>
+
+
+			<section>
+				<h2>Meta-programming</h2>
+				<p>From Wikipedia:</p>
+				<blockquote>
+					Metaprogramming is a programming technique in which computer programs have the ability to treat
+					other programs as their data. It means that a program can be designed to read, generate, analyze or
+					transform other programs, and even modify itself while running.
+				</blockquote>
+			</section>
+
+			<section>
+				<h4>Lean code: Source, Syntax, and Expressions.</h4>
+				<ul>
+					<li class="fragment">The <strong>source</strong> code of Lean programs, commands, and terms is
+						strings, which are <em>linear sequences of characters</em>.</li>
+					<li class="fragment"> <strong>Parsers</strong> convert source code into <code>Syntax</code>
+						<strong>trees</strong>.
+					</li>
+					<li class="fragment"> <strong>Elaborators</strong> convert syntax trees into <code>Expr</code>'s:
+						type-correct kernel <strong>expressions</strong> that are terms in the foundations of the Lean
+						language.</li>
+					<li class="fragment"><code>Expr</code> and <code>Syntax</code> are both types, so <em>syntax</em>
+						and <em>kernel expressions</em> are <strong>terms</strong> (first-class citizens) in Lean.</li>
+				</ul>
+			</section>
+
+			<section>
+				<ul>
+					<li><strong>Core:</strong> Lean provides functions to inspect the environment,
+						including declarations.</li>
+					<li class="fragment"><strong>Macro:</strong> We can define new syntax and
+						functions transforming the new syntax.</li>
+					<li class="fragment"><strong>Meta:</strong> Expressions can use meta-variables as placeholders, with
+						expressions assigned later. Definitions cannot have unassigned meta-variables.</li>
+					<li class="fragment"><strong>TermElab:</strong> We can define new syntax, together with functions
+						transforming the new syntax to kernel expressions.</li>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li><strong>Tactic:</strong> Tactics are functions that construct an expression of
+						a <em>target</em> type and assign it to the <em>goal</em> meta-variable. </li>
+					<li class="fragment"> The expression may
+						depend on other meta-variables, which then become new goals.</li>
+					<li class="fragment">The <strong>Infoview</strong> is also a rich source of data.</li>
+					<li class="fragment"> <em>Delaborators</em> convert <code>Expr</code>'s back into syntax trees.
+					<li class="fragment">
+						<em>Pretty-printers</em> convert syntax trees back into source code.
+
+				</ul>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h4>Data from LeanAide</h4>
+				<ul>
+					<li class="fragment">Documentation strings.</li>
+					<li class="fragment">Premises used in proofs of results.</li>
+					<li class="fragment">Composite terms in proofs.</li>
+					<li class="fragment">Lemmas used: any proposition that is the type of some sub-expression of a proof
+						term.</li>
+					<li class="fragment">Premises and composite terms in proofs of lemmas.</li>
+					<li class="fragment">We have about 10 million theorem-lemma pairs, where theorems include lemmas in
+						proofs as above.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Programming example:</h2>
+				<h2>Quicksort</h1>
+			</section>
+
+
+			<section>
+				<h2>Meta-programming examples</h2>
+			</section>
+
+			<section data-background-color="#b5533c">
+				<h4>(Meta-)programming for Mathematics?</h4>
+				<ul>
+					<li>Mathematical proofs often involve computations, which can be obtained by
+						<ul>
+							<li>Programs that are proved to be correct.</li>
+							<li>Checking correctness where it is easier than solving.</li>
+						</ul>
+					</li>
+					<li>Meta-proramming can be used for:
+						<ul>
+							<li>Writing tactics.</li>
+							<li>Artificial Intelligence: Data, Integration with Lean</li>
+							<li>Writing domain specific languages.</li>
+						</ul></li>
+					<li>Hope: <strong>GAP (or other CAS)</strong> embedded in Lean.</li>
+				</ul>
+			</section>
+
+
+
+
+	</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				//				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+		//			Reveal.addEventListener( 'slidechanged', function( event ) {
+		//				MathJax.Hub.Rerender();
+		//			} );
+
+	</script>
+
+</body>
+
+</html>
