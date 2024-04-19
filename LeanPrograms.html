@@ -201,6 +201,29 @@
 				</ul>
 			</section>
 
+			<section data-background-color="#002b36">
+				<h4>Kaplansky's Unit Conjecture</h4>
+				<ul>
+
+					<li class="fragment">
+						A couple of years ago, Giles Gardam disproved the long-standing <strong>Kaplansky's Unit
+							Conjecture</strong>, which asserted that group rings of torsion-free groups over fields
+						do
+						not have non-trivial units.
+					</li>
+					<li class="fragment">
+						Gardam used a SAT solver to find such non-trivial units for a specific group and the field
+						$\mathbb{F}_2$.
+					</li>
+					<li class="fragment">
+						Anand Rao Tadipatri and I formalized the proof in Lean 4 using its integration of programs and
+						proofs.
+					</li>
+
+				</ul>
+			</section>
+
+
 			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
 				<h2 style="color:#fffdd0">LeanAide</h2>
 
@@ -283,7 +306,7 @@
 				</ul>
 			</section>
 
-			<section>
+			<section data-background-color="#b5533c">
 				<h4>LeanAideTools:</h4>
 				<h4> Running tactics in the background</h4>
 				<ul>
@@ -325,22 +348,10 @@
 						and <em>kernel expressions</em> are <strong>terms</strong> (first-class citizens) in Lean.</li>
 				</ul>
 			</section>
-			<section>
-				<ul>
-					<li class="fragment">Lean uses parser-combinators: parsers can use the results of parsing parts of
-						the input.</li>
-					<li class="fragment">The syntax is extensible: new syntax and even new <em>kinds</em> of syntax can
-						be added.</li>
-					<li class="fragment"> <em>Delaborators</em> convert <code>Expr</code>'s back into syntax trees.
-					<li class="fragment">
-						<em>Pretty-printers</em> convert syntax trees back into source code.
-					</li>
-				</ul>
-			</section>
 
 			<section>
 				<ul>
-					<li class="fragment"><strong>Core:</strong> Lean provides functions to inspect the environment,
+					<li><strong>Core:</strong> Lean provides functions to inspect the environment,
 						including declarations.</li>
 					<li class="fragment"><strong>Macro:</strong> We can define new syntax and
 						functions transforming the new syntax.</li>
@@ -352,15 +363,19 @@
 			</section>
 			<section>
 				<ul>
-					<li class="fragment"><strong>Tactic:</strong> Tactics are functions that construct an expression of
+					<li><strong>Tactic:</strong> Tactics are functions that construct an expression of
 						a <em>target</em> type and assign it to the <em>goal</em> meta-variable. </li>
 					<li class="fragment"> The expression may
 						depend on other meta-variables, which then become new goals.</li>
 					<li class="fragment">The <strong>Infoview</strong> is also a rich source of data.</li>
+					<li class="fragment"> <em>Delaborators</em> convert <code>Expr</code>'s back into syntax trees.
+					<li class="fragment">
+						<em>Pretty-printers</em> convert syntax trees back into source code.
+
 				</ul>
 			</section>
 
-			<section>
+			<section data-background-color="#b5533c">
 				<h4>Data from LeanAide</h4>
 				<ul>
 					<li class="fragment">Documentation strings.</li>
@@ -384,16 +399,22 @@
 				<h2>Meta-programming examples</h2>
 			</section>
 
-			<section>
-				<h4>Wishlist / "To do" list</h4>
+			<section data-background-color="#b5533c">
+				<h4>(Meta-)programming for Mathematics?</h4>
 				<ul>
-					<li>Symbolic integration using <strong>in-context learning</strong>.</li>
-					<li><strong>Deductive Database + Algebraic Relations</strong> embedded in Lean.</li>
-					<li><strong>FunSearch in Lean</strong>: implement, experiment.</li>
-					<li><strong>Lemma suggestions</strong> from language models.</li>
-					<li><strong>Counterexamples</strong> and <em>exists</em> values from LLMs.</li>
-					<li><strong>Widgets</strong> mapping between pictures and symbolic representations.</li>
-					<li><strong>GAP system (or another CAS)</strong> embedded in Lean.</li>
+					<li>Mathematical proofs often involve computations, which can be obtained by
+						<ul>
+							<li>Programs that are proved to be correct.</li>
+							<li>Checking correctness where it is easier than solving.</li>
+						</ul>
+					</li>
+					<li>Meta-proramming can be used for:
+						<ul>
+							<li>Writing tactics.</li>
+							<li>Artificial Intelligence: Data, Integration with Lean</li>
+							<li>Writing domain specific languages.</li>
+						</ul></li>
+					<li>Hope: <strong>GAP (or other CAS)</strong> embedded in Lean.</li>
 				</ul>
 			</section>
 
