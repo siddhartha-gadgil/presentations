@@ -78,9 +78,9 @@
 			<section>
 				<h4>Lean as a functional language</h4>
 				<ul>
-					<li class="fragment">Functions in Lean are <strong>terms</strong>.</li>
-					<li class="fragment">Thus, they are <em>first-class citizens</em>: they can be passed as arguments,
-						returned from functions, and stored in data structures.</li>
+					<li class="fragment">Functions in Lean are <strong>terms</strong>, hence <em>first-class</em>.</li>
+					<li class="fragment">Thus, they can be arguments and
+						values of functions, and elements of collections.</li>
 					<li class="fragment">A name can be used in only one definition, so <em>variables</em> are immutable
 						(in the core language).</li>
 					<li class="fragment">The only form of looping is <em>recursion</em>.</li>
@@ -126,61 +126,26 @@
 					<li class="fragment">
 						Thus, a solution requires that no two queens share the same row, column, or diagonal.
 					</li>
-					<li class="fragment"> We formulate this as a so called <strong>Boolean satisfiability (SAT)
-							problem.</strong>
+					<li class="fragment"> We formulate this as a so called <strong>Boolean satisfiability (SAT)</strong>
+							problem:
+							<ul class="fragment">
+								<li>We have finitely many <strong>Boolean</strong> variables.</li>
+								<li>These need to satisfy finitely many <strong>logical statements</strong>, built from the variables using logical operators such
+									as
+									$\neg$, $\vee$, $\wedge$,
+									$\Rightarrow$, $\Leftrightarrow$. </li>
+							</ul>
+						</strong>
 					</li>
-					<li class="fragment"> A <strong>SAT solver</strong> solves SAT problems.</li>
-					<li class="fragment">A very large class of problems can be formulated as SAT problems.</li>
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
-				<h4>$N$-Queens as SAT</h4>
-				<ul>
-					<li class="fragment">We associate to each square a <em>boolean</em> variable $Q_{i,j}$ which
-						is <em>true</em> iff the
-						square is occupied.</li>
-					<li class="fragment">We construct logical formulas for the constraints of the $N-$queens
-						puzzle from the
-						$Q_{i,j}$'s using operators $\neg$ (<em>not</em>), $\vee$(<em>or</em>) and
-						$\wedge$(<em>and</em>).</li>
-					<li class="fragment">For example, the $i$th row has a queen is the formula $Q_{i,1}\vee
-						Q_{i,2}\vee\dots\vee Q_{i,n}$
-					</li>
-					<li class="fragment">Similarly, pairs of queens not threatening each other gives formulas
-						such as $\neg Q_{1, 1}\vee
-						\neg Q_{2, 2}$.</li>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background-color="teal">
-				<h4>SAT Problems</h4>
-				<ul>
-					<li class="fragment">We are given finitely many <em>boolean</em> variables $P$, $Q$, ... and
-						finitely many
-						<em>constraints</em> on them.
-					</li>
-					<li class="fragment">
-						Constraints are logical statements built from the variables using logical operators such
-						as
-						$\neg$ (<em>not</em>), $\vee$(<em>or</em>), $\wedge$(<em>and</em>),
-						$\Rightarrow$(<em>implies</em>) and $\Leftrightarrow$ (<em>equivalent</em>).
-					</li>
-					<li class="fragment">
-						The <strong>SAT</strong> (<em>boolean satisfiability</em>) problem asks whether we can
-						assign
-						truth values to these (i.e., declare each of $P$, $Q$ , ... to be $true$ or $false$) so
-						that all
-						the constraints are satisfied.
-					</li>
-				</ul>
-			</section>
 			<section data-transition="convex" data-background-color="teal">
 				<h4>SAT Solver-Prover in Lean 4</h4>
 				<ul>
 					<li class="fragment">
-						In <strong>Lean 4</strong>,
-						we can have a program with output one of
+						In <strong>Lean</strong>,
+						we can have a program with output:
 						<ul>
 							<li class="fragment">
 								a solution together with a proof that this is a solution, or
@@ -198,6 +163,7 @@
 					<li class="fragment">I implemented this in a program <strong>SATurn</strong>.</li>
 					<li class="fragment">This was the first time in my experience that such a complex program
 						ran correctly straight away. </li>
+					<li class="fragment">Here's a <strong>demo</strong>.</li>
 				</ul>
 			</section>
 
@@ -402,19 +368,19 @@
 			<section data-background-color="#b5533c">
 				<h4>(Meta-)programming for Mathematics?</h4>
 				<ul>
-					<li>Mathematical proofs often involve computations, which can be obtained by
+					<li class="fragment">Mathematical proofs often involve computations, which can be obtained by
 						<ul>
 							<li>Programs that are proved to be correct.</li>
-							<li>Checking correctness where it is easier than solving.</li>
+							<li>Checking correctness where it is easier.</li>
 						</ul>
 					</li>
-					<li>Meta-proramming can be used for:
+					<li class="fragment">Computations also help find counterexamples: for working mathematics, lemmas suggested by AI.</li>
+					<li class="fragment">Meta-proramming can be used for:
 						<ul>
 							<li>Writing tactics.</li>
-							<li>Artificial Intelligence: Data, Integration with Lean</li>
+							<li>Artificial Intelligence: Data, Workflow.</li>
 							<li>Writing domain specific languages.</li>
 						</ul></li>
-					<li>Hope: <strong>GAP (or other CAS)</strong> embedded in Lean.</li>
 				</ul>
 			</section>
 
