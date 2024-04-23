@@ -185,6 +185,8 @@
 						Anand Rao Tadipatri and I formalized the proof in Lean 4 using its integration of programs and
 						proofs.
 					</li>
+					<li class="fragment"> 
+						We made use of the <em>Decidable</em> typeclass and typeclass inference.
 
 				</ul>
 			</section>
@@ -276,7 +278,7 @@
 				<h4>LeanAideTools:</h4>
 				<h4> Running tactics in the background</h4>
 				<ul>
-					<li class="fragment">Often tactics like <code>exact?</code>, <code>aesop</code>, <code>simp</code>,
+					<li class="fragment">Often tactics like <code>exact?</code>, <code>aesop</code>, <code>simp</code>, <code>omega</code>
 						<code>norm_num</code> can finish a goal.
 					</li>
 					<li class="fragment">It is a nuisance to repeatedly run these tactics manually.</li>
@@ -284,7 +286,7 @@
 						<code>Task</code> supported by Lean, we implement a tool that runs chosen tactics in the
 						background.
 					</li>
-					<li class="fragment">Here's a <strong>Demo</strong>.</li>
+					<li class="fragment">Here's a <strong>demo</strong>, code in <a href="https://github.com/siddhartha-gadgil/LeanLion" target="_blank">LeanLion</a>.</li>
 				</ul>
 			</section>
 
@@ -321,7 +323,8 @@
 						including declarations.</li>
 					<li class="fragment"><strong>Macro:</strong> We can define new syntax and
 						functions transforming the new syntax.</li>
-					<li class="fragment"><strong>Meta:</strong> Expressions can use meta-variables as placeholders, with
+					<li class="fragment"><strong>Meta:</strong> We manipulate <strong>expressions</strong> representing terms. 
+						Expressions can use meta-variables as placeholders, with
 						expressions assigned later. Definitions cannot have unassigned meta-variables.</li>
 					<li class="fragment"><strong>TermElab:</strong> We can define new syntax, together with functions
 						transforming the new syntax to kernel expressions.</li>
@@ -336,7 +339,7 @@
 					<li class="fragment">The <strong>Infoview</strong> is also a rich source of data.</li>
 					<li class="fragment"> <em>Delaborators</em> convert <code>Expr</code>'s back into syntax trees.
 					<li class="fragment">
-						<em>Pretty-printers</em> convert syntax trees back into source code.
+						<em>Pretty-printers</em> convert syntax trees into (formatted) strings.
 
 				</ul>
 			</section>
