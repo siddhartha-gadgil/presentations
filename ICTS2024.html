@@ -771,7 +771,7 @@
 				<h4>Infinitely many primes ending in $7$</h4>
 				<ul>
 
-					<li>
+					<li class="fragment">
 						To prove that there are infinitely many prime numbers ending with 7, we can use a method similar
 						to Dirichlet's theorem on arithmetic progressions. Dirichlet's theorem states that for any two
 						coprime integers \( a \) and \( b \), there are infinitely many primes in the arithmetic
@@ -828,7 +828,7 @@
 				<ul>
 					<li class="fragment">GPT-4 correcly answered many non-trivial questions, including ones we used to select Ph.D. students.</li>
 					<li class="fragment">However, it failed to answer some easier questions, giving <strong>wrong proofs</strong>.</li>
-					<li class="fragment">It repeatedly false used statements in proofs, such as <em>every increasing sequence is bounded</em>, even though when asked whether the statement was true it gave a counterexample.</li>
+					<li class="fragment">It repeatedly used false statements in proofs, such as <em>every increasing sequence is unbounded</em>, <span class="fragment">even though when asked whether the statement was true it gave a counterexample.</span></li>
 					<li class="fragment">The hope is that pairing with Lean will give errors, and LLMs can correct with this feedback.</li>
 			</section>
 
@@ -1118,9 +1118,9 @@
 			<section data-background-color="teal">
 				<h3>Diophantine equations</h3>
 				<ul>
-					<li class="fragment">A <em>Diophantine equation</em> is an equation with integer coefficients, for which we seek integer (or rational)solutions. </li>
+					<li class="fragment">A <em>Diophantine equation</em> is an equation with integer coefficients, for which we seek integer (or rational) solutions. </li>
 					<li class="fragment">There is no algorithm that can decide whether a Diophantine equation has a solution.</li>
-					<li class="fragment">However, in specific cases theorems can prove or disprove the existence of solutions, and even answer refinements such as families of equations and numbers of solutions.</li>
+					<li class="fragment">However, in specific cases theorems can prove or disprove the existence of solutions, even for refinements such as families of equations and numbers of solutions.</li>
 					<li class="fragment">A famous example is the equation $x^n + y^n = z^n$.</li>
 				</ul>
 
@@ -1142,7 +1142,7 @@
 				<h3>"Progress in Mathematics''</h3>
 				<ul>
 					<li class="fragment">We start with basic questions, maybe from nature. </li>
-					<li class="fragment">We develop techniques to answer these some cases.</li>
+					<li class="fragment">We develop techniques that can answer these in some cases.</li>
 					<li class="fragment">The questions and techniques are abstracted.</li>
 					<li class="fragment">This leads to new questions, for the techniques to be applicable and <em>natural questions</em>.</li>
 					<li class="fragment">Hopefully, progress at higher abstractions let us answer the original questions in more cases.</li>
