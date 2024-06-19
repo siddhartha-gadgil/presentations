@@ -167,7 +167,7 @@
 				<ul>
 					<li>Trust/verification level.</li>
 					<li>Generality.</li>
-					<li>Autonomy.</li>
+					<li>Autonomy/level of Automation.</li>
 					<li>Nature of reasoning: purely algorithmic versus using intuition from learning.</li>
 					<li>Whether modularity can be represented and used.</li>
 				</ul>
@@ -587,8 +587,8 @@
 							kernel</em>, which can be thoroughly checked.
 					</li>
 					<li class="fragment">
-						For example, the Lean theorem prover has four (small) proof checkers written in
-						four languages.
+						For example, the Lean theorem prover has independent (small) proof checkers, one written in
+						a different language (Rust).
 					</li>
 					<li class="fragment">
 						In a specific case, one only has to check that the <strong>definitions</strong> and the
@@ -675,13 +675,13 @@
 			<section data-background-color="teal">
 				<h4>Autoformalization</h4>
 				<ul>
-					<li class="fragment"><em>Autoformalization</em> is the automatically generating Lean code from natural language.</li>
+					<li class="fragment"><em>Autoformalization</em> is the automatically generating Lean (or Formal) code from natural language.</li>
 					<li class="fragment">This is useful even if it is wrong sometimes.</li>
 					<li class="fragment">In <em>Draft, Sketch and Prove,</em> 
 						<ul>
 							<li>A large language model used to generate proofs.</li>
 							<li>These were translated to <em>proof sketches</em>.</li>
-							<li>Automation (algorithmic) was used to complete the proof.</li>
+							<li>Automation (algorithmic) was used to complete the proofs.</li>
 						</ul>
 					</li>
 					<li class="fragment">One can attempt to refine this with iterative feedback.</li>
@@ -1142,9 +1142,9 @@
 				<h3>"Progress in Mathematics''</h3>
 				<ul>
 					<li class="fragment">We start with basic questions, maybe from nature. </li>
-					<li class="fragment">We develop techniques that can answer these in some cases.</li>
+					<li class="fragment">We develop techniques that can answer these in some cases; the general case is often unsolvable.</li>
 					<li class="fragment">The questions and techniques are abstracted.</li>
-					<li class="fragment">This leads to new questions, for the techniques to be applicable and <em>natural questions</em>.</li>
+					<li class="fragment">This leads to new questions, for the techniques to be applicable; and also <em>natural questions</em>.</li>
 					<li class="fragment">Hopefully, progress at higher abstractions let us answer the original questions in more cases.</li>
 					<li class="fragment">We hope that Artificial Intelligence and Formal Proof Systems are superpowers for all the steps.</li>
 				</ul>
@@ -1173,7 +1173,7 @@
 						Theorem Provers.</li>
 					<li class="fragment">Combining of AI, ITPs and symbolic algebra etc should
 						enable <em>tools</em> for mathematics.
-					<li class="fragment">We can extend mathematical proofs to cases that are otherwise present too tedious, too specific, and perhaps even too difficult.</li>
+					<li class="fragment">We can extend mathematical proofs to cases that are otherwise too tedious and/or specific,<span class="fragment"> and, hopefully, to those (important but) too difficult.</span></li>
 					</li>
 
 
