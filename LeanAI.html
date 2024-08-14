@@ -49,30 +49,17 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<section class="slides">
 			<section data-transition="slide">
-				<strong class="larger">ProvingGround: </strong>
-				<h3> towards Automating Mathematics? </h3>
-				<h4>Siddhartha Gadgil</h4>
-				<p>Department of Mathematics</p>
-				<p>Indian Institute of Science</p>
-				<p>Bangalore</p>
-				<p><a href="http://math.iisc.ac.in/~gadgil/">http://math.iisc.ac.in/~gadgil/</a></p>
-				<p><a href="https://github.com/siddhartha-gadgil/ProvingGround"
-						target="_blank">https://github.com/siddhartha-gadgil/ProvingGround</a></p>
+				<h3> Autoformalization and Friends: </h3>
+				<h3> Interactive Theorem Provers </h3>
+				<h5>and</h4>
+				<h3>Artificial Intelligence</h3>
+				<p>Chalmers, Aug 2024</p>
+				<h3>Siddhartha Gadgil</h3>
+				<p>Indian Institute of Science, Bangalore</p>
 
 
 			</section>
 
-			<section data-transition="zoom-in fade-out">
-				<h3>Automating Mathematics?</h3>
-				<ul>
-					<li>
-						Can computers acquire <strong>all the major capabilities</strong> used by mathematicians and the
-						mathematics community in the <strong>discovery</strong> and <strong>proof</strong> of
-						mathematical results and concepts?
-					</li>
-					<li>When? <strong>How?</strong></li>
-				</ul>
-			</section>
 
 			<section data-transition="zoom-in fade-out">
 				<ul>
@@ -84,13 +71,17 @@
 						low-dimensional topology and related fields such as <em>geometric group theory</em> and
 						<em>riemannian geometry</em>.
 					</li>
-					<li>However, for the last few years I have mainly focussed on attempts at <em>Automated Theorem
-							Proving</em>.</li>
-					<li>Surprisingly both these strands came together in the <em>PolyMath adventure.</em></li>
+					<li class="fragment">Since about 2014, I have increasingly focussed on Automated Theorem Proving, based initially on
+						<ul>
+							<li>(Homotopy) Type theory and related foundations.</li>
+							<li>Implementing these in scala (ProvingGround).</li>
+							<li>Dabbling in Agda and Idris.</li>
+						</ul></li>
+					<li class="fragment">Surprisingly both strands of my career came together in the <em>PolyMath adventure.</em></li>
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background="#b5533c">
 				<h3>The PolyMath 14 participants</h3>
 				<ul>
 					<li>Tobias Fritz, MPI MIS</li>
@@ -103,7 +94,7 @@
 
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background-color="#b5533c">
 				<ul>
 					<li>On Saturday, December 16, 2017, Terrence Tao posted on his blog a question, which Apoorva Khare
 						had asked him.</li>
@@ -117,7 +108,7 @@
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background-color="#b5533c">
 				<ul>
 					<li>Let $\mathcal{W}$ be the set of finite words in the alphabet $\{\alpha, \beta, \bar\alpha,
 						\bar\beta\}$,
@@ -139,7 +130,7 @@
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background-color="#b5533c">
 				<ul>
 					<li>Over the first 4-5 days after the question was posted,
 						<ul>
@@ -155,7 +146,7 @@
 				</ul>
 			</section>
 
-			<section data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background-color="#b5533c">
 				<ul>
 					<li>Increasingly sharp bounds and methods of combining bounds were found.</li>
 					<li>But there was no visible path to proving $l(\alpha\beta\bar\alpha\bar\beta) = 0$.</li>
@@ -169,9 +160,9 @@
 				</ul>
 			</section>
 
-			<section data-background-iframe="pg-gross-proof.html"></section>
+			<section data-background-iframe="ch-gross-proof.html"></section>
 
-			<section data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background-color="#b5533c">
 				<ul>
 					<li>The computer-generated proof was studied by Pace Nielsen, who extracted the <em>internal
 							repetition</em> trick. </li>
@@ -183,23 +174,44 @@
 							Theory</em>.</li>
 				</ul>
 			</section>
-			<section data-transition="convex" data-background-color="teal">
+			<section data-transition="convex" data-background-color="#b5533c">
 				<ul>
 					<li>The computer generated proof was obtained by an algorithm using <em>domain specific
 							foundations</em>. </li>
-					<li>Subsequently, we embedded the foundations we used to generate the proofs and formalized the
-						internal repetition trick in <strong>ProvingGround</strong>.</li>
 					<li>An account of the computer proof was published in the <em>Journal of Automated reasoning</em>.
 					</li>
 					<li>In response to the referees comments we replicated the computer proof
 						(and also addressed the issue of rounding off errors).</li>
-					<li>In the future, all parts should perhaps be done with the <em>Lean Theorem Prover</em>.</li>
+					<li>The proofs generation, including the replication, have been rewritten in the <em>Lean Theorem Prover</em>, using its dual nature as a programming language and interactive theorem prover.</li>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>From the perspective of a Dependent Type Theory (MLTT/CIC/HoTT) it is natural to seek algorithms whose output is a proof.</li>
+					<li class="fragment">The generation of the proof was such an algorithm combined with an expert guided proof.</li>
+					<li class="fragment">Such generated proofs are <strong>synthetic data</strong>.</li>
+					<li class="fragment">Lifting more symbolic algebra algorithms to give proofs can be used to generate such data and train models.</li>
+					<li class="fragment">This is similar to the approach of AlphaGeometry.</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Lean: programs, proofs, meta-programs</h4>
+				<ul>
+					<li class="fragment">Lean is a <em>dependently typed</em>, <em>functional</em> programming language.
+					</li>
+					<li class="fragment">Lean's type system is rich enough to express arbitrary mathematical theorems.
+					</li>
+					<li class="fragment">Lean has a fast runtime, allowing
+						<strong>self-hosting</strong>.
+					</li>
+					<li class="fragment">Using this dual nature, I implemented <strong>SATurn</strong>, a SAT <em>solver-prover</em> in Lean</strong>: the output is either a proof of UNSAT or a proved solution.</li>
+					<li class="fragment">In collaboration with Anand Rao Tadipatri, we formalized Gardam's disproof of Kaplansky's unit conjecture using computations and proofs.</li>
 				</ul>
 			</section>
 
 			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
-				<p><strong class="larger">ProvingGround:</strong></p>
-				<p><strong class="larger">Foundations, Formal Proofs</strong></p>
+				<p><strong class="larger">LeanAide:</strong></p>
+				<p><strong class="larger">Autoformalization and Beyond</strong></p>
 			</section>
 
 			<section data-background-color="teal">
@@ -217,19 +229,28 @@
 			<section data-background-video="leanaide-jan24.webm" data-background-video-muted> </section>
 
 			<section data-background-color="teal">
-				<h4>LeanAide: Prompting & Post-processing</h4>
+				<h4>LeanAide: Prompting </h4>
 				<ul>
 					<li class="fragment">Suppose we are given the statement of a theorem.</li>
 					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library
 						<em>Mathlib</em>
-						that are closest to the statement (for OpenAI embeddings) and include them in the prompt.
+						that are closest to the statement (for OpenAI embeddings) and include them in the prompt as examples.
 					</li>
 					<li class="fragment">We query GPT-4 with the prompt for (say) 10
 						responses.</li>
-					<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
-						elaborate).</li>
 				</ul>
 			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: post-processing </h4>
+				<ul>
+					<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
+						elaborate).</li>
+					<li class="fragment">However, the correct response may be preceded by some text or enclosed in a code block (in spite of instructions). So we attempt to parse and elaborate for each group of consequitive lines.</li>
+					<li class="fragment">We also use <em>majority voting</em>, grouping together responses that can be proved equivalent by a search tactic called <code>Aesop</code>.</li>
+				</ul>
+			</section>
+
 
 			<section data-background-color="teal">
 				<ul>
@@ -279,10 +300,14 @@
 				<ul>
 					<li class="fragment">However, the success rate of LeanAide was below 50% for the standard <em>ProofNet</em>
 						dataset.</li>
-					<li class="fragment">Causes of failure included:
+					<li class="fragment">Generally, failure of translation happened when prompts lacked adequate examples.</li>
+					<li class="fragment">This could be due to
 						<ul>
 							<li>
-								Lean/Mathlib notation for integrals etc.
+								Selection of prompts not being good enough.
+							</li>
+							<li>
+								Not enough prompts among Mathlib docstrings.
 							</li>
 							<li>
 								Choice of terminology not matching Mathlib, e.g. <em>condensation points</em>
@@ -290,11 +315,38 @@
 							</li>
 						</ul>
 					</li>
-					<li class="fragment">We also need to translate statements whose target is a <em>block</em>, for
-						which we need examples.</li>
-					<li class="fragment">We can attempt to address these issues using GPT-4 for auxiliary tasks.</li>
+					<li class="fragment">The latter two issues can be (partially) addressed with auxiliary tasks.</li>
 				</ul>
 			</section>
+			<section data-background-color="teal">
+				<h4>Informalization</h4>
+				<ul>
+					<li class="fragment">Informalization is describing a formal theorem, proof or some code in natural language.</li>
+					<li class="fragment">We informalized all Lean statements that either occured in more than 3 proofs or had docstrings.</li>
+					<li class="fragment">To do this, we included in the prompt all the <strong>definitions</strong> in the statement of the theorem.
+					</li>
+					<li class="fragment">This has been shared publicly, and the descriptions seem largely correct.</li>
+					<li class="fragment">These have also been incorporated in autoformalization in LeanAide.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Paraphrasing statements</h4>
+				<ul>
+					<li class="fragment">We use a language model to extract <em>mathematical terms</em> from documentation strings and to list their synonyms.</li>
+					<li class="fragment">We have built a database with these terms and synonyms.</li>
+					<li class="fragment">If an input statement fails to translate, we can try to paraphrase it using the synonyms, i.e.,
+						<ul>
+							<li>We extract mathematical terms from the statement.</li>
+							<li>We ask for synonyms of these terms.</li>
+							<li>If these match the database, we ask for rephrasing using the appropriate term.</li>
+						</ul>.</li>
+					</li>
+					<li class="fragment">This has not yet been tested or deployed.</li>
+				</ul>
+			</section>
+
+
 			<section>
 				<h3>Iterative formalization</h3>
 				<pre class="mermaid">
@@ -315,20 +367,6 @@
 				  </pre>
 			  </section>
 
-
-			<section>
-				<h3>Flowchart</h3>
-				<pre class="mermaid">
-				  
-					flowchart LR
-					  A[Start] --> B{Is it?};
-					  B -- Yes --> C[OK];
-					  X[Blah] --> C;
-					  C --> D[Rethink];
-					  D --> B;
-					  B -- No ----> E[End];
-				  </pre>
-			  </section>
 
 
 	</div>
@@ -355,11 +393,7 @@
 				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
 				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
 			},
-			mermaid: {
-      // flowchart: {
-      //   curve: 'linear',
-      // },
-    },
+
 
 			// Optional reveal.js plugins
 			dependencies: [
