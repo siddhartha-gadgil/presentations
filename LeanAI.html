@@ -6,7 +6,7 @@
 
 	<title>Lean and AI</title>
 
-	<meta name="description" content="Kaapi with Kuriosity lecture">
+	<meta name="description" content="Chalmers lecture">
 	<meta name="author" content="Siddhartha Gadgil">
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -335,19 +335,33 @@
 				<ul>
 					<li class="fragment">We use a language model to extract <em>mathematical terms</em> from documentation strings and to list their synonyms.</li>
 					<li class="fragment">We have built a database with these terms and synonyms.</li>
-					<li class="fragment">If an input statement fails to translate, we can try to paraphrase it using the synonyms, i.e.,
-						<ul>
-							<li>We extract mathematical terms from the statement.</li>
-							<li>We ask for synonyms of these terms.</li>
-							<li>If these match the database, we ask for rephrasing using the appropriate term.</li>
-						</ul>.</li>
+					<li class="fragment">If an input statement fails to translate, we can try to paraphrase it using the synonyms.</li>
 					</li>
 					<li class="fragment">This has not yet been tested or deployed.</li>
 				</ul>
 			</section>
 
+			<section data-transition="zoom-in concave-out" data-background-image="hills.png">
+				<p><strong class="larger">Iterative Formalization</strong></p>
+					<h4>and</h4>
+				<p><strong class="larger">Proof Search</strong></p>
+			</section>
 
-			<section>
+			<section data-background-color="#002b36">
+				<h3>Generative AI and Formal Systems</h3>
+				<ul>
+					<li class="fragment">
+						Generative AI has significant language and reasoning capabilities, including analogical reasoning with composition.
+					</li>
+					<li class="fragment">However, it is often inaccurate.</li>
+					<li class="fragment">Using an ITP to filter responses and give feedback is a promising approach.</li>
+					<li class="fragment">Autoformalization of texts overlaps with this.</li>
+					<li class="fragment">We are working on such an approach, building on previous work including <em>Draft, Sketch and Prove</em>, <em>Baldur: Whole-proof generation and repair...</em> and the <em>Naproche project</em>.</li>
+				</ul>
+						
+			  </section>
+
+			<section data-background-color="#002b36">
 				<h3>Iterative formalization</h3>
 				<pre class="mermaid">
 				  
@@ -362,9 +376,30 @@
 					  form --> lean[(Lean code)];
 					  lean --> elab{Elaborate};
 					  elab --> |Success|done((Done));
-					  elab --> |Error|form;
-					  elab --> |Sorries|P;
+					  elab --> |Error|error((Fix error));
+					  elab --> |Sorries|sorry((Fix Sorry));
+					  sorry --> |Gap|P;
+					  error --> |Details|pf;
+					  error --> |Try again|form;
 				  </pre>
+				<ul>
+					<li>We can start with a problem statement, a theorem in the literature or handwritten notes/answers.</li>
+					<li>We generate a text, then structured JSON by LLM.</li>
+					<li>This is translated to Lean programmatically and elaborated, with errors used to iterate.</li>
+					</ul>
+						
+			  </section>
+			  <section data-background-color="#002b36">
+				<h3>Lean code via Structured Proofs</h3>
+				<ul>
+					<li class="fragment">
+						A language model is used to translate text to a JSON format with detailed instructions, with each object having a <code>type</code> field as "definition", "theorem", "assumption", "assertion" etc.
+					</li>
+					<li class="fragment">We translate theorems and assertions into statements including their context built from assumptions, lets etc and purge duplicates.</li>
+					<li class="fragment">Assertions within a proof become <code>have</code> tactics.</li>
+					<li class="fragment">Proofs end with (or consist of) a call to the <code>Aesop</code> search tactic with appropriate configuration; including based on the "deduced from" field.</li>
+				</ul>
+						
 			  </section>
 
 
