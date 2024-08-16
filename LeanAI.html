@@ -195,7 +195,7 @@
 					<li>From the perspective of a Dependent Type Theory (MLTT/CIC/HoTT) it is natural to seek algorithms
 						whose output is a proof.</li>
 					<li class="fragment">The generation of the proof was such an algorithm combined with an expert
-						guided proof.</li>
+						guided <em>search</em>.</li>
 					<li class="fragment">Such generated proofs are <strong>synthetic data</strong>.</li>
 					<li class="fragment">Lifting more symbolic algebra algorithms to give proofs can be used to generate
 						such data and train models.</li>
@@ -339,7 +339,7 @@
 				<ul>
 					<li class="fragment">Informalization is describing a formal theorem, proof or some code in natural
 						language.</li>
-					<li class="fragment">We informalized all Lean statements that either occured in more than 3 proofs
+					<li class="fragment">We informalized all Lean theorems that either occured in more than 3 proofs
 						or had docstrings.</li>
 					<li class="fragment">To do this, we included in the prompt all the <strong>definitions</strong> in
 						the statement of the theorem.
@@ -414,7 +414,30 @@
 					<li>We generate a text, then structured JSON by LLM.</li>
 					<li>This is translated to Lean programmatically and elaborated, with errors used to iterate.</li>
 				</ul>
+			</section>
 
+
+			<section data-background-color="#002b36">
+				<ul>
+					<li>Mathematical text largely consists of:
+						<ul>
+							<li>Context statements: assumptions, let statements</li>
+							<li>Definitions (auxiliary constructions).</li>
+							<li>Assertions (auxiliary lemmas) with <em>justification</em></li>
+						</ul>
+					</li>
+					<li class="fragment">
+						The justification typically involves:
+						<ul>
+							<li>Results to use (perhaps instantiations).</li>
+							<li>Proof patterns or analogous proofs.</li>
+							<li>Proofs: nested mathematical text.</li>
+						</ul>
+					</li>
+					<li class="fragment">The reader fills in details and makes deductions.</li>
+					<li class="fragment">The non-trivial, non-algorithmic, part is mostly the auxiliary lemmas/constructions.</li>
+					<li class="fragment">We use LLMs and Lean following this pattern.</li>
+				</ul>
 			</section>
 			<section data-background-color="#002b36">
 				<h4>Lean code via Structured Proofs</h4>
@@ -466,6 +489,7 @@
 				}]
 
 				  </code></pre>
+				  <ul><li>An informal theorem statement is obtained by combining the hypotheses and the conclusion and translated to Lean.</p></li></ul>
 
 
 			</section>
@@ -510,12 +534,17 @@
 						["The minimal polynomial of A must divide $p(x) = x^3 - 1$ and have distinct roots."]},
 						"claim": "A is diagonalizable."}]}
 				  </code></pre>
+				  <ul>
+					<li>We look for "known statements".</li>
+					<li>We also search and/or query an LLM for objects corresponding to "missing".</li>
+					
+				  </ul>
 			</section>
 			<section>
 				<ul>
 					<li>My work has depended on:
 						<ul><li>
-							<strong>Collaborators:</strong> Anand, Ayush Agrawal, Navin Goyal, Ashvni Narayanan; Anirudh Gupta; the Blue Raven team.
+							<strong>Collaborators:</strong> Anand Rao Tadipatri, Ayush Agrawal, Navin Goyal, Ashvni Narayanan; Anirudh Gupta; the Blue Raven team.
 						</li>
 						<li class="fragment">
 							<strong>Cloud credits and Models:</strong> Microsoft's <em>Accelerating Foundation Model Research</em> programme and Google's Research credit.
