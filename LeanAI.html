@@ -105,9 +105,9 @@
 						Is there a homogeneous, (conjugacy invariant) length function on the free group on two
 						generators?
 					</blockquote>
-					<li>Six days later, this was answered in a collaboration involving several
+					<li class="fragment">Six days later, this was answered in a collaboration involving several
 						mathematicians (and a computer).</li>
-					<li>We begin with an account of this episode.</li>
+					<li class="fragment">We begin with an account of this episode.</li>
 				</ul>
 			</section>
 
@@ -117,7 +117,7 @@
 						\bar\beta\}$,
 						with multiplication given by concatenation and $e$ the empty word.
 					</li>
-					<li>
+					<li class="fragment">
 						<strong>Question:</strong> Is there a non-negative, real-valued function $l$ on $\mathcal{W}$
 						such that for $g, h\in\mathcal{W}$,
 						<ol>
@@ -129,7 +129,7 @@
 							<li>$l(g^n)=nl(g)$, <strong>(homogeneity)</strong>?</li>
 						</ol>
 					</li>
-					<li><em>Pseudo-lengths</em> satisfy 1 &ndash; 3, <em>lengths</em> satisfy 1 &ndash; 4.</li>
+					<li class="fragment"><em>Pseudo-lengths</em> satisfy 1 &ndash; 3, <em>lengths</em> satisfy 1 &ndash; 4.</li>
 				</ul>
 			</section>
 
@@ -139,9 +139,9 @@
 						<ul>
 							<li>there were many (failed, but instructive) attempts to construct such length functions;
 							</li>
-							<li>in particular I focussed on a construction using <em>non-crossing matchings</em>,
+							<li class="fragment">in particular I focussed on a construction using <em>non-crossing matchings</em>,
 								but this was not homogeneous;</li>
-							<li>the failures of various constructions led to the feeling that
+							<li class="fragment">the failures of various constructions led to the feeling that
 								$l(\alpha\beta\bar\alpha\bar\beta) = 0$ for homogeneous pseudo-lengths, which violates
 								positivity.</li>
 						</ul>
@@ -153,11 +153,11 @@
 				<ul>
 					<li>Increasingly sharp bounds and methods of combining bounds were found.</li>
 					<li>But there was no visible path to proving $l(\alpha\beta\bar\alpha\bar\beta) = 0$.</li>
-					<li>I searched for bounds using an algorithm to calculate the non-crossing
+					<li class="fragment">I searched for bounds using an algorithm to calculate the non-crossing
 						matchings length,
 						together with interactive use of homogeneity.
 					</li>
-					<li>On Thursday morning, I posted a <strong>computer generated, human readable</strong> proof of a
+					<li class="fragment">On Thursday morning, I posted a <strong>computer generated, human readable</strong> proof of a
 						bound, obtained by upgrading the algorithms to find <strong>proofs</strong> rather than just
 						numbers.</li>
 				</ul>
@@ -169,11 +169,11 @@
 				<ul>
 					<li>The computer-generated proof was studied by Pace Nielsen, who extracted the <em>internal
 							repetition</em> trick. </li>
-					<li>This was extended by Pace Nielsen and Tobias Fritz and abstracted by Terence Tao.
+					<li class="fragment">This was extended by Pace Nielsen and Tobias Fritz and abstracted by Terence Tao.
 					</li>
-					<li>From this Fritz obtained a key lemma.</li>
-					<li>Using Probability, Terence Tao completed the proof of a result answering the question.</li>
-					<li>This work became <strong>PolyMath 14</strong>, and has been published in <em>Algebra & Number
+					<li class="fragment">From this Fritz obtained a key lemma.</li>
+					<li class="fragment">Using Probability, Terence Tao completed the proof of a result answering the question.</li>
+					<li class="fragment">This work became <strong>PolyMath 14</strong>, and has been published in <em>Algebra & Number
 							Theory</em>.</li>
 				</ul>
 			</section>
@@ -181,11 +181,11 @@
 				<ul>
 					<li>The computer generated proof was obtained by an algorithm using <em>domain specific
 							foundations</em>. </li>
-					<li>An account of the computer proof was published in the <em>Journal of Automated reasoning</em>.
+					<li class="fragment">An account of the computer proof was published in the <em>Journal of Automated reasoning</em>.
 					</li>
-					<li>In response to the referees comments we replicated the computer proof
+					<li class="fragment">In response to the referees comments we replicated the computer proof
 						(and also addressed the issue of rounding off errors).</li>
-					<li>The proofs generation, including the replication, have been rewritten in the <em>Lean Theorem
+					<li class="fragment">The proofs generation, including the replication, have been rewritten in the <em>Lean Theorem
 							Prover</em>, using its dual nature as a programming language and interactive theorem prover.
 					</li>
 				</ul>
@@ -205,9 +205,9 @@
 			<section>
 				<h4>Lean: programs, proofs, meta-programs</h4>
 				<ul>
-					<li class="fragment">Lean is a <em>dependently typed</em>, <em>functional</em> programming language.
+					<li class="fragment">Lean is a <em>dependently typed</em>, <em>functional</em> language.
 					</li>
-					<li class="fragment">Lean's type system is rich enough to express arbitrary mathematical theorems.
+					<li class="fragment">Lean's <strong>type system</strong> is rich enough to express arbitrary mathematical theorems.
 					</li>
 					<li class="fragment">Lean has a fast runtime, allowing
 						<strong>self-hosting</strong>.
@@ -216,7 +216,7 @@
 						<em>solver-prover</em> in Lean</strong>: the output is either a proof of UNSAT or a proved
 						solution.</li>
 					<li class="fragment">In collaboration with Anand Rao Tadipatri, we formalized Gardam's disproof of
-						Kaplansky's unit conjecture using computations and proofs.</li>
+					<strong>Kaplansky's unit conjecture</strong> using computations and proofs.</li>
 				</ul>
 			</section>
 
@@ -272,8 +272,7 @@
 					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
 						<pre><code data-trim data-noescape class="language-json">
 								[{"role": "system",
-								"content": "You are a coding assistant who translates from natural language to Lean
-								Theorem Prover code following examples. Follow EXACTLY the examples given."},
+								"content": "You are a coding assistant who translates from natural language to Lean Theorem Prover code following examples. Follow EXACTLY the examples given."},
 								{"role": "user",
 								"content": "If a vector space has a finite basis, then it is finite-dimensional. "},
 								{"role": "assistant",
@@ -472,8 +471,7 @@
 			</section>
 			<section data-background-color="#002b36">
 				<h4>Structured Text: Proof</h4>
-				<pre><code data-trim data-noescape class="language-json">
-					{"type": "proof",
+				<pre><code data-trim class="language-json">{"type": "proof",
 					"steps":
 					[{"type": "assert",
 						"deduced_from":
