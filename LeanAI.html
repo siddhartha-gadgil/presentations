@@ -52,10 +52,10 @@
 				<h3> Autoformalization and Friends: </h3>
 				<h3> Interactive Theorem Provers </h3>
 				<h5>and</h4>
-				<h3>Artificial Intelligence</h3>
-				<p>Chalmers, Aug 2024</p>
-				<h3>Siddhartha Gadgil</h3>
-				<p>Indian Institute of Science, Bangalore</p>
+					<h3>Artificial Intelligence</h3>
+					<p>Chalmers, Aug 2024</p>
+					<h3>Siddhartha Gadgil</h3>
+					<p>Indian Institute of Science, Bangalore</p>
 
 
 			</section>
@@ -71,13 +71,16 @@
 						low-dimensional topology and related fields such as <em>geometric group theory</em> and
 						<em>riemannian geometry</em>.
 					</li>
-					<li class="fragment">Since about 2014, I have increasingly focussed on Automated Theorem Proving, based initially on
+					<li class="fragment">Since about 2014, I have increasingly focussed on Automated Theorem Proving,
+						based initially on
 						<ul>
 							<li>(Homotopy) Type theory and related foundations.</li>
 							<li>Implementing these in scala (ProvingGround).</li>
 							<li>Dabbling in Agda and Idris.</li>
-						</ul></li>
-					<li class="fragment">Surprisingly both strands of my career came together in the <em>PolyMath adventure.</em></li>
+						</ul>
+					</li>
+					<li class="fragment">Surprisingly both strands of my career came together in the <em>PolyMath
+							adventure.</em></li>
 				</ul>
 			</section>
 
@@ -182,16 +185,21 @@
 					</li>
 					<li>In response to the referees comments we replicated the computer proof
 						(and also addressed the issue of rounding off errors).</li>
-					<li>The proofs generation, including the replication, have been rewritten in the <em>Lean Theorem Prover</em>, using its dual nature as a programming language and interactive theorem prover.</li>
+					<li>The proofs generation, including the replication, have been rewritten in the <em>Lean Theorem
+							Prover</em>, using its dual nature as a programming language and interactive theorem prover.
+					</li>
 				</ul>
 			</section>
 			<section>
 				<ul>
-					<li>From the perspective of a Dependent Type Theory (MLTT/CIC/HoTT) it is natural to seek algorithms whose output is a proof.</li>
-					<li class="fragment">The generation of the proof was such an algorithm combined with an expert guided proof.</li>
+					<li>From the perspective of a Dependent Type Theory (MLTT/CIC/HoTT) it is natural to seek algorithms
+						whose output is a proof.</li>
+					<li class="fragment">The generation of the proof was such an algorithm combined with an expert
+						guided proof.</li>
 					<li class="fragment">Such generated proofs are <strong>synthetic data</strong>.</li>
-					<li class="fragment">Lifting more symbolic algebra algorithms to give proofs can be used to generate such data and train models.</li>
-					<li class="fragment">This is similar to the approach of AlphaGeometry.</li>
+					<li class="fragment">Lifting more symbolic algebra algorithms to give proofs can be used to generate
+						such data and train models.</li>
+					<li class="fragment">This is related to the approach of AlphaGeometry.</li>
 				</ul>
 			</section>
 			<section>
@@ -204,8 +212,11 @@
 					<li class="fragment">Lean has a fast runtime, allowing
 						<strong>self-hosting</strong>.
 					</li>
-					<li class="fragment">Using this dual nature, I implemented <strong>SATurn</strong>, a SAT <em>solver-prover</em> in Lean</strong>: the output is either a proof of UNSAT or a proved solution.</li>
-					<li class="fragment">In collaboration with Anand Rao Tadipatri, we formalized Gardam's disproof of Kaplansky's unit conjecture using computations and proofs.</li>
+					<li class="fragment">Using this dual nature, I implemented <strong>SATurn</strong>, a SAT
+						<em>solver-prover</em> in Lean</strong>: the output is either a proof of UNSAT or a proved
+						solution.</li>
+					<li class="fragment">In collaboration with Anand Rao Tadipatri, we formalized Gardam's disproof of
+						Kaplansky's unit conjecture using computations and proofs.</li>
 				</ul>
 			</section>
 
@@ -234,7 +245,8 @@
 					<li class="fragment">Suppose we are given the statement of a theorem.</li>
 					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library
 						<em>Mathlib</em>
-						that are closest to the statement (for OpenAI embeddings) and include them in the prompt as examples.
+						that are closest to the statement (for OpenAI embeddings) and include them in the prompt as
+						examples.
 					</li>
 					<li class="fragment">We query GPT-4 with the prompt for (say) 10
 						responses.</li>
@@ -246,8 +258,11 @@
 				<ul>
 					<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
 						elaborate).</li>
-					<li class="fragment">However, the correct response may be preceded by some text or enclosed in a code block (in spite of instructions). So we attempt to parse and elaborate for each group of consequitive lines.</li>
-					<li class="fragment">We also use <em>majority voting</em>, grouping together responses that can be proved equivalent by a search tactic called <code>Aesop</code>.</li>
+					<li class="fragment">However, the correct response may be preceded by some text or enclosed in a
+						code block (in spite of instructions). So we attempt to parse and elaborate for each group of
+						consecutive lines.</li>
+					<li class="fragment">We also use <em>majority voting</em>, grouping together responses that can be
+						proved equivalent by a search tactic called <code>Aesop</code>.</li>
 				</ul>
 			</section>
 
@@ -298,18 +313,20 @@
 			<section data-background-color="teal">
 				<h4>Better translation?</h4>
 				<ul>
-					<li class="fragment">However, the success rate of LeanAide was below 50% for the standard <em>ProofNet</em>
+					<li class="fragment">However, the success rate of LeanAide was below 50% for the standard
+						<em>ProofNet</em>
 						dataset.</li>
-					<li class="fragment">Generally, failure of translation happened when prompts lacked adequate examples.</li>
+					<li class="fragment">Generally, failure of translation happened when prompts lacked adequate
+						examples.</li>
 					<li class="fragment">This could be due to
 						<ul>
 							<li>
 								Selection of prompts not being good enough.
 							</li>
-							<li>
+							<li class="fragment">
 								Not enough prompts among Mathlib docstrings.
 							</li>
-							<li>
+							<li class="fragment">
 								Choice of terminology not matching Mathlib, e.g. <em>condensation points</em>
 								versus <em>accumulation points</em>.
 							</li>
@@ -321,11 +338,15 @@
 			<section data-background-color="teal">
 				<h4>Informalization</h4>
 				<ul>
-					<li class="fragment">Informalization is describing a formal theorem, proof or some code in natural language.</li>
-					<li class="fragment">We informalized all Lean statements that either occured in more than 3 proofs or had docstrings.</li>
-					<li class="fragment">To do this, we included in the prompt all the <strong>definitions</strong> in the statement of the theorem.
+					<li class="fragment">Informalization is describing a formal theorem, proof or some code in natural
+						language.</li>
+					<li class="fragment">We informalized all Lean statements that either occured in more than 3 proofs
+						or had docstrings.</li>
+					<li class="fragment">To do this, we included in the prompt all the <strong>definitions</strong> in
+						the statement of the theorem.
 					</li>
-					<li class="fragment">This has been shared publicly, and the descriptions seem largely correct.</li>
+					<li class="fragment">This has been shared publicly, and the descriptions seem largely correct
+						(standalone tool forthcoming).</li>
 					<li class="fragment">These have also been incorporated in autoformalization in LeanAide.</li>
 				</ul>
 			</section>
@@ -333,9 +354,11 @@
 			<section data-background-color="teal">
 				<h4>Paraphrasing statements</h4>
 				<ul>
-					<li class="fragment">We use a language model to extract <em>mathematical terms</em> from documentation strings and to list their synonyms.</li>
+					<li class="fragment">We use a language model to extract <em>mathematical terms</em> from
+						documentation strings and to list their synonyms.</li>
 					<li class="fragment">We have built a database with these terms and synonyms.</li>
-					<li class="fragment">If an input statement fails to translate, we can try to paraphrase it using the synonyms.</li>
+					<li class="fragment">If an input statement fails to translate, we can try to paraphrase it using the
+						synonyms.</li>
 					</li>
 					<li class="fragment">This has not yet been tested or deployed.</li>
 				</ul>
@@ -343,28 +366,32 @@
 
 			<section data-transition="zoom-in concave-out" data-background-image="hills.png">
 				<p><strong class="larger">Iterative Formalization</strong></p>
-					<h4>and</h4>
+				<h4>and</h4>
 				<p><strong class="larger">Proof Search</strong></p>
 			</section>
 
 			<section data-background-color="#002b36">
-				<h3>Generative AI and Formal Systems</h3>
+				<h4>Generative AI and Formal Systems</h4>
 				<ul>
 					<li class="fragment">
-						Generative AI has significant language and reasoning capabilities, including analogical reasoning with composition.
+						Generative AI has significant language and reasoning capabilities, including analogical
+						reasoning with composition.
 					</li>
 					<li class="fragment">However, it is often inaccurate.</li>
-					<li class="fragment">Using an ITP to filter responses and give feedback is a promising approach.</li>
+					<li class="fragment">Using an ITP to filter responses and give feedback is a promising approach.
+					</li>
 					<li class="fragment">Autoformalization of texts overlaps with this.</li>
-					<li class="fragment">We are working on such an approach, building on previous work including <em>Draft, Sketch and Prove</em>, <em>Baldur: Whole-proof generation and repair...</em> and the <em>Naproche project</em>.</li>
+					<li class="fragment">We are working on such an approach, building on previous work including
+						<em>Draft, Sketch and Prove</em>, <em>Baldur: Whole-proof generation and repair...</em> and the
+						<em>Naproche project</em>.</li>
 				</ul>
-						
-			  </section>
+
+			</section>
 
 			<section data-background-color="#002b36">
-				<h3>Iterative formalization</h3>
+				<h4>Iterative formalization</h4>
 				<pre class="mermaid">
-				  
+
 					flowchart LR
 					  P[(Problem)] --> reasoning[Reasoning by LLM]
 					  reasoning --> pf[(Theorem and Proof)];
@@ -383,24 +410,116 @@
 					  error --> |Try again|form;
 				  </pre>
 				<ul>
-					<li>We can start with a problem statement, a theorem in the literature or handwritten notes/answers.</li>
+					<li>We can start with a problem statement, a theorem in the literature or handwritten notes/answers.
+					</li>
 					<li>We generate a text, then structured JSON by LLM.</li>
 					<li>This is translated to Lean programmatically and elaborated, with errors used to iterate.</li>
-					</ul>
-						
-			  </section>
-			  <section data-background-color="#002b36">
-				<h3>Lean code via Structured Proofs</h3>
+				</ul>
+
+			</section>
+			<section data-background-color="#002b36">
+				<h4>Lean code via Structured Proofs</h4>
 				<ul>
 					<li class="fragment">
-						A language model is used to translate text to a JSON format with detailed instructions, with each object having a <code>type</code> field as "definition", "theorem", "assumption", "assertion" etc.
+						A language model is used to translate text to a JSON format with detailed instructions, with
+						each object having a <code>type</code> field as "definition", "theorem", "assumption",
+						"assertion" etc.
 					</li>
-					<li class="fragment">We translate theorems and assertions into statements including their context built from assumptions, lets etc and purge duplicates.</li>
+					<li class="fragment">We translate theorems and assertions into statements including their context
+						built from assumptions, lets etc and purge duplicates.</li>
 					<li class="fragment">Assertions within a proof become <code>have</code> tactics.</li>
-					<li class="fragment">Proofs end with (or consist of) a call to the <code>Aesop</code> search tactic with appropriate configuration; including based on the "deduced from" field.</li>
+					<li class="fragment">Proofs end with (or consist of) a call to the <code>Aesop</code> search tactic
+						with appropriate configuration; including "known results" and fallback to sorry.</li>
 				</ul>
-						
-			  </section>
+
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>An example</h4>
+				<ul>
+					<li class="fragment">
+						<strong>Theorem:</strong> Let $A$ be a square matrix. Prove that if $A^3 = I$ then $A$ is
+						diagonalizable.
+					</li>
+					<li class="fragment"> <strong>Proof:</strong> (LLM generated) Since $A^3 = I$, $A$ satisfies the
+						polynomial equation $p(x) = x^3 - 1$. The roots of $p(x)$ are the cube roots of unity, namely
+						$1, \omega, \omega^2$, where $\omega = e^{2\pi i/3}$ is a primitive cube root of unity.
+						These roots are distinct, so the minimal polynomial of $A$ must divide $p(x)$ and also have
+						distinct roots. Therefore, $A$ is diagonalizable.</li>
+
+				</ul>
+
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Structured Text</h4>
+				<pre><code data-trim data-noescape class="language-json">
+					[{"type": "theorem",
+					"name": "Diagonalizability of A",
+					"hypothesis":
+					[{"type": "assume", "statement": "A is a square matrix."},
+					{"type": "assume", "statement": "A^3 = I."}],
+					"conclusion": "A is diagonalizable."},
+					"status": "incomplete proof",
+					"proof":
+					{"type": "proof",
+					"steps": [...]
+				}]
+
+				  </code></pre>
+
+
+			</section>
+			<section data-background-color="#002b36">
+				<h4>Structured Text: Proof</h4>
+				<pre><code data-trim data-noescape class="language-json">
+					{"type": "proof",
+					"steps":
+					[{"type": "assert",
+						"deduced_from":
+						{"known_results":
+						["For any matrix A, if A^k = I, then A is a root of the polynomial x^k - 1."],
+						"from_context": ["A^3 = I"]},
+						"claim": "A satisfies the polynomial equation $p(x) = x^3 - 1$."},
+					{"type": "assert",
+						"deduced_from":
+						{"known_results":
+						["The roots of the polynomial x^3 - 1 are the cube roots of unity."]},
+						"claim":
+						"The roots of $p(x) = x^3 - 1$ are the cube roots of unity, namely $1, \\omega, \\omega^2$, where $\\omega = e^{2\\pi i/3}$."},
+					{"type": "assert",
+						"deduced_from":
+						{"known_results": ["The cube roots of unity are distinct."]},
+						"claim": "The roots $1, \\omega, \\omega^2$ are distinct."},
+					{"type": "assert",
+						"proof-method":
+						"By the definition of the minimal polynomial and properties of the polynomial p(x).",
+						"deduced_from":
+						{"from_context":
+						["A satisfies the polynomial equation $p(x) = x^3 - 1$.",
+						"The roots $1, \\omega, \\omega^2$ are distinct."]},
+						"claim":
+						"The minimal polynomial of A must divide $p(x) = x^3 - 1$ and have distinct roots."},
+					{"type": "assert",
+						"missing":
+						[{"type": "problem",
+						"statement":
+						"Justify why the minimal polynomial having distinct roots implies A is diagonalizable."}],
+						"deduced_from":
+						{"known_results":
+						["A matrix A is diagonalizable if and only if its minimal polynomial has distinct roots."],
+						"from_context":
+						["The minimal polynomial of A must divide $p(x) = x^3 - 1$ and have distinct roots."]},
+						"claim": "A is diagonalizable."}]}
+				  </code></pre>
+
+
+			</section>
+
+
+
+
+
 
 
 
@@ -451,7 +570,7 @@
 	<script type="module">
 		import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
 		mermaid.initialize({ startOnLoad: true });
-	  </script>
+	</script>
 
 </body>
 
