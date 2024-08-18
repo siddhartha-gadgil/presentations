@@ -199,7 +199,7 @@
 					<li class="fragment">Such generated proofs are <strong>synthetic data</strong>.</li>
 					<li class="fragment">Lifting more symbolic algebra algorithms to give proofs can be used to generate
 						such data and train models.</li>
-					<li class="fragment">This is related to the approach of AlphaGeometry.</li>
+					<li class="fragment">This is related to the approach of AlphaGeometry, work of Lample-Charton, etc.</li>
 				</ul>
 			</section>
 			<section>
@@ -207,7 +207,7 @@
 				<ul>
 					<li class="fragment">Lean is a <em>dependently typed</em>, <em>functional</em> language.
 					</li>
-					<li class="fragment">Lean's <strong>type system</strong> is rich enough to express arbitrary mathematical theorems.
+					<li class="fragment">Lean's <strong>type system</strong> is rich enough to express arbitrary mathematical theorems, making Lean an <em>Interactive Theorem Prover</em>.
 					</li>
 					<li class="fragment">Lean has a fast runtime, allowing
 						<strong>self-hosting</strong>.
@@ -261,6 +261,7 @@
 					<li class="fragment">However, the correct response may be preceded by some text or enclosed in a
 						code block (in spite of instructions). So we attempt to parse and elaborate for each group of
 						consecutive lines.</li>
+					<li class="fragment">We also do some mild autocorrections, mainly for convention issues like <code>Prime</code> versus <code>IsPrime</code>.</li>
 					<li class="fragment">We also use <em>majority voting</em>, grouping together responses that can be
 						proved equivalent by a search tactic called <code>Aesop</code>.</li>
 				</ul>
@@ -547,7 +548,7 @@
 							<strong>Collaborators:</strong> Anand Rao Tadipatri, Ayush Agrawal, Navin Goyal, Ashvni Narayanan; Anirudh Gupta; the Blue Raven team.
 						</li>
 						<li class="fragment">
-							<strong>Cloud credits and Models:</strong> Microsoft's <em>Accelerating Foundation Model Research</em> programme and Google's Research credit.
+							<strong>Compute/Models:</strong> Microsoft's <em>Accelerating Foundation Model Research</em> program; Google's Research credits; DST-FIST funding.
 						</li>
 						<li class="fragment">
 							My broad hope is to:
