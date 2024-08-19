@@ -228,7 +228,7 @@
 			<section data-background-color="teal">
 				<h4>LeanAide: Autoformalization of statements</h4>
 				<ul>
-					<li class="fragment">Our tool <strong>LeanAide</strong> uses GPT-4 to translate
+					<li class="fragment">Our tool <strong>LeanAide</strong> uses LLMs like GPT-4 to translate
 						statements (similar to docstrings) into Lean 4 code.</li>
 					<li class="fragment">We do prompt engineering and post-processing.</li>
 					<li class="fragment">Lean 4 is written (mostly) in Lean 4, and has convenient functions
@@ -378,7 +378,7 @@
 						reasoning with composition.
 					</li>
 					<li class="fragment">However, it is often inaccurate.</li>
-					<li class="fragment">Using an ITP to filter responses and give feedback is a promising approach.
+					<li class="fragment">Using an Interactive Theorem Prover to filter responses and give feedback is promising.
 					</li>
 					<li class="fragment">Autoformalization of texts overlaps with this.</li>
 					<li class="fragment">We are working on such an approach, building on previous work including
@@ -430,7 +430,7 @@
 					<li class="fragment">
 						The justification typically involves:
 						<ul>
-							<li>Results to use (perhaps instantiations).</li>
+							<li>Results, constructions used (instantiations).</li>
 							<li>Proof patterns or analogous proofs.</li>
 							<li>Proofs: nested mathematical text.</li>
 						</ul>
@@ -452,7 +452,7 @@
 						built from assumptions, lets etc and purge duplicates.</li>
 					<li class="fragment">Assertions within a proof become <code>have</code> tactics.</li>
 					<li class="fragment">Proofs end with (or consist of) a call to the <code>Aesop</code> search tactic
-						with appropriate configuration; including "known results" and fallback to sorry.</li>
+						with appropriate configuration; including "known results" and <em>fallback to sorry</em>.</li>
 				</ul>
 
 			</section>
