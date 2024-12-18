@@ -532,13 +532,16 @@
 				<h4>AlphaProof</h4>
 				<ul>
 
-					<li class="fragment">In <strong>AlphaProof</strong> (from Google-Deepmind) the special deductive system of AlphaGeometry is replaced by the Lean theorem prover.
+					<li class="fragment">In <strong>AlphaProof</strong> (from Google-Deepmind) the special deductive
+						system of AlphaGeometry is replaced by the Lean theorem prover.
 					</li>
 					<li class="fragment">This means AplhaProof can in principle attempt problems in all of mathematics.
 					</li>
-					<li class="fragment">The training data was obtained by <em>Autoformalization</em>, with failed translations rejected and consistent but wrong translations still valid for training.
+					<li class="fragment">The training data was obtained by <em>Autoformalization</em>, with failed
+						translations rejected and consistent but wrong translations still valid for training.
 					</li>
-					<li class="fragment">When allowed to run for two days, AplhaProof obtained a score in the IMO slightly below  a <strong>Gold
+					<li class="fragment">When allowed to run for two days, AplhaProof obtained a score in the IMO
+						slightly below a <strong>Gold
 							medal</strong>.</li>
 				</ul>
 			</section>
@@ -547,17 +550,42 @@
 				<h4>PatternBoost</h4>
 				<ul>
 
-					<li class="fragment">This work searches for <em>patterns</em> in a general sense (such as graphs with some special properties), finding new counterexamples or extrema.
+					<li class="fragment">This work searches for <em>patterns</em> in a general sense (such as graphs
+						with some special properties), finding new counterexamples or extrema.
 					</li>
-					<li class="fragment">This combines two steps: a <em>local search</em> specific to the problem and a custom transformer model.
+					<li class="fragment">This combines two steps: a <em>local search</em> specific to the problem and a
+						custom transformer model.
 					</li>
 					<li class="fragment">The local search is used to generate initial data of promising examples.
 					</li>
-					<li class="fragment">Using these, a <em>more-like-this</em> neural network is trained to generate qualitatively similar examples.</li>
-					<li class="fragment">We locally optimize these to get new candidates, and train with the globally best examples.</li>
+					<li class="fragment">Using these, a <em>more-like-this</em> neural network is trained to generate
+						qualitatively similar examples.</li>
+					<li class="fragment">We locally optimize these to get new candidates, and train with the globally
+						best examples.</li>
 				</ul>
 			</section>
 
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Querying Foundation models</h4>
+				<ul>
+					<li class="fragment">GPT-4 could solve:</strong> Find all $2 \times 2$ matrices with rational
+						entries such that $A^5 = I$.</li>
+					<li class="fragment">However, it persistently made mistakes with some much easier problem.</li>
+					<li class="fragment">Robert Ghrist asked <strong>o1</strong> to generalise the bottleneck version of the max-flow min-cut theorem, to networks whose edges have values in some ordered or partially-ordered algebraic structure more general than real numbers. It was successful.</li>
+					<li class="fragment"> Some examples with <a href="https://gemini.google.com/app/2f44749b24289e5c"
+							target="_blank">Gemini 2.0 Flash</a>.
+					</li>
+
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom" data-background="hills.png">
+				<h2 style="color:#fffdd0">Automated Theorem Proving</h2>
+				<h4 style="color:#fffdd0">and</h4>
+				<h2 style="color:#fffdd0">Mathematics</h2>
+
+			</section>
 
 
 
@@ -591,484 +619,13 @@
 					</li>
 					<li class="fragment">In each case we can further use an LLM to translate to a formal proof and/or
 						write code for experiments.</li>
-					<li class="fragment">This allows autonomous development and improvement by generating synthetic data or accumulating knowledge.</li>
-					<li class="fragment">Currently, LLMs have weaknesses such as needing more in-context data than humans.</li>
+					<li class="fragment">This allows autonomous development and improvement by generating synthetic data
+						or accumulating knowledge.</li>
+					<li class="fragment">Currently, LLMs have weaknesses such as needing more in-context data than
+						humans.</li>
 
 				</ul>
 			</section>
-
-
-
-
-
-			<section data-transition="zoom" data-background="hills.png">
-				<h1 style="color:#fffdd0">GPT-4 Examples</h1>
-			</section>
-
-
-			<section data-background-color="#002b36">
-				<h4>Infinitely many primes ending in $7$</h4>
-				<ul>
-
-					<li class="fragment">
-						To prove that there are infinitely many prime numbers ending with 7, we can use a method similar
-						to Dirichlet's theorem on arithmetic progressions. Dirichlet's theorem states that for any two
-						coprime integers \( a \) and \( b \), there are infinitely many primes in the arithmetic
-						progression \( a + nb \) (where \( n \) is a non-negative integer).
-					</li>
-				</ul>
-			</section>
-			<section data-background-color="#002b36">
-				<ul>
-					<li>
-						In this problem, we want to show that there are infinitely many primes ending in 7. This is
-						equivalent to showing that there are infinitely many primes in the arithmetic progression \( 10k
-						+ 7 \), where \( k \) is a non-negative integer. Here, \( a = 7 \) and \( b = 10 \).
-					</li>
-					<li>
-						First, we need to check that 7 and 10 are coprime. Since \(\gcd(7, 10) = 1\), they are indeed
-						coprime. According to Dirichlet's theorem, this implies that there are infinitely many primes of
-						the form \( 10k + 7 \).
-					</li>
-
-				</ul>
-			</section>
-			<section data-background-color="#002b36">
-				<small>
-					<p>
-						To illustrate the argument further, consider the following steps:</li>
-					</p>
-					<ol>
-						<li> <strong>Definition and Application of Dirichlet's Theorem:</strong>
-							Dirichlet's theorem asserts that if \( a \) and \( b \) are coprime, the arithmetic sequence
-							\( a, a+b, a+2b, \ldots \) contains infinitely many primes. Here, \( a = 7 \) and \( b = 10
-							\) are coprime, thus the sequence \( 7, 17, 27, \ldots \) contains infinitely many primes.
-						</li>
-						<li> <strong>Sequence \( 10k + 7 \):</strong>
-							The sequence \( 10k + 7 \) where \( k \) is a non-negative integer, generates numbers that
-							all end in 7 (e.g., \( 7, 17, 27, 37, 47, \ldots \)).
-						</li>
-						<li> <strong>Primes in the Sequence:</strong>
-							By Dirichlet's theorem, since 7 and 10 are coprime, there are infinitely many primes in this
-							sequence \( 10k + 7 \).</li>
-					</ol>
-					<ul>
-						<li>
-							Therefore, the sequence \( 10k + 7 \) contains infinitely many prime numbers, and these
-							primes
-							all end in the digit 7. Hence, there are infinitely many primes ending in 7. This completes
-							the
-							proof.
-						</li>
-					</ul>
-				</small>
-
-				</ul>
-			</section>
-
-			<section>
-				<a href="https://gemini.google.com/app/2f44749b24289e5c" target="_blank">Gemini examples</a>
-			</section>
-
-
-			<section data-background-color="#002b36">
-				<h4>Proofs by GPT-4</h4>
-				<ul>
-					<li class="fragment">GPT-4 correcly answered many non-trivial questions, including ones we used to
-						select Ph.D. students.</li>
-					<li class="fragment">However, it failed to answer some easier questions, giving <strong>wrong
-							proofs</strong>.</li>
-					<li class="fragment">It repeatedly used false statements in proofs, such as <em>every increasing
-							sequence is unbounded</em>, <span class="fragment">even though when asked whether the
-							statement was true it gave a counterexample.</span></li>
-					<li class="fragment">The hope is that pairing with Lean will give errors, and LLMs can correct with
-						this feedback.</li>
-			</section>
-
-			<section>
-				<section data-background-color="#002b36">
-					<h4>Auxiliary tasks</h4>
-					<ul>
-						<li>Many auxiliary tasks facilitating generating and translating proofs iteratively can be
-							performed by Language models.
-							<ul>
-								<li class="fragment">Describing Lean statements, proofs and code in natural language.
-								</li>
-								<li class="fragment">Identifying mathematical terms used, their synonyms, and rephrasing
-									using these.</li>
-								<li class="fragment">Rewriting proofs in a structured format.</li>
-								<li class="fragment">Examining proofs and pointing out missing details.</li>
-							</ul>
-						</li>
-				</section>
-
-				<section data-background-color="#002b36">
-					<ul>
-						<li>Mathematical terms and synonyms: “Suppose $E\subset \mathbb{R}^k$ is uncountable, and let
-							$P$ be
-							the
-							set of condensation points of $E$. Then $P$ is perfect.”</li>
-					</ul>
-					<pre><code data-trim data-noescape class="language-json">
-						[{"term": "subset",
-							"synonyms": [ "subgroup", "part", "included in", "component" ]},
-							{"term": "uncountable",
-							"synonyms": [ "non-countable", "uncountably infinite", "non-denumerable", "unlisted" ]},
-							{"term": "set",
-							"synonyms": [ "collection", "aggregate", "ensemble", "grouping" ]},
-							{"term": "condensation points",
-							"synonyms": [ "limit points", "accumulation points", "cluster points",
-							"point of accumulation" ]},
-							{"term": "perfect",
-							"synonyms": [ "complete", "whole", "intact", "unblemished" ]}]
-						  </code></pre>
-					</li>
-				</section>
-				<section data-background-color="#002b36">
-					<ul>
-						<li>Describe the following Lean code.</li>
-					</ul>
-					<pre><code data-trim data-noescape>
-						variable {α : Type}[LinearOrder α]
-
-						def smallest (l: List α)(_: l ̸= []): α :=
-						match l with
-						| h::t =>
-						if c:(t = []) then
-						h else min h (smallest t c)
-
-						theorem smallest_mem (l : List α) (hyp : l ̸= []) :
-						smallest l hyp ∈ l := by
-						sorry
-
-						theorem smallest_le (l : List α) (hyp : l ̸= []) :
-						∀ a : α, a ∈ l → smallest l hyp ≤ a :=
-						sorry
-						  </code></pre>
-					</li>
-				</section>
-				<section data-background-color="#002b36">
-					<ul>
-						<li>The Lean code defines a function and two theorems
-							related to lists of elements of a type with a linear
-							order.
-						</li>
-						<li>
-							The function <code>smallest</code> takes a list <code>l</code> and a proof that
-							<code>l</code> is not empty. It then returns the smallest element in
-							the list. If the list contains only one element, that
-							element is returned. Otherwise, the smallest element
-							is the minimum of the first element and the smallest
-							element of the tail of the list.
-						</li>
-				</section>
-
-				<section data-background-color="#002b36">
-					<ul>
-						<li>The first theorem, <code>smallest_mem</code>, states that if a list <code>l</code>
-							is not empty, then the smallest element of <code>l</code> is an
-							element of <code>l</code>.
-						</li>
-						<li>
-							The second theorem, <code>smallest_le</code>, states that if a list
-							<code>l</code> is not empty, then for any element <code>l</code> of <code>l</code>, the
-							smallest element of <code>l</code> is less than or equal to <code>l</code>. In
-							other words, the smallest element is less than or equal
-							to every element in the list.
-						</li>
-				</section>
-
-
-				<section data-background-color="#002b36">
-					<h4>A harder problem</h4>
-					<ul>
-						<li class="fragment"><strong>Problem:</strong> Find all $2 \times 2$ matrices with rational
-							entries
-							such that
-							$A^5 = I$.</li>
-						<span class="fragment">
-							<li><strong>Proof:</strong>
-								A $2 \times 2$ matrix $A$ over the rationals is of the form
-
-								\[
-								A = \begin{pmatrix}
-								a & b \\
-								c & d
-								\end{pmatrix},
-								\]
-
-								where $a, b, c, d \in \mathbb{Q}$. </li>
-							<li>
-								We want to find all such $A$ such that $A^5 = I$, where $I$ is the $2 \times 2$ identity
-								matrix.
-							</li>
-						</span>
-				</section>
-
-				<section data-background="#002b36">
-					<ul>
-						<li>We can start by noting that the minimal polynomial of such an $A$ must divide $x^5 - 1 = 0$.
-							Over the rationals, this polynomial factors into irreducible factors as
-
-							\[
-							x^5 - 1 = (x - 1)(x^4 + x^3 + x^2 + x + 1).
-							\]
-						</li>
-						<li>
-							So the minimal polynomial of $A$ must either be $x - 1$ or $x^4 + x^3 + x^2 + x + 1 = 0$.
-						</li>
-						<li>
-							However, the second polynomial has degree $4$ and the minimal polynomial of a $2 \times 2$
-							matrix can have degree at most $2$, so $A$ must satisfy $x - 1 = 0$. That is, $A = I$.
-						</li>
-						<li>
-							To verify our claim, we note that if $A = I$, then indeed $A^5 = I^5 = I$. So the only $2
-							\times
-							2$ matrix over the rationals such that $A^5 = I$ is $A = I$.
-						</li>
-					</ul>
-				</section>
-				<section data-background-color="#002b36">
-					<ul>
-						<li>
-							To verify our claim, we note that if $A = I$, then indeed $A^5 = I^5 = I$. So the only $2
-							\times
-							2$ matrix over the rationals such that $A^5 = I$ is $A = I$.
-						</li>
-						<li>
-							<strong>Problem:</strong> Prove that the polynomial $x^4 + x^3 + x^2 + x + 1$ is irreducible
-							over the rationals.
-						</li>
-						<li>
-							To prove that the polynomial $x^4 + x^3 + x^2 + x + 1$ is irreducible over the rationals,
-							one
-							approach is by using a substitution and then applying Eisenstein's Criterion, a well-known
-							theorem in number theory that provides a sufficient condition for a polynomial ...
-						</li>
-
-					</ul>
-				</section>
-
-				<section data-background-color="#002b36">
-					<h4>Analysis questions</h4>
-					<ul>
-						<li class="fragment"><strong>Problem:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$ is a smooth
-							function such that $f''(x) > 0$ for all $x \in \mathbb{R}$. Prove that $f$ is unbounded.
-						</li>
-						<li class="fragment"><strong>Prove or disprove:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$
-							is a
-							smooth function such that $f'(x) > 0$ for all $x \in \mathbb{R}$. Then $f$ is unbounded.
-						</li>
-						<li class="fragment">Persistently wrong answers, even with guidance like split into cases.</li>
-						<li class="fragment">Proofs either used <em>every increasing sequence is unbounded</em> or
-							assumed
-							that the maximum is attained for the functions.</li>
-				</section>
-
-				<section data-background-color="#002b36">
-					<ul>
-						<h4>Analysis questions (continued)</h4>
-						<li>When asked to prove or disprove <em>every increasing sequence is unbounded</em>,
-							consistently
-							gave a counterexample.</li>
-						<li class="fragment">Another model, Mistral medium, was much better at such questions.</li>
-						<li class="fragment">For the task of finding mathematical terms, Mistral 7B running locally on
-							the mathematics workstation was fine.</li>
-					</ul>
-				</section>
-
-				<section data-background-color="#002b36">
-					<h4>Homogeneous lengths</h4>
-					<ul>
-						<li><strong>Problem:</strong> Consider <em>length functions</em> $l: F \to
-							\mathbb{R}$ on the non-abelian free groups on 2 generators, i.e., functions satisfying the
-							triangle inequality and positivity conditions.
-							We say a length function $l$ is homogeneous if $l(g^n)= |n|l(g)$ for all elements $g$ in the
-							free group.
-
-							Prove that the word metric on the non-abelian free groups on 2 generators is not
-							homogeneous.
-						</li>
-						<li>... Then, if we take $n = 2$, we have $l_W((ab)^2) = 4$, <strong>but $2l_W(ab)
-								= 4$ not $|2|l_W(ab)= 2*2 = 4$</strong>. Therefore, ...</li>
-					</ul>
-				</section>
-
-				<section data-background-color="#002b36">
-					<h4>Seeking details</h4>
-					<ul>
-						<li class="fragment"><strong>Original statement:</strong> Let $G$ be a group with an abelian
-							normal
-							subgroup $K$ such that $Q=G/K$ is also abelian.
-							As $K$ is abelian, the conjugation action of $G$ on $K$ induces a group action of $Q$ on
-							$K$.
-						</li>
-						<li class="fragment">Firstly, it's important to understand what the conjugation action is. In
-							any
-							group $G$, we can define an action of $G$ on itself by conjugation: $g \cdot h = ghg^{-1}$
-							for
-							all $g, h \in G$.</li>
-
-					</ul>
-				</section>
-				<section data-background-color="#002b36">
-					<ul>
-						<li>Since $K$ is a normal subgroup of $G$, it is invariant under conjugation by elements of $G$.
-							This means that if $k \in K$ and $g \in G$, then $gkg^{-1} \in K$. </li>
-
-						<li>Hence, the conjugation action of $G$ on itself restricts to an action of $G$ on $K$.
-						</li>
-						<li>
-							The question is then how this action induces an action of the quotient group $Q=G/K$ on $K$.
-						</li>
-						<li>By the definition of a quotient group, the elements of $Q$ are the cosets $gK$ for $g \in
-							G$.
-						</li>
-
-					</ul>
-				</section>
-				<section data-background-color="#002b36">
-					<ul>
-
-						<li>We can define the action of $Q$ on $K$ as follows: for $gK \in Q$ and $k \in K$, let $gK
-							\cdot k
-							= gkg^{-1}$. </li>
-						<li>To show that this is well-defined, suppose that $gK = hK$ for some $g, h \in G$. Then
-							$h^{-1}g
-							\in K$, so there exists $k' \in K$ such that $h^{-1}g = k'$.
-							Then for any $k \in K$, we have
-
-							$$hkh^{-1} = k'kk'^{-1}k^{-1}k' = k',$$
-
-							because $K$ is abelian. So the action of $Q$ on $K$ is well-defined. Next, we need to check
-							that
-							this gives a group action. ...</li>
-					</ul>
-
-				</section>
-
-				<section data-background-color="#002b36">
-					<h4>Structured proof</h4>
-					<small>
-						<ul>
-							<li> If $A$ is a square matrix with $A^3$ the identity, then $A$ is diagonalizable.</li>
-						</ul>
-						<pre class="fragment"><code data-trim data-noescape class="language-json">
-						[{"assumption": "$A$ is a square matrix and $A^3 = I$"},
-						{"observation": "$x^3 - 1$ has three distinct roots: $1, e^{2\pi i/3}, e^{4\pi i/3}$"},
-						{"theorem": "Cayley-Hamilton theorem: Every square matrix satisfies its characteristic polynomial"},
-						{"assertion": {
-						"claim": "The minimal polynomial of $A$ divides $x^3 - 1$",
-						"justification": "The minimal polynomial of a matrix $A$ divides any polynomial that 
-						$A$ satisfies",
-						"using": ["Cayley-Hamilton theorem"]
-						}},
-						{"observation": "The roots of $x^3 - 1$ are distinct"},
-						{"assertion": {
-						"claim": "The minimal polynomial of $A$ is a product of distinct linear factors",
-						"justification": "The only way the minimal polynomial of $A$ can divide $x^3 - 1$ is if it is
-							a product of distinct linear factors",
-						"using": ["The minimal polynomial of $A$ divides $x^3 - 1", 
-						"The roots of $x^3 - 1$ are distinct"]
-						}},
-						{"theorem": "A matrix is diagonalizable if and only if its minimal polynomial is a 
-									product of distinct linear factors"},
-						{"assertion": {
-						"claim": "$A$ is diagonalizable",
-						"justification": "By the previous theorem and the fact that the minimal polynomial of $A$ 
-						is a product of distinct linear factors",
-						"using": ["A matrix is diagonalizable if and only if its minimal polynomial is a product of 
-						distinct linear factors", "The minimal polynomial of $A$ is a product of distinct linear factors"]
-						}}]
-						  </code></pre>
-					</small>
-				</section>
-			</section>
-			<section data-transition="zoom-in convex-out" data-background-image="lake.jpg">
-				<h1 style="color:goldenrod">Mathematics in the Large</h1>
-				<p>&nbsp;</p>
-			</section>
-
-			<section data-background-color="teal">
-				<h3>Diophantine equations</h3>
-				<ul>
-					<li class="fragment">A <em>Diophantine equation</em> is an equation with integer coefficients, for
-						which we seek integer (or rational) solutions. </li>
-					<li class="fragment">There is no algorithm that can decide whether a Diophantine equation has a
-						solution.</li>
-					<li class="fragment">However, in specific cases theorems can prove or disprove the existence of
-						solutions, even for refinements such as families of equations and numbers of solutions.</li>
-					<li class="fragment">A famous example is the equation $x^n + y^n = z^n$.</li>
-				</ul>
-
-			</section>
-
-			<section data-background-color="teal">
-				<h3>Word problem</h3>
-				<ul>
-					<li class="fragment">We consider words in an alphabet, with words considered equivalent if they are
-						related by a given collection of substitutions of subwords. </li>
-					<li class="fragment">For example, the alphabet may be $\{\alpha, \beta\}$ with substitutions
-						$\alpha\beta = \beta\alpha$.</li>
-					<li class="fragment">In general, there is no algorithm that can solve the word problem.</li>
-					<li class="fragment">In the above example, we can use <em>normal forms</em>.</li>
-					<li class="fragment">In other cases, we can show that if words of length $n$ and $m$ are related,
-						then they are related using at most some $C(n, m)$ moves.</li>
-				</ul>
-
-			</section>
-
-			<section data-background-color="teal">
-				<h3>"Progress in Mathematics''</h3>
-				<ul>
-					<li class="fragment">We start with basic questions, maybe from nature. </li>
-					<li class="fragment">We develop techniques that can answer these in some cases; the general case is
-						often unsolvable.</li>
-					<li class="fragment">The questions and techniques are abstracted.</li>
-					<li class="fragment">This leads to new questions, for the techniques to be applicable; and also
-						<em>natural questions</em>.</li>
-					<li class="fragment">Hopefully, progress at higher abstractions let us answer the original questions
-						in more cases.</li>
-					<li class="fragment">We hope that Artificial Intelligence and Formal Proof Systems are superpowers
-						for all the steps.</li>
-				</ul>
-
-			</section>
-
-			<section data-background-color="teal">
-				<ul>
-					<li>A fundamental scientific problem is to predict the $3$-dimensional structure of a protein from
-						its sequence of Amino acids.</li>
-					<li class="fragment">An AI system <strong>Alphafold 2</strong> extended the class of proteins for
-						which we have structures from a few thousand to about 200 million.</li>
-					<li class="fragment">For a specific protein, though, we cannot be sure Alphafold is correct.</li>
-					<li class="fragment">A developing mathematical theory will let us predict <strong>with
-							proof</strong> the structure for larger and larger classes of proteins.</li>
-				</ul>
-			</section>
-
-
-			<section>
-				<h4>Summary</h4>
-				<ul>
-					<li class="fragment">
-						Language models can be used for many core and auxiliary tasks in <strong>Mathematical
-							Reasoning</strong>, due to their
-						intuitive reasoning, natural language skills, knowledge and ability to learn from examples.
-					</li>
-					<li class="fragment">Due to their unreliability, it is natural to combine them with Interactive
-						Theorem Provers.</li>
-					<li class="fragment">Combining of AI, ITPs and symbolic algebra etc should
-						enable <em>tools</em> for mathematics.
-					<li class="fragment">We can extend mathematical proofs to cases that are otherwise too tedious
-						and/or specific,<span class="fragment"> and, hopefully, to those (important but) too
-							difficult.</span></li>
-					</li>
-
-
-				</ul>
-			</section>
-
 
 
 
