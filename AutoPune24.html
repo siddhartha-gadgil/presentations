@@ -125,12 +125,8 @@
 					<li class="fragment">
 						<p><strong>Logical/Algorithmic:</strong> Deductions, Computations.</p>
 					</li>
-					<li class="fragment">
-						Intuition is based on <strong>tacit knowledge</strong>, acquired by learning. <span
-							class="fragment"> (High Kolmogorov complexity?)</span>
-					</li>
-					<li class="fragment">For mathematical theories or proofs that build on theories, we also need
-						<strong>modularity/abstraction</strong>.
+					<li class="fragment">For mathematical theories, or complex proofs, we also need
+						to handle complexity in a structured way, involving <strong>problem decomposition</strong>.
 					</li>
 				</ul>
 
@@ -176,40 +172,20 @@
 				<ul>
 					<li><em>Interactive Theorem Provers</em> are software systems where proofs are
 						obtained by human-machine
-						collaboration.</li>
+						collaboration, with modular foundations.</li>
 					<li class="fragment">The computer both finds (parts of) proofs and verifies
 						<strong>correctness</strong>.
 					</li>
-					<li class="fragment">With interactive theorem provers, mathematics on a large scale can be digitied
-						(<em>formalized</em>) in a modular fashion, facilitating by automation.
+					<li class="fragment">Lean ensures a super-human
+						level of correctness, hopefully <strong>without super-human effort</strong>.
 					</li>
-					<li class="fragment">Indeed the <em>Lean Mathematical Library</em> has most undergraduate
+					<li class="fragment">Formalization builds on existing formalization; Lean's <em>Mathlib</em> has most undergraduate
 						mathematics in it, and some advanced topics.
 					</li>
 					<li class="fragment">We see an <a
 							href="https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQEwCmAdnAHIo44D0AtDXAKICuAxpgCYDkAznGgdAIg4EEvzgAqCcCIAzGcBhN2BEbLhgooAtykA6HAAkCUVQHNgAN2JwZfVKtnQQALjhOocAtagBPOAAGRAEANPYmqgQAHsDcMLxIGlogqkRMIFgmgWBwgKZEcMF6cDRUOPyCwtGx8QD6MvJEigQ1mtq8ABQkboCohACUcG6AwEQaYSSAJkQacIDkRGQoegAKyao5LgC8cFi+OHBw6ATwK+sgMgBiSCxwnXAAhHAA1HAAjL3bcKhI1u6PAwU3909wQAGRAC1hstjsdkgwGB0P5yDA9ERmhBZDUzPBXpDobC4NxWCwaugYDU8SwLpi4FCYf5ZOcYNBgEh0C0INxXu9PtCfvCFktJqDNhSqTjjkQzgTWikKdxQDkANpImootEwMKkglEkn4sK0lj0rRMlncAC67I+qRWvwmhzBQux/j2StRRAgxLMBApMhgUAgbwpHNUqEAgQQ/HKAYiJfrcBeCIVjqXB2JZ2DVdfrGeg4BS4yLTucjZnYztonS/bGA29AEEEobgEe+oPaPMTyaQ7GTwFkqK0ZlQ8GDvT0ACZLqLxTUm3Aai9Y8W9RowIjXWOk0qkZXXkxuMscEA"
 							target="_blank"> example</a> on the lean server.
 
-					</li>
-				</ul>
-			</section>
-
-
-
-			<section data-transition="concave" data-background-color="#002b36">
-				<ul>
-					<li>As more mathematics is in such libraries, it becomes easier and more enjoyable to formalize even
-						more.</li>
-					<li class="fragment">Automation is also improving, which also facilitates formalization.
-					</li>
-					<li class="fragment"><strong>Lean 4</strong> is a <em>programming language</em> seamlessly
-						integrated with an <em>interactive
-							theorem prover</em>, which helps with formalization and makes it useful in new ways.
-					</li>
-					<li class="fragment">Lean can help ensure a super-human
-						level of correctness.
-					</li>
-					<li class="fragment"> One hopes this is <strong>without super-human effort</strong>.
 					</li>
 				</ul>
 			</section>
@@ -289,7 +265,8 @@
 
 					</li>
 					<li class="fragment">
-						Six months after a landmark paper (preprint) on Ramsey theory by Campos, Griffiths, Morris, and Sahasrabudhe 
+						Six months after a landmark paper (preprint) on Ramsey theory by Campos, Griffiths, Morris, and
+						Sahasrabudhe
 						appeared, Bhavik Mehta formalized their result in Lean.
 
 					</li>
@@ -298,19 +275,6 @@
 				</ul>
 			</section>
 
-
-
-			<section data-background-color="#002b36">
-				<h4>Polynomial Freiman–Ruzsa conjecture</h4>
-				<ul>
-					<li class="fragment">In April 2024, Gowers-Green-Manners-Tao proved a long-standing conjecture
-						called the <em>Polynomial Freiman–Ruzsa conjecture</em>.</li>
-					<li class="fragment">Terry Tao started a project to formalize this in Lean.</li>
-					<li class="fragment">This was a relatively self-contained piece of mathematics.</li>
-					<li class="fragment">The formalization was complete in about 3 weeks, with about 20 contributors.
-					</li>
-				</ul>
-			</section>
 
 			<section data-transition="convex" data-background-color="#002b36">
 				<ul>
@@ -481,23 +445,10 @@
 					</li>
 					<li class="fragment">Rules of deduction let us deduce consequences.
 					</li>
-					<li class="fragment">For instance if <code>AB</code> and <code>CD</code>
-						are both perpendicular to <code>BC</code> then they are parallel.</li>
+					<li class="fragment">Eg: $AB\perp BC$, $AB\perp BC$ gives $AB\parallel CD$.</li>
 					<li class="fragment">Iterating deduction with all applicable rules till expansion halts
 						gives all consequences that <strong>do not require</strong> adding a point.</li>
-				</ul>
-			</section>
-
-			<section data-transition="convex" data-background="#b5533c">
-				<h4>(Deductive Database +) Algebraic Reasoning</h4>
-				<ul>
-
-					<li class="fragment">In addition to deducing relations from other relations, AlphaGeometry deduces
-						from algebraic relations for angles, lengths and ratios.</li>
-					<li class="fragment">All the relations obtained in the setup are of the form $a + b = c + d$.
-					</li>
-					<li class="fragment">Hence, they can be represented by a matrix and all consequences efficiently
-						derived using <strong>Gaussian Elimination.</strong></li>
+					<li class="fragment"><em>Algebraic Reasoning</em> added efficiency.</li>
 				</ul>
 			</section>
 
@@ -515,7 +466,6 @@
 					<li class="fragment">A language model ($\approx 150M$ params) was <em>pretrained</em> on all proofs
 						and <em>fine-tuned</em> to predict auxiliary constructions.
 					</li>
-					<li class="fragment">No IMO problem was in the synthetic data.</li>
 				</ul>
 			</section>
 
@@ -538,22 +488,6 @@
 				data-background-size="contain">
 			</section>
 
-			<section data-background-color="#b5533c">
-				<h4>Draft, Sketch and Prove</h4>
-				<ul>
-					<li class="fragment">A Large Language Model is used to generate an informal sketch of a proof;
-						alternatively we can start with a human-written informal proof.</li>
-					<li class="fragment">This is translated into a series of steps so the problem is broken into
-						sub-problems.</li>
-					<li class="fragment">Concretely, the proof was written as a series of statements in Isabelle (an
-						ITP).
-					</li>
-					<li class="fragment">Automation is then used to complete proofs.</li>
-					<li class="fragment">The system had a good success rate with high-school mathematics problems.</li>
-
-				</ul>
-			</section>
-
 
 			<section data-transition="convex" data-background="#b5533c">
 				<h4>AlphaProof</h4>
@@ -562,7 +496,7 @@
 					<li class="fragment">In <strong>AlphaProof</strong> (from Google-Deepmind) the special deductive
 						system of AlphaGeometry is replaced by the Lean theorem prover.
 					</li>
-					<li class="fragment">This means AplhaProof can in principle attempt problems in all of mathematics.
+					<li class="fragment">This means AlphaProof can in principle attempt problems in all of mathematics.
 					</li>
 					<li class="fragment">The training data was obtained by <em>Autoformalization</em>, with failed
 						translations rejected and consistent but wrong translations still valid for training.
@@ -598,7 +532,9 @@
 					<li class="fragment">GPT-4 could solve:</strong> Find all $2 \times 2$ matrices with rational
 						entries such that $A^5 = I$.</li>
 					<li class="fragment">However, it persistently made mistakes with some much easier problem.</li>
-					<li class="fragment">Robert Ghrist asked <strong>o1</strong> to generalise the bottleneck version of the max-flow min-cut theorem, to networks whose edges have values in some ordered or partially-ordered algebraic structure more general than real numbers. It was successful.</li>
+					<li class="fragment">Robert Ghrist asked <strong>o1</strong> to generalise the bottleneck version of
+						the max-flow min-cut theorem, to networks whose edges have values in some ordered or
+						partially-ordered algebraic structure more general than real numbers. It was successful.</li>
 					<li class="fragment"> Some examples with <a href="https://gemini.google.com/app/2f44749b24289e5c"
 							target="_blank">Gemini 2.0 Flash</a>.
 					</li>
@@ -655,24 +591,31 @@
 
 			<section data-background-color="#002b36" data-transition="concave">
 				<ul>
-					<li>Consider a scenario in the future where a fully autonomous AI system can prove theorems, formalize them to ensure correctness, and write a paper with these theorems:
+					<li>Consider a scenario in the future where a fully autonomous AI system can prove theorems,
+						formalize them to ensure correctness, and write a paper with these theorems:
 						<ul>
-							<li class="fragment">At a level at least as good as 90% of the work of 90% of mathematicians.</li>
+							<li class="fragment">At a level at least as good as 90% of the work of 90% of
+								mathematicians.</li>
 							<li class="fragment">With a paper written every few days, or hours, or minutes.
 							</li>
 						</ul>
 					</li>
-					<li class="fragment">We can try to react defensively, trying to detect and ban such stuff or focus mathematics on prestige (a Veblen good) rather than as knowledge (a public good).</li>
+					<li class="fragment">We can try to react defensively, trying to detect and ban such stuff or focus
+						mathematics on prestige (a Veblen good) rather than as knowledge (a public good).</li>
 				</ul>
 			</section>
 
 			<section data-background-color="#002b36" data-transition="concave">
 				<ul>
-					<li>There are strong reasons for AI companies and researchers to work on the (demonstrable) mathematical capabilities of AI.
+					<li>There are strong motives for AI companies and researchers to work on the (demonstrable)
+						mathematical capabilities of AI.
 					</li>
-					<li class="fragment">However, they have little motivation to work on tools and workflows that make these useful for mathematicians.</li>
-					<li class="fragment">Science has benefitted enormously from AI systems: AlphaFold 2 (and 3), controlling nuclear fusion, weather prediction.</li>
-					<li class="fragment">Mathematics has the opportunity to grow in collaboration with AI, and the danger of shrinking in relevance if overtaken by autonomous AI.</li>
+					<li class="fragment">However, they have little motivation to work on tools and workflows that make
+						these useful for mathematicians.</li>
+					<li class="fragment">Science has benefitted enormously from AI systems: AlphaFold 2 (and 3),
+						controlling nuclear fusion, weather prediction.</li>
+					<li class="fragment">Mathematics has the opportunity to grow in collaboration with AI, and the
+						danger of shrinking in relevance if overtaken by autonomous AI.</li>
 
 				</ul>
 			</section>
