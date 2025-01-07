@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Lean and AI</title>
+
+	<meta name="description" content="Chalmers lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="pg.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.5/dist/reset.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.5/dist/reveal.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.5/dist/theme/black.css" id="theme" />
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<h2> Real World </h2>
+				<h2> (Pragmatic) </h2>
+				<h2> Autoformalization </h2>
+				<h4>Lean together, Jan 2025</h4>
+				<h3>Siddhartha Gadgil</h3>
+				<p>Indian Institute of Science, Bangalore</p>
+				<a
+					href="https://github.com/siddhartha-gadgil/LeanAide">https://github.com/siddhartha-gadgil/LeanAide</a>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li><strong>Autoformalization</strong> is the translation of natural language mathematics to Lean
+						code.</li>
+					<li class="fragment">This can help with formalization:
+						<ul>
+							<li>Interactively, helping with syntax and Mathlib terminology.</li>
+							<li>By producing a draft translation (in the spirit of the Mathlib port).</li>
+						</ul>
+					</li>
+					<li class="fragment">Autoformalization also provides a bridge between the natural language reasoning
+						of foundation models and Lean.</li>
+					<li class="fragment">Lean helps both with <strong>ensuring correctness</strong> and organizing
+						mathematics in a <strong>modular</strong> fashion.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<ul>
+					<li>AI/ML is deeply integrated with Lean in <strong>LeanAide.</strong></li>
+					<li class="fragment">This helps with both:
+						<ul>
+							<li>Better Autoformalization.</li>
+							<li>Usability in Lean.</li>
+						</ul>
+					</li>
+					<li class="fragment">Lean helps both with <strong>ensuring correctness</strong> and organizing
+						mathematics in a <strong>modular</strong> fashion.</li>
+					<li class="fragment">Tools and workflows are a central focus for us, which we make available at all
+						stages.</li>
+					<li class="fragment">We hope to iteratively improve and extend capabilities focusing on MWEs.</li>
+					<li class="fragment">We see our first demo (note that the responses are very fast because of
+						caching).</li>
+				</ul>
+			</section>
+
+
+			<!-- <section data-background-video="leanaide-jan24.webm" data-background-video-muted> </section> -->
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Prompting </h4>
+				<ul>
+					<li class="fragment">Suppose we are given the statement of a theorem.</li>
+					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library
+						<em>Mathlib</em>
+						that are closest to the statement (for OpenAI embeddings) and include them in the prompt as
+						examples.
+					</li>
+					<li class="fragment">We query GPT-4 with the prompt for (say) 10
+						responses.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: post-processing </h4>
+				<ul>
+					<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
+						elaborate).</li>
+					<li class="fragment">However, the correct response may be preceded by some text or enclosed in a
+						code block (in spite of instructions). So we attempt to parse and elaborate for each group of
+						consecutive lines.</li>
+					<li class="fragment">We also do some mild autocorrections, mainly for convention issues like
+						<code>Prime</code> versus <code>IsPrime</code>.</li>
+					<li class="fragment">We also use <em>majority voting</em>, grouping together responses that can be
+						proved equivalent by the <code>Aesop</code> tactic.</li>
+				</ul>
+			</section>
+
+
+			<section data-background-color="teal">
+				<ul>
+					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape class="language-json">
+								[{"role": "system",
+								"content": "You are a coding assistant who translates from natural language to Lean Theorem Prover code following examples. Follow EXACTLY the examples given."},
+								{"role": "user",
+								"content": "If a vector space has a finite basis, then it is finite-dimensional. "},
+								{"role": "assistant",
+								"content": "∀ {K : Type u} {V : Type v} [inst : DivisionRing K] [inst_1 :
+								AddCommGroup V] [inst_2 : Module K V] {ι : Type w}\n [inst_3 : Finite ι], Basis ι
+								K V → FiniteDimensional K V"},
+								...
+								{"role": "user",
+								"content": "If a vector space has dimension ‘2‘ then it is finite dimensional."}]
+							  </code></pre>
+					</li>
+
+				</ul>
+			</section>
+			<section data-background-color="teal" class="language-lean">
+				<ul>
+					<li>Translation to Lean:
+						If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape>
+							theorem: ∀ {K : Type u} {V : Type v} 
+							[inst : DivisionRing K] [inst_1 : AddCommGroup V] 
+							[inst_2 : Module K V],
+								Module.rank K V = 2 → FiniteDimensional K V
+							  </code></pre>
+					</li>
+					<li class="fragment">This was one of our $40$ test <em>silly statements</em> (to avoid
+						contamination).</li>
+					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements. </li>
+					<li class="fragment">On the test set of 120 example problems, we had a success rate of about 85%.
+					</li>
+					<li class="fragment">However, on the Putnam bench the success rate is about 50%.
+					</li>
+				</ul>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>Informalization and Data Augmentation</h4>
+				<ul>
+					<li class="fragment">Informalization is describing a formal theorem, proof or some code in natural
+						language.</li>
+					<li class="fragment">We informalized all Lean theorems that either occured in more than 3 proofs
+						or had docstrings.</li>
+					<li class="fragment">To do this, we included in the prompt all the <strong>definitions</strong> in
+						the statement of the theorem.
+					</li>
+					<li class="fragment">These have also been incorporated in autoformalization in LeanAide, along with
+						the APIs from <em>LeanSearch</em> and <em>Moogle.</em></li>
+				</ul>
+			</section>
+
+
+			<section data-background-color="teal">
+				<h4>Better translation?</h4>
+				<ul>
+					<li class="fragment">
+						We perform <em>roundtrips</em> and use a reasoning LLM to compare statements to both evaluate and filter.
+					</li>
+
+					<li class="fragment">Many failed translations were because of missing definitions, which could be
+						fixed by:
+						<ul>
+							<li>
+								Getting a language model to generate relevant definitions.
+							</li>
+							<li class="fragment">
+								Translating these and including in the prompt.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">
+						Even when the definition is present in the statement or in Mathlib, it helps to include it in
+						the prompt.
+					</li>
+				</ul>
+			</section>
+			<section data-transition="zoom-in concave-out" data-background-image="hills.png">
+				<p><strong class="larger">Larger-scale Formalization</strong></p>
+				<h4>and</h4>
+				<p><strong class="larger">Natural language reaoning</strong></p>
+			</section>
+
+
+			<section data-background-color="#002b36">
+				<h4>Iterative formalization</h4>
+				<pre class="mermaid">
+
+					flowchart LR
+					  P[(Problem)] --> reasoning[Reasoning by LLM]
+					  reasoning --> pf[(Theorem and Proof)];
+					  L[(Literature)] --> pf;
+					  ans[(Notes/Answers)] --> ocr[OCR and formatting];
+					  ocr --> pf;
+					  pf --> |LLM|struct[(Structured JSON text)];
+					  struct --> form[Autoformalization];
+					  form --> lean[(Lean code)];
+					  lean --> elab{Elaborate};
+					  elab --> |Success|done((Done));
+					  elab --> |Error|error((Fix error));
+					  elab --> |Sorries|sorry((Fix Sorry));
+					  sorry --> |Gap|P;
+					  error --> |Details|pf;
+					  error --> |Try again|form;
+				  </pre>
+				<ul>
+					<li>We can start with a problem statement, a theorem in the literature or handwritten notes/answers.
+					</li>
+					<li>We generate a text, then structured JSON by LLM.</li>
+					<li>This is translated to Lean programmatically and elaborated, with errors used to iterate.</li>
+				</ul>
+			</section>
+
+
+			<section data-background-color="#002b36">
+				<ul>
+					<li>Mathematical text largely consists of:
+						<ul>
+							<li>Context statements: assumptions, let statements</li>
+							<li>Definitions (auxiliary constructions).</li>
+							<li>Assertions (auxiliary lemmas) with <em>justification</em></li>
+						</ul>
+					</li>
+					<li class="fragment">
+						The justification typically involves:
+						<ul>
+							<li>Results, constructions used (instantiations).</li>
+							<li>Proof patterns or analogous proofs.</li>
+							<li>Proofs: nested mathematical text.</li>
+						</ul>
+					</li>
+					<li class="fragment">The reader fills in details and makes deductions.</li>
+					<li class="fragment">The non-trivial, non-algorithmic, part is mostly the auxiliary
+						lemmas/constructions.</li>
+					<li class="fragment">We use LLMs and Lean following this pattern.</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<h4>Lean code via Structured Proofs</h4>
+				<ul>
+					<li class="fragment">
+						A language model is used to translate text to a JSON format with detailed instructions, with
+						each object having a <code>type</code> field as "definition", "theorem", "assumption",
+						"assertion" etc.
+					</li>
+					<li class="fragment">We translate theorems and assertions into statements including their context
+						built from assumptions, lets etc and purge duplicates.</li>
+					<li class="fragment">Assertions within a proof become <code>have</code> tactics.</li>
+					<li class="fragment">Proofs end with (or consist of) a call to the <code>Aesop</code> search tactic
+						with appropriate configuration; including "known results" and <em>fallback to sorry</em>.</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<ul>
+					<li>My work has depended on:
+						<ul>
+							<li>
+								<strong>Collaborators:</strong> Anand Rao Tadipatri, Ayush Agrawal, Navin Goyal, Ashvni
+								Narayanan; Anirudh Gupta, Vaishnavi Shirsath, Ajay Nair, Malhar Patel, Sushrut Jog. 
+							</li>
+							<li class="fragment">
+								<strong>Compute/Models:</strong> Microsoft's <em>Accelerating Foundation Model
+									Research</em> program; Google's Research credits; DST-FIST funding.
+							</li>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+
+				<h4> Hopes and Plans</h4>
+					<ul>
+						<li class="fragment">Fix code generation.</li>
+						<li class="fragment"> Improve translation at sentence and proof level.</li>
+						<li class="fragment">Handle issues regarding toolchains and embeddings to make using LeanAide straightforward.</li>
+						<li class="fragment">Tasks and prompts to autoformalize at a larger scale by decomposing, summarizing etc.</li>
+						<li class="fragment">Add commands for a Lean project to be better suited for AI and software assisted mathematical discovery.</li>
+					</ul>
+
+			</section>
+
+
+
+
+
+
+
+
+	</div>
+
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				//				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				//	{ src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+		//			Reveal.addEventListener( 'slidechanged', function( event ) {
+		//				MathJax.Hub.Rerender();
+		//			} );
+
+	</script>
+	<script type="module">
+		import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+		mermaid.initialize({ startOnLoad: true });
+	</script>
+
+</body>
+
+</html>
