@@ -4,9 +4,9 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Lean and AI</title>
+	<title>Lean Together 2025</title>
 
-	<meta name="description" content="Chalmers lecture">
+	<meta name="description" content="Lean together 2025">
 	<meta name="author" content="Siddhartha Gadgil">
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,9 +49,8 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<section class="slides">
 			<section data-transition="slide">
-				<h5 style="color:lightgoldenrodyellow">Lean together, Jan 2025</h5>
-				<h3> Real World </h3>
-				<h3> (Pragmatic) </h3>
+				<h4 style="color:lightgoldenrodyellow">Lean together, Jan 2025</h4>
+				<h3> Real World (Pragmatic) </h3>
 				<h3> Autoformalization </h3>
 				<h4 style="color:lightgoldenrodyellow">Siddhartha Gadgil</h4>
 				<p>Indian Institute of Science, Bangalore</p>
@@ -65,8 +64,8 @@
 						code.</li>
 					<li class="fragment">This can help with formalization:
 						<ul>
-							<li>Interactively, helping with syntax and Mathlib terminology.</li>
-							<li>By producing a draft translation (in the spirit of the Mathlib port).</li>
+							<li class="fragment">Interactively, helping with syntax and Mathlib terminology (having a search component).</li>
+							<li class="fragment">By producing a draft translation (in the spirit of the Mathlib port), with LLMs also adding details.</li>
 						</ul>
 					</li>
 					<li class="fragment">Autoformalization also provides a bridge between the natural language reasoning
@@ -79,17 +78,16 @@
 			<section data-background-color="teal">
 				<ul>
 					<li>AI/ML is deeply integrated with Lean in <strong>LeanAide.</strong></li>
-					<li class="fragment">This helps with both:
+					<li class="fragment">This helps with:
 						<ul>
 							<li>Better Autoformalization.</li>
 							<li>Usability in Lean.</li>
 						</ul>
 					</li>
-					<li class="fragment">Lean helps both with <strong>ensuring correctness</strong> and organizing
-						mathematics in a <strong>modular</strong> fashion.</li>
-					<li class="fragment">Tools and workflows are a central focus for us, which we make available at all
+					<li class="fragment">Tools and workflows are a central focus for us, and we make tools available at all
 						stages.</li>
 					<li class="fragment">We hope to iteratively improve and extend capabilities focusing on MWEs.</li>
+					<li class="fragment">Ideally, Lean and AI can complement each other in tools for mathematicians without expertise in either.</li>
 					<li class="fragment">We see our first demo (note that the responses are very fast because of
 						caching).</li>
 				</ul>
@@ -173,7 +171,7 @@
 			<section data-background-color="teal">
 				<h4>Informalization and Data Augmentation</h4>
 				<ul>
-					<li class="fragment">Informalization is describing a formal theorem, proof or some code in natural
+					<li class="fragment"><strong>Informalization</strong> is describing a formal theorem, proof or some code in natural
 						language.</li>
 					<li class="fragment">We informalized all Lean theorems that either occured in more than 3 proofs
 						or had docstrings.</li>
@@ -197,7 +195,7 @@
 						fixed by:
 						<ul>
 							<li>
-								Getting a language model to generate relevant definitions.
+								Getting a language model to generate definitions.
 							</li>
 							<li class="fragment">
 								Translating these and including in the prompt.
@@ -207,6 +205,12 @@
 					<li class="fragment">
 						Even when the definition is present in the statement or in Mathlib, it helps to include it in
 						the prompt.
+					</li>
+					<li class="fragment">
+						Rewording the statements avoiding concise phrases like <em>greatest odd divisor.</em>
+					</li>
+					<li class="fragment">
+						Meta-Fix: e.g. <em>exists-unique</em> with multiple variables.</em>
 					</li>
 				</ul>
 			</section>
@@ -247,29 +251,6 @@
 			</section>
 
 
-			<section data-background-color="#002b36">
-				<ul>
-					<li>Mathematical text largely consists of:
-						<ul>
-							<li>Context statements: assumptions, let statements</li>
-							<li>Definitions (auxiliary constructions).</li>
-							<li>Assertions (auxiliary lemmas) with <em>justification</em></li>
-						</ul>
-					</li>
-					<li class="fragment">
-						The justification typically involves:
-						<ul>
-							<li>Results, constructions used (instantiations).</li>
-							<li>Proof patterns or analogous proofs.</li>
-							<li>Proofs: nested mathematical text.</li>
-						</ul>
-					</li>
-					<li class="fragment">The reader fills in details and makes deductions.</li>
-					<li class="fragment">The non-trivial, non-algorithmic, part is mostly the auxiliary
-						lemmas/constructions.</li>
-					<li class="fragment">We use LLMs and Lean following this pattern.</li>
-				</ul>
-			</section>
 			<section data-background-color="#002b36">
 				<h4>Lean code via Structured Proofs</h4>
 				<ul>
