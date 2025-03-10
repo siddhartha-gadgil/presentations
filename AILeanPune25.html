@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>AI by Autoformalization</title>
+
+	<meta name="description" content="ICTS 2024 summer school lecture">
+	<meta name="author" content="Siddhartha Gadgil">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="kwk.css">
+
+	<link rel="icon" href="IIScLogo.jpg">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside this container is displayed as a slide -->
+		<section class="slides">
+			<section data-transition="slide">
+				<h3 style="color:#fffdd0"> Aiding (Enabling?)
+				</h3>
+				<h2>AI for Mathematics </h2>
+				<h4>with</h4>
+				<h3 style="color:#fffdd0">(Auto)formalization</h3>
+				<h4>Siddhartha Gadgil</h4>
+				<p>Department of Mathematics</p>
+				<p>Indian Institute of Science, Bangalore</p>
+
+
+			</section>
+
+			<section data-transition="convex" data-background-color="#002b36">
+				<ul>
+					<li>
+						The world was introduced to Large Language Models through ChatGPT, powered by GPT-3.5.
+						<ul>
+							<li>This could prove that there are infinitely many primes.</li>
+							<li>
+								But tried to use the same proof for <em>infinitely many primes ending in $7$</em>,
+								giving rubbish.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">Models got better: GPT-4 turbo correctly proves that there are infinitely many
+						primes ending in $7$.</li>
+					<li class="fragment">Further, models were aided by agents: web search, Python interpreters.
+					</li>
+					<li class="fragment">The next level are thinking models: o1, o3, DeepSeek-R1,
+						Gemini-2-flash-thinking etc.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Linear Algebra by GPT-4</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Let $A$ be a square matrix. Prove that if $A^2$
+						is invertible then $A$ is invertible.</li>
+					<li class="fragment">3 solutions: all correct and different.</li>
+					<li class="fragment"><strong>Problem:</strong> Let $A$ be a square matrix. Prove that if $A^2$
+						is diagonalisable then $A$ is diagonalisable.</li>
+					<li class="fragment">Pointed out that this was <em>false</em> and gave a counterexample.</li>
+					<li class="fragment"><strong>Problem:</strong> Let $A$ be a square matrix. Prove that if $A^3=I$
+						then $A$ is diagonalisable.</li>
+					<li class="fragment">Answered correctly.</li>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>A harder problem</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Find all $2 \times 2$ matrices with rational entries
+						such that
+						$A^5 = I$.</li>
+					<span class="fragment">
+						<li><strong>Proof:</strong>
+							A $2 \times 2$ matrix $A$ over the rationals is of the form
+
+							\[
+							A = \begin{pmatrix}
+							a & b \\
+							c & d
+							\end{pmatrix},
+							\]
+
+							where $a, b, c, d \in \mathbb{Q}$. </li>
+						<li>
+							We want to find all such $A$ such that $A^5 = I$, where $I$ is the $2 \times 2$ identity
+							matrix.
+						</li>
+					</span>
+			</section>
+
+			<section data-background="#002b36">
+				<ul>
+					<li>We can start by noting that the minimal polynomial of such an $A$ must divide $x^5 - 1 = 0$.
+						Over the rationals, this polynomial factors into irreducible factors as
+
+						\[
+						x^5 - 1 = (x - 1)(x^4 + x^3 + x^2 + x + 1).
+						\]
+					</li>
+					<li>
+						So the minimal polynomial of $A$ must either be $x - 1$ or $x^4 + x^3 + x^2 + x + 1 = 0$.
+					</li>
+					<li>
+						However, the second polynomial has degree $4$ and the minimal polynomial of a $2 \times 2$
+						matrix can have degree at most $2$, so $A$ must satisfy $x - 1 = 0$. That is, $A = I$.
+					</li>
+					<li>
+						To verify our claim, we note that if $A = I$, then indeed $A^5 = I^5 = I$. So the only $2 \times
+						2$ matrix over the rationals such that $A^5 = I$ is $A = I$.
+					</li>
+				</ul>
+			</section>
+			<section data-background-color="#002b36">
+				<ul>
+					<li>
+						To verify our claim, we note that if $A = I$, then indeed $A^5 = I^5 = I$. So the only $2 \times
+						2$ matrix over the rationals such that $A^5 = I$ is $A = I$.
+					</li>
+					<li>
+						<strong>Problem:</strong> Prove that the polynomial $x^4 + x^3 + x^2 + x + 1$ is irreducible
+						over the rationals.
+					</li>
+					<li>
+						To prove that the polynomial $x^4 + x^3 + x^2 + x + 1$ is irreducible over the rationals, one
+						approach is by using a substitution and then applying Eisenstein's Criterion, a well-known
+						theorem in number theory that provides a sufficient condition for a polynomial ...
+					</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>Analysis questions</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$ is a smooth
+						function such that $f''(x) > 0$ for all $x \in \mathbb{R}$. Prove that $f$ is unbounded.</li>
+					<li class="fragment"><strong>Prove or disprove:</strong> Suppose $f:\mathbb{R} \to \mathbb{R}$ is a
+						smooth function such that $f'(x) > 0$ for all $x \in \mathbb{R}$. Then $f$ is unbounded.
+					</li>
+					<li class="fragment">Persistently wrong answers, even with guidance like split into cases.</li>
+					<li class="fragment">Proofs either used <em>every increasing sequence is unbounded</em> or assumed
+						that the maximum is attained for the functions.</li>
+			</section>
+
+			<section data-background-color="#002b36">
+				<h4>DeepSeek-R1 thinking: A harder problem</h4>
+				<ul>
+					<li class="fragment"><strong>Problem:</strong> Suppose $X$, $Y$ and $Z$ are random variables such
+						that $X\sim N(1, 1)$, $Y\sim Beta(2, 2)$ and $Z\sim Uniform[0, 3]$. Find $P(X + Y > Z)$.</li>
+					<span class="fragment">
+						<li><strong>Proof:</strong>
+							To find $ P(X + Y > Z) $ where $ X \sim N(1, 1) $, $ Y \sim \text{Beta}(2, 2) $, and
+							$ Z \sim \text{Uniform}[0, 3] $, we assume independence among the variables.
+							
+						</li>
+					</span>
+			</section>
+			<section data-background-color="#002b36" data-markdown>
+				<textarea data-template>
+					1. **Distributions and Independence**:
+   - $ X $ is normally distributed with mean 1 and variance 1.
+   - $ Y $ is beta distributed with parameters (2, 2) and is symmetric around 0.5.
+   - $ Z $ is uniformly distributed over [0, 3] and is symmetric around 1.5.
+
+				</textarea>
+			</section>
+
+			<section data-background-color="#002b36" data-markdown>
+				<textarea data-template>
+2. **Symmetry Argument**:
+	- $ X + Y $ is symmetric around 1.5 because $ X $ is symmetric around 1 and $ Y $ is symmetric around 0.5.
+	
+	- $ Z $ is symmetric around 1.5.
+   - The difference $ (X + Y) - Z $ is symmetric around 0 because both $ X + Y $ and $ Z $ are symmetric around 1.5.
+
+				</textarea>
+			</section>
+
+			<section data-background-color="#002b36" data-markdown>
+				<textarea data-template>
+3. **Probability Calculation**:
+   - Since $ (X + Y) - Z $ is symmetric around 0, the probability that $ (X + Y) - Z $ is positive is 0.5.
+
+Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
+
+* The model took 808 seconds, first trying many kinds of tricks to break up and integrate. 
+* A little after 10 minutes it spotted the **symmetry**
+* It then spent some time trying to reconcile the answer half with its previous answer of about 0.58
+</textarea>
+			</section>
+			<section data-background-color="#002b36">
+				<ul>
+					<li>The model then decided "The mistake in the previous calculation was a result of incorrect integration steps, likely due to <em>human error</em> during the complex integration by parts and substitutions."&#128512;</li>
+					<li class="fragment">However, DeepSeek-R1 struggled with the Analysis problem mentioned earlier.</li>
+					<li class="fragment">The proof it gave split into cases and analysed these, but missed or messed up cases.</li>
+					<li class="fragment">After 3-4 rounds of pointing out errors, it got to the proof.</li>
+				</ul>
+			</section>
+
+			
+			<section data-transition="zoom-in slide-out" data-background-image="campus.jpg">
+				<h1>Mathematical Proofs</h1>
+			</section>
+
+			<section data-background-color="teal">
+				<h4> A proof: Sum of Angles in a Triangle</h4>
+				<ul>
+					<li class="fragment"> Consider a triangle $ABC$.</li>
+					<li class="fragment"> Draw a line through $A$ parallel to $BC$.
+						<center><img src="angle_sum.png" height="250" /></center>
+					</li>
+					<li class="fragment"> Use equality of interior opposite angles.</li>
+					<li class="fragment"> Use angles on a line add up to 180 degrees.</li>
+
+				</ul>
+			</section>
+			<section data-background-color="teal">
+				<h4>Another proof: infinitely many primes</h4>
+				<ul>
+					<li class="fragment"> For any $n$, we show that there exists a prime $p$ such that $p > n$.</li>
+					<li class="fragment"> Consider the number $n!+1$, where $n! = 1 \times 2 \times \dots \times n$.
+					</li>
+					<li class="fragment"> Let $p$ be the smallest prime factor of $n!+1$.
+					</li>
+					<li class="fragment"> If $p \leq n$ then $p | n!$ so $p \nmid n!+1$.</li>
+					<li class="fragment"> Hence $p$ is a prime greater than $n$.</li>
+
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4 id="what-went-into-proofs">Components of Proving (Reasoning)</h4>
+				<ul>
+					<li class="fragment"><strong>Intuition:</strong> Analogies, Associations etc.
+						<ul>
+							<li class="fragment">
+								Auxiliary Constructions.
+							</li>
+							<li class="fragment">
+								<p>Theorems/Definitions to use.</p>
+							</li>
+							<li class="fragment">
+								Intermediate Lemmas and statements.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">
+						<p><strong>Logical/Algorithmic:</strong> Deductions, Computations.</p>
+					</li>
+					<li class="fragment">For mathematical theories, or complex proofs, we also need
+						to decompose problems and manage complexity, i.e., <em>Modularity</em>.
+					</li>
+				</ul>
+
+			</section>
+
+			<section data-background-color="teal">
+				<h4 id="what-went-into-proofs">Modularity/Abstraction</h4>
+				<ul>
+					<li class="fragment"><strong>Modularity:</strong> being decomposable into parts:
+						<ul>
+							<li class="fragment">
+								Often in a hierarchical way.
+							</li>
+							<li class="fragment">
+								So that the <em>interface (surface)</em> through which the component interacts is
+								relatively simple.
+							</li>
+							<li class="fragment">
+								Details of the component are <em>abstracted</em>.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">
+						Knowledge is also modular, allowing focus on a specific part and level of abstraction.
+					</li>
+					<li class="fragment">
+						In Mathematics, we use <strong>definitions</strong> and <strong>theorems</strong> for
+						abstraction: <em>fully unfolded proofs</em> are incomprehensible.
+					</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<ul>
+					<li> Automated Theorem Proving has many components:
+						<ul>
+							<li class="fragment"> Deep learning (AI/ML): both <em>Foundation models</em> and domain
+								specific learning.
+							</li>
+							<li class="fragment"><em>Interactive Theorem Provers</em>, especially Lean and its
+								Mathematical library.</li>
+							<li class="fragment"> <em>Symbolic AI</em> (deduction engines), Symbolic Algebra and other
+								mathematical software.</li>
+						</ul>
+					</li>
+					<li class="fragment"> These components complement each other very well, mirroring different aspects
+						of our reasoning.</strong>
+					</li>
+
+				</ul>
+			</section>
+
+
+
+			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
+
+				<h2 style="color:#fffdd0">Interactive Theorem Provers</h2>
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<ul>
+					<li><em>Interactive Theorem Provers</em> are software systems where proofs are
+						obtained by human-machine
+						collaboration, with modular foundations.</li>
+					<li class="fragment">The computer both finds (parts of) proofs and verifies
+						<strong>correctness</strong>.
+					</li>
+					<li class="fragment">Lean ensures a super-human
+						level of correctness, hopefully <strong>without super-human effort</strong>.
+					</li>
+					<li class="fragment">Formalization builds on existing formalization; Lean's <em>Mathlib</em> has
+						most undergraduate
+						mathematics in it, and some advanced topics.
+					</li>
+					<li class="fragment">We see an <a
+							href="https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQEwCmAdnAHIo44D0AtDXAKICuAxpgCYDkAznGgdAIg4EEvzgAqCcCIAzGcBhN2BEbLhgooAtykA6HAAkCUVQHNgAN2JwZfVKtnQQALjhOocAtagBPOAAGRAEANPYmqgQAHsDcMLxIGlogqkRMIFgmgWBwgKZEcMF6cDRUOPyCwtGx8QD6MvJEigQ1mtq8ABQkboCohACUcG6AwEQaYSSAJkQacIDkRGQoegAKyao5LgC8cFi+OHBw6ATwK+sgMgBiSCxwnXAAhHAA1HAAjL3bcKhI1u6PAwU3909wQAGRAC1hstjsdkgwGB0P5yDA9ERmhBZDUzPBXpDobC4NxWCwaugYDU8SwLpi4FCYf5ZOcYNBgEh0C0INxXu9PtCfvCFktJqDNhSqTjjkQzgTWikKdxQDkANpImootEwMKkglEkn4sK0lj0rRMlncAC67I+qRWvwmhzBQux/j2StRRAgxLMBApMhgUAgbwpHNUqEAgQQ/HKAYiJfrcBeCIVjqXB2JZ2DVdfrGeg4BS4yLTucjZnYztonS/bGA29AEEEobgEe+oPaPMTyaQ7GTwFkqK0ZlQ8GDvT0ACZLqLxTUm3Aai9Y8W9RowIjXWOk0qkZXXkxuMscEA"
+							target="_blank"> example</a> on the lean server.
+
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="concave" data-background-color="#002b36">
+				<h4>Who guards the guards?</h4>
+				<ul>
+					<li class="fragment">
+						A computer verified proof is only as trustworthy as the system that verified the proof.
+					</li>
+					<li class="fragment">
+						Following the <em>de Bruijn</em> principle, proofs are <em>verified</em> by a small
+						<em>trusted
+							kernel</em>, which can be thoroughly checked.
+					</li>
+					<li class="fragment">
+						For example, the Lean theorem prover has independent (small) proof checkers, one written in
+						a different language (Rust).
+					</li>
+					<li class="fragment">
+						In a specific case, one only has to check that the <strong>definitions</strong> and the
+						<strong>statement</strong> are correct, which is typically not hard especially if they use a
+						library.
+					</li>
+				</ul>
+
+			</section>
+
+
+			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
+				<h1>&nbsp;</h1>
+				<h1 style="color:#fffdd0">Formal methods</h1>
+				<h2>Proofs beyond Mathematics</h2>
+				<p>&nbsp;</p>
+			</section>
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Formal methods</h4>
+				<ul>
+
+					<li class="fragment">We <strong>specify</strong> (describe) software, hardware, networking
+						protocols, cryptographic protocols, even tax codes in precise mathematical terms.
+					</li>
+					<li class="fragment">We give <strong>mathematical proofs</strong> of correct behaviour, which are
+						<strong>computer
+							verified</strong>.
+					</li>
+					<li class="fragment">This gives a much greater certainty of correctness.</li>
+					<li class="fragment">However, proofs are much harder than tests.</li>
+					<li class="fragment">As technology for formal proving becomes better, the much greater assurance of
+						correctness will encouraging proving over testing in more situations.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>TimSort</h4>
+				<ul>
+
+					<li class="fragment">Tim Peters developed the Timsort hybrid sorting algorithm in 2002 &ndash; a
+						clever combination of ideas from merge sort and insertion sort designed to perform well on real
+						world data.
+					</li>
+					<li class="fragment">This was initially developed for Python, but was ported to Java and was used as
+						the default sorting algorithm for Android SDK, Sun’s JDK and OpenJDK.
+					</li>
+					<li class="fragment">This means that the number of computers, cloud services and mobile phones that
+						use TimSort for sorting is well into the billions.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Proving TimSort?</h4>
+				<ul>
+
+					<li class="fragment">Having successfully computer verified Counting and Radix sort implementations
+						in Java, the European <em>envisage</em> group turned to verifying TimSort.
+					</li>
+					<li class="fragment">They were not able to verify correctness.
+					</li>
+					<li class="fragment">A closer analysis showed that this was because the algorithm was wrong.</li>
+					<li class="fragment">The researchers could find, and suggest a fix for, the bug.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background-color="#b5533c">
+				<h4>When do we need <em>completely correct always</em>?</h4>
+				<ul>
+
+					<li class="fragment"><strong>Safety critical systems:</strong> e.g., Paris driverless metro.
+					</li>
+					<li class="fragment"><strong>Costly to fix:</strong> e.g., Intel chips.
+					</li>
+					<li class="fragment"><strong>Core system functon:</strong> e.g., TimSort.</li>
+					<li class="fragment"><strong>System level:</strong> a bug is a <em>vulnerability</em> e.g., AWS.
+					</li>
+				</ul>
+
+			</section>
+
+
+			<section data-transition="convex" data-background-color="#002b36">
+				<ul>
+					<li>
+						A proof in Lean is not only correct, but also:
+						<ul>
+							<li>Modular with precise abstraction boundaries that are fully respected.</li>
+							<li>
+								Each piece is correct exactly as stated.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">This facilitates focusing on different parts and different levels of details of
+						the proof.</li>
+					<li class="fragment">Collaboration is facilitated:
+						<ul>
+							<li class="fragment">Trust is not required to accept contributions.</li>
+							<li class="fragment">Contributions are possible from those who only understand some
+								ingredients.</li>
+							<li class="fragment"> (Components of) Proofs suggested by Large Language Models such as
+								GPT-4 can be used.</li>
+
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
+				<h2><strong class="larger">LeanAide: Autoformalization</strong></h2>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Autoformalization of statements</h4>
+				<ul>
+					<li class="fragment">Our tool <strong>LeanAide</strong> uses LLMs like GPT-4 to translate
+						statements (similar to docstrings) into Lean 4 code.</li>
+					<li class="fragment">We do prompt engineering and post-processing.</li>
+					<li class="fragment">Lean 4 is written (mostly) in Lean 4, and has convenient functions
+						for using its interpreter, greatly facilitating our post-processing.</li>
+					<li class="fragment">LeanAide is integrated with the user-interface of Lean 4 via code actions.</li>
+				</ul>
+			</section>
+
+			<section data-background-video="leanaide-jan24.webm" data-background-video-muted> </section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: Prompting </h4>
+				<ul>
+					<li class="fragment">Suppose we are given the statement of a theorem.</li>
+					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library
+						<em>Mathlib</em>
+						that are closest to the statement (for OpenAI embeddings) and include them in the prompt as
+						examples.
+					</li>
+					<li class="fragment">We query GPT-4 with the prompt for (say) 10
+						responses.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="teal">
+				<h4>LeanAide: post-processing </h4>
+				<ul>
+					<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
+						elaborate).</li>
+					<li class="fragment">However, the correct response may be preceded by some text or enclosed in a
+						code block (in spite of instructions). So we attempt to parse and elaborate for each group of
+						consecutive lines.</li>
+					<li class="fragment">We also do some mild autocorrections, mainly for convention issues like
+						<code>Prime</code> versus <code>IsPrime</code>.
+					</li>
+					<li class="fragment">We also use <em>majority voting</em>, grouping together responses that can be
+						proved equivalent by a search tactic called <code>Aesop</code>.</li>
+				</ul>
+			</section>
+
+
+			<section data-background-color="teal">
+				<ul>
+					<li>If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape class="language-json">
+								[{"role": "system",
+								"content": "You are a coding assistant who translates from natural language to Lean Theorem Prover code following examples. Follow EXACTLY the examples given."},
+								{"role": "user",
+								"content": "If a vector space has a finite basis, then it is finite-dimensional. "},
+								{"role": "assistant",
+								"content": "∀ {K : Type u} {V : Type v} [inst : DivisionRing K] [inst_1 :
+								AddCommGroup V] [inst_2 : Module K V] {ι : Type w}\n [inst_3 : Finite ι], Basis ι
+								K V → FiniteDimensional K V"},
+								...
+								{"role": "user",
+								"content": "If a vector space has dimension ‘2‘ then it is finite dimensional."}]
+							  </code></pre>
+					</li>
+
+				</ul>
+			</section>
+			<section data-background-color="teal" class="language-lean">
+				<ul>
+					<li>Translation to Lean:
+						If a vector space is $2$-dimensional, then it is finite dimensional.
+						<pre><code data-trim data-noescape>
+							theorem: ∀ {K : Type u} {V : Type v} 
+							[inst : DivisionRing K] [inst_1 : AddCommGroup V] 
+							[inst_2 : Module K V],
+								Module.rank K V = 2 → FiniteDimensional K V
+							  </code></pre>
+					</li>
+					<li class="fragment">This was one of our $40$ test <em>silly statements</em> (to avoid
+						contamination).</li>
+					<li class="fragment">We also had $40$ <em>theorems</em> and $40$ <em>false</em> statements in our
+						test set. </li>
+					<li class="fragment">On the test set of 120 example problems, we had a success rate of about 85%.
+					</li>
+				</ul>
+				</ul>
+			</section>
+
+
+
+
+
+			<section data-transition="zoom-in convex-out" data-background-image="sea.jpg">
+				<h1>&nbsp;</h1>
+				<h2 style="color:#fffdd0">Hybrid Systems:</h2>
+				<h2 style="color:#fffdd0">Deep Learning</h2>
+				<h4 style="color:#fffdd0">with</h4>
+				<h2 style="color:#fffdd0">Automated/Interactive Provers</h2>
+
+				<p>&nbsp;</p>
+			</section>
+
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>AlphaGeometry</h4>
+				<ul>
+
+					<li class="fragment">AlphaGeometry (from Google-Deepmind) is an AI system that can solve geometry
+						problems.
+					</li>
+					<li class="fragment">More precisely, it can attempt to solve geometry problems which can be
+						represented in a certain symbolic way,
+						which includes most IMO geometry problems.
+					</li>
+					<li class="fragment">The score of AlphaGeometry on these problems was between the average score of
+						the <strong>Silver medallists</strong> and the average score of the <strong>Gold
+							medallists</strong> on those problems.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Components of AlphaGeometry</h4>
+				<ul>
+
+					<li class="fragment"><strong>Deductive Database + Algebraic Reasoning (DD+AR):</strong> a powerful
+						and efficient deductive system for reasoning about geometry problems (extending earlier work).
+					</li>
+					<li class="fragment">A <strong>Language Model</strong> that suggests <em>auxiliary
+							constructions.</em>
+					</li>
+					<li class="fragment">Generation of <strong>synthetic data</strong> to train the language model.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Deductive Database (+ Algebraic Reasoning)</h4>
+				<ul>
+
+					<li class="fragment">In a <strong>Deductive Database</strong>, we have (efficiently represented):
+						<ul>
+							<li>A finite collection of points.</li>
+							<li>Relations between points, lines through them etc.; for example <code>perp A B C D</code>
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">Rules of deduction let us deduce consequences.
+					</li>
+					<li class="fragment">Eg: $AB\perp BC$, $CD\perp BC$ gives $AB\parallel CD$.</li>
+					<li class="fragment">Iterating deduction with all applicable rules till expansion halts
+						gives all consequences that <strong>do not require</strong> adding a point.</li>
+					<li class="fragment"><em>Algebraic Reasoning</em> added efficiency.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>Synthetic data</h4>
+				<ul>
+
+					<li class="fragment">Millions of random configurations were generated, and all theorems were
+						deduced.</li>
+					</li>
+					<li class="fragment">100 million theorems were found, for which minimal proofs were generated.</li>
+					</li>
+					<li class="fragment">Whenever the statement of a theorem did not involve a point but the proof did,
+						the proof involved an <em>auxiliary construction</em> (10 million).</li>
+					<li class="fragment">A language model ($\approx 150M$ params) was <em>pretrained</em> on all proofs
+						and <em>fine-tuned</em> to predict auxiliary constructions.
+					</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>AlphaGeometry: Solving Problems</h4>
+				<ul>
+
+					<li class="fragment">Given a geometry problem represented symbolically, all deductions are made
+						using DD+AR.</li>
+					<li class="fragment">If the deductions do not include the final conclusion, then the language model
+						is used to generate candidate auxiliary constructions.</li>
+					</li>
+					<li class="fragment">For (some of) the auxiliary constructions, all deductions are made after the
+						construction.</li>
+					<li class="fragment">This process is repeated in a <strong>beam search</strong>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="zoom-in convex-out" data-background-image="AlphaGeomPfs.jpg"
+				data-background-size="contain">
+			</section>
+
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>AlphaProof</h4>
+				<ul>
+
+					<li class="fragment">In <strong>AlphaProof</strong> (from Google-Deepmind) the special deductive
+						system of AlphaGeometry is replaced by the Lean theorem prover.
+					</li>
+					<li class="fragment">This means AlphaProof can in principle attempt problems in all of mathematics.
+					</li>
+					<li class="fragment">The training data was obtained by <em>Autoformalization</em>, with failed
+						translations rejected and consistent but wrong translations still valid for training.
+					</li>
+					<li class="fragment">When run for two days, AlphaProof obtained an IMO score
+						slightly below a <strong>Gold
+							medal</strong>.</li>
+				</ul>
+			</section>
+
+			<section data-transition="convex" data-background="#b5533c">
+				<h4>PatternBoost</h4>
+				<ul>
+
+					<li class="fragment">This work searches for <em>patterns</em> in a general sense (such as graphs
+						with some special properties), finding new counterexamples or extrema.
+					</li>
+					<li class="fragment">This combines two steps: a <em>local search</em> specific to the problem and a
+						custom transformer model.
+					</li>
+					<li class="fragment">The local search is used to generate initial data of promising examples.
+					</li>
+					<li class="fragment">Using these, a <em>more-like-this</em> neural network is trained to generate
+						qualitatively similar examples.</li>
+					<li class="fragment">We locally optimize these to get new candidates, and train with the globally
+						best examples.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="zoom" data-background="hills.png">
+				<h2 style="color:#fffdd0">Artificial Intelligence</h2>
+				<h4 style="color:#fffdd0">and</h4>
+				<h2 style="color:#fffdd0">Mathematics</h2>
+
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<ul>
+					<li>Large Language Models have remarkable abilities, roughly corresponding to our
+						<em>intuition</em>.
+						<ul>
+							<li class="fragment">They can reason by analogy.</li>
+							<li class="fragment">This includes mixing and matching concepts from different domains.
+							</li>
+							<li class="fragment">They are excellent at Natural Language.</li>
+							<li class="fragment">They are familiar with a huge amount of stuff.</li>
+							<li class="fragment">They can combine their broad knowledge with specific knowledge
+								from their input.</li>
+						</ul>
+					</li>
+					<li class="fragment">Language models can effectively use <em>agents</em> such as web searches and
+						Python interpreters.</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<ul>
+					<li>LLMs can generate <em>candidates</em> for full proofs (if reasonably small), problems given a
+						theme, proof strategies, etc.</li>
+					</li>
+					<li class="fragment">In each case we can further use an LLM to translate to a formal proof and/or
+						write code for experiments.</li>
+					<li class="fragment">This allows autonomous development and improvement by generating synthetic data
+						or accumulating knowledge.</li>
+					<li class="fragment">Currently, LLMs have some weaknesses such as needing more in-context data than
+						humans and making mistakes on simple questions (still true?).</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<ul>
+					<li>Consider a scenario in the future where a fully autonomous AI system can prove theorems,
+						formalize them to ensure correctness, and write a paper with these theorems:
+						<ul>
+							<li class="fragment">At a level at least as good as 90% of the work of 90% of
+								mathematicians.</li>
+							<li class="fragment">On an industrial scale.
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">Or tools are available to let people with limited mathematical skills produce
+						such mathematics.</li>
+					<li class="fragment">We can try to react defensively: try to detect and ban AI or focus
+						mathematics on prestige (a Veblen good) rather than as knowledge (a public good).</li>
+				</ul>
+			</section>
+
+			<section data-background-color="#002b36" data-transition="concave">
+				<ul>
+					<li>There are strong motives for the AI community to work on the
+						mathematical capabilities of AI: as <strong>measurable goals/tests for reasoning</strong>.
+					</li>
+					<li class="fragment">However, they have little motivation to work on <strong>tools</strong> that
+						make
+						these useful for <strong>mathematicians</strong>.</li>
+					<li class="fragment">Science has benefitted enormously from AI systems: AlphaFold 2 (and 3),
+						controlling nuclear fusion, weather prediction.</li>
+					<li class="fragment">Mathematics has the opportunity to grow in collaboration with AI, and the
+						danger of shrinking in relevance if overtaken by autonomous AI.</li>
+
+				</ul>
+			</section>
+
+
+	</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+
+	<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/concave/concave/zoom
+
+
+			math: {
+				mathjax: '../MathJax/MathJax.js',
+				//				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full' // See http://docs.mathjax.org/en/latest/config-files.html
+			},
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				// { src: '../highlight/highlight.pack.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/math/math.js', async: true }
+			]
+		});
+
+		//			Reveal.addEventListener( 'slidechanged', function( event ) {
+		//				MathJax.Hub.Rerender();
+		//			} );
+
+	</script>
+
+</body>
+
+</html>
