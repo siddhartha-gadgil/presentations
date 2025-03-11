@@ -219,7 +219,7 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 			</section>
 			<section data-background-color="#002b36">
 				<ul>
-					<li>The model then decided "The mistake in the previous calculation was a result of incorrect integration steps, likely due to <em>human error</em> during the complex integration by parts and substitutions."&#128512;</li>
+					<li>The model then decided "The mistake in the previous calculation was a result of incorrect integration steps, likely due to <em>human error</em> during the complex integration by parts and substitutions."</li>
 					<li class="fragment">However, DeepSeek-R1 struggled with the Analysis problem mentioned earlier.</li>
 					<li class="fragment">The proof it gave split into cases and analysed these, but missed or messed up cases.</li>
 					<li class="fragment">After 3-4 rounds of pointing out errors, it got to the proof.</li>
@@ -311,26 +311,23 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 
 			</section>
 
-			<section>
+			<section data-background-color="teal">
+				<h4 id="what-went-into-proofs">Components of Computer Reasoning</h4>
 				<ul>
-					<li> Automated Theorem Proving has many components:
-						<ul>
-							<li class="fragment"> Deep learning (AI/ML): both <em>Foundation models</em> and domain
-								specific learning.
-							</li>
-							<li class="fragment"><em>Interactive Theorem Provers</em>, especially Lean and its
-								Mathematical library.</li>
-							<li class="fragment"> <em>Symbolic AI</em> (deduction engines), Symbolic Algebra and other
-								mathematical software.</li>
-						</ul>
-					</li>
-					<li class="fragment"> These components complement each other very well, mirroring different aspects
-						of our reasoning.</strong>
+					<li class="fragment">
+						<p><strong>Logical/Algorithmic:</strong> Symbolic AI</em> (deduction engines), Symbolic Algebra and other
+							mathematical software.</p>
 					</li>
 
+					<li class="fragment"><strong>Intuition:</strong> Deep Learning (AI/ML): including <em>Large Language Models</em>.
+					</li>
+					<li class="fragment"><strong>Interactive Theorem Provers:</strong> Manage complexity with Modularity and Abstractions and also have:
+						<ul> <li> Powerful Logical/Algorithmic Automation</em>.</li>
+							<li>Large libraries of <em>Formalized</em> mathematics to use.</li>
+					</li>
 				</ul>
-			</section>
 
+			</section>
 
 
 			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
@@ -413,6 +410,25 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 			</section>
 
 			<section data-transition="convex" data-background="#b5533c">
+				<h4>Quick Sort</h4>
+				<ul>
+
+					<li class="fragment">Quick sort is a widely used sorting algorithm.
+					</li>
+					<li class="fragment">This is a recursive algorithm, given by:
+						<ul>
+							<li class="fragment">If the list is empty or has one element, it is sorted.</li>
+							<li class="fragment">Otherwise, pick an element $x$ from the list, and partition the list
+								into two parts: those less than $x$ and those greater than $x$.</li>
+							<li class="fragment">Sort the two parts recursively and concatenate them.</li>
+						</ul>
+					</li>
+					<li class="fragment">We can implement this, but with additional features, in <a href="https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMB0ARFJHAGWAGcYcAhJM4AYwChRJZEUNscAVJemBo0YB6ALQBCRgGIpcAIoBXBgGsy0eAEF0Ac2jA0IOAAoACsABuEeADMoEQwAkApkgAmASiGKVatuThIcK4WwK5OokgAdq6i9BCRAI4KTlBwvgKR2gE6egZwypEQAO6RcNbQcPpkcE7W1gzATpH0AJ44cACS8EXQqnBYLXBQTvQKUHTmTuiDYEiw+sDxwJlwaE5wmBQBdgrRAXD0qBBkTTXoTiBN8EZgFlbuAXtrpenLWWtpCliimzBkOEIAPJjSrgc6XSIwFCLUoQaxwJI+dRlCq/arldDoYrVD4YrFFN5pGBOMBkABcQgAVJ14R9fpVqhcwDAWgAaIZOGBjUofJksjbkSiMamAtZQAkndnneAAA1ulhgMv661xwHG8CmFyuxhlqBcrhlDzhqz1AooAOpxE5cBlZBASExKSVWBVpvpxs1EL+aXtjtSRhlgBMiQ0mqI2+VWJVRVw29BzbRO5Um9bu+Geq7VONQBP+mUAPhDaDDcruiotcAASiMxhMpoN0ja7Q7zlAo3sZVmc0q0Y8Y3FmigmoPk4YCWhw6WlctlTAik4mgDGAB1dYu7TTgZBWrLQm230ttsxjvxxNo9orrf1SKui4BapILBYYbmYDQ+LVNSh+BrQZzdZIBQYHsaF6GbQZdgxMIY03K0ogBURhCEEQJGXdYwivdY92bRNo1jE9WzgBQ6BWGVSHNep0GJVtz3Wa8nBjNRLmTaALmqYY4wyd4IDKYBKJSN54MQqRDhGZQ4DIyhLhAAB9CiqLgURRDgQAAIjgABvQBG4DgMk4G4FowHWBRpIARgAX3UgAPbS4A08y1LAaytMAJMI4CoCAIHQOzaGsiSbNM9krMACCJxMFHA5JSOAHO8wAUwjgIK7zgQByIkiuK4AAXlWKBkmkET6DEiScHOTI0Fk3iqOk84FKU1TNOsvSDMIkzzJuRy4BctyPIeIx0B8wUbPcdkCqK7RxyMArwtSBz0AeQMQvNYbx3QIRzDmV8sEq2qdPqpxTIAbVIa85kBKAwlSDSAF0hHQn1sP9CN4B0jSup6nTfKe3qti0sk0sYOANjCsqIqMaxdlStK81S2bItLTxGGuzsgfuxzno++B3tevqvp+v70ABvj/RB0orPB1KIfu2HrsRPKAGVkQxz62rmtHfrgAAfOBdvO9KIc5ln2aRskdJ68GWb+1AkEmayjCbP1oYVDZ3EKpoRtQOAAB5/oW1WAGo4GM7SMoGUW/oCMAwGmOAADkUBwMgFHoegKqcaS7Yd42/qQM2LaG5WSomp3jfFyWdO6/C5asBWleK1WNdxrW4F1/Xvv6Fp3dN83BmtyhXcd84XftpgTZNz2M6ZqOVdK/GA6LowqeUWm2Gl/cIqR6aHm13WBZDuuG+uBHJtLBXPCokBljfSJpM3YWIbj33UCEAABXa6HAS61hYwwe/UaTIl46yt8bznUf69KOa55Ojb+leHN2g+YEuxgl+vte9Q3hElBp7f+2qG5B8elH6ZoweBSIud9jBdwVqfWuH967IibrdcO8A24J21sbCB0CVC92MP3RBQ8DYpxZtfDmd8H7r2GIYKS0lgB1EnlMYo0loDSQfBASY0kka/3lv/bBx8npGCslwkBJt4o9VivFGWLZcE9UABREqVgo4Nbvgy+6cLYdDqDgZYMA7AswAO2VEhHYOA88i4DGkqBE41RUAAHJrJWVmvdY2ujzjWBgGnCCHkGLNygGncUHMCqUImpdIuV8WAc1QOyKxgSTa6KgMAbQqAXFBMIpESCGx8LeKKL40K/jAZQEiUXIhu0wmGMsVKGADDrA7ysNJBMxTIm6I0QYoxJszFOAsXAMcTS/rs2WD1VWItEluPQB4hBKBDHpMyeabJ+MuajM6SbJwFk+DwFQErZxxtumRFSH0vMrjknuNSdmCKsz0n7SyRcSuVEZnLLTgspZhjVkuMYGQ28lDqEVMoWA7qgD+p8ORtpY2wi4CiLgMFMBL1Dapz+i0zM7T9BNPZrvaextr58wOO+SR3NkUsGNj43aryaEunxAwqATCsAsOdkje6eTDES3WCHcRLdB7TXLuODWHCI6C0jvHC+kKgkFJ9tHUx75qUey9pnG2Ocnb5zdokku3tQpawuSkauJsg50uwWHVuit45sogcy7lEK078oVXPIVkQyAiuUeK7OBcpU5zTnKwYAqK7+3OMbaUlRUBYHwfi955zPkMoHvLaa7rrTAHFj685bzpIfJgVg0Ohyg0RxDUXXFgAEwk9VgdkGbw1IGpVCQCEAnkpFHpEcek9Biz2jkIZYrh7YCElr3eiPDGYmDsGAVFiLrJNpjLzLpaQ3jSniMYfhJ8dI9o5hZSJ7MKAkhHXAQYXDuo8K6qgCyLQdK2IXZ4RJRgoS8Rduoei46j0xiMIuoW7hgFwAnb8zlF6FZCGeYYEuTRXCHtgM2owZLdiuH/t1QAgQQbEAEEEK7/l/SMKpYRAGApwFmj+6IDwXKQdkSB9kCGYxQwskhm9p6NhAZchO9AoHCN4cAygkDwDDV/QadxVAQHUCgbIABlmtb60wjSEBjpna94kxRf24i2gh1E0xfkkJozKTG1o2kYDxtoUydhWgdZcAu0k0dbhz9rhbaDs5PEZTgnhMLtE0E9TPbbbEgclZXlRddFENmbJxJf1NFRGqBh9WABuCGtA7bgAEHpxJujTOnu05kYT+mLNGYAF4bEMS0aL1R+kmbFRp4kWnZ2WYXWnXRznzX9AgL+tOf1AtkB88yGEhW4C2ZCacyZ5zv5XMMQ5xzf1bn8Eaw8rLNRFltbM+lqLMXUBxbSKivrVmBvrrgNJT1xmaP6O4mQJrorS69Yi2N5dHdKOGPXTijJu0M0FW/kws2b7qXqfDQ4gd4AJmSTq8Ko11W/G3fNQ1+jDrksaGiOoubnX1P0ZwDEuJlAnEJKCYF5Lf2AfxP+7E+JF3WvwAW0+1+5D36YO3ukL9L0mZjpS1+sFVGCFQtoK0mL3H+2qZ2WJq7t843b0Rad5LZnEWou/hixLf1cV3zNRawOtKpaBskdque6twF/0vSy1WPL7vU+dSVerb3S5Z1travO9rZXJdl6gJVJK3VFzVVLeRTKhfRxF+yh64uDWE75Q9k1gr5fq8VxKlXzs1dJdLpr7XKqcZhq9fgrnGOz0C61aG+Aua/e09gB+1LGrE2C+Nup190Qo/NvsTZvRmjuIWXGXtuAvqY3+oj/fNO0m5l/UGcM2WxzEnihqzdmSASAjXMSXZpvQT4f3MhyDorl2O2JOk1n6vu2M159jWj2AlqS+7JSTgqvQTcWPfrzkl70uoqt6LupvOcIKpd/md15Z0PAcXe8woXz5W08J+O0ngPuDdpUuMJ8w3war2df46D9PBirKl5Num3PUaaGj8/nH0bzGWa3LwORzGAK/w5yKFrxwCmUuUgIqxbxAMcw32di30ogq3bxWU7x+0Z2CwM100iB+xKxPzKz0xHjHj8wningl0YCAA" target="_blank">Lean</a>.</li>
+				</ul>
+			</section>
+
+
+			<section data-transition="convex" data-background="#b5533c">
 				<h4>TimSort</h4>
 				<ul>
 
@@ -458,31 +474,6 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 			</section>
 
 
-			<section data-transition="convex" data-background-color="#002b36">
-				<ul>
-					<li>
-						A proof in Lean is not only correct, but also:
-						<ul>
-							<li>Modular with precise abstraction boundaries that are fully respected.</li>
-							<li>
-								Each piece is correct exactly as stated.
-							</li>
-						</ul>
-					</li>
-					<li class="fragment">This facilitates focusing on different parts and different levels of details of
-						the proof.</li>
-					<li class="fragment">Collaboration is facilitated:
-						<ul>
-							<li class="fragment">Trust is not required to accept contributions.</li>
-							<li class="fragment">Contributions are possible from those who only understand some
-								ingredients.</li>
-							<li class="fragment"> (Components of) Proofs suggested by Large Language Models such as
-								GPT-4 can be used.</li>
-
-						</ul>
-					</li>
-				</ul>
-			</section>
 			<section data-transition="zoom-in concave-out" data-background-image="campus.jpg">
 				<h2><strong class="larger">LeanAide: Autoformalization</strong></h2>
 			</section>
@@ -499,7 +490,7 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 				</ul>
 			</section>
 
-			<section data-background-video="leanaide-jan24.webm" data-background-video-muted> </section>
+			<section data-background-video="leanaide-mar25.mp4" data-background-video-muted> </section>
 
 			<section data-background-color="teal">
 				<h4>LeanAide: Prompting </h4>
