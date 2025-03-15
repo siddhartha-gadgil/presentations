@@ -374,7 +374,7 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 					<li><em>Interactive Theorem Provers</em> are software systems where proofs are
 						obtained by human-machine
 						collaboration, with modular foundations.</li>
-					<li class="fragment">The computer both finds (parts of) proofs and verifies
+					<li class="fragment">The computer both <strong>finds</strong> (parts of) proofs and verifies
 						<strong>correctness</strong>.
 					</li>
 					<li class="fragment">Lean ensures a super-human
@@ -438,7 +438,7 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 					</li>
 					<li class="fragment">This gives a much greater certainty of correctness.</li>
 					<li class="fragment">However, proofs are much harder than tests.</li>
-					<li class="fragment">As technology for formal proving becomes better, the much greater assurance of
+					<li class="fragment">As technology for formal proving becomes better, for example <strong>assisted by AI</strong>, the much greater assurance of
 						correctness will encouraging proving over testing in more situations.</li>
 				</ul>
 			</section>
@@ -514,50 +514,22 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 				<h2><strong class="larger">LeanAide: Autoformalization</strong></h2>
 			</section>
 
-			<section data-background-color="teal">
-				<h4>LeanAide: Autoformalization of statements</h4>
-				<ul>
-					<li class="fragment">Our tool <strong>LeanAide</strong> uses LLMs like GPT-4 to translate
-						statements (similar to docstrings) into Lean 4 code.</li>
-					<li class="fragment">We do prompt engineering and post-processing.</li>
-					<li class="fragment">Lean 4 is written (mostly) in Lean 4, and has convenient functions
-						for using its interpreter, greatly facilitating our post-processing.</li>
-					<li class="fragment">LeanAide is integrated with the user-interface of Lean 4 via code actions.</li>
-				</ul>
-			</section>
-
 			<section data-background-video="leanaide-mar25.mp4" data-background-video-muted> </section>
 
 			<section data-background-color="teal">
-				<h4>LeanAide: Prompting </h4>
+				<h4>LeanAide: Prompting & Post-processing</h4>
 				<ul>
 					<li class="fragment">Suppose we are given the statement of a theorem.</li>
 					<li class="fragment">We find (say) 20 documentation strings in Lean's mathematical library
 						<em>Mathlib</em>
-						that are closest to the statement (for OpenAI embeddings) and include them in the prompt as
-						examples.
+						that are closest to the statement (for OpenAI embeddings) and include them in the prompt.
 					</li>
 					<li class="fragment">We query GPT-4 with the prompt for (say) 10
 						responses.</li>
-				</ul>
-			</section>
-
-			<section data-background-color="teal">
-				<h4>LeanAide: post-processing </h4>
-				<ul>
 					<li class="fragment">We discard responses that are not valid Lean code (do not parse or do not
 						elaborate).</li>
-					<li class="fragment">However, the correct response may be preceded by some text or enclosed in a
-						code block (in spite of instructions). So we attempt to parse and elaborate for each group of
-						consecutive lines.</li>
-					<li class="fragment">We also do some mild autocorrections, mainly for convention issues like
-						<code>Prime</code> versus <code>IsPrime</code>.
-					</li>
-					<li class="fragment">We also use <em>majority voting</em>, grouping together responses that can be
-						proved equivalent by a search tactic called <code>Aesop</code>.</li>
 				</ul>
 			</section>
-
 
 			<section data-background-color="teal">
 				<ul>
@@ -617,12 +589,12 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 			<section>
 				<section data-transition="convex" data-background="#b5533c">
 					<ul>
-						<li>It is natural to combine the intuition of LLMs with rule-based provers for Mathematics.</li>
+						<li>It is natural to combine the <em>Intuition</em> of LLMs with <em>Algorithmic</em> (rule-based) systems for Mathematics.</li>
 						<li class="fragment">AlphaGeometry 2 (from Google-Deepmind) is such an AI system that can solve
 							geometry problems at IMO Gold medal level.
 						</li>
-						<li class="fragment">For general mathematics, we can use LLMs to reason in natural language and autoformalize.</li>
-						<li class="fragment">Separating the <em>evaluation/verification</em> from generation allows originality via <em>Synthetic Data</em> and <em>Reinforcement Learning</em>.</li>
+						<li class="fragment">For general mathematics, we can use LLMs to reason in natural language and <em>Autoformalize</em>.</li>
+						<li class="fragment">Separating the <em>evaluation/verification</em> from generation allows <strong>originality</strong> via <em>Synthetic Data</em> and <em>Reinforcement Learning</em>.</li>
 						</li>
 						<li class="fragment">We hope this can be the basis of environments for AI assisted mathematics for a wide range of users.</li>
 					</ul>
@@ -851,7 +823,7 @@ Thus, the probability $ P(X + Y > Z) $ is $\frac{1}{2}$.
 					</ul>
 				</section>
 			</section>
-			<section data-background-image="LFCM2025.png" data-background-size="contain"></section>
+			<section data-background-image="LFCM2025.png" data-background-size="45%"></section>
 
 	</div>
 	</div>
